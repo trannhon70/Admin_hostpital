@@ -1,17 +1,17 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : Ò½ÉúÁĞ±í
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-02 16:40
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : Ò½ï¿½ï¿½ï¿½Ğ±ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-02 16:40
 */
 require "../../core/core.php";
 $table = "doctor";
 
 if ($user_hospital_id == 0) {
-	exit_html("¶Ô²»Æğ£¬Ã»ÓĞÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ĞĞ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ğ¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 }
 
-// ²Ù×÷µÄ´¦Àí:
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½:
 if ($op = $_GET["op"]) {
 	switch ($op) {
 		case "add":
@@ -24,15 +24,16 @@ if ($op = $_GET["op"]) {
 			exit;
 
 		case "insert":
-			!check_power("i", $pinfo, $pagepower) && msg_box("Ã»ÓĞĞÂÔöÈ¨ÏŞ...", "back", 1);
-			header("location:".$pinfo["insertpage"]);
+			!check_power("i", $pinfo, $pagepower) && msg_box("Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½...", "back", 1);
+			header("location:" . $pinfo["insertpage"]);
 			break;
 
 		case "delete":
-			!check_power("delete") && msg_box("Ã»ÓĞÉ¾³ıÈ¨ÏŞ...", "back", 1);
+			!check_power("delete") && msg_box("Ã»ï¿½ï¿½É¾ï¿½ï¿½È¨ï¿½ï¿½...", "back", 1);
 
 			$ids = explode(",", $_GET["id"]);
-			$del_ok = $del_bad = 0; $op_data = array();
+			$del_ok = $del_bad = 0;
+			$op_data = array();
 			foreach ($ids as $opid) {
 				if (($opid = intval($opid)) > 0) {
 					$tmp_data = $db->query_first("select * from $table where id='$opid' limit 1");
@@ -46,17 +47,17 @@ if ($op = $_GET["op"]) {
 			}
 
 			if ($del_ok > 0) {
-				$log->add("delete", "É¾³ıÊı¾İ", serialize($op_data));
+				$log->add("delete", "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", serialize($op_data));
 			}
 
 			if ($del_bad > 0) {
-				msg_box("É¾³ı³É¹¦ $del_ok Ìõ×ÊÁÏ£¬É¾³ıÊ§°Ü $del_bad Ìõ×ÊÁÏ¡£", "back", 1);
+				msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½ $del_ok ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½É¾ï¿½ï¿½Ê§ï¿½ï¿½ $del_bad ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½", "back", 1);
 			} else {
-				msg_box("É¾³ı³É¹¦", "back", 1);
+				msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½", "back", 1);
 			}
 
 		case "setshow":
-			!check_power("h", $pinfo, $pagepower) && msg_box("Ã»ÓĞ¿ªÍ¨ºÍ¹Ø±ÕÈ¨ÏŞ...", "back", 1);
+			!check_power("h", $pinfo, $pagepower) && msg_box("Ã»ï¿½Ğ¿ï¿½Í¨ï¿½Í¹Ø±ï¿½È¨ï¿½ï¿½...", "back", 1);
 
 			$isshow_value = intval($_GET["value"]) > 0 ? 1 : 0;
 			$ids = explode(",", $_GET["id"]);
@@ -72,17 +73,17 @@ if ($op = $_GET["op"]) {
 			}
 
 			if ($set_bad > 0) {
-				msg_box("²Ù×÷³É¹¦Íê³É $set_ok Ìõ£¬Ê§°Ü $del_bad Ìõ¡£", "back", 1);
+				msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ $set_ok ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ $del_bad ï¿½ï¿½ï¿½ï¿½", "back", 1);
 			} else {
-				msg_box("ÉèÖÃ³É¹¦£¡", "back", 1);
+				msg_box("ï¿½ï¿½ï¿½Ã³É¹ï¿½ï¿½ï¿½", "back", 1);
 			}
 
 		default:
-			msg_box("²Ù×÷Î´¶¨Òå...", "back", 1);
+			msg_box("ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½...", "back", 1);
 	}
 }
 
-// ¶¨Òåµ±Ç°Ò³ĞèÒªÓÃµ½µÄµ÷ÓÃ²ÎÊı:
+// ï¿½ï¿½ï¿½åµ±Ç°Ò³ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½Äµï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 $aLinkInfo = array(
 	"page" => "page",
 	"sortid" => "sort",
@@ -90,37 +91,37 @@ $aLinkInfo = array(
 	"searchword" => "searchword",
 );
 
-// ¶ÁÈ¡Ò³Ãæµ÷ÓÃ²ÎÊı:
+// ï¿½ï¿½È¡Ò³ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 foreach ($aLinkInfo as $local_var_name => $call_var_name) {
 	$$local_var_name = $_GET[$call_var_name];
 }
 
-// ¶¨Òåµ¥Ôª¸ñ¸ñÊ½:
+// ï¿½ï¿½ï¿½åµ¥Ôªï¿½ï¿½ï¿½Ê½:
 $aOrderType = array(0 => "", 1 => "asc", 2 => "desc");
 $aTdFormat = array(
-	0=>array("title"=>"Ñ¡", "width"=>"8%", "align"=>"center"),
-	1=>array("title"=>"Ò½Éú±àºÅ", "width"=>"30%", "align"=>"left", "sort"=>"binary name", "defaultorder"=>1),
-	2=>array("title"=>"Ãû×Ö", "width"=>"30%", "align"=>"left", "sort"=>"binary name", "defaultorder"=>1),
-	3=>array("title"=>"Ìí¼ÓÊ±¼ä", "width"=>"20%", "align"=>"center", "sort"=>"addtime", "defaultorder"=>2),
-	4=>array("title"=>"²Ù×÷", "width"=>"12%", "align"=>"center"),
+	0 => array("title" => "Ñ¡", "width" => "8%", "align" => "center"),
+	1 => array("title" => "Ò½ï¿½ï¿½ï¿½ï¿½ï¿½", "width" => "30%", "align" => "left", "sort" => "binary name", "defaultorder" => 1),
+	2 => array("title" => "ï¿½ï¿½ï¿½ï¿½", "width" => "30%", "align" => "left", "sort" => "binary name", "defaultorder" => 1),
+	3 => array("title" => "ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½", "width" => "20%", "align" => "center", "sort" => "addtime", "defaultorder" => 2),
+	4 => array("title" => "ï¿½ï¿½ï¿½ï¿½", "width" => "12%", "align" => "center"),
 );
 
-// Ä¬ÈÏÅÅĞò·½Ê½:
+// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½:
 $defaultsort = 3;
 $defaultorder = 1;
 
 
-// ²éÑ¯Ìõ¼ş:
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½:
 $where = array();
 $where[] = "hospital_id=$user_hospital_id";
 if ($searchword) {
 	$where[] = "(binary t.name like '%{$searchword}%')";
 }
-$sqlwhere = count($where) > 0 ? ("where ".implode(" and ", $where)) : "";
+$sqlwhere = count($where) > 0 ? ("where " . implode(" and ", $where)) : "";
 
-// ¶ÔÅÅĞòµÄ´¦Àí£º
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
 if ($sortid > 0) {
-	$sqlsort = "order by ".$aTdFormat[$sortid]["sort"]." ";
+	$sqlsort = "order by " . $aTdFormat[$sortid]["sort"] . " ";
 	if ($sorttype > 0) {
 		$sqlsort .= $aOrderType[$sorttype];
 	} else {
@@ -128,108 +129,115 @@ if ($sortid > 0) {
 	}
 } else {
 	if ($defaultsort > 0 && array_key_exists($defaultsort, $aTdFormat)) {
-		$sqlsort = "order by ".$aTdFormat[$defaultsort]["sort"]." ".$aOrderType[$defaultorder];
+		$sqlsort = "order by " . $aTdFormat[$defaultsort]["sort"] . " " . $aOrderType[$defaultorder];
 	} else {
 		$sqlsort = "";
 	}
 }
 
-// ·ÖÒ³Êı¾İ:
+// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½:
 $count = $db->query_count("select count(*) from $table $sqlwhere");
 $pagecount = max(ceil($count / $pagesize), 1);
 $page = max(min($pagecount, intval($page)), 1);
 $offset = ($page - 1) * $pagesize;
 
-// ²éÑ¯:
+// ï¿½ï¿½Ñ¯:
 $data = $db->query("select * from $table $sqlwhere $sqlsort limit $offset,$pagesize");
 
-$hospital_id_name = $db->query("select id,name from ".$tabpre."hospital", 'id', 'name');
+$hospital_id_name = $db->query("select id,name from " . $tabpre . "hospital", 'id', 'name');
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 ?>
 <html>
+
 <head>
-<title><?php echo $pinfo["title"]; ?></title>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<style>
-form {display:inline; }
-</style>
-<script language="javascript"></script>
+	<title><?php echo $pinfo["title"]; ?></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+	<link href="../../res/base.css" rel="stylesheet" type="text/css">
+	<script src="../../res/base.js" language="javascript"></script>
+	<style>
+		form {
+			display: inline;
+		}
+	</style>
+	<script language="javascript"></script>
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
-<div class="headers">
-	<div class="headers_title"><span class="tips"><?=$hospital_id_name[$user_hospital_id]?> - Ò½ÉúÁĞ±í</span></div>
-	<div class="header_center"><?php echo $power->show_button("add"); ?></div>
-	<div class="headers_oprate"><form name="topform" method="GET">Ä£ºıËÑË÷£º<input name="searchword" value="<?php echo $_GET["searchword"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ËÑË÷" style="font-weight:bold" title="µã»÷ËÑË÷">&nbsp;<button onclick="location='?'" class="search" title="ÍË³öÌõ¼ş²éÑ¯">ÍË³ö</button>&nbsp;<button onclick="history.back()" class="button" title="·µ»ØÉÏÒ»Ò³">·µ»Ø</button></form></div>
-</div>
-<!-- Í·²¿ end -->
+	<!-- Í·ï¿½ï¿½ begin -->
+	<div class="headers">
+		<div class="headers_title"><span class="tips"><?= $hospital_id_name[$user_hospital_id] ?> - Ò½ï¿½ï¿½ï¿½Ğ±ï¿½</span></div>
+		<div class="header_center"><?php echo $power->show_button("add"); ?></div>
+		<div class="headers_oprate">
+			<form name="topform" method="GET">Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<input name="searchword" value="<?php echo $_GET["searchword"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ï¿½ï¿½ï¿½ï¿½" style="font-weight:bold" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½">&nbsp;<button onclick="location='?'" class="search" title="ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯">ï¿½Ë³ï¿½</button>&nbsp;<button onclick="history.back()" class="button" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ò³">ï¿½ï¿½ï¿½ï¿½</button></form>
+		</div>
+	</div>
+	<!-- Í·ï¿½ï¿½ end -->
 
-<div class="space"></div>
+	<div class="space"></div>
 
-<!-- Êı¾İÁĞ±í begin -->
-<form name="mainform">
-<table width="100%" align="center" class="list">
-	<!-- ±íÍ·¶¨Òå begin -->
-	<tr>
-<?php
-// ±íÍ·´¦Àí:
-foreach ($aTdFormat as $tdid => $tdinfo) {
-	list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
-?>
-		<td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
-<? } ?>
-	</tr>
-	<!-- ±íÍ·¶¨Òå end -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½ begin -->
+	<form name="mainform" action="process_form.php" method="POST">
+    <table width="100%" align="center" class="list">
+        <!-- ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ begin -->
+        <tr>
+            <?php foreach ($aTdFormat as $tdid => $tdinfo) {
+                list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
+            ?>
+                <td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
+            <?php } ?>
+        </tr>
+        <!-- ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ end -->
 
-	<!-- Ö÷ÒªÁĞ±íÊı¾İ begin -->
-<?php
-if (count($data) > 0) {
-	foreach ($data as $line) {
-		$id = $line["id"];
+        <!-- ï¿½ï¿½Òªï¿½Ğ±ï¿½ï¿½ï¿½ï¿½ï¿½ begin -->
+        <?php
+        if (count($data) > 0) {
+            foreach ($data as $line) {
+                $id = $line["id"];
 
-		$op = array();
-		if (check_power("edit")) {
-			$op[] = "<a href='?op=edit&id=$id' class='op'>ĞŞ¸Ä</a>";
-		}
-		if (check_power("delete")) {
-			$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>É¾³ı</a>";
-		}
-		$op_button = implode("&nbsp;", $op);
+                // XÃ¢y dá»±ng cÃ¡c nÃºt Ä‘iá»u khiá»ƒn chá»‰ náº¿u ngÆ°á»i dÃ¹ng cÃ³ quyá»n sá»­a hoáº·c xÃ³a
+                $op = array();
+                if (check_power("edit")) {
+                    $op[] = "<a href='?op=edit&id=$id' class='op'>ï¿½Ş¸ï¿½</a>";
+                }
+                if (check_power("delete")) {
+                    $op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>É¾ï¿½ï¿½</a>";
+                }
+                $op_button = implode("&nbsp;", $op);
 
-		$hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
-?>
-	<tr<?php echo $hide_line ? " class='hide'" : ""; ?>>
-		<td align="center" class="item"><input name="delcheck" type="checkbox" value="<?php echo $id; ?>" onpropertychange="set_item_color(this)"></td>
-		<td align="left" class="item"><?php echo $line["doctor_num"]; ?></td>
-		<td align="left" class="item"><?php echo $line["name"]; ?></td>
-		<td align="center" class="item"><?php echo date("Y-m-d H:i", $line["addtime"]); ?></td>
-		<td align="center" class="item"><?php echo $op_button; ?></td>
-	</tr>
-<?php
-	}
-} else {
-?>
-	<tr>
-		<td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Ã»ÓĞÊı¾İ...)</td>
-	</tr>
-<?php } ?>
-	<!-- Ö÷ÒªÁĞ±íÊı¾İ end -->
-</table>
+                // áº¨n dÃ²ng náº¿u Ä‘Æ°á»£c yÃªu cáº§u
+                $hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
+        ?>
+                <tr<?php echo $hide_line ? " class='hide'" : ""; ?>>
+                    <td align="center" class="item"><input name="delcheck" type="checkbox" value="<?php echo $id; ?>" onpropertychange="set_item_color(this)"></td>
+                    <td align="left" class="item"><?php echo $line["doctor_num"]; ?></td>
+                    <td align="left" class="item"><?php echo $line["name"]; ?></td>
+                    <td align="center" class="item"><?php echo date("Y-m-d H:i", $line["addtime"]); ?></td>
+                    <td align="center" class="item"><?php echo $op_button; ?></td>
+                </tr>
+            <?php
+            }
+        } else {
+            ?>
+            <tr>
+                <td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...)</td>
+            </tr>
+        <?php } ?>
+        <!-- ï¿½ï¿½Òªï¿½Ğ±ï¿½ï¿½ï¿½ï¿½ï¿½ end -->
+    </table>
 </form>
-<!-- Êı¾İÁĞ±í end -->
 
-<div class="space"></div>
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½ end -->
 
-<!-- ·ÖÒ³Á´½Ó begin -->
-<div class="footer_op">
-	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">·´Ñ¡</button>&nbsp;<?php echo $power->show_button("hide,delete"); ?></div>
-	<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
-</div>
-<!-- ·ÖÒ³Á´½Ó end -->
+	<div class="space"></div>
+
+	<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ begin -->
+	<div class="footer_op">
+		<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">ï¿½ï¿½Ñ¡</button>&nbsp;<?php echo $power->show_button("hide,delete"); ?></div>
+		<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
+	</div>
+	<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ end -->
 
 </body>
+
 </html>

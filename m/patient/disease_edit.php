@@ -1,8 +1,8 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : Ò½ÔºÐÂÔö¡¢ÐÞ¸Ä
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-01 00:40
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-01 00:40
 */
 
 if ($_POST) {
@@ -38,13 +38,13 @@ if ($_POST) {
 	}
 
 	if ($db->query($sql)) {
-		msg_box("×ÊÁÏÌá½»³É¹¦", "?", 1);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½É¹ï¿½", "?", 1);
 	} else {
-		msg_box("×ÊÁÏÌá½»Ê§°Ü£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ¡£", "back", 1, 5);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½Ü£ï¿½ÏµÍ³ï¿½ï¿½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½Ô¡ï¿½", "back", 1, 5);
 	}
 }
 
-$title = $op == "edit" ? "ÐÞ¸Ä¼²²¡¶¨Òå" : "Ìí¼ÓÐÂµÄ¼²²¡";
+$title = $op == "edit" ? "ï¿½Þ¸Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" : "ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ¼ï¿½ï¿½ï¿½";
 
 $hospital_list = $db->query("select id,name from ".$tabpre."hospital");
 ?>
@@ -52,13 +52,13 @@ $hospital_list = $db->query("select id,name from ".$tabpre."hospital");
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <script language="javascript">
 function Check() {
 	var oForm = document.mainform;
 	if (oForm.name.value == "") {
-		alert("ÇëÊäÈë¡°¼²²¡Ãû³Æ¡±£¡"); oForm.name.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½"); oForm.name.focus(); return false;
 	}
 	return true;
 }
@@ -66,18 +66,18 @@ function Check() {
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 
 <div class="description">
-	<div class="d_title">ÌáÊ¾£º</div>
-	<div class="d_item">1.ÊäÈë¼²²¡Ãû³Æ¼°¼ò½é£¨¼ò½é¿É²»ÊäÈë£©£¬µã»÷Ìá½»¼´¿É</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
+	<div class="d_item">1.ï¿½ï¿½ï¿½ë¼²ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½é£¨ï¿½ï¿½ï¿½É²ï¿½ï¿½ï¿½ï¿½ë£©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½</div>
 </div>
 
 <div class="space"></div>
@@ -85,29 +85,29 @@ function Check() {
 <form name="mainform" action="" method="POST" onsubmit="return Check()">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">¼²²¡×ÊÁÏ</td>
+		<td colspan="2" class="head">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 	<tr>
-		<td class="left">¼²²¡Ãû³Æ£º</td>
-		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">Ãû³Æ±ØÐëÌîÐ´</span></td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½</td>
+		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½Ð´</span></td>
 	</tr>
 	<tr>
-		<td class="left">ÖÎÁÆÏîÄ¿£º</td>
-		<td class="right"><textarea name="xiangmu" class="input" style="width:60%; height:80px; overflow:visible;"><?php echo $line["xiangmu"]; ?></textarea> <span class="intro">¶à¸öÓÃ¿Õ¸ñ¸ô¿ª</span></td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½</td>
+		<td class="right"><textarea name="xiangmu" class="input" style="width:60%; height:80px; overflow:visible;"><?php echo $line["xiangmu"]; ?></textarea> <span class="intro">ï¿½ï¿½ï¿½ï¿½Ã¿Õ¸ï¿½ï¿½ï¿½ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left">¼²²¡¼ò½é£º</td>
-		<td class="right"><textarea name="intro"class="input"  style="width:60%; height:80px; overflow:visible;"><?php echo $line["intro"]; ?></textarea> <span class="intro">Ñ¡Ìî</span></td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£º</td>
+		<td class="right"><textarea name="intro"class="input"  style="width:60%; height:80px; overflow:visible;"><?php echo $line["intro"]; ?></textarea> <span class="intro">Ñ¡ï¿½ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left">ÓÅÏÈ¶È£º</td>
-		<td class="right"><input name="sort" value="<?php echo $line["sort"]; ?>" class="input" size="30" style="width:100px"> <span class="intro">Ô½´óÔ½ÓÅÏÈ£¬¸ºÖµÔÚ×îºó</span></td>
+		<td class="left">ï¿½ï¿½ï¿½È¶È£ï¿½</td>
+		<td class="right"><input name="sort" value="<?php echo $line["sort"]; ?>" class="input" size="30" style="width:100px"> <span class="intro">Ô½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½</span></td>
 	</tr>
 </table>
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 <input type="hidden" name="op" value="<?php echo $op; ?>">
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 </form>
 </body>
 </html>

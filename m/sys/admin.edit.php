@@ -3,8 +3,8 @@
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <style>
 .man_check {float:left; width:200px; }
 </style>
@@ -15,40 +15,40 @@ var mode = "<?php echo $op; ?>";
 function show_pass() {
 	var pass = document.mainform.pass.value;
 	if (pass != "") {
-		msg_box("您输入的密码是： " + pass + "  ");
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷牵锟� " + pass + "  ");
 	} else {
-		msg_box("您还没有输入密码！");
+		msg_box("锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷锟斤拷锟诫！");
 	}
 }
 
 function check_data() {
 	oForm = document.mainform;
 	if (oForm.name.value.length < 2) {
-		msg_box("必须输入用户名，且长度至少2位");
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟矫伙拷锟斤拷锟斤拷锟揭筹拷锟斤拷锟斤拷锟斤拷2位");
 		oForm.name.focus();
 		return false;
 	}
 	if (oForm.realname.value == "") {
-		msg_box("请输入真实姓名！");
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷实锟斤拷锟斤拷锟斤拷");
 		oForm.realname.focus();
 		return false;
 	}
 	if (mode == "add" && oForm.pass.value.length < 6) {
-		msg_box("必须输入密码，且长度最低6位");
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟诫，锟揭筹拷锟斤拷锟斤拷锟�6位");
 		oForm.pass.focus();
 		return false;
 	}
 	if (byid("powermode").value == "") {
-		msg_box("请选择授权方式！");
+		msg_box("锟斤拷选锟斤拷锟斤拷权锟斤拷式锟斤拷");
 		oForm.powermode.focus();
 		return false;
 	}
 	if (byid("powermode").value == "2" && byid("character_id").value == "0") {
-		msg_box("请选择权限！");
+		msg_box("锟斤拷选锟斤拷权锟睫ｏ拷");
 		oForm.character_id.focus();
 		return false;
 	}
-	if (!confirm("每一项都填好了吧？请检查清楚哦，如果还想再看一下，请点击“取消”")) {
+	if (!confirm("每一锟筋都锟斤拷锟斤拷税桑锟斤拷锟斤拷锟斤拷锟斤拷哦锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷倏锟揭伙拷拢锟斤拷锟斤拷锟斤拷锟饺★拷锟斤拷锟�")) {
 		return false;
 	}
 	return true;
@@ -65,10 +65,10 @@ function set_power(pid) {
 function show_hide_detail(o) {
 	if (o.value == "-1") {
 		byid("detail_button").style.display = "inline";
-		byid("powermode").value = "1"; //自定义
+		byid("powermode").value = "1"; //锟皆讹拷锟斤拷
 	} else {
 		byid("detail_button").style.display = "none";
-		byid("powermode").value = "2"; //角色
+		byid("powermode").value = "2"; //锟斤拷色
 	}
 }
 
@@ -89,9 +89,9 @@ function check_repeat_do(o) {
 	if (out["status"] == "ok") {
 		if (out["tips"] != '') {
 			byid(out["type"]+"_tips").innerHTML = '<font color=red>'+out["tips"]+"</font> ";
-			//alert("请注意，"+out["tips"]);
+			//alert("锟斤拷注锟解，"+out["tips"]);
 		} else {
-			byid(out["type"]+"_tips").innerHTML = "√ ";
+			byid(out["type"]+"_tips").innerHTML = "锟斤拷 ";
 		}
 	}
 }
@@ -103,18 +103,18 @@ function update_check_color(o) {
 </head>
 
 <body>
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><input type="button" value="返回" onclick="history.back()" class="button"></div>
+	<div class="headers_oprate"><input type="button" value="锟斤拷锟斤拷" onclick="history.back()" class="button"></div>
 </div>
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 
 <div class="space"></div>
 
 <div class="description">
-	<div class="d_title">修改提示：</div>
-	<li class="d_item">本页数据<font color="red"><b>每项均需要认真填写</b></font>，如果填写不正确，可能导致非常严重的后果，<font color="red"><b>比如数据丢失，账号无法登录等</b></font>。若对填写有疑问，请咨询开发人员。</li>
+	<div class="d_title">锟睫革拷锟斤拷示锟斤拷</div>
+	<li class="d_item">锟斤拷页锟斤拷锟斤拷<font color="red"><b>每锟斤拷锟斤拷锟揭拷锟斤拷锟斤拷锟叫�</b></font>锟斤拷锟斤拷锟斤拷锟叫达拷锟斤拷锟饺凤拷锟斤拷锟斤拷艿锟斤拷路浅锟斤拷锟斤拷氐暮锟斤拷锟斤拷<font color="red"><b>锟斤拷锟斤拷锟斤拷锟捷讹拷失锟斤拷锟剿猴拷锟睫凤拷锟斤拷录锟斤拷</b></font>锟斤拷锟斤拷锟斤拷锟斤拷写锟斤拷锟斤拷锟绞ｏ拷锟斤拷锟斤拷询锟斤拷锟斤拷锟斤拷员锟斤拷</li>
 </div>
 
 <div class="space"></div>
@@ -122,30 +122,30 @@ function update_check_color(o) {
 <form name="mainform" method="POST" onsubmit="return check_data()">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">基本数据</td>
+		<td colspan="2" class="head">锟斤拷锟斤拷锟斤拷锟斤拷</td>
 	</tr>
 	<tr>
-		<td class="left"><font color="red">登录名：</font></td>
-		<td class="right"><input name="name" value="<?php echo $user["name"]; ?>" class="input" size="20" style="width:120px" onchange="check_repeat(this,'name')" <?php if ($id > 0) echo "disabled"; ?>> <span id="name_tips"></span><span class="intro">创建后不能更改</span></td>
+		<td class="left"><font color="red">锟斤拷录锟斤拷锟斤拷</font></td>
+		<td class="right"><input name="name" value="<?php echo $user["name"]; ?>" class="input" size="20" style="width:120px" onchange="check_repeat(this,'name')" <?php if ($id > 0) echo "disabled"; ?>> <span id="name_tips"></span><span class="intro">锟斤拷锟斤拷锟斤拷锟杰革拷锟斤拷</span></td>
 	</tr>
 	<tr>
-		<td class="left"><font color='red'>真实姓名：</font></td>
-		<td class="right"><input name="realname" value="<?php echo $user["realname"]; ?>" class="input" size="20" style="width:120px" onchange="check_repeat(this,'realname')" <?php if ($id > 0) echo "disabled"; ?>> <span id="realname_tips"></span><span class='intro'>真实姓名仅用于显示</span></td>
+		<td class="left"><font color='red'>锟斤拷实锟斤拷锟斤拷锟斤拷</font></td>
+		<td class="right"><input name="realname" value="<?php echo $user["realname"]; ?>" class="input" size="20" style="width:120px" onchange="check_repeat(this,'realname')" <?php if ($id > 0) echo "disabled"; ?>> <span id="realname_tips"></span><span class='intro'>锟斤拷实锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷示</span></td>
 	</tr>
 	<tr>
-		<td class="left"><font color="red">密码：</font></td>
-		<td class="right"><input type="password" name="pass" value="" class="input" size="20" style="width:120px"> <a href="javascript:void(0);" onclick="show_pass();return false;">[显示我输入的密码]</a> <?php if ($id) echo "<span class='intro'>输入新的密码将覆盖原密码</span>"; ?></td>
+		<td class="left"><font color="red">锟斤拷锟诫：</font></td>
+		<td class="right"><input type="password" name="pass" value="" class="input" size="20" style="width:120px"> <a href="javascript:void(0);" onclick="show_pass();return false;">[锟斤拷示锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟絔</a> <?php if ($id) echo "<span class='intro'>锟斤拷锟斤拷锟铰碉拷锟斤拷锟诫将锟斤拷锟斤拷原锟斤拷锟斤拷</span>"; ?></td>
 	</tr>
 </table>
 
 <div class="space"></div>
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">授权</td>
+		<td colspan="2" class="head">锟斤拷权</td>
 	</tr>
 
 	<tr>
-		<td class="left"><font color="red">医院：</font></td>
+		<td class="left"><font color="red">医院锟斤拷</font></td>
 		<td class="right">
 <?php
 	$hs_ids = implode(",", $hospital_ids);
@@ -165,36 +165,36 @@ function update_check_color(o) {
 	$select_ch = $user["powermode"] == 1 ? 0 : $user["character_id"];
 ?>
 	<tr>
-		<td class="left" id="power_detail_title"><font color="red">选择权限：</font></td>
+		<td class="left" id="power_detail_title"><font color="red">选锟斤拷权锟睫ｏ拷</font></td>
 		<td class="right" id="power_detail_data">
 			<input type="hidden" name="powermode" id="powermode" value="<?php echo $user["powermode"]; ?>">
 			<select name="character_id" onchange="show_hide_detail(this)" class="combo">
-				<option value="0" style="color:gray">--请选择--</option>
-				<!-- <option value="-1" style="color:red"<?php if ($user["powermode"]==1) echo " selected"; ?>>--自定义--</option> -->
+				<option value="0" style="color:gray">--锟斤拷选锟斤拷--</option>
+				<!-- <option value="-1" style="color:red"<?php if ($user["powermode"]==1) echo " selected"; ?>>--锟皆讹拷锟斤拷--</option> -->
 				<?php echo list_option($ch_data, "id", "name", $select_ch); ?>
 			</select> &nbsp;
-			<button id="detail_button" onclick="set_power('power_detail'); return false;" class="buttonb"<?php if ($user["powermode"]!=1) echo ' style="display:none"'; ?>>自定义...</button><span class="intro">必须设定权限</span>
+			<button id="detail_button" onclick="set_power('power_detail'); return false;" class="buttonb"<?php if ($user["powermode"]!=1) echo ' style="display:none"'; ?>>锟皆讹拷锟斤拷...</button><span class="intro">锟斤拷锟斤拷锟借定权锟斤拷</span>
 			<input type="hidden" name="power_detail" id="power_detail" value="<?php echo $user["menu"]; ?>">
 		</td>
 	</tr>
 
 
 	<tr>
-		<td class="left"><font color="red">部门：</font></td>
+		<td class="left"><font color="red">锟斤拷锟脚ｏ拷</font></td>
 		<td class="right" valign="top">
 			<select name="part_id" class="combo">
 			<?php //echo list_option($part->get_sub_part_list(intval($uinfo["part_id"]), 1), "_key_", "_value_", $user["part_id"]); ?>
 			<?php echo list_option(get_part_list('array'), "id", "name", $user["part_id"]); ?>
 			</select>
 <?php if ($debug_mode || $username == "admin" || $uinfo["part_admin"]) { ?>
-			<input type="checkbox" class="check" name="part_admin" value="1" id="part_admin" <?php if ($user["part_admin"]) echo "checked"; ?>><label for="part_admin">部门管理员</label>
+			<input type="checkbox" class="check" name="part_admin" value="1" id="part_admin" <?php if ($user["part_admin"]) echo "checked"; ?>><label for="part_admin">锟斤拷锟脚癸拷锟斤拷员</label>
 <?php } ?>
-			<span class='intro'>部门必须选择。如果选择部门管理员，则该人员有权管理其本部门（包括所有下属部门）数据</span>
+			<span class='intro'>锟斤拷锟脚憋拷锟斤拷选锟斤拷锟斤拷锟窖★拷锟斤拷殴锟斤拷锟皆憋拷锟斤拷锟斤拷锟斤拷员锟斤拷权锟斤拷锟斤拷锟戒本锟斤拷锟脚ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟脚ｏ拷锟斤拷锟斤拷</span>
 		</td>
 	</tr>
 
 	<tr>
-		<td class="left"><font color="red">数据管理：</font></td>
+		<td class="left"><font color="red">锟斤拷锟捷癸拷锟斤拷锟斤拷</font></td>
 		<td class="right">
 			<table width="100%">
 				<tr>
@@ -215,7 +215,7 @@ foreach ($part_level as $v) {
 						<div class="clear"></div>
 					</td>
 					<!-- <td width="" align="left">
-						<span class='intro'>选择则表示该人员可以管理所选部门的数据<br>包括其所有下属部门</span>
+						<span class='intro'>选锟斤拷锟斤拷锟绞撅拷锟斤拷锟皆憋拷锟斤拷怨锟斤拷锟斤拷锟窖★拷锟斤拷诺锟斤拷锟斤拷锟�<br>锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷</span>
 					</td> -->
 				</tr>
 			</table>
@@ -224,8 +224,8 @@ foreach ($part_level as $v) {
 
 <?php if ($debug_mode || $username == "admin") { ?>
 	<tr>
-		<td class="left"><font color="red">显示号码：</font></td>
-		<td class="right"><input type="checkbox" name="show_tel" value="1" <?php if ($user["show_tel"]) echo "checked"; ?> id="chk0001"><label for="chk0001">显示其他病人的电话号码</label> (例如，电话回访人员需要勾选此项)</td>
+		<td class="left"><font color="red">锟斤拷示锟斤拷锟诫：</font></td>
+		<td class="right"><input type="checkbox" name="show_tel" value="1" <?php if ($user["show_tel"]) echo "checked"; ?> id="chk0001"><label for="chk0001">锟斤拷示锟斤拷锟斤拷锟斤拷锟剿的电话锟斤拷锟斤拷</label> (锟斤拷锟界，锟界话锟截凤拷锟斤拷员锟斤拷要锟斤拷选锟斤拷锟斤拷)</td>
 	</tr>
 <?php } ?>
 
@@ -238,7 +238,7 @@ foreach ($part_level as $v) {
 <input type="hidden" name="back_url" value="<?php echo $_GET["back_url"]; ?>">
 <input type="hidden" name="op" value="<?php echo $op; ?>">
 <input type="hidden" name="edit_mode" value="all">
-<div class="button_line"><input type="submit" class="submit" value="提交资料"></div>
+<div class="button_line"><input type="submit" class="submit" value="锟结交锟斤拷锟斤拷"></div>
 
 
 </form>

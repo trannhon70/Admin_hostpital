@@ -2,11 +2,11 @@
 
 /*
 
-// - ¹¦ÄÜËµÃ÷ : ËÑË÷ÒıÇæÉèÖÃ
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// - ´´½¨Ê±¼ä : 2010-07-31 14:47
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2010-07-31 14:47
 
 */
 
@@ -18,13 +18,12 @@ $table = $mod = "engine";
 
 if ($op) {
 
-	include $mod.".op.php";
-
+	include $mod . ".op.php";
 }
 
 
 
-// ¶¨Òåµ±Ç°Ò³ĞèÒªÓÃµ½µÄµ÷ÓÃ²ÎÊı:
+// ï¿½ï¿½ï¿½åµ±Ç°Ò³ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½Äµï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 
 $aLinkInfo = array(
 
@@ -40,35 +39,34 @@ $aLinkInfo = array(
 
 
 
-// ¶ÁÈ¡Ò³Ãæµ÷ÓÃ²ÎÊı:
+// ï¿½ï¿½È¡Ò³ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 
 foreach ($aLinkInfo as $local_var_name => $call_var_name) {
 
 	$$local_var_name = $_GET[$call_var_name];
-
 }
 
 
 
-// ¶¨Òåµ¥Ôª¸ñ¸ñÊ½:
+// ï¿½ï¿½ï¿½åµ¥Ôªï¿½ï¿½ï¿½Ê½:
 
 $aOrderType = array(0 => "", 1 => "asc", 2 => "desc");
 
 $aTdFormat = array(
 
-	0=>array("title"=>"Ñ¡", "width"=>"8%", "align"=>"center"),
+	0 => array("title" => "Ñ¡", "width" => "8%", "align" => "center"),
 
-	1=>array("title"=>"Ãû³Æ", "width"=>"60%", "align"=>"left", "sort"=>"binary name", "defaultorder"=>1),
+	1 => array("title" => "ï¿½ï¿½ï¿½ï¿½", "width" => "60%", "align" => "left", "sort" => "binary name", "defaultorder" => 1),
 
-	3=>array("title"=>"Ìí¼ÓÊ±¼ä", "width"=>"20%", "align"=>"center", "sort"=>"addtime", "defaultorder"=>2),
+	3 => array("title" => "ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½", "width" => "20%", "align" => "center", "sort" => "addtime", "defaultorder" => 2),
 
-	4=>array("title"=>"²Ù×÷", "width"=>"12%", "align"=>"center"),
+	4 => array("title" => "ï¿½ï¿½ï¿½ï¿½", "width" => "12%", "align" => "center"),
 
 );
 
 
 
-// Ä¬ÈÏÅÅĞò·½Ê½:
+// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½:
 
 $defaultsort = 3;
 
@@ -78,55 +76,48 @@ $defaultorder = 1;
 
 
 
-// ²éÑ¯Ìõ¼ş:
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½:
 
 $where = array();
 
 if ($searchword) {
 
 	$where[] = "(binary name like '%{$searchword}%')";
-
 }
 
-$sqlwhere = count($where) > 0 ? ("where ".implode(" and ", $where)) : "";
+$sqlwhere = count($where) > 0 ? ("where " . implode(" and ", $where)) : "";
 
 
 
-// ¶ÔÅÅĞòµÄ´¦Àí£º
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
 
 if ($sortid > 0) {
 
-	$sqlsort = "order by ".$aTdFormat[$sortid]["sort"]." ";
+	$sqlsort = "order by " . $aTdFormat[$sortid]["sort"] . " ";
 
 	if ($sorttype > 0) {
 
 		$sqlsort .= $aOrderType[$sorttype];
-
 	} else {
 
 		$sqlsort .= $aOrderType[$aTdFormat[$sortid]["defaultorder"]];
-
 	}
-
 } else {
 
 	if ($defaultsort > 0 && array_key_exists($defaultsort, $aTdFormat)) {
 
-		$sqlsort = "order by ".$aTdFormat[$defaultsort]["sort"]." ".$aOrderType[$defaultorder];
-
+		$sqlsort = "order by " . $aTdFormat[$defaultsort]["sort"] . " " . $aOrderType[$defaultorder];
 	} else {
 
 		$sqlsort = "";
-
 	}
-
 }
 
 //$sqlsort = "order by hospital, id asc";
 
 
 
-// ·ÖÒ³Êı¾İ:
+// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½:
 
 $pagesize = 9999;
 
@@ -140,13 +131,13 @@ $offset = ($page - 1) * $pagesize;
 
 
 
-// ²éÑ¯:
+// ï¿½ï¿½Ñ¯:
 
 $data = $db->query("select * from $table $sqlwhere $sqlsort limit $offset,$pagesize");
 
 
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 
 ?>
 
@@ -154,13 +145,13 @@ $data = $db->query("select * from $table $sqlwhere $sqlsort limit $offset,$pages
 
 <head>
 
-<title><?php echo $pinfo["title"]; ?></title>
+	<title><?php echo $pinfo["title"]; ?></title>
 
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+	<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+	<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+	<script src="../../res/base.js" language="javascript"></script>
 
 </head>
 
@@ -168,143 +159,100 @@ $data = $db->query("select * from $table $sqlwhere $sqlsort limit $offset,$pages
 
 <body>
 
-<!-- Í·²¿ begin -->
+	<!-- Í·ï¿½ï¿½ begin -->
 
-<div class="headers">
+	<div class="headers">
 
-	<div class="headers_title" style="width:50%"><span class="tips">ËÑË÷ÒıÇæÀ´Ô´(È«¾Ö£¬Ó¦ÓÃÓÚËùÓĞÒ½Ôº)</span></div>
+		<div class="headers_title" style="width:50%"><span class="tips">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´(È«ï¿½Ö£ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½Ôº)</span></div>
 
-	<div class="header_center"><?php echo $power->show_button("add"); ?></div>
+		<div class="header_center"><?php echo $power->show_button("add"); ?></div>
 
-	<div class="headers_oprate"><form name="topform" method="GET">Ä£ºıËÑË÷£º<input name="searchword" value="<?php echo $_GET["searchword"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ËÑË÷" style="font-weight:bold" title="µã»÷ËÑË÷">&nbsp;<button onclick="location='?'" class="search" title="ÍË³öÌõ¼ş²éÑ¯">ÍË³ö</button>&nbsp;<button onclick="history.back()" class="button" title="·µ»ØÉÏÒ»Ò³">·µ»Ø</button></form></div>
+		<div class="headers_oprate">
+			<form name="topform" method="GET">Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<input name="searchword" value="<?php echo $_GET["searchword"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ï¿½ï¿½ï¿½ï¿½" style="font-weight:bold" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½">&nbsp;<button onclick="location='?'" class="search" title="ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯">ï¿½Ë³ï¿½</button>&nbsp;<button onclick="history.back()" class="button" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ò³">ï¿½ï¿½ï¿½ï¿½</button></form>
+		</div>
 
-</div>
+	</div>
 
-<!-- Í·²¿ end -->
-
-
-
-<div class="space"></div>
+	<!-- Í·ï¿½ï¿½ end -->
 
 
 
-<!-- Êı¾İÁĞ±í begin -->
-
-<form name="mainform">
-
-<table width="100%" align="center" class="list">
-
-	<!-- ±íÍ·¶¨Òå begin -->
-
-	<tr>
-
-<?php
-
-// ±íÍ·´¦Àí:
-
-foreach ($aTdFormat as $tdid => $tdinfo) {
-
-	list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
-
-?>
-
-		<td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
-
-<? } ?>
-
-	</tr>
-
-	<!-- ±íÍ·¶¨Òå end -->
+	<div class="space"></div>
 
 
 
-	<!-- Ö÷ÒªÁĞ±íÊı¾İ begin -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½ begin -->
 
-<?php
+	<form name="mainform" action="process_form.php" method="POST">
+    <table width="100%" align="center" class="list">
+        <!-- ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ begin -->
+        <tr>
+            <?php
+            // ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½:
+            foreach ($aTdFormat as $tdid => $tdinfo) {
+                list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
+            ?>
+                <td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
+            <?php } ?>
+        </tr>
+        <!-- ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ end -->
 
-if (count($data) > 0) {
+        <!-- ï¿½ï¿½Òªï¿½Ğ±ï¿½ï¿½ï¿½ï¿½ï¿½ begin -->
+        <?php
+        if (count($data) > 0) {
+            foreach ($data as $line) {
+                $id = $line["id"];
 
-	foreach ($data as $line) {
+                // Táº¡o cÃ¡c nÃºt chá»‰ khi ngÆ°á»i dÃ¹ng cÃ³ quyá»n
+                $op = array();
+                if (check_power("edit")) {
+                    $op[] = "<a href='?op=edit&id=$id' class='op'>ï¿½Ş¸ï¿½</a>";
+                }
+                if (check_power("delete")) {
+                    $op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>É¾ï¿½ï¿½</a>";
+                }
+                $op_button = implode(" ", $op);
 
-		$id = $line["id"];
-
-
-
-		$op = array();
-
-		if (check_power("edit")) {
-
-			$op[] = "<a href='?op=edit&id=$id' class='op'>ĞŞ¸Ä</a>";
-
-		}
-
-		if (check_power("delete")) {
-
-			$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>É¾³ı</a>";
-
-		}
-
-		$op_button = implode(" ", $op);
-
-
-
-		$hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
-
-?>
-
-	<tr<?php echo $hide_line ? " class='hide'" : ""; ?>>
-
-		<td align="center" class="item"><input name="delcheck" type="checkbox" value="<?php echo $id; ?>" onpropertychange="set_item_color(this)"></td>
-
-		<td align="left" class="item"><?php echo $line["name"]; ?></td>
-
-		<td align="center" class="item"><?php echo date("Y-m-d H:i", $line["addtime"]); ?></td>
-
-		<td align="center" class="item"><?php echo $op_button; ?></td>
-
-	</tr>
-
-<?php
-
-	}
-
-} else {
-
-?>
-
-	<tr>
-
-		<td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Ã»ÓĞÊı¾İ...)</td>
-
-	</tr>
-
-<?php } ?>
-
-	<!-- Ö÷ÒªÁĞ±íÊı¾İ end -->
-
-</table>
-
+                // áº¨n dÃ²ng náº¿u Ä‘Æ°á»£c yÃªu cáº§u
+                $hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
+        ?>
+                <tr<?php echo $hide_line ? " class='hide'" : ""; ?>>
+                    <td align="center" class="item"><input name="delcheck" type="checkbox" value="<?php echo $id; ?>" onpropertychange="set_item_color(this)"></td>
+                    <td align="left" class="item"><?php echo $line["name"]; ?></td>
+                    <td align="center" class="item"><?php echo date("Y-m-d H:i", $line["addtime"]); ?></td>
+                    <td align="center" class="item"><?php echo $op_button; ?></td>
+                </tr>
+            <?php
+            }
+        } else {
+            ?>
+            <tr>
+                <td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...)</td>
+            </tr>
+        <?php } ?>
+        <!-- ï¿½ï¿½Òªï¿½Ğ±ï¿½ï¿½ï¿½ï¿½ï¿½ end -->
+    </table>
 </form>
 
-<!-- Êı¾İÁĞ±í end -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½ end -->
 
 
 
-<div class="space"></div>
+	<div class="space"></div>
 
 
 
-<!-- ·ÖÒ³Á´½Ó begin -->
+	<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ begin -->
 
-<div class="footer_op">
+	<div class="footer_op">
 
-	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">·´Ñ¡</button>&nbsp;<?php echo $power->show_button("hide"); ?></div>
+		<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">ï¿½ï¿½Ñ¡</button>&nbsp;<?php echo $power->show_button("hide"); ?></div>
 
-	<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
+		<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
 
-</div>
+	</div>
 
-<!-- ·ÖÒ³Á´½Ó end -->
+	<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ end -->
 
 
 

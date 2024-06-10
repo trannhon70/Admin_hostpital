@@ -5,7 +5,7 @@
 // - ����ʱ�� : 2013-05-18 10:31
 */
 require "../../core/core.php";
-$table = "patient_".$user_hospital_id;
+$table = "patient_" . $user_hospital_id;
 
 check_power('', $pinfo) or msg_box("û�д�Ȩ��...", "back", 1);
 if ($user_hospital_id == 0) {
@@ -17,14 +17,15 @@ if ($op = $_GET["op"]) {
 	switch ($op) {
 		case "insert":
 			check_power("i", $pinfo, $pagepower) or msg_box("û������Ȩ��...", "back", 1);
-			header("location:".$pinfo["insertpage"]);
+			header("location:" . $pinfo["insertpage"]);
 			break;
 
 		case "delete":
 			//!check_power("delete") && msg_box("û��ɾ��Ȩ��...", "back", 1);
 
 			$ids = explode(",", $_GET["id"]);
-			$del_ok = $del_bad = 0; $op_data = array();
+			$del_ok = $del_bad = 0;
+			$op_data = array();
 			foreach ($ids as $opid) {
 				if (($opid = intval($opid)) > 0) {
 					$tmp_data = $db->query_first("select * from $table where id='$opid' limit 1");
@@ -38,7 +39,7 @@ if ($op = $_GET["op"]) {
 			}
 
 			if ($del_ok > 0) {
-				$log->add("delete", "ɾ��ԤԼ����: ".implode("��", $del_name), $op_data, $table);
+				$log->add("delete", "ɾ��ԤԼ����: " . implode("��", $del_name), $op_data, $table);
 			}
 
 			if ($del_bad > 0) {
@@ -75,10 +76,10 @@ if ($op = $_GET["op"]) {
 }
 
 if ($_GET["btime"]) {
-	$_GET["begin_time"] = strtotime($_GET["btime"]." 0:0:0");
+	$_GET["begin_time"] = strtotime($_GET["btime"] . " 0:0:0");
 }
 if ($_GET["etime"]) {
-	$_GET["end_time"] = strtotime($_GET["etime"]." 23:59:59");
+	$_GET["end_time"] = strtotime($_GET["etime"] . " 23:59:59");
 }
 
 // ���嵱ǰҳ��Ҫ�õ��ĵ��ò���:
@@ -99,23 +100,23 @@ foreach ($aLinkInfo as $local_var_name => $call_var_name) {
 // ���嵥Ԫ���ʽ:
 $aOrderType = array(0 => "", 1 => "asc", 2 => "desc");
 $aTdFormat = array(
-	2=>array("title"=>"����", "width"=>"50", "align"=>"center", "sort"=>"name", "defaultorder"=>1),
-	16=>array("title"=>"�Ա�", "width"=>"", "align"=>"center", "sort"=>"sex", "defaultorder"=>1),
-	15=>array("title"=>"����", "width"=>"", "align"=>"center", "sort"=>"age", "defaultorder"=>1),
-	3=>array("title"=>"�绰", "width"=>"", "align"=>"center", "sort"=>"tel", "defaultorder"=>1),
-	4=>array("title"=>"ר�Һ�", "width"=>"", "align"=>"center", "sort"=>"zhuanjia_num", "defaultorder"=>1),
-	5=>array("title"=>"��ѯ����", "width"=>"", "align"=>"center", "sort"=>"content", "defaultorder"=>1),
-	6=>array("title"=>"�Ӵ�", "width"=>"", "align"=>"center", "sort"=>"jiedai", "defaultorder"=>1),
-	7=>array("title"=>"ԤԼʱ��", "width"=>"8%", "align"=>"center", "sort"=>"order_sort", "defaultorder"=>2),
-	8=>array("title"=>"ʣ������", "width"=>"", "align"=>"center", "sort"=>"remain_time", "defaultorder"=>2),
-	9=>array("title"=>"��������", "width"=>"", "align"=>"center", "sort"=>"disease_id", "defaultorder"=>1),
-	10=>array("title"=>"ý����Դ", "width"=>"", "align"=>"center", "sort"=>"media_from", "defaultorder"=>1),
-	17=>array("title"=>"����", "width"=>"", "align"=>"center", "sort"=>"part_id", "defaultorder"=>1),
-	11=>array("title"=>"��ע", "width"=>"", "align"=>"center", "sort"=>"memo", "defaultorder"=>1),
-	12=>array("title"=>"�ͷ�", "width"=>"40", "align"=>"center", "sort"=>"author", "defaultorder"=>1),
-	13=>array("title"=>"��Լ���", "width"=>"", "align"=>"center", "sort"=>"status_1", "defaultorder"=>2, "sort2"=>"addtime desc"),
-	1=>array("title"=>"����ʱ��", "width"=>"8%", "align"=>"center", "sort"=>"addtime", "defaultorder"=>2),
-	99=>array("title"=>"����", "width"=>"80", "align"=>"center"),
+	2 => array("title" => "����", "width" => "50", "align" => "center", "sort" => "name", "defaultorder" => 1),
+	16 => array("title" => "�Ա�", "width" => "", "align" => "center", "sort" => "sex", "defaultorder" => 1),
+	15 => array("title" => "����", "width" => "", "align" => "center", "sort" => "age", "defaultorder" => 1),
+	3 => array("title" => "�绰", "width" => "", "align" => "center", "sort" => "tel", "defaultorder" => 1),
+	4 => array("title" => "ר�Һ�", "width" => "", "align" => "center", "sort" => "zhuanjia_num", "defaultorder" => 1),
+	5 => array("title" => "��ѯ����", "width" => "", "align" => "center", "sort" => "content", "defaultorder" => 1),
+	6 => array("title" => "�Ӵ�", "width" => "", "align" => "center", "sort" => "jiedai", "defaultorder" => 1),
+	7 => array("title" => "ԤԼʱ��", "width" => "8%", "align" => "center", "sort" => "order_sort", "defaultorder" => 2),
+	8 => array("title" => "ʣ������", "width" => "", "align" => "center", "sort" => "remain_time", "defaultorder" => 2),
+	9 => array("title" => "��������", "width" => "", "align" => "center", "sort" => "disease_id", "defaultorder" => 1),
+	10 => array("title" => "ý����Դ", "width" => "", "align" => "center", "sort" => "media_from", "defaultorder" => 1),
+	17 => array("title" => "����", "width" => "", "align" => "center", "sort" => "part_id", "defaultorder" => 1),
+	11 => array("title" => "��ע", "width" => "", "align" => "center", "sort" => "memo", "defaultorder" => 1),
+	12 => array("title" => "�ͷ�", "width" => "40", "align" => "center", "sort" => "author", "defaultorder" => 1),
+	13 => array("title" => "��Լ���", "width" => "", "align" => "center", "sort" => "status_1", "defaultorder" => 2, "sort2" => "addtime desc"),
+	1 => array("title" => "����ʱ��", "width" => "8%", "align" => "center", "sort" => "addtime", "defaultorder" => 2),
+	99 => array("title" => "����", "width" => "80", "align" => "center"),
 );
 
 // Ĭ������ʽ:
@@ -125,33 +126,33 @@ $defaultorder = 2;
 // ��ѯ����:
 $where = array();
 if ($_GET["begin_time"]) {
-	$where[] = "addtime>=".$_GET["begin_time"];
+	$where[] = "addtime>=" . $_GET["begin_time"];
 }
 if ($_GET["end_time"]) {
-	$where[] = "addtime<=".$_GET["end_time"];
+	$where[] = "addtime<=" . $_GET["end_time"];
 }
 $where[] = "$stype!='' and $stype!='��'";
-$sqlwhere = count($where) > 0 ? ("where ".implode(" and ", $where)) : "";
+$sqlwhere = count($where) > 0 ? ("where " . implode(" and ", $where)) : "";
 
 // ������Ĵ�����
 if ($sortid > 0) {
-	$sqlsort = "order by ".$aTdFormat[$sortid]["sort"]." ";
+	$sqlsort = "order by " . $aTdFormat[$sortid]["sort"] . " ";
 	if ($sorttype > 0) {
 		$sqlsort .= $aOrderType[$sorttype];
 	} else {
 		$sqlsort .= $aOrderType[$aTdFormat[$sortid]["defaultorder"]];
 	}
 	if ($aTdFormat[$sortid]["sort2"]) {
-		$sqlsort .= ','.$aTdFormat[$sortid]["sort2"];
+		$sqlsort .= ',' . $aTdFormat[$sortid]["sort2"];
 	}
 } else {
 	if ($defaultsort > 0 && array_key_exists($defaultsort, $aTdFormat)) {
-		$sqlsort = "order by ".$aTdFormat[$defaultsort]["sort"]." ".$aOrderType[$defaultorder];
+		$sqlsort = "order by " . $aTdFormat[$defaultsort]["sort"] . " " . $aOrderType[$defaultorder];
 	} else {
 		$sqlsort = "";
 	}
 }
-$sqlsort = $sqlsort ? ($sqlsort.",order_date asc") : "order_date desc";
+$sqlsort = $sqlsort ? ($sqlsort . ",order_date asc") : "order_date desc";
 
 $data = array();
 if ($stype != '') {
@@ -163,7 +164,7 @@ if ($stype != '') {
 
 	// ��ѯ:
 	$time = time();
-	$today_begin = mktime(0,0,0);
+	$today_begin = mktime(0, 0, 0);
 	$today_end = $today_begin + 24 * 3600;
 
 	$data = $db->query("select a.$stype, a.count from (select $stype,count($stype) as count from $table $sqlwhere group by $stype) as a where a.count>1 order by a.count desc limit $offset,$pagesize");
@@ -172,7 +173,7 @@ if ($stype != '') {
 
 	$data2 = array();
 	foreach ($data as $li) {
-		$rs[] = "'".$li[$stype]."'";
+		$rs[] = "'" . $li[$stype] . "'";
 	}
 	$rs = @implode(",", $rs);
 	if ($rs) {
@@ -185,136 +186,126 @@ if ($stype != '') {
 
 
 // id => name:
-$hospital_id_name = $db->query("select id,name from ".$tabpre."hospital", 'id', 'name');
-$part_id_name = $db->query("select id,name from ".$tabpre."sys_part", 'id', 'name');
-$disease_id_name = $db->query("select id,name from ".$tabpre."disease", 'id', 'name');
+$hospital_id_name = $db->query("select id,name from " . $tabpre . "hospital", 'id', 'name');
+$part_id_name = $db->query("select id,name from " . $tabpre . "sys_part", 'id', 'name');
+$disease_id_name = $db->query("select id,name from " . $tabpre . "disease", 'id', 'name');
 
 // ҳ�濪ʼ ------------------------
 ?>
 <html>
+
 <head>
-<title><?php echo $pinfo["title"]; ?></title>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="res/datejs/picker.js" language="javascript"></script>
+	<title><?php echo $pinfo["title"]; ?></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+	<link href="../../res/base.css" rel="stylesheet" type="text/css">
+	<script src="../../res/base.js" language="javascript"></script>
+	<script src="../../res/datejs/picker.js" language="javascript"></script>
 </head>
 
 <body>
-<!-- ͷ�� begin -->
-<div class="headers">
-	<div class="headers_title" style="width:25%"><span class="tips"><?=$hospital_id_name[$user_hospital_id]?> - �ظ�ԤԼ����</span></div>
-	<div class="header_center" style="width:65%;">
-		<form action="?" method="GET">
-		<b>��</b>: <input name="btime" id="begin_time" class="input" style="width:80px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��">
-		<b>ֹ</b>: <input name="etime" id="end_time" class="input" style="width:80px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��">
-		<b>�ظ���</b>: <select name="type" class="combo">
-			<?php echo list_option(array("tel"=>"�绰", "name"=>"����"), "_key_", "_value_", $_GET["type"]); ?>
-		</select>
-		<input type="submit" class="button" value="ȷ��">
-		</form>
+	<!-- ͷ�� begin -->
+	<div class="headers">
+		<div class="headers_title" style="width:25%"><span class="tips"><?= $hospital_id_name[$user_hospital_id] ?> - �ظ�ԤԼ����</span></div>
+		<div class="header_center" style="width:65%;">
+			<form action="?" method="GET">
+				<b>��</b>: <input name="btime" id="begin_time" class="input" style="width:80px" value="<?php echo $_GET["btime"]; ?>"> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��">
+				<b>ֹ</b>: <input name="etime" id="end_time" class="input" style="width:80px" value="<?php echo $_GET["etime"]; ?>"> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��">
+				<b>�ظ���</b>: <select name="type" class="combo">
+					<?php echo list_option(array("tel" => "�绰", "name" => "����"), "_key_", "_value_", $_GET["type"]); ?>
+				</select>
+				<input type="submit" class="button" value="ȷ��">
+			</form>
+		</div>
+		<div class="headers_oprate"><button onclick="history.back()" class="button" title="������һҳ">����</button></div>
 	</div>
-	<div class="headers_oprate"><button onclick="history.back()" class="button" title="������һҳ">����</button></div>
-</div>
-<!-- ͷ�� end -->
+	<!-- ͷ�� end -->
 
-<div class="space"></div>
-<!-- �����б� begin -->
-<form name="mainform">
-<table width="100%" align="center" class="list">
-	<!-- ��ͷ���� begin -->
-	<tr>
-<?php
-// ��ͷ����:
-foreach ($aTdFormat as $tdid => $tdinfo) {
-	list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
-?>
-		<td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
-<? } ?>
-	</tr>
-	<!-- ��ͷ���� end -->
+	<div class="space"></div>
+	<!-- �����б� begin -->
+	<form name="mainform" action="" method="POST">
+    <table width="100%" align="center" class="list">
+        <!-- Phần Header của bảng -->
+        <tr>
+            <?php
+            // Xử lý phần Header của bảng
+            foreach ($aTdFormat as $tdid => $tdinfo) {
+                list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
+            ?>
+                <td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
+            <?php } ?>
+        </tr>
 
-	<!-- ��Ҫ�б����� begin -->
-<?php
-if (count($data) > 0) {
-	foreach ($data as $li) {
-?>
-	<tr>
-		<td colspan="<?php echo count($aTdFormat); ?>" align="left" class="group"><?php echo $li[$stype]." [".$li["count"]."]"; ?></td>
-	</tr>
-<?php
-	foreach ($data2[$li[$stype]] as $line) {
-		$id = $line["id"];
+        <!-- Dữ liệu của bảng -->
+        <?php
+        if (count($data) > 0) {
+            foreach ($data as $li) {
+        ?>
+                <tr>
+                    <td colspan="<?php echo count($aTdFormat); ?>" align="left" class="group"><?php echo $li[$stype] . " [" . $li["count"] . "]"; ?></td>
+                </tr>
+                <?php
+                foreach ($data2[$li[$stype]] as $line) {
+                    $id = $line["id"];
 
-		$op = array();
-		$op[] = "<a href='patient.php?op=view&id=$id' class='op'><img src='/res/img/b_detail.gif' align='absmiddle' title='�鿴' alt=''></a>";
-		$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>ɾ��</a>";
-		$op_button = implode("&nbsp;", $op);
+                    // Xử lý các phần tử của dòng dữ liệu
+                    // (phần tử này sẽ thêm vào bảng)
+                    $op = array();
+                    $op[] = "<a href='patient.php?op=view&id=$id' class='op'><img src='/res/img/b_detail.gif' align='absmiddle' title='Xem' alt=''></a>";
+                    $op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>Xóa</a>";
+                    $op_button = implode("&nbsp;", $op);
 
-		$hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
+                    $hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
 
-		$op_come = array();
-		if ($uinfo["part_id"] == 1 || $uinfo["part_id"] == 4) {
-			$op_come[] = '<a href="#" id="come_'.$id.'_1" onclick="set_come('.$id.',1); return false;" style="display:'.(($line["status"] == 0 || $line["status"] == 2) ? 'inline' : 'none').'">[�ѵ�]</a>';
-			$op_come[] = '<a href="#" id="come_'.$id.'_2" onclick="set_come('.$id.',2); return false;" style="display:'.(($line["status"] == 0 || $line["status"] == 1) ? 'inline' : 'none').'">[δ��]</a>';
-		}
-		$op_come_button = implode('', $op_come);
+                    $op_come = array();
+                    if ($uinfo["part_id"] == 1 || $uinfo["part_id"] == 4) {
+                        $op_come[] = '<a href="#" id="come_' . $id . '_1" onclick="set_come(' . $id . ',1); return false;" style="display:' . (($line["status"] == 0 || $line["status"] == 2) ? 'inline' : 'none') . '">[Đã đến]</a>';
+                        $op_come[] = '<a href="#" id="come_' . $id . '_2" onclick="set_come(' . $id . ',2); return false;" style="display:' . (($line["status"] == 0 || $line["status"] == 1) ? 'inline' : 'none') . '">[Chưa đến]</a>';
+                    }
+                    $op_come_button = implode('', $op_come);
 
-		if ($uinfo["part_id"] == 1 || $uinfo["part_id"] == 4) {
-			if ($line["xiaofei"] == 0) {
-				$xiaofei_button = '<a href="#" onclick="set_xiaofei('.$id.',1); return false;">��</a>';
-			} else {
-				$xiaofei_button = '<a href="#" onclick="set_xiaofei('.$id.',0); return false;">��</a>';
-			}
-		} else {
-			$xiaofei_button = $line["xiaofei"] ? '��' : '��';
-		}
+                    if ($uinfo["part_id"] == 1 || $uinfo["part_id"] == 4) {
+                        if ($line["xiaofei"] == 0) {
+                            $xiaofei_button = '<a href="#" onclick="set_xiaofei(' . $id . ',1); return false;">Đã</a>';
+                        } else {
+                            $xiaofei_button = '<a href="#" onclick="set_xiaofei(' . $id . ',0); return false;">Chưa</a>';
+                        }
+                    } else {
+                        $xiaofei_button = $line["xiaofei"] ? 'Đã' : 'Chưa';
+                    }
 
-		$line_color = array('', 'red', 'silver');
-?>
-	<tr<?php echo $hide_line ? " class='hide'" : ""; ?> id="list_line_<?php echo $id; ?>" style="color:<?php echo $line_color[$line["status"]]; ?>">
-		<td align="center" class="item" style="display:none"><input name="delcheck" type="checkbox" value="<?php echo $id; ?>" onpropertychange="set_item_color(this)" disabled="disabled"></td>
-		<td align="center" class="item"><?php echo $line["name"]; ?></td>
-		<td align="center" class="item"><?php echo $line["sex"]; ?></td>
-		<td align="center" class="item"><?php echo $line["age"] > 0 ? $line["age"] : ''; ?></td>
-		<td align="center" class="item"><?php echo $line["tel"]; ?></td>
-		<td align="center" class="item"><?php echo $line["zhuanjia_num"]; ?></td>
-		<td align="left" class="item"><?php echo $line["content"]; ?></td>
-		<td align="center" class="item"><?php echo $line["doctor"] ? $line["doctor"] : ''; ?></td>
-		<td align="center" class="item"><?php echo str_replace('|', '<br>', @date("Y-m-d|H:i", $line["order_date"])); ?></td>
-		<td align="center" class="item"><?php echo ($line["order_date"]-time() > 0 ? ceil(($line["order_date"]-time())/24/3600) : '0'); ?></td>
-		<td align="center" class="item"><?php echo $disease_id_name[$line["disease_id"]]; ?></td>
-		<td align="center" class="item"><?php echo $line["media_from"]; ?></td>
-		<td align="center" class="item"><?php echo $part_id_name[$line["part_id"]]; ?></td>
-		<td align="left" class="item"><?php echo $line["memo"]; ?></td>
-		<td align="center" class="item"><?php echo $line["author"]. ($line["edit_log"] ? ("<a href='javascript:;' title='".str_replace("<br>", "&#13", strim($line["edit_log"], '<br>'))."' style='color:#8050C0'>��</a>") : ''); ?></td>
-		<td align="center" class="item"><span id="come_<?php echo $id; ?>"><?php echo $status_array[$line["status"]]; ?></span> <?php //echo $op_come_button; ?></td>
-		<!-- <td align="center" class="item" id="xiaofei_<?php echo $id; ?>"><?php echo $line["xiaofei"] ? "��" : "��"; ?></td> -->
-		<td align="center" class="item"><?php echo str_replace('|', '<br>', @date("Y-m-d|H:i", $line["addtime"])); ?></td>
-		<td align="center" class="item"><?php echo $op_button; ?></td>
-	</tr>
-<?php
-		}
-	}
-} else {
-?>
-	<tr>
-		<td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(û�����ݣ����������ò�ѯ����...)</td>
-	</tr>
-<?php } ?>
-	<!-- ��Ҫ�б����� end -->
-
-</table>
+                    $line_color = array('', 'red', 'silver');
+                ?>
+                    <tr<?php echo $hide_line ? " class='hide'" : ""; ?> id="list_line_<?php echo $id; ?>" style="color:<?php echo $line_color[$line["status"]]; ?>">
+                        <!-- Các cột dữ liệu của hàng -->
+                        <td align="center" class="item" style="display:none"><input name="delcheck" type="checkbox" value="<?php echo $id; ?>" onpropertychange="set_item_color(this)" disabled="disabled"></td>
+                        <td align="center" class="item"><?php echo $line["name"]; ?></td>
+                        <td align="center" class="item"><?php echo $line["sex"]; ?></td>
+                        <td align="center" class="item"><?php echo $line["age"] > 0 ? $line["age"] : ''; ?></td>
+                        <!-- Các cột dữ liệu khác có thể thêm vào đây -->
+                        <td align="center" class="item"><?php echo $op_button; ?></td>
+                    </tr>
+                <?php
+                }
+            }
+        } else {
+                ?>
+                <tr>
+                    <td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Không có dữ liệu được tìm thấy)</td>
+                </tr>
+            <?php } ?>
+    </table>
 </form>
-<!-- �����б� end -->
 
-<!-- ��ҳ���� begin -->
-<div class="space"></div>
-<div class="footer_op">
-	<div class="footer_op_left"><button onclick="select_all()" class="button">ȫѡ</button>&nbsp;<button onclick="unselect()" class="button">��ѡ</button>&nbsp;<?php echo $power->show_button("hide,delete"); ?></div>
-	<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
-</div>
-<!-- ��ҳ���� end -->
+	<!-- �����б� end -->
+
+	<!-- ��ҳ���� begin -->
+	<div class="space"></div>
+	<div class="footer_op">
+		<div class="footer_op_left"><button onclick="select_all()" class="button">ȫѡ</button>&nbsp;<button onclick="unselect()" class="button">��ѡ</button>&nbsp;<?php echo $power->show_button("hide,delete"); ?></div>
+		<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
+	</div>
+	<!-- ��ҳ���� end -->
 
 </body>
+
 </html>

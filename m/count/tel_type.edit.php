@@ -1,8 +1,8 @@
 <?php
 // --------------------------------------------------------
-// - ¹¦ÄÜËµÃ÷ : ÏîÄ¿ÐÂÔö£¬ÐÞ¸Ä
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2010-10-13 11:40
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2010-10-13 11:40
 // --------------------------------------------------------
 
 if ($_POST) {
@@ -18,7 +18,7 @@ if ($_POST) {
 	}
 	$r["type"] = $_POST["type"];
 	$r["name"] = $_POST["name"];
-	$r["kefu"] = trim(str_replace("¡¢", ",", str_replace("£¬", ",", $_POST["kefu"])));
+	$r["kefu"] = trim(str_replace("ï¿½ï¿½", ",", str_replace("ï¿½ï¿½", ",", $_POST["kefu"])));
 	$r["uids"] = implode(",", $_POST["rec_user"]);
 	$r["sort"] = intval($_POST["sort"]);
 
@@ -36,23 +36,23 @@ if ($_POST) {
 	}
 
 	if ($db->query($sql)) {
-		msg_box("×ÊÁÏÌá½»³É¹¦", "?", 1);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½É¹ï¿½", "?", 1);
 	} else {
-		msg_box("×ÊÁÏÌá½»Ê§°Ü£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ¡£", "back", 1, 5);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½Ü£ï¿½ÏµÍ³ï¿½ï¿½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½Ô¡ï¿½", "back", 1, 5);
 	}
 }
 
 if ($op == "edit") {
 	$line = $db->query_first("select * from $table where id='$id' limit 1");
 }
-$title = $op == "edit" ? "Ò½ÔºÏîÄ¿ - ÐÞ¸Ä" : "Ò½ÔºÏîÄ¿ - ÐÂÔö";
+$title = $op == "edit" ? "Ò½Ôºï¿½ï¿½Ä¿ - ï¿½Þ¸ï¿½" : "Ò½Ôºï¿½ï¿½Ä¿ - ï¿½ï¿½ï¿½ï¿½";
 ?>
 <html>
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 
 <style>
 #rec_part, #rec_user {margin-top:6px; }
@@ -64,7 +64,7 @@ $title = $op == "edit" ? "Ò½ÔºÏîÄ¿ - ÐÞ¸Ä" : "Ò½ÔºÏîÄ¿ - ÐÂÔö";
 function Check() {
 	var oForm = document.mainform;
 	if (oForm.name.value == "") {
-		alert("ÇëÊäÈë¡°Ãû³Æ¡±£¡"); oForm.name.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½"); oForm.name.focus(); return false;
 	}
 	return true;
 }
@@ -76,19 +76,19 @@ function update_check_color(o) {
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
 	<div class="header_center"></div>
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 
 <div class="description">
-	<div class="d_title">ÌáÊ¾£º</div>
-	<div class="d_item">1.ÊäÈëÃû³Æ£¬µã»÷Ìá½»¼´¿É</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
+	<div class="d_item">1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½</div>
 </div>
 
 <div class="space"></div>
@@ -96,33 +96,33 @@ function update_check_color(o) {
 <form name="mainform" action="" method="POST" onsubmit="return Check()">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">Ò½ÔºÏîÄ¿×ÊÁÏ</td>
+		<td colspan="2" class="head">Ò½Ôºï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 	<tr>
-		<td class="left">ÏîÄ¿Ãû³Æ£º</td>
-		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">Èç¡°ÉÏº£¾ÅÁúÄÐ×ÓÒ½Ôº ´óÕÊºÅ¡±</span></td>
+		<td class="left">ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Æ£ï¿½</td>
+		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">ï¿½ç¡°ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½Ôº ï¿½ï¿½ï¿½ÊºÅ¡ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left">ËùÊôÒ½Ôº£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½Ò½Ôºï¿½ï¿½</td>
 		<td class="right">
 			<select name="hid" class="combo">
-				<option value="0" style="color:gray">-ÇëÑ¡ÔñËùÊôÒ½Ôº-</option>
+				<option value="0" style="color:gray">-ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½Ôº-</option>
 <?php
 	$h_id_name = $db->query("select id,name from hospital where id in (".implode(",", $hospital_ids).")", "id", "name");
 	echo list_option($h_id_name, "_key_", "_value_", $line["hid"]);
 ?>
 			</select>
-			<span class="intro">ËùÊôÒ½Ôº±ØÐëÑ¡Ôñ</span>
+			<span class="intro">ï¿½ï¿½ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="left">¿Í·þÃûµ¥£º</td>
-		<td class="right"><input name="kefu" value="<?php echo $line["kefu"]; ?>" class="input" style="width:500px"> <span class="intro">¶à¸öÃû×ÖÓÃ¶ººÅ¸ô¿ª</span></td>
+		<td class="left">ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="right"><input name="kefu" value="<?php echo $line["kefu"]; ?>" class="input" style="width:500px"> <span class="intro">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Å¸ï¿½ï¿½ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left">¹ÜÀíÔ±£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½</td>
 		<td class="right">
-			<!-- ÓÃ»§Ñ¡Ôñ -->
+			<!-- ï¿½Ã»ï¿½Ñ¡ï¿½ï¿½ -->
 			<div id="rec_user">
 <?php
 $cur_select = $line["uids"] ? explode(",", $line["uids"]) : array();
@@ -142,8 +142,8 @@ foreach ($all_admin as $a => $b) {
 		</td>
 	</tr>
 	<tr>
-		<td class="left">ÅÅÐò£º</td>
-		<td class="right"><input name="sort" value="<?php echo $line["sort"]; ?>" class="input" size="10" style="width:80px"> <span class="intro">Ô½´óÔ½¿¿Ç°£¬Ä¬ÈÏÖµÎª0£¬¿ÉÒÔÊÇ¸ºÊý</span></td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="right"><input name="sort" value="<?php echo $line["sort"]; ?>" class="input" size="10" style="width:80px"> <span class="intro">Ô½ï¿½ï¿½Ô½ï¿½ï¿½Ç°ï¿½ï¿½Ä¬ï¿½ï¿½ÖµÎª0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½</span></td>
 	</tr>
 
 </table>
@@ -152,7 +152,7 @@ foreach ($all_admin as $a => $b) {
 <input type="hidden" name="type" value="tel">
 <input type="hidden" name="op" value="<?php echo $op; ?>">
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 </form>
 </body>
 </html>

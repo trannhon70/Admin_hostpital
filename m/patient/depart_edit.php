@@ -2,11 +2,11 @@
 
 /*
 
-// - 功能说明 : 科室新增、修改
+// - 锟斤拷锟斤拷说锟斤拷 : 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟睫革拷
 
-// - 创建作者 : 爱医战队 
+// - 锟斤拷锟斤拷锟斤拷锟斤拷 : 锟斤拷医战锟斤拷 
 
-// - 创建时间 : 2013-05-01 00:40
+// - 锟斤拷锟斤拷时锟斤拷 : 2013-05-01 00:40
 
 */
 
@@ -52,11 +52,11 @@ if ($_POST) {
 
 	if ($db->query($sql)) {
 
-		msg_box("资料提交成功", "?", 1);
+		msg_box("锟斤拷锟斤拷锟结交锟缴癸拷", "?", 1);
 
 	} else {
 
-		msg_box("资料提交失败，系统繁忙，请稍后再试。", "back", 1, 5);
+		msg_box("锟斤拷锟斤拷锟结交失锟杰ｏ拷系统锟斤拷忙锟斤拷锟斤拷锟皆猴拷锟斤拷锟皆★拷", "back", 1, 5);
 
 	}
 
@@ -64,7 +64,7 @@ if ($_POST) {
 
 
 
-$title = $op == "edit" ? "修改科室" : "添加新的科室";
+$title = $op == "edit" ? "锟睫改匡拷锟斤拷" : "锟斤拷锟斤拷锟铰的匡拷锟斤拷";
 
 
 
@@ -80,9 +80,9 @@ $hospital_list = $db->query("select id,name from ".$tabpre."hospital");
 
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+<script src="../../res/base.js" language="javascript"></script>
 
 <script language="javascript">
 
@@ -92,7 +92,7 @@ function Check() {
 
 	if (oForm.name.value == "") {
 
-		alert("请输入“科室名称”！"); oForm.name.focus(); return false;
+		alert("锟斤拷锟斤拷锟诫“锟斤拷锟斤拷锟斤拷锟狡★拷锟斤拷"); oForm.name.focus(); return false;
 
 	}
 
@@ -108,17 +108,17 @@ function Check() {
 
 <body>
 
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 
 <div class="headers">
 
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button">返回</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">锟斤拷锟斤拷</button></div>
 
 </div>
 
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 
 
 
@@ -128,9 +128,9 @@ function Check() {
 
 <div class="description">
 
-	<div class="d_title">提示：</div>
+	<div class="d_title">锟斤拷示锟斤拷</div>
 
-	<div class="d_item">1.输入科室名称及简介（简介可不输入），点击提交即可</div>
+	<div class="d_item">1.锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷萍锟斤拷锟介（锟斤拷锟缴诧拷锟斤拷锟诫）锟斤拷锟斤拷锟斤拷峤伙拷锟斤拷锟�</div>
 
 </div>
 
@@ -146,23 +146,23 @@ function Check() {
 
 	<tr>
 
-		<td colspan="2" class="head">科室资料</td>
+		<td colspan="2" class="head">锟斤拷锟斤拷锟斤拷锟斤拷</td>
 
 	</tr>
 
 	<tr>
 
-		<td class="left">科室名称：</td>
+		<td class="left">锟斤拷锟斤拷锟斤拷锟狡ｏ拷</td>
 
-		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">名称必须填写</span></td>
+		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">锟斤拷锟狡憋拷锟斤拷锟斤拷写</span></td>
 
 	</tr>
 
 	<tr>
 
-		<td class="left">科室简介：</td>
+		<td class="left">锟斤拷锟揭硷拷椋�</td>
 
-		<td class="right"><textarea name="intro"class="input"  style="width:60%; height:80px; overflow:visible;"><?php echo $line["intro"]; ?></textarea> <span class="intro">选填</span></td>
+		<td class="right"><textarea name="intro"class="input"  style="width:60%; height:80px; overflow:visible;"><?php echo $line["intro"]; ?></textarea> <span class="intro">选锟斤拷</span></td>
 
 	</tr>
 
@@ -174,7 +174,7 @@ function Check() {
 
 
 
-<div class="button_line"><input type="submit" class="submit" value="提交资料"></div>
+<div class="button_line"><input type="submit" class="submit" value="锟结交锟斤拷锟斤拷"></div>
 
 </form>
 

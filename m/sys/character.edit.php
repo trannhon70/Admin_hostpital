@@ -3,13 +3,13 @@
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <script language="javascript">
 function Check() {
 	var oForm = document.mainform;
 	if (oForm.ch_name.value == "") {
-		alert("请输入“权限名称”！");
+		alert("锟斤拷锟斤拷锟诫“权锟斤拷锟斤拷锟狡★拷锟斤拷");
 		oForm.ch_name.focus();
 		return false;
 	}
@@ -19,19 +19,19 @@ function Check() {
 </head>
 
 <body>
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><input type="button" value="返回" onclick="history.back()" class="button"></div>
+	<div class="headers_oprate"><input type="button" value="锟斤拷锟斤拷" onclick="history.back()" class="button"></div>
 </div>
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 
 <div class="space"></div>
 
 <div class="description">
-	<div class="d_title">提示：</div>
-	<li class="d_item">请务必谨慎分配“系统管理”一项的权限，不熟悉系统的人员对系统随意设置将使其出现严重问题而不可用</li>
-	<li class="d_item">“系统日志”这一栏目，牵涉系统重要操作数据，也需谨慎分配权限</li>
+	<div class="d_title">锟斤拷示锟斤拷</div>
+	<li class="d_item">锟斤拷锟斤拷亟锟斤拷锟斤拷锟斤拷洹跋低筹拷锟斤拷锟斤拷锟揭伙拷锟斤拷权锟睫ｏ拷锟斤拷锟斤拷悉系统锟斤拷锟斤拷员锟斤拷系统锟斤拷锟斤拷锟斤拷锟矫斤拷使锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷</li>
+	<li class="d_item">锟斤拷系统锟斤拷志锟斤拷锟斤拷一锟斤拷目锟斤拷牵锟斤拷系统锟斤拷要锟斤拷锟斤拷锟斤拷锟捷ｏ拷也锟斤拷锟斤拷锟斤拷锟斤拷锟饺拷锟�</li>
 </div>
 
 <div class="space"></div>
@@ -39,14 +39,14 @@ function Check() {
 <form name="mainform" action="" method="POST" onsubmit="return Check()">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">权限设置</td>
+		<td colspan="2" class="head">权锟斤拷锟斤拷锟斤拷</td>
 	</tr>
 	<tr>
-		<td class="left">权限名称：</td>
-		<td class="right"><input name="ch_name" value="<?php echo $cline["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">权限名称必须填写</span></td>
+		<td class="left">权锟斤拷锟斤拷锟狡ｏ拷</td>
+		<td class="right"><input name="ch_name" value="<?php echo $cline["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">权锟斤拷锟斤拷锟狡憋拷锟斤拷锟斤拷写</span></td>
 	</tr>
 	<tr>
-		<td class="left">权限明细：</td>
+		<td class="left">权锟斤拷锟斤拷细锟斤拷</td>
 		<td class="right"><?php echo $power->show_power_table($usermenu, $cline["menu"]); ?></td>
 	</tr>
 </table>
@@ -54,7 +54,7 @@ function Check() {
 <input type="hidden" name="back_url" value="<?php echo $_GET["back_url"]; ?>">
 <input type="hidden" name="op" value="<?php echo $op; ?>">
 
-<div class="button_line"><input type="submit" class="submit" value="提交资料"></div>
+<div class="button_line"><input type="submit" class="submit" value="锟结交锟斤拷锟斤拷"></div>
 </form>
 
 <div class="space"></div>

@@ -3,9 +3,9 @@
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 #rec_part, #rec_user {margin-top:6px; }
 .rec_user_b {width:100px; float:left; }
@@ -102,11 +102,11 @@ foreach ($all_admin as $a => $b) {
 	</tr>
 	<tr>
 		<td class="left">��ʼʱ�䣺</td>
-		<td class="right"><input name="begin_date" id="begin_time" class="input" style="width:150px" value="<?php echo $line["begintime"] ? date("Y-m-d", $line["begintime"]) : ""; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��"></td>
+		<td class="right"><input name="begin_date" id="begin_time" class="input" style="width:150px" value="<?php echo $line["begintime"] ? date("Y-m-d", $line["begintime"]) : ""; ?>"> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��"></td>
 	</tr>
 	<tr>
 		<td class="left">����ʱ�䣺</td>
-		<td class="right"><input name="end_date" id="end_time" class="input" style="width:150px" value="<?php echo $line["endtime"] ? date("Y-m-d", $line["endtime"]) : ""; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��"> </td>
+		<td class="right"><input name="end_date" id="end_time" class="input" style="width:150px" value="<?php echo $line["endtime"] ? date("Y-m-d", $line["endtime"]) : ""; ?>"> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="ѡ��ʱ��"> </td>
 	</tr>
 </table>
 

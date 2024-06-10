@@ -1,8 +1,8 @@
 <?php
 /*
-// 说明: 显示通知
-// 作者: 爱医战队 
-// 时间: 2010-09-17
+// 说锟斤拷: 锟斤拷示通知
+// 锟斤拷锟斤拷: 锟斤拷医战锟斤拷 
+// 时锟斤拷: 2010-09-17
 */
 require "../../core/core.php";
 
@@ -20,8 +20,8 @@ $title = "通知";
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <style>
 #m_title {padding:20px 0 0 0; font-weight:bold; font-size:16px; color:red; text-align:center; }
 #m_info {padding:15px 0 0 0; text-align:center; color:gray; }
@@ -36,7 +36,7 @@ function update_read() {
 
 function update_read_do() {
 	parent.load_box(0);
-	parent.get_online(); //立即更新显示
+	parent.get_online(); //锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷示
 }
 
 </script>
@@ -46,11 +46,11 @@ function update_read_do() {
 
 
 <div id="m_title"><?php echo $line["title"]; ?></div>
-<div id="m_info">发布人：<?php echo $line["u_realname"]; ?>　　时间：<?php echo date("Y-m-d H:i", $line["addtime"]); ?></div>
+<div id="m_info">锟斤拷锟斤拷锟剿ｏ拷<?php echo $line["u_realname"]; ?>锟斤拷锟斤拷时锟戒：<?php echo date("Y-m-d H:i", $line["addtime"]); ?></div>
 <div id="m_content"><?php echo text_show($line["content"]); ?></div>
 
 <div style="padding:20px 0 5px 0; text-align:center; ">
-	<input type="submit" class="submit" onclick="update_read()" value="阅读完毕">
+	<input type="submit" class="submit" onclick="update_read()" value="锟侥讹拷锟斤拷锟�">
 </div>
 
 <input type="hidden" id="id" value="<?php echo $id; ?>">

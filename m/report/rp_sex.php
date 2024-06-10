@@ -17,7 +17,7 @@ $tongji_tips = " - �Ա�ͳ�� - ".$type_tips;
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="../../res/base.css" rel="stylesheet" type="text/css">
 <script src="../../res/base.js" language="javascript"></script>
-<script src="../..res/datejs/picker.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 body {margin-top:6px; }
 #rp_condition_form {text-align:center; }

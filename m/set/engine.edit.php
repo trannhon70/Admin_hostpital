@@ -2,11 +2,11 @@
 
 /*
 
-// - ¹¦ÄÜËµÃ÷ : ËÑË÷ÒýÇæÐÂÔö¡¢ÐÞ¸Ä
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
 
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// - ´´½¨Ê±¼ä : 2010-07-31 14:56
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2010-07-31 14:56
 
 */
 
@@ -46,11 +46,11 @@ if ($_POST) {
 
 	if ($db->query($sql)) {
 
-		msg_box("×ÊÁÏÌá½»³É¹¦", "?", 1);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½É¹ï¿½", "?", 1);
 
 	} else {
 
-		msg_box("×ÊÁÏÌá½»Ê§°Ü£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ¡£", "back", 1, 5);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½Ü£ï¿½ÏµÍ³ï¿½ï¿½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½Ô¡ï¿½", "back", 1, 5);
 
 	}
 
@@ -58,7 +58,7 @@ if ($_POST) {
 
 
 
-$title = $op == "edit" ? "ËÑË÷ÒýÇæÀ´Ô´ - ÐÞ¸Ä" : "ËÑË÷ÒýÇæÀ´Ô´ - ÐÂÔö";
+$title = $op == "edit" ? "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ - ï¿½Þ¸ï¿½" : "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ - ï¿½ï¿½ï¿½ï¿½";
 
 ?>
 
@@ -70,9 +70,9 @@ $title = $op == "edit" ? "ËÑË÷ÒýÇæÀ´Ô´ - ÐÞ¸Ä" : "ËÑË÷ÒýÇæÀ´Ô´ - ÐÂÔö";
 
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+<script src="../../res/base.js" language="javascript"></script>
 
 <script language="javascript">
 
@@ -82,7 +82,7 @@ function Check() {
 
 	if (oForm.name.value == "") {
 
-		alert("ÇëÊäÈë¡°Ãû³Æ¡±£¡"); oForm.name.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½"); oForm.name.focus(); return false;
 
 	}
 
@@ -98,17 +98,17 @@ function Check() {
 
 <body>
 
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 
 <div class="headers">
 
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 
 </div>
 
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 
 
@@ -118,9 +118,9 @@ function Check() {
 
 <div class="description">
 
-	<div class="d_title">ÌáÊ¾£º</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
 
-	<div class="d_item">1.ÊäÈëÃû³Æ£¬µã»÷Ìá½»¼´¿É</div>
+	<div class="d_item">1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½</div>
 
 </div>
 
@@ -136,15 +136,15 @@ function Check() {
 
 	<tr>
 
-		<td colspan="2" class="head">ËÑË÷ÒýÇæ×ÊÁÏ</td>
+		<td colspan="2" class="head">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
 
 	</tr>
 
 	<tr>
 
-		<td class="left">Ãû³Æ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½Æ£ï¿½</td>
 
-		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">Ãû³Æ±ØÐëÌîÐ´</span></td>
+		<td class="right"><input name="name" value="<?php echo $line["name"]; ?>" class="input" size="30" style="width:200px"> <span class="intro">ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½Ð´</span></td>
 
 	</tr>
 
@@ -156,7 +156,7 @@ function Check() {
 
 
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 
 </form>
 
