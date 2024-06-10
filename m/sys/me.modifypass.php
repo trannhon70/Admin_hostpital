@@ -1,14 +1,14 @@
 <?php
 /*
-// - 功能说明 : 修改当前登录用户密码
-// - 创建作者 : zhuwenya (zhuwenya@126.com)
-// - 创建时间 : 2007-01-06 20:52
+// - 锟斤拷锟斤拷说锟斤拷 : 锟睫改碉拷前锟斤拷录锟矫伙拷锟斤拷锟斤拷
+// - 锟斤拷锟斤拷锟斤拷锟斤拷 : zhuwenya (zhuwenya@126.com)
+// - 锟斤拷锟斤拷时锟斤拷 : 2007-01-06 20:52
 */
 require "../../core/core.php";
 $table = "sys_admin";
 
 if (!$uid) {
-	exit_html("不能修改密码...");
+	exit_html("锟斤拷锟斤拷锟睫革拷锟斤拷锟斤拷...");
 }
 
 if ($_POST) {
@@ -17,10 +17,10 @@ if ($_POST) {
 	$NewPass1 = $_POST["newpass1"];
 
 	if ($NewPass != $NewPass1) {
-		msg_box("两次密码输入不一致，请重新输入！", "back", 1);
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟诫不一锟铰ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷锟诫！", "back", 1);
 	}
 	if (strlen($NewPass) < 3) {
-		msg_box("新密码长度至少要设定三位及以上，请重新设定。", "back", 1);
+		msg_box("锟斤拷锟斤拷锟诫长锟斤拷锟斤拷锟斤拷要锟借定锟斤拷位锟斤拷锟斤拷锟较ｏ拷锟斤拷锟斤拷锟斤拷锟借定锟斤拷", "back", 1);
 	}
 
 	$EnPass = md5($NewPass);
@@ -28,12 +28,12 @@ if ($_POST) {
 	if ($old = $db->query_first("select * from $table where name='$username' limit 1")) {
 		if (md5($OldPass) == $old["pass"]) {
 			if ($db->query("update $table set pass='$EnPass' where name='$username' limit 1")) {
-				msg_box("密码修改成功，下次登录请使用新密码！", "back", 1);
+				msg_box("锟斤拷锟斤拷锟睫改成癸拷锟斤拷锟铰次碉拷录锟斤拷使锟斤拷锟斤拷锟斤拷锟诫！", "back", 1);
 			} else {
-				msg_box("密码修改失败！请稍后再试", "back", 1, 5);
+				msg_box("锟斤拷锟斤拷锟睫革拷失锟杰ｏ拷锟斤拷锟皆猴拷锟斤拷锟斤拷", "back", 1, 5);
 			}
 		} else {
-			msg_box("原密码输入不正确，请重新输入原密码！", "back", 1);
+			msg_box("原锟斤拷锟斤拷锟斤拷锟诫不锟斤拷确锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷原锟斤拷锟诫！", "back", 1);
 		}
 	}
 }
@@ -41,26 +41,26 @@ if ($_POST) {
 ?>
 <html xmlns=http://www.w3.org/1999/xhtml>
 <head>
-<title>修改密码</title>
+<title>锟睫革拷锟斤拷锟斤拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <script language="javascript">
 function check_data(f) {
 	if (f.oldpass.value == "") {
-		msg_box("请输入您的当前密码！",2); f.oldpass.focus(); return false;
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟侥碉拷前锟斤拷锟诫！",2); f.oldpass.focus(); return false;
 	}
 	if (f.newpass.value == "") {
-		msg_box("请输入您的新密码！",2); f.newpass.focus(); return false;
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟诫！",2); f.newpass.focus(); return false;
 	}
 	if (f.newpass.value.length < 3) {
-		msg_box("新密码长度至少要有3位！",2); f.newpass.focus(); return false;
+		msg_box("锟斤拷锟斤拷锟诫长锟斤拷锟斤拷锟斤拷要锟斤拷3位锟斤拷",2); f.newpass.focus(); return false;
 	}
 	if (f.newpass1.value == "") {
-		msg_box("请再次输入您的新密码！",2); f.newpass1.focus(); return false;
+		msg_box("锟斤拷锟劫达拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟诫！",2); f.newpass1.focus(); return false;
 	}
 	if (f.newpass.value != f.newpass1.value) {
-		msg_box("两次密码输入不一致！",2); f.newpass1.focus(); return false;
+		msg_box("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟诫不一锟铰ｏ拷",2); f.newpass1.focus(); return false;
 	}
 	return true;
 }
@@ -68,41 +68,41 @@ function check_data(f) {
 </head>
 
 <body>
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 <div class="headers">
-	<div class="headers_title"><span class="tips">修改密码</span></div>
-	<div class="headers_oprate"><input type="button" value="返回" onclick="history.back()" class="button"></div>
+	<div class="headers_title"><span class="tips">锟睫革拷锟斤拷锟斤拷</span></div>
+	<div class="headers_oprate"><input type="button" value="锟斤拷锟斤拷" onclick="history.back()" class="button"></div>
 </div>
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 
 <div class="space"></div>
 <div class="description">
-	<div class="d_title">修改提示：</div>
-	<li class="d_item">必须输入正确的原密码，和两次至少6位的新密码</li>
-	<li class="d_item">成功修改后的新密码即刻生效，在任何需要使用您的个人密码的地方都应使用此新密码</li>
+	<div class="d_title">锟睫革拷锟斤拷示锟斤拷</div>
+	<li class="d_item">锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷确锟斤拷原锟斤拷锟诫，锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷6位锟斤拷锟斤拷锟斤拷锟斤拷</li>
+	<li class="d_item">锟缴癸拷锟睫改猴拷锟斤拷锟斤拷锟斤拷爰达拷锟斤拷锟叫э拷锟斤拷锟斤拷魏锟斤拷锟揭癸拷锟斤拷锟斤拷母锟斤拷锟斤拷锟斤拷锟侥地凤拷锟斤拷应使锟矫达拷锟斤拷锟斤拷锟斤拷</li>
 </div>
 
 <div class="space"></div>
 <form method='POST' onsubmit="return check_data(this);">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">修改登录密码：</td>
+		<td colspan="2" class="head">锟睫改碉拷录锟斤拷锟诫：</td>
 	</tr>
 	<tr>
-		<td class="left">原密码：</td>
-		<td class="right"><input name='oldpass' type='password' style='width:120' class='input'> <span class="intro">您的当前密码</span></td>
+		<td class="left">原锟斤拷锟诫：</td>
+		<td class="right"><input name='oldpass' type='password' style='width:120' class='input'> <span class="intro">锟斤拷锟侥碉拷前锟斤拷锟斤拷</span></td>
 	</tr>
 	<tr>
-		<td class="left">新密码：</td>
-		<td class="right"><input name='newpass' type='password' style='width:120' class='input'> <span class="intro">新的密码，至少6位</span></td>
+		<td class="left">锟斤拷锟斤拷锟诫：</td>
+		<td class="right"><input name='newpass' type='password' style='width:120' class='input'> <span class="intro">锟铰碉拷锟斤拷锟诫，锟斤拷锟斤拷6位</span></td>
 	</tr>
 	<tr>
-		<td class="left">确认新密码：</td>
-		<td class="right"><input name='newpass1' type='password' style='width:120' class='input'> <span class="intro">再输入一次以确认新密码</span></td>
+		<td class="left">确锟斤拷锟斤拷锟斤拷锟诫：</td>
+		<td class="right"><input name='newpass1' type='password' style='width:120' class='input'> <span class="intro">锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷确锟斤拷锟斤拷锟斤拷锟斤拷</span></td>
 	</tr>
 </table>
 
-<div class="button_line"><input type="submit" value="修改密码" class="submit"></div>
+<div class="button_line"><input type="submit" value="锟睫革拷锟斤拷锟斤拷" class="submit"></div>
 </form>
 
 <div class="space"></div>

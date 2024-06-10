@@ -1,30 +1,30 @@
 <?php
 /*
-// 说明: 按性别报表
-// 作者: 爱医战队 
-// 时间: 2011-11-23
+// 说锟斤拷: 锟斤拷锟皆别报憋拷
+// 锟斤拷锟斤拷: 锟斤拷医战锟斤拷 
+// 时锟斤拷: 2011-11-23
 */
 require "../../core/core.php";
 
-// 报表核心定义:
+// 锟斤拷锟斤拷锟斤拷锟侥讹拷锟斤拷:
 include "rp.core.php";
 
-$tongji_tips = " - 性别统计 - ".$type_tips;
+$tongji_tips = " - 锟皆憋拷统锟斤拷 - ".$type_tips;
 ?>
 <html>
 <head>
-<title>性别报表</title>
+<title>锟皆别报憋拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../..res/datejs/picker.js" language="javascript"></script>
 <style>
 body {margin-top:6px; }
 #rp_condition_form {text-align:center; }
-.head, .head a {font-family:"微软雅黑","Verdana"; }
+.head, .head a {font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 .item {font-family:"Tahoma"; padding:8px 3px 6px 3px !important; }
 .footer_op_left {font-family:"Tahoma"; }
-.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微软雅黑","Verdana"; }
+.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 form {display:inline; }
 </style>
 </head>
@@ -37,25 +37,25 @@ form {display:inline; }
 <?php
 
 if (in_array($type, array(1,2,3,4))) {
-	// 计算统计数据:
+	// 锟斤拷锟斤拷统锟斤拷锟斤拷锟斤拷:
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
-		$data[$k]["男"] = $db->query("select count(*) as c from $table where $where sex='男' and {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
+		$data[$k]["锟斤拷"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
+		$data[$k]["锟斤拷"] = $db->query("select count(*) as c from $table where $where sex='锟斤拷' and {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
 		$data[$k]["女"] = $db->query("select count(*) as c from $table where $where sex='女' and {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
-		$data[$k]["未知"] = $data[$k]["总"] - $data[$k]["男"] - $data[$k]["女"];
+		$data[$k]["未知"] = $data[$k]["锟斤拷"] - $data[$k]["锟斤拷"] - $data[$k]["女"];
 	}
 } else if ($type == 5) {
 	$arr_all = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
-	$arr_man = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where sex='男' and $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
+	$arr_man = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where sex='锟斤拷' and $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
 	$arr_woman = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where sex='女' and $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
 
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = intval($arr_all[$v]);
-		$data[$k]["男"] = intval($arr_man[$v]);
+		$data[$k]["锟斤拷"] = intval($arr_all[$v]);
+		$data[$k]["锟斤拷"] = intval($arr_man[$v]);
 		$data[$k]["女"] = intval($arr_woman[$v]);
-		$data[$k]["未知"] = $data[$k]["总"] - $data[$k]["男"] - $data[$k]["女"];
+		$data[$k]["未知"] = $data[$k]["锟斤拷"] - $data[$k]["锟斤拷"] - $data[$k]["女"];
 	}
 }
 
@@ -63,22 +63,22 @@ if (in_array($type, array(1,2,3,4))) {
 <div class="date_tips"><?php echo $h_name.$tongji_tips; ?></div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center" width="10%">时间</td>
-		<td class="head" align="center" width="18%">总人数</td>
-		<td class="head" align="center" width="18%">男</td>
+		<td class="head" align="center" width="10%">时锟斤拷</td>
+		<td class="head" align="center" width="18%">锟斤拷锟斤拷锟斤拷</td>
+		<td class="head" align="center" width="18%">锟斤拷</td>
 		<td class="head" align="center" width="18%">女</td>
 		<td class="head" align="center" width="18%">未知</td>
-		<td class="head" align="center" width="18%">男女比例</td>
+		<td class="head" align="center" width="18%">锟斤拷女锟斤拷锟斤拷</td>
 	</tr>
 
 <?php foreach ($final_dt_arr as $k => $v) { ?>
 	<tr>
 		<td class="item" align="center"><?php echo $k; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["总"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["男"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["锟斤拷"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["锟斤拷"]; ?></td>
 		<td class="item" align="center"><?php echo $data[$k]["女"]; ?></td>
 		<td class="item" align="center"><?php echo $data[$k]["未知"]; ?></td>
-		<td class="item" align="center">1:<?php echo $data[$k]["男"] == 0 ? "∞" : @round($data[$k]["女"] / $data[$k]["男"], 2); ?></td>
+		<td class="item" align="center">1:<?php echo $data[$k]["锟斤拷"] == 0 ? "锟斤拷" : @round($data[$k]["女"] / $data[$k]["锟斤拷"], 2); ?></td>
 	</tr>
 <?php } ?>
 </table>

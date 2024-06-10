@@ -1,8 +1,8 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ²¡ÈËÁÐ±í
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-01 05:09
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-01 05:09
 */
 //date_default_timezone_set('Asia/Shanghai');
 require "../../core/core.php";
@@ -10,13 +10,13 @@ $mod = "patient";
 $table = "patient_".$user_hospital_id;
 
 if ($user_hospital_id == 0) {
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 }
 
-// ÑÕÉ«¶¨Òå 2010-07-31
+// ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ 2010-07-31
 $line_color = array('black', 'red', 'silver', '#8AC6C6', '#8000FF');
-$line_color_tip = array("µÈ´ý", "ÒÑµ½", "Î´µ½", "¹ýÆÚ", "»Ø·Ã");
-$area_id_name = array(0 => "Î´Öª", 1 => "±¾ÊÐ", 2 => "ÍâµØ");
+$line_color_tip = array("ï¿½È´ï¿½", "ï¿½Ñµï¿½", "Î´ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½", "ï¿½Ø·ï¿½");
+$area_id_name = array(0 => "Î´Öª", 1 => "ï¿½ï¿½ï¿½ï¿½", 2 => "ï¿½ï¿½ï¿½");
 
 
 
@@ -37,9 +37,9 @@ else
 	$count_not = $db->query("select count(*) as count from yy_list where status!=1 order by id desc", 1, "count");
 
 	$count_all = $count_come + $count_not;
-	$res_report = "×Ü¹²: <b>".$count_all."</b> &nbsp; ÒÑµ½: <b>".$count_come."</b> &nbsp; Î´µ½: <b>".$count_not."</b>";
+	$res_report = "ï¿½Ü¹ï¿½: <b>".$count_all."</b> &nbsp; ï¿½Ñµï¿½: <b>".$count_come."</b> &nbsp; Î´ï¿½ï¿½: <b>".$count_not."</b>";
 
-// Ê±¼ä½çÏÞ¶¨Òå:
+// Ê±ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½ï¿½ï¿½:
 $today_tb = mktime(0,0,0);
 $today_te = $today_tb + 24*3600;
 $yesterday_tb = $today_tb - 24*3600;
@@ -47,11 +47,11 @@ $month_tb = mktime(0,0,0,date("m"),1);
 $month_te = strtotime("+1 month", $month_tb);
 $lastmonth_tb = strtotime("-1 month", $month_tb);
 
-// Í¬±ÈÈÕÆÚ¶¨Òå(2010-11-27):
+// Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½(2010-11-27):
 $tb_tb = strtotime("-1 month", $month_tb);
 $tb_te = strtotime("-1 month", time());
 
-// ÔÂ±È:
+// ï¿½Â±ï¿½:
 $yuebi_tb = strtotime("-1 month", $today_tb);
 if (date("d", $yuebi_tb) != date("d", $today_tb)) {
 	$yuebi_tb = $yuebi_te = -1;
@@ -59,20 +59,20 @@ if (date("d", $yuebi_tb) != date("d", $today_tb)) {
 	$yuebi_te = $yuebi_tb + 24*3600;
 }
 
-// ÖÜ±È:
+// ï¿½Ü±ï¿½:
 $zhoubi_tb = strtotime("-7 day", $today_tb);
 $zhoubi_te = $zhoubi_tb + 24*3600;
 
-// Í¬±È:
-$tb_tb = strtotime("-1 month", $month_tb); //Í¬±ÈÊ±¼ä¿ªÊ¼
-$tb_te = strtotime("-1 month", time()); //Í¬±ÈÊ±¼ä½áÊø
+// Í¬ï¿½ï¿½:
+$tb_tb = strtotime("-1 month", $month_tb); //Í¬ï¿½ï¿½Ê±ï¿½ä¿ªÊ¼
+$tb_te = strtotime("-1 month", time()); //Í¬ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-//Í³¼Æ
-//½ñÌì
+//Í³ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½
 $today_all = $db->query("select count(*) as count from yy_list where addtime>=$today_tb", 1, "count");
-//×òÌì
+//ï¿½ï¿½ï¿½ï¿½
 $yesterday_all = $db->query("select count(*) as count from yy_list where addtime>=$yesterday_tb and addtime<$today_tb", 1, "count");
-//Ç°Ìì»ò¸üÔç
+//Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 $q_all = $count_all - $today_all - $yesterday_all;
 
 function Yesterday($a,$b)
@@ -103,17 +103,17 @@ function mlist()
 		
 		if(date("Y-m-d", $row["addtime"])==date("Y-m-d") and $a==true)
 		{
-			echo '<tr class="pagex"><td height="35" colspan="9">½ñÌì('.$today_all.')</td></tr>';
+			echo '<tr class="pagex"><td height="35" colspan="9">ï¿½ï¿½ï¿½ï¿½('.$today_all.')</td></tr>';
 			$a=false;
 		}
 		if(Yesterday(date("Y-m-d"),$d_date)==1 and $b==true)
 		{
-			echo '<tr class="pagex"><td height="35" colspan="9">×òÌì('.$yesterday_all.')</td></tr>';
+			echo '<tr class="pagex"><td height="35" colspan="9">ï¿½ï¿½ï¿½ï¿½('.$yesterday_all.')</td></tr>';
 			$b=false;
 		}
 		if(Yesterday(date("Y-m-d"),$d_date)>1 and $c==true)
 		{
-			echo '<tr class="pagex"><td height="35" colspan="9">Ç°Ìì»ò¸üÔç('.$q_all.')</td></tr>';
+			echo '<tr class="pagex"><td height="35" colspan="9">Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½('.$q_all.')</td></tr>';
 			$c=false;
 		}
 		
@@ -129,7 +129,7 @@ function mlist()
 		<td title=\"{$row['ks']}\">{$ks}</td>
 		<td>{$d_date}</td>
 		<td>{$conttent}</td>
-		<td><a href=\"w_list_ck.php?id={$id}\" title='²é¿´ÏêÇé'><img src=\"/res/img/b_detail.gif\" /></a> <a href=\"w_list.edit.php?op=edit&id={$id}&go=back\" title='ÐÞ¸ÄÊý¾Ý'><img src=\"/res/img/b_edit.gif\" /></a> <a href=\"w_list.delete.php?page={$_GET['page']}&id={$id}\" title='É¾³ý' onclick='return confirm(\"ÄúÈ·¶¨ÒªÉ¾³ý´ËÌõÐÅÏ¢£¿´Ë²Ù×÷ÎÞ·¨»Ö¸´¡£\")'><img src=\"/res/img/b_delete.gif\" /></a></td>
+		<td><a href=\"w_list_ck.php?id={$id}\" title='ï¿½é¿´ï¿½ï¿½ï¿½ï¿½'><img src=\"/res/img/b_detail.gif\" /></a> <a href=\"w_list.edit.php?op=edit&id={$id}&go=back\" title='ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½'><img src=\"../../res/img/b_edit.gif\" /></a> <a href=\"w_list.delete.php?page={$_GET['page']}&id={$id}\" title='É¾ï¿½ï¿½' onclick='return confirm(\"ï¿½ï¿½È·ï¿½ï¿½ÒªÉ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½\")'><img src=\"../../res/img/b_delete.gif\" /></a></td>
 	  </tr>";
 	  
 	}
@@ -140,10 +140,10 @@ function page()
 	global $page,$count_all;
 	
 	$mcount=ceil($count_all / 20);
-	echo "ºÏ¼Æ£º".$count_all . "Ìõ " .$mcount. "Ò³ ";
-	$index=$page<2 ? "Ê×Ò³" : $index="<a href=\"?page=1\">Ê×Ò³</a>";
-	$pre=$page<2 ? "ÉÏÒ»Ò³":"<a href=\"?page=". ($page-1) ."\">ÉÏÒ»Ò³</a>";
-	$next=$page<$mcount ? "<a href=\"?page=". ($page+1) ."\">ÏÂÒ»Ò³</a>":"ÏÂÒ»Ò³";
+	echo "ï¿½Ï¼Æ£ï¿½".$count_all . "ï¿½ï¿½ " .$mcount. "Ò³ ";
+	$index=$page<2 ? "ï¿½ï¿½Ò³" : $index="<a href=\"?page=1\">ï¿½ï¿½Ò³</a>";
+	$pre=$page<2 ? "ï¿½ï¿½Ò»Ò³":"<a href=\"?page=". ($page-1) ."\">ï¿½ï¿½Ò»Ò³</a>";
+	$next=$page<$mcount ? "<a href=\"?page=". ($page+1) ."\">ï¿½ï¿½Ò»Ò³</a>":"ï¿½ï¿½Ò»Ò³";
 	$Last=$page<$mcount ? "<a href=\"?page=". ($mcount) ."\">Î²Ò³</a>":"Î²Ò³";
 
 	echo "$index $pre $next $Last ";

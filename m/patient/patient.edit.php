@@ -1,8 +1,8 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ÐÂÔö¡¢ÐÞ¸Ä²¡ÈË×ÊÁÏ
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2014-04-03 11:57
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2014-04-03 11:57
 */
 $mode = $op;
 
@@ -23,32 +23,32 @@ function request_by_other($remote_server, $post_string)
 }
 
 if ($_POST) {
-	$po = &$_POST; //ÒýÓÃ $_POST
+	$po = &$_POST; //ï¿½ï¿½ï¿½ï¿½ $_POST
 
 	if ($mode == "edit") {
 		$oldline = $db->query("select * from $table where id=$id limit 1", 1);
 	} else {
-		// ¼ì²éÒ»¸öÔÂÄÚµÄ²¡ÈËÖÐÓÐÎÞÖØ¸´µÄ:
+		// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½:
 		$name = trim($po["name"]);
 		$tel = trim($po["tel"]);
 		if (strlen($tel) >= 7) {
 			$thetime = strtotime("-1 month");
 			$list = $db->query("select * from $table where tel='$tel' and addtime>$thetime limit 1", 1);
 			if ($list && count($list) > 0) {
-				msg_box("µç»°ºÅÂëÖØ¸´£¬Ìá½»Ê§°Ü", "back", 1, 5);
+				msg_box("ï¿½ç»°ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½ï¿½", "back", 1, 5);
 			}
 		}
 	}
 
 	/*
-	// ¼ì²éËÑË÷ÒýÇæ×Ö¶Î:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½:
 	if (!$oldline) {
 		$test_line = $db->query("select * from $table limit 1", 1);
 	} else {
 		$test_line = $oldline;
 	}
 
-	// ×Ô¶¯¼ì²â×Ö¶Î:  ºóÆÚ¿ÉÒÔÈ¥³ý
+	// ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½:  ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½È¥ï¿½ï¿½
 	if (!isset($test_line["engine"])) {
 		$db->query("alter table `{$table}` add `engine` varchar(32) not null after `media_from`;");
 	}
@@ -61,7 +61,7 @@ if ($_POST) {
 	*/
 
 
-	// ¿Í·þÌí¼Ó¼²²¡ÀàÐÍ  2010-10-27
+	// ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  2010-10-27
 	if ($po["disease_id"] == -1) {
 		$d_name = $po["disease_add"];
 		$d_id = 0;
@@ -93,31 +93,31 @@ if ($_POST) {
 	if (($username == "admin") || !in_array($uinfo["part_id"], array(4))) { 
 		if (isset($po["addtime"])) $r["addtime"] = strtotime($po["addtime"]);
 	}
-	// ÐÞ¸ÄÊ±¼ä:
+	// ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:
 	if (isset($po["order_date"])) {
 		$order_date_post = @strtotime($po["order_date"]);
 		if ($mode == "add") {
 
-			// Èç¹ûÐÞ¸Ä£¬¸ÃÊ±¼ä²»ÄÜ±»ÐÞ¸ÄÎªµ±Ç°Ê±¼äµÄÒ»¸öÔÂÖ®Ç°(2011-01-15)
+			// ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½ï¿½ï¿½Ê±ï¿½ä²»ï¿½Ü±ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö®Ç°(2011-01-15)
 			if ($order_date_post < strtotime("-1 month")) {
-				exit_html("Ô¤Ô¼Ê±¼ä²»ÄÜÊÇÒ»¸öÔÂÖ®Ç°¡££¨ÇëÏÈ¼ì²éÄúµÄµçÄÔÊ±¼äÊÇ·ñÓÐÎó£¡£©  Çë·µ»ØÖØÐÂÌîÐ´¡£");
+				exit_html("Ô¤Ô¼Ê±ï¿½ä²»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ó£¡£ï¿½  ï¿½ë·µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½");
 			}
 
-			$r["order_date"] = $order_date_post; //ÐÂÔö
+			$r["order_date"] = $order_date_post; //ï¿½ï¿½ï¿½ï¿½
 		} else {
-			//ÅÐ¶ÏÊ±¼äÊÇ·ñÓÐÐÞ¸Ä
+			//ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
 			if ($order_date_post != $oldline["order_date"]) {
 
-				// Èç¹ûÐÞ¸Ä£¬¸ÃÊ±¼ä²»ÄÜ±»ÐÞ¸ÄÎªµ±Ç°Ê±¼äµÄÒ»¸öÔÂÖ®Ç°(2011-01-15)
+				// ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½ï¿½ï¿½Ê±ï¿½ä²»ï¿½Ü±ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö®Ç°(2011-01-15)
 				if ($order_date_post < strtotime("-1 month")) {
-					exit_html("Ô¤Ô¼Ê±¼ä²»ÄÜ±»ÐÞ¸Äµ½Ò»¸öÔÂÖ®Ç°¡££¨ÇëÏÈ¼ì²éÄúµÄµçÄÔÊ±¼äÊÇ·ñÓÐÎó£¡£©  Çë·µ»ØÖØÐÂÌîÐ´¡£");
+					exit_html("Ô¤Ô¼Ê±ï¿½ä²»ï¿½Ü±ï¿½ï¿½Þ¸Äµï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ó£¡£ï¿½  ï¿½ë·µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½");
 				}
 
 				$r["order_date"] = $order_date_post;
 				$r["order_date_changes"] = intval($oldline["order_date_changes"])+1;
-				$r["order_date_log"] = $oldline["order_date_log"].(date("Y-m-d H:i:s")." ".$realname." ÐÞ¸Ä (".date("Y-m-d H:i", $oldline["order_date"])." => ".date("Y-m-d H:i", $order_date_post).")<br>");
+				$r["order_date_log"] = $oldline["order_date_log"].(date("Y-m-d H:i:s")." ".$realname." ï¿½Þ¸ï¿½ (".date("Y-m-d H:i", $oldline["order_date"])." => ".date("Y-m-d H:i", $order_date_post).")<br>");
 
-				// Èç¹ûÐÞ¸ÄÔ¤Ô¼Ê±¼ä£¬×Ô¶¯ÐÞ¸Ä×´Ì¬ÎªµÈ´ý
+				// ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½Ô¤Ô¼Ê±ï¿½ä£¬ï¿½Ô¶ï¿½ï¿½Þ¸ï¿½×´Ì¬Îªï¿½È´ï¿½
 				if ($oldline["status"] == 2) {
 					$r["status"] = 0;
 				}
@@ -129,14 +129,14 @@ if ($_POST) {
 	if (isset($po["status"])) $r["status"] = $po["status"];
 	if (isset($po["fee"])) $r["fee"] = $po["fee"]; //2010-11-18
 
-	// ½«½Ó´ýÈËÐÞ¸ÄÎªµ±Ç°µÄµ¼Ò½:
+	// ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½Ç°ï¿½Äµï¿½Ò½:
 	if ($mode == "edit" && $oldline["jiedai"] == '' && $uinfo["part_id"] == 4) {
 		$r["jiedai"] = $realname;
 	}
 
-	// µ¼Ò½Ìí¼ÓÖ±½ÓÉèÖÃÎªÒÑµ½:
+	// ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ñµï¿½:
 	if ($mode == "add" && $uinfo["part_id"] == 4) {
-		$r["status"] = 1; //ÒÑµ½
+		$r["status"] = 1; //ï¿½Ñµï¿½
 		$r["jiedai"] = $realname;
 	}
 
@@ -144,7 +144,7 @@ if ($_POST) {
 		$r["doctor"] = $po["doctor"];
 	}
 
-	// ÒÑ×öµÄÕûÐÎÏîÄ¿:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿:
 	if ($po["update_xiangmu"]) {
 		$r["xiangmu"] = @implode(" ", $po["xiangmu"]);
 	}
@@ -154,16 +154,16 @@ if ($_POST) {
 	}
 
 
-	if ($mode == "edit") { //ÐÞ¸ÄÄ£Ê½
+	if ($mode == "edit") { //ï¿½Þ¸ï¿½Ä£Ê½
 		if (isset($po["jiedai_content"])) {
 			$r["jiedai_content"] = $po["jiedai_content"];
 		}
 
-		// ÐÞ¸Ä¼ÇÂ¼£¿
+		// ï¿½Þ¸Ä¼ï¿½Â¼ï¿½ï¿½
 		if ($oldline["author"] != $realname) {
-			$r["edit_log"] = $oldline["edit_log"].$realname.' ÓÚ '.date("Y-m-d H:i:s")." ÐÞ¸Ä¹ý¸Ã×ÊÁÏ<br>";
+			$r["edit_log"] = $oldline["edit_log"].$realname.' ï¿½ï¿½ '.date("Y-m-d H:i:s")." ï¿½Þ¸Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>";
 		}
-	} else {         //ÐÂÔöÄ£Ê½
+	} else {         //ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 		$r["part_id"] = $uinfo["part_id"];
 		$r["addtime"] = time();
 		$r["author"] = $realname;
@@ -182,9 +182,9 @@ if ($_POST) {
 				$get_msg=$tel_msg;
 			}
 			if(preg_match("/1[3458]{1}\d{9}$/",$tel)){
-				$get_msg=$po["name"]."ÄúºÃ£¡\r\n".$get_msg;
-				//{×¨¼ÒºÅ} zhuanjia_num
-				$get_msg=str_replace("{×¨¼ÒºÅ}",$po["zhuanjia_num"],$get_msg);
+				$get_msg=$po["name"]."ï¿½ï¿½ï¿½Ã£ï¿½\r\n".$get_msg;
+				//{×¨ï¿½Òºï¿½} zhuanjia_num
+				$get_msg=str_replace("{×¨ï¿½Òºï¿½}",$po["zhuanjia_num"],$get_msg);
 				$msg=urlencode ($get_msg);
 				$post_string = "aaa=go&func=sendsms&username={$tel_Account[0]}&password={$tel_Account[1]}&mobiles={$tel}&message={$msg}";
 				$yz=request_by_other('http://sms.c8686.com/Api/BayouSmsApiEx.aspx',$post_string);
@@ -223,17 +223,17 @@ if ($_POST) {
 	if ($return) {
 		if ($op == "add") $id = $return;
 		if ($mode == "edit") {
-			//$log->add("edit", ("ÐÞ¸ÄÁË²¡ÈË×ÊÁÏ»ò×´Ì¬: ".$oldline["name"]), $oldline, $table);
+			//$log->add("edit", ("ï¿½Þ¸ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï»ï¿½×´Ì¬: ".$oldline["name"]), $oldline, $table);
 		} else {
-			//$log->add("add", ("Ìí¼ÓÁË²¡ÈË: ".$r["name"]), $r, $table);
+			//$log->add("add", ("ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½: ".$r["name"]), $r, $table);
 		}
-		msg_box("×ÊÁÏÌá½»³É¹¦", history(2, $id), 1);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½É¹ï¿½", history(2, $id), 1);
 	} else {
-		msg_box("×ÊÁÏÌá½»Ê§°Ü£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ¡£", "back", 1, 5);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½Ü£ï¿½ÏµÍ³ï¿½ï¿½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½Ô¡ï¿½", "back", 1, 5);
 	}
 }
 
-// ¶ÁÈ¡×Öµä:
+// ï¿½ï¿½È¡ï¿½Öµï¿½:
 $hospital_list = $db->query("select id,name from hospital");
 $disease_list = $db->query("select id,name from disease where hospital_id='$user_hospital_id' and isshow=1 order by sort desc,sort2 desc", "id", "name");
 $doctor_list = $db->query("select id,name from doctor where hospital_id='$user_hospital_id'");
@@ -241,7 +241,7 @@ $part_id_name = $db->query("select id,name from sys_part", "id", "name");
 $depart_list = $db->query("select id,name from depart where hospital_id='$user_hospital_id'");
 $engine_list = $db->query("select id,name from engine", "id", "name");
 $sites_list = $db->query("select id,url from sites where hid=$hid", "id", "url");
-$account_list = $db->query("select id,concat(name,if(type='web',' (ÍøÂç)',' (µç»°)')) as fname from count_type where hid=$hid order by id asc", "id", "fname");
+$account_list = $db->query("select id,concat(name,if(type='web',' (ï¿½ï¿½ï¿½ï¿½)',' (ï¿½ç»°)')) as fname from count_type where hid=$hid order by id asc", "id", "fname");
 $time1 = strtotime("-3 month");
 $area_list = $db->query("select area, count(area) as c from $table where area!='' and addtime>$time1 group by area order by c desc limit 20", "", "area");
 
@@ -259,12 +259,12 @@ $status_array = array(
 );
 
 $xiaofei_array = array(
-	array("id"=>0, "name"=>'Î´Ïû·Ñ'),
-	array("id"=>1, "name"=>'ÒÑÏû·Ñ'),
+	array("id"=>0, "name"=>'Î´ï¿½ï¿½ï¿½ï¿½'),
+	array("id"=>1, "name"=>'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'),
 );
 
 
-// È¡Ç°30¸ö²¡ÖÖ:
+// È¡Ç°30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 $show_disease = array();
 foreach ($disease_list as $k => $v) {
 	$show_disease[$k] = $v;
@@ -273,7 +273,7 @@ foreach ($disease_list as $k => $v) {
 	}
 }
 
-// ¶ÁÈ¡±à¼­ ×ÊÁÏ
+// ï¿½ï¿½È¡ï¿½à¼­ ï¿½ï¿½ï¿½ï¿½
 $cur_disease_list = array();
 if ($mode == "edit") {
 	$line = $db->query_first("select * from $table where id='$id' limit 1");
@@ -288,7 +288,7 @@ if ($mode == "edit") {
 
 
 // 2010-05-18
-$media_from_array = explode(" ", "ÍøÂç µç»°"); // Íø¹Ò ÔÓÖ¾ ÊÐ³¡ µØÌú ÅóÓÑ½éÉÜ Â·ÅÆ µçÊÓ µçÌ¨ ¶ÌÐÅ Â·¹ý ³µÉí ¹ã¸æ ±¨Ö½ ÆäËû
+$media_from_array = explode(" ", "ï¿½ï¿½ï¿½ï¿½ ï¿½ç»°"); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¾ ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ½ï¿½ï¿½ï¿½ Â·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ì¨ ï¿½ï¿½ï¿½ï¿½ Â·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ö½ ï¿½ï¿½ï¿½ï¿½
 $media_from_array2 = $db->query("select name from media where hospital_id='$user_hospital_id'", "", "name");
 foreach ($media_from_array2 as $v) {
 	if (!in_array($v, $media_from_array)) {
@@ -305,25 +305,25 @@ foreach ($mtly_from_array2 as $v) {
 $is_local_array = array(1 => "TPHCM", 2 => "TINH");
 
 
-// ¿ØÖÆ¸÷Ñ¡ÏîÊÇ·ñ¿ÉÒÔ±à¼­:
+// ï¿½ï¿½ï¿½Æ¸ï¿½Ñ¡ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô±à¼­:
 $all_field = explode(" ", "name sex age tel qq content disease_id media_from zhuanjia_num order_date doctor status xiaofei memo xiangmu huifang depart is_local from_account fee");
 
-$ce = array(); // can_edit µÄ¼òÐ´, Ä³×Ö¶ÎÊÇ·ñÄÜ±à¼­
-if ($mode == "edit") { // ÐÞ¸ÄÄ£Ê½
+$ce = array(); // can_edit ï¿½Ä¼ï¿½Ð´, Ä³ï¿½Ö¶ï¿½ï¿½Ç·ï¿½ï¿½Ü±à¼­
+if ($mode == "edit") { // ï¿½Þ¸ï¿½Ä£Ê½
 	$edit_field = array();
 	if ($uinfo["part_id"] == 2 || $uinfo["part_id"] == 3) {
-		// Î´±»ÐÞ¸Ä¹ýµÄ×ÊÁÏ£¬»¹ÄÜÐÞ¸Ä:
+		// Î´ï¿½ï¿½ï¿½Þ¸Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½:
 		if ($line["status"] == 0 || $line["status"] == 2) {
 			if ($line["author"] == $realname) {
-				$edit_field = explode(' ', 'qq content disease_id media_from zhuanjia_num memo order_date depart is_local from_account'); //×Ô¼ºÐÞ¸Ä
+				$edit_field = explode(' ', 'qq content disease_id media_from zhuanjia_num memo order_date depart is_local from_account'); //ï¿½Ô¼ï¿½ï¿½Þ¸ï¿½
 			} else {
-				$edit_field[] = 'memo'; //²»ÊÇ×Ô¼ºµÄ×ÊÁÏ£¬ÄÜÐÞ¸Ä±¸×¢
+				$edit_field[] = 'memo'; //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½Þ¸Ä±ï¿½×¢
 			}
 		} else if ($line["status"] == 1) {
-			$edit_field[] = 'memo'; //ÒÑµ½µÄÄÜÐÞ¸Ä±¸×¢
+			$edit_field[] = 'memo'; //ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä±ï¿½×¢
 		}
 
-		$edit_field[] = "order_date"; //ÐÞ¸Ä»Ø·Ã£¬²¢ÄÜµ÷ÕûÔ¤Ô¼Ê±¼ä
+		$edit_field[] = "order_date"; //ï¿½Þ¸Ä»Ø·Ã£ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½Ô¤Ô¼Ê±ï¿½ï¿½
 		$edit_field[] = "huifang";
 
 		if ($uinfo["part_id"] == 3) {
@@ -332,7 +332,7 @@ if ($mode == "edit") { // ÐÞ¸ÄÄ£Ê½
 		}
 	} else if ($uinfo["part_id"] == 4) {
 		//if ($line["author"] != $realname) {
-		// µ¼Ò½ÄÜÐÞ¸Ä ½Ó´ýÒ½Éú£¬¸°Ô¼×´Ì¬£¬Ïû·Ñ£¬±¸×¢µÈ×ÊÁÏ
+		// ï¿½ï¿½Ò½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ó´ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ñ£ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if ($line["status"] == 1) {
 			$edit_field[] = 'memo';
 			$edit_field[] = 'xiangmu';
@@ -342,45 +342,45 @@ if ($mode == "edit") { // ÐÞ¸ÄÄ£Ê½
 			$edit_field = explode(' ', 'name doctor status xiaofei memo');
 		}
 	} else if ($uinfo["part_id"] == 12) {
-		// µç»°»Ø·Ã²¿ÃÅ
+		// ï¿½ç»°ï¿½Ø·Ã²ï¿½ï¿½ï¿½
 		$edit_field[] = 'order_date';
 		$edit_field[] = 'memo';
 		$edit_field[] = 'xiangmu';
 		$edit_field[] = 'huifang';
 		$edit_field[] = 'rechecktime';
 	} else {
-		// ¹ÜÀíÔ± ÐÞ¸ÄËùÓÐµÄ×ÊÁÏ
+		// ï¿½ï¿½ï¿½ï¿½Ô± ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
 		$edit_field = $all_field;
 	}
-} else { // ÐÂÔöÄ£Ê½
-	if ($uinfo["part_id"] == 2 || $uinfo["part_id"] == 3) { //¿Í·þÌí¼Ó
+} else { // ï¿½ï¿½ï¿½ï¿½Ä£Ê½
+	if ($uinfo["part_id"] == 2 || $uinfo["part_id"] == 3) { //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
 		$edit_field = explode(' ', 'name sex age tel qq content disease_id media_from zhuanjia_num order_date memo depart is_local from_account');
-	} else if ($uinfo["part_id"] == 4) { //µ¼Ò½Ìí¼Ó
+	} else if ($uinfo["part_id"] == 4) { //ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½
 		$edit_field = explode(' ', 'name sex age tel qq content disease_id media_from zhuanjia_num order_date doctor status memo depart is_local from_account');
 	} else {
 		$edit_field = $all_field;
 	}
 }
 
-// ÒÑÉèÖÃÎªÏû·Ñ£¬²¢ÇÒÊÇ¸ôÌìµÄÊý¾Ý£¬½«²»ÄÜÐÞ¸Ä£¡
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ñ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½
 if ($line["status"] == 1 && (strtotime(date("Y-m-d 0:0:0")) > strtotime(date("Y-m-d 0:0:0", $line["come_date"])))) {
-	//$edit_field = array(); //È«²¿²»ÄÜÐÞ¸Ä
+	//$edit_field = array(); //È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
 }
 
-// Ã¿¸ö×Ö¶ÎÊÇ·ñÄÜ±à¼­:
+// Ã¿ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½Ç·ï¿½ï¿½Ü±à¼­:
 foreach ($all_field as $v) {
 	$ce[$v] = in_array($v, $edit_field) ? '' : ' disabled="true"';
 }
 
 // 2013-06-30 10:42 fix
-if ($line["media_from"] == "ÍøÂç¿Í·þ") {
-	$line["media_from"] = "ÍøÂç";
-} else if ($line["media_from"] == "µç»°¿Í·þ") {
-	$line["media_from"] = "µç»°";
+if ($line["media_from"] == "ï¿½ï¿½ï¿½ï¿½Í·ï¿½") {
+	$line["media_from"] = "ï¿½ï¿½ï¿½ï¿½";
+} else if ($line["media_from"] == "ï¿½ç»°ï¿½Í·ï¿½") {
+	$line["media_from"] = "ï¿½ç»°";
 }
 
 
-$title = $mode == "edit" ? "ÐÞ¸Ä²¡ÈË×ÊÁÏ" : "Ìí¼ÓÐÂµÄ²¡ÈË×ÊÁÏ";
+$title = $mode == "edit" ? "ï¿½Þ¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" : "ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 // page begin ----------------------------------------------------
 ?>
@@ -388,9 +388,9 @@ $title = $mode == "edit" ? "ÐÞ¸Ä²¡ÈË×ÊÁÏ" : "Ìí¼ÓÐÂµÄ²¡ÈË×ÊÁÏ";
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 .dischk {width:6em; height:16px; line-height:16px; vertical-align:middle; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; padding:0; margin:0; }
 </style>
@@ -398,23 +398,23 @@ $title = $mode == "edit" ? "ÐÞ¸Ä²¡ÈË×ÊÁÏ" : "Ìí¼ÓÐÂµÄ²¡ÈË×ÊÁÏ";
 function check_data() {
 	var oForm = document.mainform;
 	if (oForm.name.value == "") {
-		alert("ÇëÊäÈë²¡ÈËÐÕÃû£¡"); oForm.name.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë²¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); oForm.name.focus(); return false;
 	}
 	if (oForm.tel.value != "" && get_num(oForm.tel.value) == '') {
-		alert("ÇëÕýÈ·ÊäÈë²¡ÈËµÄÁªÏµµç»°£¡"); oForm.tel.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ë²¡ï¿½Ëµï¿½ï¿½ï¿½Ïµï¿½ç»°ï¿½ï¿½"); oForm.tel.focus(); return false;
 	}
 	if (oForm.sex.value == '') {
-		alert("ÇëÊäÈë¡°ÐÔ±ð¡±£¡"); oForm.sex.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½Ô±ð¡±£ï¿½"); oForm.sex.focus(); return false;
 	}
 	if (oForm.media_from.value == '') {
-		alert("ÇëÑ¡Ôñ¡°Ã½ÌåÀ´Ô´¡±£¡"); oForm.media_from.focus(); return false;
+		alert("ï¿½ï¿½Ñ¡ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½"); oForm.media_from.focus(); return false;
 	}
 	if (oForm.order_date.value.length < 12) {
-		alert("ÇëÕýÈ·ÌîÐ´¡°Ô¤Ô¼Ê±¼ä¡±£¡"); oForm.order_date.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ð´ï¿½ï¿½Ô¤Ô¼Ê±ï¿½ä¡±ï¿½ï¿½"); oForm.order_date.focus(); return false;
 	}
 	<?php if (($username == "admin") || !in_array($uinfo["part_id"], array(4))) { ?>
 	if (oForm.addtime.value == '') {
-		alert("¹ÜÀíÔ±ÕËºÅ±ØÐëÑ¡ÔñµÇ¼ÇÊ±¼ä£¡"); oForm.addtime.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ËºÅ±ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ç¼ï¿½Ê±ï¿½ä£¡"); oForm.addtime.focus(); return false;
 	}
 	<?php }?>
 	return true;
@@ -437,7 +437,7 @@ function input_date(id, value) {
 function input_time(id, time) {
 	var s = byid(id).value;
 	if (s == '') {
-		alert("ÇëÏÈÌîÐ´ÈÕÆÚ£¬ÔÙÌîÐ´Ê±¼ä£¡");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Ð´Ê±ï¿½ä£¡");
 		return;
 	}
 	var date = s.split(" ")[0];
@@ -448,12 +448,12 @@ function input_time(id, time) {
 	}
 }
 
-// µ±×´Ì¬ÎªÒÑµ½Ê±, ÏÔÊ¾Ñ¡Ôñ½Ó´ýÒ½Éú:
+// ï¿½ï¿½×´Ì¬Îªï¿½Ñµï¿½Ê±, ï¿½ï¿½Ê¾Ñ¡ï¿½ï¿½Ó´ï¿½Ò½ï¿½ï¿½:
 function change_yisheng(v) {
 	byid("yisheng").style.display = (v == 1 ? "inline" : "none");
 }
 
-// ¼ì²éÊý¾ÝÖØ¸´:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½:
 function check_repeat(type, obj) {
 	if (!byid("id") || (byid("id").value == '0' || byid("id").value == '')) {
 		var value = obj.value;
@@ -474,7 +474,7 @@ function check_repeat_do(o) {
 }
 
 function show_hide_engine(o) {
-	byid("engine_show").style.display = (o.value == "ÍøÂç" ? "inline" : "none");
+	byid("engine_show").style.display = (o.value == "ï¿½ï¿½ï¿½ï¿½" ? "inline" : "none");
 }
 
 function show_hide_area(o) {
@@ -497,18 +497,18 @@ function set_color(o) {
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="header_center"><!-- <button onclick="if (check_data()) document.forms['mainform'].submit();" class="buttonb">Ìá½»Êý¾Ý</button> --></div>
+	<div class="header_center"><!-- <button onclick="if (check_data()) document.forms['mainform'].submit();" class="buttonb">ï¿½á½»ï¿½ï¿½ï¿½ï¿½</button> --></div>
 	<div class="headers_oprate"><button onClick="history.back()" class="button">TRO LAI</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 <div class="description">
-	<div class="d_title">GOI Y£º</div>
-	<div class="d_item">1.HO TEN CHAC CHAN PHAI DIEN£»¡¡2.DIEN THOAI DIEN DAY DU£»¡¡3.CHI TIET CUA BENH NHAN PHAI GHI CHU RO RANG¡£</div>
+	<div class="d_title">GOI Yï¿½ï¿½</div>
+	<div class="d_item">1.HO TEN CHAC CHAN PHAI DIENï¿½ï¿½ï¿½ï¿½2.DIEN THOAI DIEN DAY DUï¿½ï¿½ï¿½ï¿½3.CHI TIET CUA BENH NHAN PHAI GHI CHU RO RANGï¿½ï¿½</div>
 </div>
 
 <div class="space"></div>
@@ -518,36 +518,36 @@ function set_color(o) {
 		<td colspan="2" class="head">THONG TIN CO BAN CUA BN</td>
 	</tr>
 	<tr>
-		<td class="left">HO TEN£º</td>
+		<td class="left">HO TENï¿½ï¿½</td>
 		<td class="right"><input name="name" id="name" value="<?php echo $line["name"]; ?>" class="input" style="width:200px" <?php echo $ce["name"]; ?> onChange="check_repeat('name', this)"> <span class="intro">* CHAC CHAN PHAI DIEN</span></td>
 	</tr>
 	<tr>
-		<td class="left">GIOI TINH£º</td>
-		<td class="right"><input name="sex" id="sex" value="<?php echo $line["sex"]; ?>" class="input" style="width:80px" <?php echo $ce["sex"]; ?>> <a href="javascript:input('sex', 'ÄÐ')">[NAM]</a> <a href="javascript:input('sex', 'Å®')">[NU]</a> <span class="intro">CHAC CHAN PHAI DIEN</span></td>
+		<td class="left">GIOI TINHï¿½ï¿½</td>
+		<td class="right"><input name="sex" id="sex" value="<?php echo $line["sex"]; ?>" class="input" style="width:80px" <?php echo $ce["sex"]; ?>> <a href="javascript:input('sex', 'ï¿½ï¿½')">[NAM]</a> <a href="javascript:input('sex', 'Å®')">[NU]</a> <span class="intro">CHAC CHAN PHAI DIEN</span></td>
 	</tr>
 	<tr>
-		<td class="left">TUOI£º</td>
+		<td class="left">TUOIï¿½ï¿½</td>
 		<td class="right"><input name="age" id="age" value="<?php echo $line["age"]; ?>" class="input" style="width:80px" <?php echo $ce["age"]; ?>> <span class="intro">DIEN TUOI KHONG DIEN NAM SINH</span></td>
 	</tr>
 <?php if($op == "add" || ($op == "edit" && $line["author"] == $realname)||$username == "admin"||$username == "wenjianshan"||$username == "zuoqiuying") { ?>
 	<tr>
-		<td class="left">DIEN THOAI£º</td>
+		<td class="left">DIEN THOAIï¿½ï¿½</td>
 		<td class="right"><input name="tel" id="tel" value="<?php echo $line["tel"]; ?>" class="input" style="width:200px" <?php echo $ce["tel"]; ?> onChange="check_repeat('tel', this)">  <span class="intro">CHAC CHAN PHAI DIEN</span></td>
 	</tr>
 <?php } ?>
 <!--	<tr>
-		<td class="left">QQ£º</td>
-		<td class="right"><input name="qq" value="<?php echo $line["qq"]; ?>" class="input" style="width:140px" <?php echo $ce["qq"]; ?>>  <span class="intro">²¡ÈËQQºÅÂë</span></td>
+		<td class="left">QQï¿½ï¿½</td>
+		<td class="right"><input name="qq" value="<?php echo $line["qq"]; ?>" class="input" style="width:140px" <?php echo $ce["qq"]; ?>>  <span class="intro">ï¿½ï¿½ï¿½ï¿½QQï¿½ï¿½ï¿½ï¿½</span></td>
 	</tr>
 -->	
 <?php if ($op == "add" || ($op == "edit" && $line["author"] == $realname)||$username == "admin"||$username == "wenjianshan"||$username == "zuoqiuying") { ?>
 <tr>
-		<td class="left" valign="top">NOI DUNG TU VAN£º</td>
+		<td class="left" valign="top">NOI DUNG TU VANï¿½ï¿½</td>
 		<td class="right"><textarea name="content" style="width:60%; height:72px;vertical-align:middle;" <?php echo $ce["content"]; ?> class="input"><?php echo $line["content"]; ?></textarea> <span class="intro">NOI DUNG CHAT</span></td>
 	</tr>
 <?php } ?>
 	<tr>
-		<td class="left" valign="top">LOAI BENH£º</td>
+		<td class="left" valign="top">LOAI BENHï¿½ï¿½</td>
 		<td class="right">
 			<select name="disease_id" class="combo" <?php echo $ce["disease_id"]; ?>>
 				<option value="" style="color:gray">--LUA CHON--</option>
@@ -558,7 +558,7 @@ function set_color(o) {
 
 <?php if (count($depart_list) > 0) { ?>
 	<tr>
-		<td class="left">KHOA£º</td>
+		<td class="left">KHOAï¿½ï¿½</td>
 		<td class="right">
 			<select name="depart" class="combo" <?php echo $ce["depart"]; ?>>
 				<option value="0" style="color:gray">--LUA CHON--</option>
@@ -570,18 +570,18 @@ function set_color(o) {
 <?php } ?>
 
 	<tr>
-		<td class="left">NGUON DEN£º</td>
+		<td class="left">NGUON DENï¿½ï¿½</td>
 		<td class="right">
 			<select name="media_from" class="combo" <?php echo $ce["media_from"]; ?> onChange="show_hide_engine(this)">
 				<option value="" style="color:gray">--LUA CHON--</option>
 				<?php echo list_option($media_from_array, '_value_', '_value_', $line["media_from"]); ?>
 			</select>&nbsp;
-			<span id="engine_show" style="display:<?php echo $line["media_from"] == "ÍøÂç" ? "" : "none"; ?>" <?php echo $ce["media_from"]; ?>>
+			<span id="engine_show" style="display:<?php echo $line["media_from"] == "ï¿½ï¿½ï¿½ï¿½" ? "" : "none"; ?>" <?php echo $ce["media_from"]; ?>>
 				<select name="engine" class="combo">
 					<option value="" style="color:gray">--NGUON HEN--</option>
 					<?php echo list_option($engine_list, '_value_', '_value_', $line["engine"]); ?>
 				</select>
-				TU KHOA£º<input name="engine_key" value="<?php echo $line["engine_key"]; ?>" class="input" size="15" <?php echo $ce["media_from"]; ?>>
+				TU KHOAï¿½ï¿½<input name="engine_key" value="<?php echo $line["engine_key"]; ?>" class="input" size="15" <?php echo $ce["media_from"]; ?>>
 				<select name="from_site" class="combo" <?php echo $ce["media_from"]; ?>>
 					<option value="" style="color:gray">--MANG--</option>
 					<?php echo list_option($sites_list, '_value_', '_value_', $line["from_site"]); ?>
@@ -592,15 +592,15 @@ function set_color(o) {
 	</tr>   
 
 	<tr>
-		<td class="left">KHU VUC£º</td>
+		<td class="left">KHU VUCï¿½ï¿½</td>
 		<td class="right">
 			<select name="is_local" class="combo" <?php echo $ce["is_local"]; ?> onChange="show_hide_area(this)">
 				<option value="0" style="color:gray">--LUA CHON--</option>
 				<?php echo list_option($is_local_array, '_key_', '_value_', ($op == "add" ? 1 : $line["is_local"])); ?>
 			</select>&nbsp;
 			<span id="area_from_box" style="display: <?php echo $op == "add" ? "none" : ($line["is_local"] == 2 ? "inline" : "none"); ?>">
-				KHU VUC£º<input name="area" id="area" value="<?php echo $line["area"]; ?>" class="input" size="14" <?php echo $ce["is_local"]; ?>>&nbsp;
-				¡ûDIEN NHANH KHU VUC£º<select id="quick_area" class="combo" <?php echo $ce["is_local"]; ?> onChange="byid('area').value=this.value;">
+				KHU VUCï¿½ï¿½<input name="area" id="area" value="<?php echo $line["area"]; ?>" class="input" size="14" <?php echo $ce["is_local"]; ?>>&nbsp;
+				ï¿½ï¿½DIEN NHANH KHU VUCï¿½ï¿½<select id="quick_area" class="combo" <?php echo $ce["is_local"]; ?> onChange="byid('area').value=this.value;">
 					<option value="" style="color:gray">-KHU VUC-</option>
 					<?php echo list_option($area_list, "_value_", "_value_"); ?>
 				</select>
@@ -610,35 +610,35 @@ function set_color(o) {
 	</tr>
 
 	<!-- <tr>
-		<td class="left">ËùÊôÍ³¼ÆÕÊ»§£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½Ê»ï¿½ï¿½ï¿½</td>
 		<td class="right">
 			<select name="from_account" class="combo" <?php echo $ce["from_account"]; ?>>
-				<option value="0" style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value="0" style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($account_list, '_key_', '_value_', ($op == "add" ? $account_first : $line["from_account"])); ?>
 			</select>&nbsp;
 
-			<span class="intro">ÇëÑ¡ÔñËùÊôÍ³¼ÆÕÊ»§</span>
+			<span class="intro">ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½Ê»ï¿½</span>
 		</td>
 	</tr> -->
 
 	<tr>
-		<td class="left"><?php echo $uinfo["part_id"] == 4 ? "¾ÍÕïºÅ" : "×¨¼ÒºÅ"; ?>£º</td>
-		<td class="right"><input name="zhuanjia_num" value="<?php echo $line["zhuanjia_num"]; ?>" class="input" size="30" style="width:200px" <?php echo $ce["zhuanjia_num"]; ?>>  <span class="intro"><?php echo $uinfo["part_id"] == 4 ? "¾ÍÕïºÅ" : "Ô¤Ô¼×¨¼ÒºÅ"; ?></span></td>
+		<td class="left"><?php echo $uinfo["part_id"] == 4 ? "ï¿½ï¿½ï¿½ï¿½ï¿½" : "×¨ï¿½Òºï¿½"; ?>ï¿½ï¿½</td>
+		<td class="right"><input name="zhuanjia_num" value="<?php echo $line["zhuanjia_num"]; ?>" class="input" size="30" style="width:200px" <?php echo $ce["zhuanjia_num"]; ?>>  <span class="intro"><?php echo $uinfo["part_id"] == 4 ? "ï¿½ï¿½ï¿½ï¿½ï¿½" : "Ô¤Ô¼×¨ï¿½Òºï¿½"; ?></span></td>
 	</tr>
 	<tr>
-		<td class="left" valign="top">THOI GIAN HEN£º</td>
-		<td class="right"><input name="order_date" value="<?php echo $line["order_date"] ? @date('Y-m-d H:i:s', $line["order_date"]) : ''; ?>" class="input" style="width:150px" id="order_date" <?php echo $ce["order_date"]; ?>> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'order_date',dateFmt:'yyyy-MM-dd HH:mm:ss'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä"> <span class="intro">ÒÑÐÞ¸Ä<?php echo intval($line["order_date_changes"]); ?>´Î</span> <span class="intro">Çë×¢Òâ£¬´Ë´¦ÒÑµ÷Õû£¬Ô¤Ô¼Ê±¼ä²»ÄÜÔçÓÚÉÏ¸öÔÂ<?php echo date("j"); ?>ºÅ£¬·ñÔò×ÊÁÏÎÞ·¨Ìá½»¡£</span><?php if ($line["order_date_log"]) { ?><a href="javascript:void(0)" onClick="byid('order_date_log').style.display = (byid('order_date_log').style.display == 'none' ? 'block' : 'none'); ">²é¿´ÐÞ¸Ä¼ÇÂ¼</a><?php } ?>
+		<td class="left" valign="top">THOI GIAN HENï¿½ï¿½</td>
+		<td class="right"><input name="order_date" value="<?php echo $line["order_date"] ? @date('Y-m-d H:i:s', $line["order_date"]) : ''; ?>" class="input" style="width:150px" id="order_date" <?php echo $ce["order_date"]; ?>> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'order_date',dateFmt:'yyyy-MM-dd HH:mm:ss'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½"> <span class="intro">ï¿½ï¿½ï¿½Þ¸ï¿½<?php echo intval($line["order_date_changes"]); ?>ï¿½ï¿½</span> <span class="intro">ï¿½ï¿½×¢ï¿½â£¬ï¿½Ë´ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼Ê±ï¿½ä²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½<?php echo date("j"); ?>ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½á½»ï¿½ï¿½</span><?php if ($line["order_date_log"]) { ?><a href="javascript:void(0)" onClick="byid('order_date_log').style.display = (byid('order_date_log').style.display == 'none' ? 'block' : 'none'); ">ï¿½é¿´ï¿½Þ¸Ä¼ï¿½Â¼</a><?php } ?>
 		<?php
 		$show_days = array(
-			"HOM NAY" => $today = date("Y-m-d"), //½ñÌì
-			"NGAY MAI" => date("Y-m-d", strtotime("+1 day")), //Ã÷Ìì
-			"NGAY MOT" => date("Y-m-d", strtotime("+2 days")), //ºóÌì
-			"NGAY KIA" => date("Y-m-d", strtotime("+3 days")), //´óºóÌì
-			"THU 7" => date("Y-m-d", strtotime("next Saturday")), //ÖÜÁù
-			"CN" => date("Y-m-d", strtotime("next Sunday")), // ÖÜÈÕ
-			"THU 2" => date("Y-m-d", strtotime("next Monday")), // ÖÜÒ»
-			"1 TUAN SAU" => date("Y-m-d", strtotime("+7 days")), // Ò»ÖÜºó
-			"NUA THANG SAU" => date("Y-m-d", strtotime("+15 days")), //°ë¸öÔÂºó
+			"HOM NAY" => $today = date("Y-m-d"), //ï¿½ï¿½ï¿½ï¿½
+			"NGAY MAI" => date("Y-m-d", strtotime("+1 day")), //ï¿½ï¿½ï¿½ï¿½
+			"NGAY MOT" => date("Y-m-d", strtotime("+2 days")), //ï¿½ï¿½ï¿½ï¿½
+			"NGAY KIA" => date("Y-m-d", strtotime("+3 days")), //ï¿½ï¿½ï¿½ï¿½ï¿½
+			"THU 7" => date("Y-m-d", strtotime("next Saturday")), //ï¿½ï¿½ï¿½ï¿½
+			"CN" => date("Y-m-d", strtotime("next Sunday")), // ï¿½ï¿½ï¿½ï¿½
+			"THU 2" => date("Y-m-d", strtotime("next Monday")), // ï¿½ï¿½Ò»
+			"1 TUAN SAU" => date("Y-m-d", strtotime("+7 days")), // Ò»ï¿½Üºï¿½
+			"NUA THANG SAU" => date("Y-m-d", strtotime("+15 days")), //ï¿½ï¿½ï¿½ï¿½Âºï¿½
 		);
 		if (!$ce["order_date"]) {
 			echo '<div style="padding-top:6px;">NGAY: ';
@@ -672,7 +672,7 @@ function set_color(o) {
 	
 <?php if ($op == "add" || ($op == "edit" && $line["author"] == $realname)||$username == "admin"||$username == "wenjianshan"||$username == "zuoqiuying") { ?>
 	<tr>
-		<td class="left" valign="top">GHI CHU£º</td>
+		<td class="left" valign="top">GHI CHUï¿½ï¿½</td>
 		<td class="right"><textarea name="memo" style="width:60%; height:48px;vertical-align:middle;" class="input" <?php echo $ce["memo"]; ?>><?php echo $line["memo"]; ?></textarea> <span class="intro">GHI CHU KHAC</span></td>
 	</tr>
 <?php } ?>
@@ -680,17 +680,17 @@ function set_color(o) {
 	
 <?php if ($line["edit_log"] && $line["author"] == $realname) { ?>
 	<tr>
-		<td class="left" valign="top">LICH SU THAY DOI THONG TIN£º</td>
+		<td class="left" valign="top">LICH SU THAY DOI THONG TINï¿½ï¿½</td>
 		<td class="right"><?php echo strim($line["edit_log"], '<br>'); ?></td>
 	</tr>
 <?php } ?>
 
 
-<?php // ÖÎÁÆÏîÄ¿ -------------  ?>
+<?php // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ -------------  ?>
 <?php
 if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 	<tr>
-		<td class="left">MUC DIEU TRI£º</td>
+		<td class="left">MUC DIEU TRIï¿½ï¿½</td>
 		<td class="right">
 <?php
 $xiangmu_str = $db->query("select xiangmu from disease where id=".$line["disease_id"]." limit 1", 1, "xiangmu");
@@ -707,12 +707,12 @@ foreach ($xiangmu as $k) {
 <?php if (!$ce["xiangmu"]) { ?>
 		<input type="hidden" name="update_xiangmu" value="1">
 		<span id="xiangmu_user"></span>
-		<span id="xiangmu_add"><b>THEM£º</b><input id="miangmu_my_add" class="input" size="10">&nbsp;<button onClick="xiangmu_user_add()" class="button">NHAP THONG TIN</button></span>
+		<span id="xiangmu_add"><b>THEMï¿½ï¿½</b><input id="miangmu_my_add" class="input" size="10">&nbsp;<button onClick="xiangmu_user_add()" class="button">NHAP THONG TIN</button></span>
 <script language="JavaScript">
 function xiangmu_user_add() {
 	var name = byid("miangmu_my_add").value;
 	if (name == '') {
-		alert("ÇëÊäÈëÐÂ¼ÓµÄÃû×Ö£¡"); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼Óµï¿½ï¿½ï¿½ï¿½Ö£ï¿½"); return false;
 	}
 	var str = '<input type="checkbox" name="xiangmu[]" value="'+name+'" checked id="xiangmu_'+name+'"><label for="xiangmu_'+name+'">'+name+'</label>&nbsp;&nbsp;';
 	byid("xiangmu_user").insertAdjacentHTML("beforeEnd", str);
@@ -724,27 +724,27 @@ function xiangmu_user_add() {
 		</td>
 	</tr>
 
-	<!-- ÖÎÁÆ·ÑÓÃ -->
+	<!-- ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ -->
 <!--	<tr>
-		<td class="left">ÖÎÁÆ·ÑÓÃ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ã£ï¿½</td>
 		<td class="right">
 			<input name="fee" id="fee" value="<?php echo $line["fee"] > 0 ? $line["fee"] : ''; ?>" class="input" <?php echo $ce["fee"]; ?> size="20">
-			<span class="intro">ÖÎÁÆ·ÑÓÃ</span>
+			<span class="intro">ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½</span>
 		</td>
 	</tr>-->
 <?php } ?>
 
 
-<?php // ¸´²é -------------  ?>
+<?php // ï¿½ï¿½ï¿½ï¿½ -------------  ?>
 <?php
 if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 <!--	<tr>
-		<td class="left">¸´²éÊ±¼ä£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º</td>
 		<td class="right">
 			<input name="rechecktime" id="rechecktime" value="<?php if ($line["rechecktime"]>0) echo date("Y-m-d", $line["rechecktime"]); ?>" class="input" <?php echo $ce["rechecktime"]; ?> size="20">
-			<?php if ($line["rechecktime"]) echo intval(($line["rechecktime"] - $line["order_date"]) / 24/3600)."Ìì "; ?>
-			 <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'rechecktime',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
-			<span class="intro">¿ÉÌîÐ´ÌìÊý(Èç 10 Ïà¶ÔÓÚÔ¤Ô¼Ê±¼äÍÆËã)»ò¾ßÌåÊ±¼ä(Èç 2013-10-1)</span>
+			<?php if ($line["rechecktime"]) echo intval(($line["rechecktime"] - $line["order_date"]) / 24/3600)."ï¿½ï¿½ "; ?>
+			 <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'rechecktime',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
+			<span class="intro">ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ 10 ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½(ï¿½ï¿½ 2013-10-1)</span>
 		</td>
 	</tr>-->
 <?php } ?>
@@ -760,12 +760,12 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 	</tr>
     <?php if (($username == "admin") || !in_array($uinfo["part_id"], array(4))) { ?>
     <tr>
-	  <td class="left">ÐÞ¸ÄµÇ¼ÇÊ±¼ä£º</td>
+	  <td class="left">ï¿½Þ¸ÄµÇ¼ï¿½Ê±ï¿½ä£º</td>
 	  <td class="right"><input name="addtime" id="rechecktime" value="<?php if ($line["addtime"]>0) echo date("Y-m-d H:i:s", $line["addtime"]); ?>" class="input" <?php echo $ce["rechecktime"]; ?> size="20" onClick="picker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"></td>
     </tr>
     <?php }?>
 	<tr>
-		<td class="left">TRANG THAI£º</td>
+		<td class="left">TRANG THAIï¿½ï¿½</td>
 		<td class="right">
         <?php $me_status_array = array ( 0 => array ( 'id' => '0','name' => 'CHO DOI'),1 => array ( 'id' => '1','name' => 'DA DEN'),2 => array ( 'id' => '2','name' => 'CHUA DEN'),3 => array ( 'id' => '3','name' => 'KHONG XAC DINH'));?>
 			<select name="status" class="combo" <?php echo $ce["status"]; ?>> <!-- onchange="change_yisheng(this.value)" -->
@@ -775,7 +775,7 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 		</td>
 	</tr>
 	<tr id="yisheng"> <!--  style="display:<?php echo ($line["status"] == 1 ? "inline" : "none"); ?>;" -->
-		<td class="left">BAC SI TIEP BENH£º</td>
+		<td class="left">BAC SI TIEP BENHï¿½ï¿½</td>
 		<td class="right">
 			<select name="doctor" class="combo" <?php echo $ce["doctor"]; ?>>
 				<option value="" style="color:gray">--LUA CHON--</option>
@@ -795,7 +795,7 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 		<td colspan="2" class="head">DEN KHAM CHUA</td>
 	</tr>
 	<tr>
-		<td class="left">TINH TRANG£º</td>
+		<td class="left">TINH TRANGï¿½ï¿½</td>
 		<td class="right">
         <?php $me_status_array = array (0 => array ( 'id' => '3','name' => 'HEN KHONG XAC DINH'),1 => array ( 'id' => '0','name' => 'CHO DOI'));?>
 			<select name="status" class="combo"> <!-- onchange="change_yisheng(this.value)" -->
@@ -809,15 +809,15 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 
 
 <?php if ($mode == "edit" && $line["status"] == 1 && ($debug_mode || in_array($uinfo["part_id"], array(1,4,9))) ) { ?>
-<!-- ½Ó´ý¼ÇÂ¼ -->
+<!-- ï¿½Ó´ï¿½ï¿½ï¿½Â¼ -->
 <div class="space"></div>
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">½Ó´ý¼ÇÂ¼</td>
+		<td colspan="2" class="head">ï¿½Ó´ï¿½ï¿½ï¿½Â¼</td>
 	</tr>
 	<tr>
-		<td class="left" valign="top">½Ó´ýÄÚÈÝ£º</td>
-		<td class="right"><textarea name="jiedai_content" style="width:60%; height:48px;vertical-align:middle;" class="input"><?php echo $line["jiedai_content"]; ?></textarea> <span class="intro">ÇëÌîÐ´½Ó´ýÄÚÈÝ</span></td>
+		<td class="left" valign="top">ï¿½Ó´ï¿½ï¿½ï¿½ï¿½Ý£ï¿½</td>
+		<td class="right"><textarea name="jiedai_content" style="width:60%; height:48px;vertical-align:middle;" class="input"><?php echo $line["jiedai_content"]; ?></textarea> <span class="intro">ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½</span></td>
 	</tr>
 </table>
 <?php } ?>
@@ -831,15 +831,15 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 <div class="space"></div>
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">µç»°»Ø·Ã¼ÇÂ¼</td>
+		<td colspan="2" class="head">ï¿½ç»°ï¿½Ø·Ã¼ï¿½Â¼</td>
 	</tr>
 	<tr>
-		<td class="left" valign="top">Àú´Î»Ø·Ã£º</td>
-		<td class="right"><?php echo $line["huifang"] ? text_show($line["huifang"]) : "<font color=gray>(ÔÝÎÞ¼ÇÂ¼)</font>"; ?></td>
+		<td class="left" valign="top">ï¿½ï¿½ï¿½Î»Ø·Ã£ï¿½</td>
+		<td class="right"><?php echo $line["huifang"] ? text_show($line["huifang"]) : "<font color=gray>(ï¿½ï¿½ï¿½Þ¼ï¿½Â¼)</font>"; ?></td>
 	</tr>
 	<tr>
-		<td class="left" valign="top">±¾´Î»Ø·Ã£º</td>
-		<td class="right"><textarea name="huifang" style="width:60%; height:48px;vertical-align:middle;" class="input"<?php echo $ce["huifang"]; ?>></textarea> <span class="intro">»Ø·Ã¼ÇÂ¼</span></td>
+		<td class="left" valign="top">ï¿½ï¿½ï¿½Î»Ø·Ã£ï¿½</td>
+		<td class="right"><textarea name="huifang" style="width:60%; height:48px;vertical-align:middle;" class="input"<?php echo $ce["huifang"]; ?>></textarea> <span class="intro">ï¿½Ø·Ã¼ï¿½Â¼</span></td>
 	</tr>
 </table>
 <?php } ?>
@@ -848,7 +848,7 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 <input type="hidden" name="op" value="<?php echo $mode; ?>">
 <input type="hidden" name="go" value="<?php echo $_GET["go"]; ?>">
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 </form>
 </body>
 </html>

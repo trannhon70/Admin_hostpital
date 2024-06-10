@@ -1,13 +1,13 @@
 <?php
 // --------------------------------------------------------
-// - ¹¦ÄÜËµÃ÷ : ÍøÂç Êý¾Ý¶Ô±È °´ÖÜ
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2010-11-04 15:09
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¶Ô±ï¿½ ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2010-11-04 15:09
 // --------------------------------------------------------
 require "../../core/core.php";
 $table = "count_web";
 
-// ËùÓÐ¿É¹ÜÀíÏîÄ¿:
+// ï¿½ï¿½ï¿½Ð¿É¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿:
 if ($debug_mode || in_array($uinfo["part_id"], array(9))) {
 	$types = $db->query("select id,name from count_type where type='web' order by sort desc, id asc", "id", "name");
 } else {
@@ -15,7 +15,7 @@ if ($debug_mode || in_array($uinfo["part_id"], array(9))) {
 	$types = $db->query("select id,name from count_type where type='web' and hid in ($hids) order by sort desc, id asc", "id", "name");
 }
 if (count($types) == 0) {
-	exit("Ã»ÓÐ¿ÉÒÔ¹ÜÀíµÄÏîÄ¿");
+	exit("Ã»ï¿½Ð¿ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿");
 }
 
 $cur_type = $_SESSION["count_type_id_web"];
@@ -24,7 +24,7 @@ if (!$cur_type) {
 	$cur_type = $_SESSION["count_type_id_web"] = $type_ids[0];
 }
 
-// ²Ù×÷µÄ´¦Àí:
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½:
 if ($op = $_REQUEST["op"]) {
 	if ($op == "change_type") {
 		$cur_type = $_SESSION["count_type_id_web"] = intval($_GET["type_id"]);
@@ -35,7 +35,7 @@ $type_detail = $db->query("select * from count_type where id=$cur_type limit 1",
 $kefu_list = $type_detail["kefu"] ? explode(",", $type_detail["kefu"]) : array();
 
 
-// ³õÊ¼ÖµÎª±¾ÔÂ:
+// ï¿½ï¿½Ê¼ÖµÎªï¿½ï¿½ï¿½ï¿½:
 if ($_GET["month"] == '') {
 	$_GET["month"] = date("Y-m", mktime(0,0,0,date("m"), 1));
 }
@@ -52,25 +52,25 @@ $week_array = array(
 
 
 
-// ´¦ÀíÊý¾Ý:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 if ($cur_type && $_GET["month"]) {
 
 	$all = array();
 
-	// ²éÑ¯Ã¿ÖÜÊý¾Ý:
+	// ï¿½ï¿½Ñ¯Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	foreach ($week_array as $wi => $w) {
 
-		// Ê±¼ä¶Î:
+		// Ê±ï¿½ï¿½ï¿½:
 		$btime = strtotime($w[0]." 0:0:0");
 		$etime = strtotime($w[1]." 23:59:59");
 
 		$b = date("Ymd", $btime);
 		$e = date("Ymd", $etime);
 
-		//²éÑ¯×ÜÒ½Ôº»ã×ÜÊý¾Ý:
+		//ï¿½ï¿½Ñ¯ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$tmp_list = $db->query("select * from $table where type_id=$cur_type and date>=$b and date<=$e order by kefu asc,date asc");
 
-		// ¼ÆËã»ã×Ü:
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$list = $dt_count = array();
 		foreach ($tmp_list as $v) {
 			$dt = $v["kefu"];
@@ -82,23 +82,23 @@ if ($cur_type && $_GET["month"]) {
 			}
 		}
 
-		// ¼ÆËãÊý¾Ý:
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		foreach ($list as $k => $v) {
-			// ×ÉÑ¯Ô¤Ô¼ÂÊ:
+			// ï¿½ï¿½Ñ¯Ô¤Ô¼ï¿½ï¿½:
 			$list[$k]["per_1"] = @round($v["talk"] / $v["click"] * 100, 2);
-			// Ô¤Ô¼¾ÍÕïÂÊ:
+			// Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 			$list[$k]["per_2"] = @round($v["come"] / $v["orders"] * 100, 2);
-			// ×ÉÑ¯¾ÍÕïÂÊ:
+			// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 			$list[$k]["per_3"] = @round($v["come"] / $v["click"] * 100, 2);
-			// ÓÐÐ§×ÉÑ¯ÂÊ:
+			// ï¿½ï¿½Ð§ï¿½ï¿½Ñ¯ï¿½ï¿½:
 			$list[$k]["per_4"] = @round($v["ok_click"] / $v["click"] * 100, 2);
-			// ÓÐÐ§Ô¤Ô¼ÂÊ:
+			// ï¿½ï¿½Ð§Ô¤Ô¼ï¿½ï¿½:
 			$list[$k]["per_5"] = @round($v["talk"] / $v["ok_click"] * 100, 2);
 		}
 
-		// ¼ÆËãÍ³¼ÆÊý¾Ý:
+		// ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$cal_field = explode(" ", "click click_local click_other zero_talk ok_click ok_click_local ok_click_other talk talk_local talk_other orders order_local order_other come come_local come_other per_1 per_2 per_3 per_4 per_5");
-		// ´¦Àí:
+		// ï¿½ï¿½ï¿½ï¿½:
 		$sum_list = array();
 		foreach ($list as $v) {
 			foreach ($cal_field as $f) {
@@ -106,7 +106,7 @@ if ($cur_type && $_GET["month"]) {
 			}
 		}
 
-		// ¼ÓÈë×ÜÊý×é:
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		foreach ($list as $k => $v) {
 			$all[$k][$wi]["per_1"] = $v["per_1"];
 			$all[$k][$wi]["per_2"] = $v["per_2"];
@@ -124,15 +124,15 @@ if ($cur_type && $_GET["month"]) {
 }
 
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 ?>
 <html>
 <head>
-<title>ÍøÂçÊý¾ÝÍ³¼Æ - °´ÖÜ</title>
+<title>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 <style>
 body {padding:5px 8px; }
 form {display:inline; }
@@ -147,7 +147,7 @@ form {display:inline; }
 .ch_date_b {padding-top:8px; text-align:left; width:80%; color:silver; }
 .ch_date_b a {padding:0 3px; }
 
-.main_title {margin:0 auto; padding-top:30px; padding-bottom:15px; text-align:center; font-weight:bold; font-size:12px; font-family:"ËÎÌå"; }
+.main_title {margin:0 auto; padding-top:30px; padding-bottom:15px; text-align:center; font-weight:bold; font-size:12px; font-family:"ï¿½ï¿½ï¿½ï¿½"; }
 
 .list {border:2px solid #43A75C !important; }
 .item {padding:8px 3px 6px 3px !important; }
@@ -182,7 +182,7 @@ function hgo(dir, o) {
 			obj.onchange();
 			o.disabled = true;
 		} else {
-			parent.msg_box("ÒÑ¾­ÊÇ×îÇ°ÁË", 3);
+			parent.msg_box("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½", 3);
 		}
 	}
 	if (dir == "down") {
@@ -191,7 +191,7 @@ function hgo(dir, o) {
 			obj.onchange();
 			o.disabled = true;
 		} else {
-			parent.msg_box("ÒÑ¾­ÊÇ×îºóÒ»¸öÁË", 3);
+			parent.msg_box("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½", 3);
 		}
 	}
 }
@@ -200,41 +200,41 @@ function hgo(dir, o) {
 
 <body>
 <div style="margin:10px 0 0 0px;">
-	<div id="date_tips">Ò½ÔºÏîÄ¿£º</div>
+	<div id="date_tips">Ò½Ôºï¿½ï¿½Ä¿ï¿½ï¿½</div>
 	<form method="GET" style="margin-left:30px;">
 		<select name="type_id" id="type_id" class="combo" onchange="this.form.submit()">
-			<option value="" style="color:gray">-ÇëÑ¡ÔñÏîÄ¿-</option>
+			<option value="" style="color:gray">-ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ä¿-</option>
 			<?php echo list_option($types, "_key_", "_value_", $cur_type); ?>
 		</select>&nbsp;
-		<button class="button" onclick="hgo('up',this);">ÉÏ</button>&nbsp;
-		<button class="button" onclick="hgo('down',this);">ÏÂ</button>
+		<button class="button" onclick="hgo('up',this);">ï¿½ï¿½</button>&nbsp;
+		<button class="button" onclick="hgo('down',this);">ï¿½ï¿½</button>
 		<input type="hidden" name="month" value="<?php echo $_GET["month"]; ?>">
 		<input type="hidden" name="op" value="change_type">
 	</form>&nbsp;&nbsp;&nbsp;
 
-	<b>ÔÂ·Ý£º</b>
+	<b>ï¿½Â·Ý£ï¿½</b>
 	<form method="GET">
-		<input name="month" id="time_month" class="input" style="width:100px" value="<?php echo $_GET["month"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'time_month',dateFmt:'yyyy-MM'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÔÂ·Ý">
-		<input type="submit" class="button" value="È·¶¨">
+		<input name="month" id="time_month" class="input" style="width:100px" value="<?php echo $_GET["month"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'time_month',dateFmt:'yyyy-MM'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½ï¿½Â·ï¿½">
+		<input type="submit" class="button" value="È·ï¿½ï¿½">
 	</form>
 </div>
 
 
 <?php if ($cur_type && $_GET["month"]) { ?>
 
-<div class="main_title"><?php echo $type_detail["name"]; ?> <?php echo $_GET["month"]; ?> ÖÜÊý¾Ý¶Ô±È</div>
+<div class="main_title"><?php echo $type_detail["name"]; ?> <?php echo $_GET["month"]; ?> ï¿½ï¿½ï¿½ï¿½ï¿½Ý¶Ô±ï¿½</div>
 
 <table width="100%" align="center" class="list">
 	<tr>
 		<td class="head hb" align="center"></td>
-		<td class="head hl hb" colspan="4" align="center" style="color:red">×ÉÑ¯Ô¤Ô¼ÂÊ</td>
-		<td class="head hl hb" colspan="4" align="center" style="color:red">Ô¤Ô¼¾ÍÕïÂÊ</td>
-		<td class="head hl hb" colspan="4" align="center" style="color:red">×ÉÑ¯¾ÍÕïÂÊ</td>
-		<td class="head hl hb" colspan="4" align="center" style="color:red">ÓÐÐ§×ÉÑ¯ÂÊ</td>
-		<td class="head hl hb" colspan="4" align="center" style="color:red">ÓÐÐ§Ô¤Ô¼ÂÊ</td>
+		<td class="head hl hb" colspan="4" align="center" style="color:red">ï¿½ï¿½Ñ¯Ô¤Ô¼ï¿½ï¿½</td>
+		<td class="head hl hb" colspan="4" align="center" style="color:red">Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="head hl hb" colspan="4" align="center" style="color:red">ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="head hl hb" colspan="4" align="center" style="color:red">ï¿½ï¿½Ð§ï¿½ï¿½Ñ¯ï¿½ï¿½</td>
+		<td class="head hl hb" colspan="4" align="center" style="color:red">ï¿½ï¿½Ð§Ô¤Ô¼ï¿½ï¿½</td>
 	</tr>
 	<tr>
-		<td class="head hb" align="center">¿Í·þ</td>
+		<td class="head hb" align="center">ï¿½Í·ï¿½</td>
 
 		<td class="head hl hb" align="center">1-7</td>
 		<td class="head hb" align="center">8-14</td>
@@ -303,7 +303,7 @@ foreach ($kefu_list as $i) {
 
 <?php } ?>
 
-		<td class="item ht" align="center">»ã×Ü</td>
+		<td class="item ht" align="center">ï¿½ï¿½ï¿½ï¿½</td>
 
 		<td class="item hl ht" align="center"><?php echo floatval($all["sum"]["1"]["per_1"]); ?>%</td>
 		<td class="item ht" align="center"><?php echo floatval($all["sum"]["2"]["per_1"]); ?>%</td>
@@ -334,11 +334,11 @@ foreach ($kefu_list as $i) {
 </table>
 
 <div class="rate_tips">
-×ÉÑ¯Ô¤Ô¼ÂÊ = Ô¤Ô¼ÈËÊý / ×Üµã»÷<br>
-Ô¤Ô¼¾ÍÕïÂÊ = Êµ¼Êµ½ÔºÈËÊý / Ô¤¼Æµ½ÔºÈËÊý<br>
-×ÉÑ¯¾ÍÕïÂÊ = Êµ¼Êµ½ÔºÈËÊý / ×Üµã»÷<br>
-ÓÐÐ§×ÉÑ¯ÂÊ = ÓÐÐ§µã»÷ / ×Üµã»÷<br>
-ÓÐÐ§Ô¤Ô¼ÂÊ = Ô¤Ô¼ÈËÊý / ÓÐÐ§µã»÷<br>
+ï¿½ï¿½Ñ¯Ô¤Ô¼ï¿½ï¿½ = Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ / ï¿½Üµï¿½ï¿½<br>
+Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = Êµï¿½Êµï¿½Ôºï¿½ï¿½ï¿½ï¿½ / Ô¤ï¿½Æµï¿½Ôºï¿½ï¿½ï¿½ï¿½<br>
+ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = Êµï¿½Êµï¿½Ôºï¿½ï¿½ï¿½ï¿½ / ï¿½Üµï¿½ï¿½<br>
+ï¿½ï¿½Ð§ï¿½ï¿½Ñ¯ï¿½ï¿½ = ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ / ï¿½Üµï¿½ï¿½<br>
+ï¿½ï¿½Ð§Ô¤Ô¼ï¿½ï¿½ = Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½Ð§ï¿½ï¿½ï¿½<br>
 </div>
 
 <?php } ?>

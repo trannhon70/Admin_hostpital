@@ -1,13 +1,13 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ËÑË÷
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-02 15:47
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-02 15:47
 */
 
 $p_type = $uinfo["part_id"]; // 0,1,2,3,4
 
-$title = '²¡ÈËËÑË÷';
+$title = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 $admin_name = $db->query("select realname from sys_admin", "", "realname");
 $author_name = $db->query("select distinct author from $table order by binary author", "", "author");
@@ -20,25 +20,25 @@ $disease_list = $db->query("select id,name from ".$tabpre."disease where hospita
 $depart_list = $db->query("select id,name from ".$tabpre."depart where hospital_id=$user_hospital_id");
 
 $media_list = $db->query("select name from media where hospital_id=$user_hospital_id order by id asc", "", "name");
-$media_list = array_merge(array("ÍøÂç", "µç»°"), $media_list);
+$media_list = array_merge(array("ï¿½ï¿½ï¿½ï¿½", "ï¿½ç»°"), $media_list);
 
-// Ê±¼ä¶¨Òå
-// ×òÌì
+// Ê±ï¿½ä¶¨ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½
 $yesterday_begin = strtotime("-1 day");
-// ±¾ÔÂ
+// ï¿½ï¿½ï¿½ï¿½
 $this_month_begin = mktime(0,0,0,date("m"), 1);
 $this_month_end = strtotime("+1 month", $this_month_begin) - 1;
-// ÉÏ¸öÔÂ
+// ï¿½Ï¸ï¿½ï¿½ï¿½
 $last_month_end = $this_month_begin - 1;
 $last_month_begin = strtotime("-1 month", $this_month_begin);
-//½ñÄê
+//ï¿½ï¿½ï¿½ï¿½
 $this_year_begin = mktime(0,0,0,1,1);
 $this_year_end = strtotime("+1 year", $this_year_begin) - 1;
-// ×î½üÒ»¸öÔÂ
+// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 $near_1_month_begin = strtotime("-1 month");
-// ×î½üÈý¸öÔÂ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 $near_3_month_begin = strtotime("-3 month");
-// ×î½üÒ»Äê
+// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 $near_1_year_begin = strtotime("-12 month");
 
 ?>
@@ -46,14 +46,14 @@ $near_1_year_begin = strtotime("-12 month");
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <script language="javascript">
 function Check() {
 	var oForm = document.mainform;
 	//if (oForm.name.value == "") {
-	//	alert("ÇëÊäÈë¡°¼²²¡Ãû³Æ¡±£¡"); oForm.name.focus(); return false;
+	//	alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½"); oForm.name.focus(); return false;
 	//}
 	return true;
 }
@@ -65,18 +65,18 @@ function write_dt(da, db) {
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><button onClick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onClick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 
 <div class="description">
-	<div class="d_title">ÌáÊ¾£º</div>
-	<div class="d_item">ÊäÈëËÑË÷Ìõ¼þ£¬µã»÷Ìá½»°´Å¥¿ªÊ¼ËÑË÷£¬Ã¿¸öÌõ¼þ¾ùÊÇ¿ÉÑ¡Ïî¡£</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
+	<div class="d_item">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½Å¥ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½Ñ¡ï¿½î¡£</div>
 </div>
 
 <div class="space"></div>
@@ -84,160 +84,160 @@ function write_dt(da, db) {
 <form name="mainform" action="patient.php" method="GET" onSubmit="return Check()">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">¹Ø¼ü´Ê</td>
+		<td colspan="2" class="head">ï¿½Ø¼ï¿½ï¿½ï¿½</td>
 	</tr>
 	<tr>
-		<td class="left">¹Ø¼ü´Ê£º</td>
-		<td class="right"><input name="searchword" class="input" style="width:150px" value=""> <span class="intro">(Áô¿ÕÔòºöÂÔ´ËÌõ¼þ)</span></td>
+		<td class="left">ï¿½Ø¼ï¿½ï¿½Ê£ï¿½</td>
+		<td class="right"><input name="searchword" class="input" style="width:150px" value=""> <span class="intro">(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span></td>
 	</tr>
 	<tr>
-		<td colspan="2" class="head">Ê±¼äÏÞÖÆ</td>
+		<td colspan="2" class="head">Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 	<tr>
-		<td class="left">Ê±¼äÀàÐÍ£º</td>
+		<td class="left">Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½</td>
 		<td class="right">
 			<select name="time_type" class="combo">
-				<option value="" style="color:gray">--ÇëÑ¡Ôñ--</option>
-				<option value="order_date">Ô¤Ô¼Ê±¼ä</option>
-				<option value="addtime">×ÊÁÏÌí¼ÓÊ±¼ä</option>
-				<!-- <option value="come_date">²¡ÈËµ½ÔºÊ±¼ä</option> -->
+				<option value="" style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
+				<option value="order_date">Ô¤Ô¼Ê±ï¿½ï¿½</option>
+				<option value="addtime">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½</option>
+				<!-- <option value="come_date">ï¿½ï¿½ï¿½Ëµï¿½ÔºÊ±ï¿½ï¿½</option> -->
 			</select>
-			<span class="intro">Ñ¡ÔñËÑË÷µÄÊ±¼äÀàÐÍ£¬Ä¬ÈÏÎªÔ¤Ô¼Ê±¼ä</span>
+			<span class="intro">Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ä¬ï¿½ï¿½ÎªÔ¤Ô¼Ê±ï¿½ï¿½</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="left">ÆðÊ¼Ê±¼ä£º</td>
-		<td class="right"><input name="btime" id="begin_time" class="input" style="width:150px" value="<?php //echo date("Y-m-d"); ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä"> <br>ËÙÌî£º
-		<a href="javascript:write_dt('<?php echo date("Y-m-d"); ?>','<?php echo date("Y-m-d"); ?>')">[½ñÌì]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $yesterday_begin); ?>','<?php echo date("Y-m-d", $yesterday_begin); ?>')">[×òÌì]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $this_month_begin); ?>','<?php echo date("Y-m-d", $this_month_end); ?>')">[±¾ÔÂ]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $last_month_begin); ?>','<?php echo date("Y-m-d", $last_month_end); ?>')">[ÉÏÔÂ]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $this_year_begin); ?>','<?php echo date("Y-m-d", $this_year_end); ?>')">[½ñÄê]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $near_1_month_begin); ?>','<?php echo date("Y-m-d"); ?>')">[½üÒ»¸öÔÂ]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $near_3_month_begin); ?>','<?php echo date("Y-m-d"); ?>')">[½üÈý¸öÔÂ]</a>
-		<a href="javascript:write_dt('<?php echo date("Y-m-d", $near_1_year_begin); ?>','<?php echo date("Y-m-d"); ?>')">[½üÒ»Äê]</a>
-		<!-- <span class="intro">ÇëÖ¸¶¨ÆðÊ¼Ê±¼ä (Áô¿ÕÔòºöÂÔ´ËÌõ¼þ)</span> --></td>
+		<td class="left">ï¿½ï¿½Ê¼Ê±ï¿½ä£º</td>
+		<td class="right"><input name="btime" id="begin_time" class="input" style="width:150px" value="<?php //echo date("Y-m-d"); ?>"> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½"> <br>ï¿½ï¿½ï¿½î£º
+		<a href="javascript:write_dt('<?php echo date("Y-m-d"); ?>','<?php echo date("Y-m-d"); ?>')">[ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $yesterday_begin); ?>','<?php echo date("Y-m-d", $yesterday_begin); ?>')">[ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $this_month_begin); ?>','<?php echo date("Y-m-d", $this_month_end); ?>')">[ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $last_month_begin); ?>','<?php echo date("Y-m-d", $last_month_end); ?>')">[ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $this_year_begin); ?>','<?php echo date("Y-m-d", $this_year_end); ?>')">[ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $near_1_month_begin); ?>','<?php echo date("Y-m-d"); ?>')">[ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $near_3_month_begin); ?>','<?php echo date("Y-m-d"); ?>')">[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]</a>
+		<a href="javascript:write_dt('<?php echo date("Y-m-d", $near_1_year_begin); ?>','<?php echo date("Y-m-d"); ?>')">[ï¿½ï¿½Ò»ï¿½ï¿½]</a>
+		<!-- <span class="intro">ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ê¼Ê±ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span> --></td>
 	</tr>
 	<tr>
-		<td class="left">ÖÕÖ¹Ê±¼ä£º</td>
-		<td class="right"><input name="etime" id="end_time" class="input" style="width:150px" value="<?php //echo date("Y-m-d"); ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä"> <!-- <span class="intro">ÇëÖ¸¶¨ÖÕÖ¹Ê±¼ä (Áô¿ÕÔòºöÂÔ´ËÌõ¼þ)</span> --></td>
+		<td class="left">ï¿½ï¿½Ö¹Ê±ï¿½ä£º</td>
+		<td class="right"><input name="etime" id="end_time" class="input" style="width:150px" value="<?php //echo date("Y-m-d"); ?>"> <img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½"> <!-- <span class="intro">ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ö¹Ê±ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span> --></td>
 	</tr>
 
 	<tr>
-		<td colspan="2" class="head">ÈËÔ±ËÑË÷</td>
+		<td colspan="2" class="head">ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 
 <?php //if ($debug_mode || $uinfo["part_admin"] || in_array($uinfo["part_id"], array(2,4))) { ?>
 	<tr>
-		<td class="left">ËÑ¿Í·þ£º</td>
+		<td class="left">ï¿½Ñ¿Í·ï¿½ï¿½ï¿½</td>
 		<td class="right">
 			<select name="kefu_23_name" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($kefu_23_list, '_value_', '_value_', ''); ?>
 			</select>
-			<span class="intro">Ö¸¶¨ÒªËÑË÷µÄ¿Í·þ (²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">Ö¸ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Í·ï¿½ (ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 <?php //} ?>
 
 <?php if ($debug_mode || $uinfo["part_admin"] || in_array($uinfo["part_id"], array(3,4))) { ?>
 	<tr>
-		<td class="left">ËÑµ¼Ò½£º</td>
+		<td class="left">ï¿½Ñµï¿½Ò½ï¿½ï¿½</td>
 		<td class="right">
 			<select name="kefu_4_name" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($kefu_4_list, 'realname', 'realname', ''); ?>
 			</select>
-			<span class="intro">Ö¸¶¨ÒªËÑË÷µÄµ¼Ò½ (²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">Ö¸ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò½ (ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 <?php } ?>
 
 <?php if ($debug_mode || $uinfo["part_admin"]) { ?>
 	<tr>
-		<td class="left">ËÑÒ½Éú£º</td>
+		<td class="left">ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½</td>
 		<td class="right">
 			<select name="doctor_name" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($doctor_list, 'name', 'name', ''); ?>
 			</select>
-			<span class="intro">Ö¸¶¨ÒªËÑË÷µÄ½Ó´ýÒ½Éú (²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">Ö¸ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä½Ó´ï¿½Ò½ï¿½ï¿½ (ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 <?php } ?>
 
 	<tr>
-		<td colspan="2" class="head">¸ü¶àËÑË÷Ïî</td>
+		<td colspan="2" class="head">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 
 	<tr>
-		<td class="left">¸°Ô¼×´Ì¬£º</td>
+		<td class="left">ï¿½ï¿½Ô¼×´Ì¬ï¿½ï¿½</td>
 		<td class="right">
 			<select name="come" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
-				<option value='0'>Î´µ½</option>
-				<option value='1'>ÒÑµ½</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
+				<option value='0'>Î´ï¿½ï¿½</option>
+				<option value='1'>ï¿½Ñµï¿½</option>
 			</select>
-			<span class="intro">(²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">(ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="left">¼²²¡ÀàÐÍ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½</td>
 		<td class="right">
 			<select name="disease" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($disease_list, "id", "name", ''); ?>
 			</select>
-			<span class="intro">(²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">(ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 <?php if ($debug_mode || $username == 'admin' || !in_array($uinfo["part_id"], array(2,3,4))) { ?>
 	<tr>
-		<td class="left">²¿ÃÅ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½Å£ï¿½</td>
 		<td class="right">
 			<select name="part_id" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
-				<option value='2'>ÍøÂç</option>
-				<option value='3'>µç»°</option>
-				<option value='4'>µ¼Ò½</option>
-                <option value='10'>Íøµç</option>
-                <option value='5'>ÊÐ³¡</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
+				<option value='2'>ï¿½ï¿½ï¿½ï¿½</option>
+				<option value='3'>ï¿½ç»°</option>
+				<option value='4'>ï¿½ï¿½Ò½</option>
+                <option value='10'>ï¿½ï¿½ï¿½ï¿½</option>
+                <option value='5'>ï¿½Ð³ï¿½</option>
 			</select>
-			<span class="intro">(²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">(ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 <?php } ?>
 
 <?php if (count($depart_list) > 0) { ?>
 	<tr>
-		<td class="left">¿ÆÊÒ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½Ò£ï¿½</td>
 		<td class="right">
 			<select name="depart" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($depart_list, "id", "name", ''); ?>
 			</select>
-			<span class="intro">(²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">(ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 <?php } ?>
 
 	<tr>
-		<td class="left">Ã½ÌåÀ´Ô´£º</td>
+		<td class="left">Ã½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½</td>
 		<td class="right">
 			<select name="media" class="combo">
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option($media_list, "_value_", "_value_", ''); ?>
 			</select>
-			<span class="intro">(²»Ñ¡ÔòºöÂÔ´ËÌõ¼þ)</span>
+			<span class="intro">(ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½)</span>
 		</td>
 	</tr>
 
 </table>
 
 <input type="hidden" name="from" value="search">
-<input type="hidden" name="sort" value="Ìí¼ÓÊ±¼ä">
+<input type="hidden" name="sort" value="ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½">
 <input type="hidden" name="sorttype" value="desc">
-<div class="button_line"><input type="submit" class="submit" value="ËÑË÷"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½ï¿½ï¿½ï¿½"></div>
 
 </form>
 </body>

@@ -1,30 +1,30 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ¿Í·þ±¨±í °´²¡ÖÖ
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2011-04-11 16:38
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2011-04-11 16:38
 */
 require "../../core/core.php";
 set_time_limit(0);
 $table = "patient_".$hid;
 
-// ²¡ÖÖÁÐ±í:
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½:
 $disease_list = $db->query("select id,name from disease where hospital_id='$hid' order by sort desc,sort2 desc, id asc", "id", "name");
 
 $web_kefu_list = $db->query("select id, realname from sys_admin where concat(',',hospitals,',') like '%{$hid}%' and part_id=2 order by binary name asc", "id", "realname");
 $tel_kefu_list = $db->query("select id, realname from sys_admin where concat(',',hospitals,',') like '%{$hid}%' and part_id=3 order by binary name asc", "id", "realname");
 $kefu_list = array_merge($web_kefu_list, $tel_kefu_list);
 
-$res_type_array = array(1 => "Ô¤Ô¼", 2 => "Ô¤¼Æµ½Ôº", 3 => "ÒÑµ½Ôº");
+$res_type_array = array(1 => "Ô¤Ô¼", 2 => "Ô¤ï¿½Æµï¿½Ôº", 3 => "ï¿½Ñµï¿½Ôº");
 
 
-// Ä¬ÈÏÊ±¼ä:
+// Ä¬ï¿½ï¿½Ê±ï¿½ï¿½:
 if (!isset($_GET["btime"])) {
 	$_GET["btime"] = date("Y-m-01");
 	$_GET["etime"] = date("Y-m-d", strtotime("+1 month", strtotime($_GET["btime"])) - 1);
 }
 
-// Ä¬ÈÏÀàÐÍ:
+// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 if (!isset($_GET["res_type"])) {
 	$_GET["res_type"] = 1;
 }
@@ -32,7 +32,7 @@ if (!isset($_GET["res_type"])) {
 
 $op = $_GET["op"];
 
-// ´¦ÀíÊ±¼ä:
+// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:
 if ($op == "show") {
 	$where = array();
 
@@ -73,25 +73,25 @@ if ($op == "show") {
 
 }
 
-$title = '¼²²¡±¨±í';
+$title = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
-// Ê±¼ä¶¨Òå
-// ×òÌì
+// Ê±ï¿½ä¶¨ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½
 $yesterday_begin = strtotime("-1 day");
-// ±¾ÔÂ
+// ï¿½ï¿½ï¿½ï¿½
 $this_month_begin = mktime(0,0,0,date("m"), 1);
 $this_month_end = strtotime("+1 month", $this_month_begin) - 1;
-// ÉÏ¸öÔÂ
+// ï¿½Ï¸ï¿½ï¿½ï¿½
 $last_month_end = $this_month_begin - 1;
 $last_month_begin = strtotime("-1 month", $this_month_begin);
-//½ñÄê
+//ï¿½ï¿½ï¿½ï¿½
 $this_year_begin = mktime(0,0,0,1,1);
 $this_year_end = strtotime("+1 year", $this_year_begin) - 1;
-// ×î½üÒ»¸öÔÂ
+// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 $near_1_month_begin = strtotime("-1 month");
-// ×î½üÈý¸öÔÂ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 $near_3_month_begin = strtotime("-3 month");
-// ×î½üÒ»Äê
+// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 $near_1_year_begin = strtotime("-12 month");
 
 ?>
@@ -101,7 +101,7 @@ $near_1_year_begin = strtotime("-12 month");
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 <style>
 #tiaojian {margin:10px 0 0 30px; }
 form {display:inline; }
@@ -122,47 +122,47 @@ function write_dt(da, db) {
 	byid("end_time").value = db;
 }
 function check_data(form) {
-	byid("submit_button_1").value = 'Ìá½»ÖÐ';
+	byid("submit_button_1").value = 'ï¿½á½»ï¿½ï¿½';
 	byid("submit_button_1").disabled = true;
 }
 </script>
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 <table width="100%" style="background:#FAFCFC;">
 	<tr>
 		<td style="padding:5px 5px 5px 10px; line-height:180%; border:2px solid #D8EBEB;">
-			<b>Ê±¼äÌõ¼þ£º</b>
+			<b>Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</b>
 			<form method="GET" onsubmit="return check_data(this)">
 				<span id="t_day">
-					&nbsp; ÆðÊ¼Ê±¼ä£º<input name="btime" id="begin_time" class="input" style="width:100px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
-					&nbsp; ÖÕÖ¹Ê±¼ä£º<input name="etime" id="end_time" class="input" style="width:100px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
-					&nbsp; ËÙÌî£º
-					<a href="javascript:write_dt('<?php echo date("Y-m-d"); ?>','<?php echo date("Y-m-d"); ?>')">½ñÌì</a>
-					<a href="javascript:write_dt('<?php echo date("Y-m-d", $yesterday_begin); ?>','<?php echo date("Y-m-d", $yesterday_begin); ?>')">×òÌì</a>
-					<a href="javascript:write_dt('<?php echo date("Y-m-d", $this_month_begin); ?>','<?php echo date("Y-m-d", $this_month_end); ?>')">±¾ÔÂ</a>
-					<a href="javascript:write_dt('<?php echo date("Y-m-d", $last_month_begin); ?>','<?php echo date("Y-m-d", $last_month_end); ?>')">ÉÏÔÂ</a>&nbsp; &nbsp;
+					&nbsp; ï¿½ï¿½Ê¼Ê±ï¿½ä£º<input name="btime" id="begin_time" class="input" style="width:100px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
+					&nbsp; ï¿½ï¿½Ö¹Ê±ï¿½ä£º<input name="etime" id="end_time" class="input" style="width:100px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
+					&nbsp; ï¿½ï¿½ï¿½î£º
+					<a href="javascript:write_dt('<?php echo date("Y-m-d"); ?>','<?php echo date("Y-m-d"); ?>')">ï¿½ï¿½ï¿½ï¿½</a>
+					<a href="javascript:write_dt('<?php echo date("Y-m-d", $yesterday_begin); ?>','<?php echo date("Y-m-d", $yesterday_begin); ?>')">ï¿½ï¿½ï¿½ï¿½</a>
+					<a href="javascript:write_dt('<?php echo date("Y-m-d", $this_month_begin); ?>','<?php echo date("Y-m-d", $this_month_end); ?>')">ï¿½ï¿½ï¿½ï¿½</a>
+					<a href="javascript:write_dt('<?php echo date("Y-m-d", $last_month_begin); ?>','<?php echo date("Y-m-d", $last_month_end); ?>')">ï¿½ï¿½ï¿½ï¿½</a>&nbsp; &nbsp;
 				</span>
 
 				<!--  -->
-				<b>½á¹ûÀàÐÍ£º</b>
+				<b>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½</b>
 				<select name="res_type" class="combo">
-					<option value="" style="color:gray">-ÇëÑ¡Ôñ-</option>
+					<option value="" style="color:gray">-ï¿½ï¿½Ñ¡ï¿½ï¿½-</option>
 					<?php echo list_option($res_type_array, "_key_", "_value_", $_GET["res_type"]); ?>
 				</select>&nbsp;
 
 
 		</td>
 		<td width="150" align="center" style="border:2px solid #D8EBEB;">
-			<input id="submit_button_1" type="submit" class="button" value="Ìá½»">
+			<input id="submit_button_1" type="submit" class="button" value="ï¿½á½»">
 			<input type="hidden" name="op" value="show">
 		</td>
 	</tr>
@@ -174,11 +174,11 @@ function check_data(form) {
 <br>
 <table width="100%"  style="border:2px solid #DFDFDF; background:#FAFCFC;">
 	<tr class="dh">
-		<td width="10%">²¡ÖÖ</td>
+		<td width="10%">ï¿½ï¿½ï¿½ï¿½</td>
 <?php foreach ($run_kefu as $v) { ?>
 		<td><?php echo $v; ?></td>
 <?php } ?>
-		<td>×Ü¼Æ</td>
+		<td>ï¿½Ü¼ï¿½</td>
 	</tr>
 
 <?php foreach ($disease_list as $k => $v) { ?>
@@ -192,7 +192,7 @@ function check_data(form) {
 <?php } ?>
 
 	<tr class="ds">
-		<td>×Ü¼Æ£º</td>
+		<td>ï¿½Ü¼Æ£ï¿½</td>
 <?php foreach ($run_kefu as $kf) { ?>
 		<td>-</td>
 <?php } ?>

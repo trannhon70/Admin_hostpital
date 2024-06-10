@@ -2,11 +2,11 @@
 
 /* --------------------------------------------------------
 
-// ËµÃ÷: Í¼ÐÎ±¨±í
+// Ëµï¿½ï¿½: Í¼ï¿½Î±ï¿½ï¿½ï¿½
 
-// ×÷Õß: °®Ò½Õ½¶Ó 
+// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// Ê±¼ä: 2010-01-14 13:07
+// Ê±ï¿½ï¿½: 2010-01-14 13:07
 
 // ----------------------------------------------------- */
 
@@ -16,13 +16,13 @@ include "../../res/chart/FusionCharts_Gen.php";
 
 
 
-check_power('', $pinfo) or msg_box("Ã»ÓÐ´ò¿ªÈ¨ÏÞ...", "back", 1);
+check_power('', $pinfo) or msg_box("Ã»ï¿½Ð´ï¿½È¨ï¿½ï¿½...", "back", 1);
 
 
 
 if ($user_hospital_id == 0) {
 
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 }
 
@@ -30,7 +30,7 @@ if ($user_hospital_id == 0) {
 
 
 
-// ÇÐ»»Ò½Ôº:
+// ï¿½Ð»ï¿½Ò½Ôº:
 
 if ($_GET["do"] == 'change') {
 
@@ -58,9 +58,9 @@ $hospital_name = $db->query("select name from hospital where id='$user_hospital_
 
 
 
-// ²éÑ¯Ñ¡Ïî:
+// ï¿½ï¿½Ñ¯Ñ¡ï¿½ï¿½:
 
-$type_arr = array("month"=>"Ò»ÄêÄÚµÄÃ¿¸öÔÂ", "day"=>"Ò»ÔÂÖÐµÄÃ¿Ìì", "hour"=>"Ò»ÌìÄÚµÄÊ±¶Î");
+$type_arr = array("month"=>"Ò»ï¿½ï¿½ï¿½Úµï¿½Ã¿ï¿½ï¿½ï¿½ï¿½", "day"=>"Ò»ï¿½ï¿½ï¿½Ðµï¿½Ã¿ï¿½ï¿½", "hour"=>"Ò»ï¿½ï¿½ï¿½Úµï¿½Ê±ï¿½ï¿½");
 
 //$year_arr = array(2010,2013,2013);
 
@@ -74,17 +74,17 @@ $month_arr = array(1,2,3,4,5,6,7,8,9,10,11,12);
 
 $day_arr = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31);
 
-$part_arr = array(0=>"Õû¸öÒ½Ôº", 2=>"ÍøÂç", 3=>"µç»°");
+$part_arr = array(0=>"ï¿½ï¿½ï¿½ï¿½Ò½Ôº", 2=>"ï¿½ï¿½ï¿½ï¿½", 3=>"ï¿½ç»°");
 
-$come_arr = array(1=>"ÒÑµ½", 2=>"Î´µ½");
+$come_arr = array(1=>"ï¿½Ñµï¿½", 2=>"Î´ï¿½ï¿½");
 
-$time_arr = array("order_date"=>"µ½ÔºÊ±¼ä", "addtime"=>"Ìí¼ÓÊ±¼ä");
+$time_arr = array("order_date"=>"ï¿½ï¿½ÔºÊ±ï¿½ï¿½", "addtime"=>"ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½");
 
 $kf_arr = $db->query("select distinct author from $table where author!='' and part_id in (2,3) order by part_id,author", "", "author");
 
 
 
-// ÇåÀíÎÞÐ§µÄ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
 
 $admin_id_name = $db->query("select realname from sys_admin", "", "realname");
 
@@ -108,7 +108,7 @@ if ($_GET) {
 
 
 
-	// ¹¹½¨ where:
+	// ï¿½ï¿½ï¿½ï¿½ where:
 
 	$where = array();
 
@@ -122,9 +122,9 @@ if ($_GET) {
 
 		$format = "%Y%m";
 
-		$caption = "ÔÂ";
+		$caption = "ï¿½ï¿½";
 
-		$tips = $year."Äê ¸÷ÔÂ·Ý";
+		$tips = $year."ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½";
 
 	} else if ($type == "day") {
 
@@ -134,9 +134,9 @@ if ($_GET) {
 
 		$format = "%Y%m%d";
 
-		$caption = "ÈÕ";
+		$caption = "ï¿½ï¿½";
 
-		$tips = $year."Äê".$month."ÔÂ ¸÷Ìì";
+		$tips = $year."ï¿½ï¿½".$month."ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 
 	} else if ($type == "hour") {
 
@@ -148,15 +148,15 @@ if ($_GET) {
 
 		$caption = "Ê±";
 
-		$tips = $year."Äê".$month."ÔÂ".$day."ÈÕ ¸÷Ê±¶Î";
+		$tips = $year."ï¿½ï¿½".$month."ï¿½ï¿½".$day."ï¿½ï¿½ ï¿½ï¿½Ê±ï¿½ï¿½";
 
 	}
 
 
 
-	// Í¼±êÏÂ·½ÌáÊ¾:
+	// Í¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ê¾:
 
-	$tips .= ($time == "addtime" ? "Ô¤Ô¼" : "µ½Ôº")."ÈËÊý";
+	$tips .= ($time == "addtime" ? "Ô¤Ô¼" : "ï¿½ï¿½Ôº")."ï¿½ï¿½ï¿½ï¿½";
 
 	if ($part || $come) {
 
@@ -232,7 +232,7 @@ if ($_GET) {
 
 
 
-	// Í³¼ÆÍ¼:
+	// Í³ï¿½ï¿½Í¼:
 
 	$FC = new FusionCharts("Column2D","750","200", "", 1);
 
@@ -290,7 +290,7 @@ if ($_GET) {
 
 
 
-$title = '²¡ÈËÔ¤Ô¼ÊýÁ¿×ßÊÆÍ¼';
+$title = 'ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼';
 
 
 
@@ -312,11 +312,11 @@ function con($s) {
 
 <meta http-equiv="Content-Type" content="text/html;charset=gbk">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+<script src="../../res/base.js" language="javascript"></script>
 
-<script src='/res/chart/FusionCharts.js' language='javascript'></script>
+<script src='../../res/chart/FusionCharts.js' language='javascript'></script>
 
 <script type="text/javascript">
 
@@ -334,7 +334,7 @@ function hgo(dir) {
 
 		} else {
 
-			parent.msg_box("ÒÑ¾­ÊÇ×îÉÏÒ»¼ÒÒ½ÔºÁË", 3);
+			parent.msg_box("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ò½Ôºï¿½ï¿½", 3);
 
 		}
 
@@ -350,7 +350,7 @@ function hgo(dir) {
 
 		} else {
 
-			parent.msg_box("ÒÑ¾­ÊÇ×îÏÂÒ»¼ÒÒ½ÔºÁË", 3);
+			parent.msg_box("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ò½Ôºï¿½ï¿½", 3);
 
 		}
 
@@ -408,17 +408,17 @@ function show_hide_date(v) {
 
 <body>
 
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 
 <div class="headers">
 
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 
 </div>
 
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 
 
@@ -436,15 +436,15 @@ function show_hide_date(v) {
 
 	<div style="margin-top:20px;">
 
-	<b>ÇÐ»»Ò½Ôº£º</b>
+	<b>ï¿½Ð»ï¿½Ò½Ôºï¿½ï¿½</b>
 
 	<select name="hospital_id" id="hospital_id" class="combo" onchange="go_change(this.value)" style="width:200px;">
 
-	<option value="" style="color:gray">--ÇëÑ¡Ôñ--</option>
+	<option value="" style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 
 	<?php echo list_option($hospital_list, 'id', 'name', $_SESSION[$cfgSessionName]["hospital_id"]); ?>
 
-	</select>&nbsp;<button class="button" onclick="hgo('up');">ÉÏ</button>&nbsp;<button class="button" onclick="hgo('down');">ÏÂ</button>
+	</select>&nbsp;<button class="button" onclick="hgo('up');">ï¿½ï¿½</button>&nbsp;<button class="button" onclick="hgo('down');">ï¿½ï¿½</button>
 
 	</div>
 
@@ -458,11 +458,11 @@ function show_hide_date(v) {
 
 <div style="margin-top:40px; ">
 
-	<b>±¨±íÏÔÊ¾: </b>
+	<b>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾: </b>
 
 	<select name="type" class="combo" onchange="show_hide_date(this.value)">
 
-		<option value="" style="color:gray">-ÀàÐÍ-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½ï¿½ï¿½-</option>
 
 		<?php echo list_option($type_arr, "_key_", "_value_", noe($_GET["type"], "day")); ?>
 
@@ -470,7 +470,7 @@ function show_hide_date(v) {
 
 	<select name="time" class="combo">
 
-		<option value="" style="color:gray">-Ê±¼äÀàÐÍ-</option>
+		<option value="" style="color:gray">-Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-</option>
 
 		<?php echo list_option($time_arr, "_key_", "_value_", noe($_GET["time"], "addtime")); ?>
 
@@ -478,7 +478,7 @@ function show_hide_date(v) {
 
 	<select name="year" class="combo">
 
-		<option value="" style="color:gray">-Äê-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½-</option>
 
 		<?php echo list_option($year_arr, "_value_", "_value_", noe($_GET["year"], date("Y"))); ?>
 
@@ -486,7 +486,7 @@ function show_hide_date(v) {
 
 	<select name="month" id="s_month" class="combo" style="display:none;">
 
-		<option value="" style="color:gray">-ÔÂ-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½-</option>
 
 		<?php echo list_option($month_arr, "_value_", "_value_", noe($_GET["month"], date("n"))); ?>
 
@@ -494,7 +494,7 @@ function show_hide_date(v) {
 
 	<select name="day" id="s_day" class="combo" style="display:none;">
 
-		<option value="" style="color:gray">-ÈÕ-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½-</option>
 
 		<?php echo list_option($day_arr, "_value_", "_value_", noe($_GET["day"], date("j"))); ?>
 
@@ -502,7 +502,7 @@ function show_hide_date(v) {
 
 	<select name="part" class="combo">
 
-		<option value="" style="color:gray">-²¿ÃÅ-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½ï¿½ï¿½-</option>
 
 		<?php echo list_option($part_arr, "_key_", "_value_", $_GET["part"]); ?>
 
@@ -510,7 +510,7 @@ function show_hide_date(v) {
 
 	<select name="come" class="combo">
 
-		<option value="" style="color:gray">-ÊÇ·ñµ½Ôº-</option>
+		<option value="" style="color:gray">-ï¿½Ç·ï¿½Ôº-</option>
 
 		<?php echo list_option($come_arr, "_key_", "_value_", $_GET["come"]); ?>
 
@@ -518,13 +518,13 @@ function show_hide_date(v) {
 
 	<select name="kf" class="combo">
 
-		<option value="" style="color:gray">-¿Í·þ-</option>
+		<option value="" style="color:gray">-ï¿½Í·ï¿½-</option>
 
 		<?php echo list_option($kf_arr, "_value_", "_value_", $_GET["kf"]); ?>
 
 	</select>
 
-	<input type="submit" class="button" value="Ö´ÐÐ">
+	<input type="submit" class="button" value="Ö´ï¿½ï¿½">
 
 </div>
 
@@ -564,7 +564,7 @@ show_hide_date('<?php echo noe($_GET["type"],"day"); ?>');
 
 
 
-<div>ÇëÉèÖÃ²éÑ¯Ìõ¼þºó,µã»÷Ö´ÐÐÏÔÊ¾Í¼ÐÎ±¨±í</div>
+<div>ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ê¾Í¼ï¿½Î±ï¿½ï¿½ï¿½</div>
 
 
 

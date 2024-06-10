@@ -3,24 +3,24 @@
 <head>
 <title><?php echo $pinfo["title"]; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <style></style>
 <script language="javascript"></script>
 </head>
 
 <body>
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $pinfo["title"]; ?></span></div>
 	<div class="header_center"><?php echo $power->show_button("add"); ?></div>
-	<div class="headers_oprate"><form name="topform" method="GET">模糊搜索：<input name="key" value="<?php echo $_GET["key"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="搜索" style="font-weight:bold" title="点击搜索">&nbsp;<input type="button" value="重置" onclick="location='?'" class="search" title="退出条件查询">&nbsp;&nbsp;<input type="button" value="返回" onclick="history.back()" class="button" title="返回上一页"></form></div>
+	<div class="headers_oprate"><form name="topform" method="GET">模锟斤拷锟斤拷锟斤拷锟斤拷<input name="key" value="<?php echo $_GET["key"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="锟斤拷锟斤拷" style="font-weight:bold" title="锟斤拷锟斤拷锟斤拷锟�">&nbsp;<input type="button" value="锟斤拷锟斤拷" onclick="location='?'" class="search" title="锟剿筹拷锟斤拷锟斤拷锟斤拷询">&nbsp;&nbsp;<input type="button" value="锟斤拷锟斤拷" onclick="history.back()" class="button" title="锟斤拷锟斤拷锟斤拷一页"></form></div>
 </div>
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 
 <div class="space"></div>
 
-<!-- 数据列表 begin -->
+<!-- 锟斤拷锟斤拷锟叫憋拷 begin -->
 <form name="mainform">
 <table width="100%" align="center" class="list">
 <?php
@@ -30,23 +30,23 @@ if (count($table_items) > 0) {
 } else {
 ?>
 	<tr>
-		<td colspan="<?php echo count($list_heads); ?>" align="center" class="nodata">(没有数据...)</td>
+		<td colspan="<?php echo count($list_heads); ?>" align="center" class="nodata">(没锟斤拷锟斤拷锟斤拷...)</td>
 	</tr>
 <?php
 }
 ?>
 </table>
 </form>
-<!-- 数据列表 end -->
+<!-- 锟斤拷锟斤拷锟叫憋拷 end -->
 
 <div class="space"></div>
 
-<!-- 分页链接 begin -->
+<!-- 锟斤拷页锟斤拷锟斤拷 begin -->
 <div class="footer_op">
-	<div class="footer_op_left"><button onclick="select_all()" class="button">全选</button>&nbsp;<button onclick="unselect()" class="button">反选</button>&nbsp;<?php echo $power->show_button("close,delete"); ?></div>
+	<div class="footer_op_left"><button onclick="select_all()" class="button">全选</button>&nbsp;<button onclick="unselect()" class="button">锟斤拷选</button>&nbsp;<?php echo $power->show_button("close,delete"); ?></div>
 	<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($link_param, "page"), "button"); ?></div>
 </div>
-<!-- 分页链接 end -->
+<!-- 锟斤拷页锟斤拷锟斤拷 end -->
 
 <div class="space"></div>
 

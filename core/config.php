@@ -26,7 +26,7 @@ $cfgDefaultPageSize = 25; //Ĭ�Ϸ�ҳ��(�б�δ��дʱʹ�ô��
 
 // �������ı�ͷ:
 $aOrderTips = array("" => "���ȡ��������Ŀ����", "asc" => "�������������", "desc" => "�������������");
-$aOrderFlag = array("" => "", "asc" => "<img src='/res/img/icon_up.gif' width='12' height='12' alt='' align='absmiddle' border='0'>", "desc" => "<img src='/res/img/icon_down.gif' width='12' height='12' alt='' align='absmiddle' border='0'>");
+$aOrderFlag = array("" => "", "asc" => "<img src='../res/img/icon_up.gif' width='12' height='12' alt='' align='absmiddle' border='0'>", "desc" => "<img src='/res/img/icon_down.gif' width='12' height='12' alt='' align='absmiddle' border='0'>");
 
 // ��ɫ����:
 $aTitleColor = array("" => "Ĭ��", "fuchsia" => "�Ϻ�ɫ", "red" => "��ɫ", "green" => "��ɫ", "blue" => "��ɫ",

@@ -1,8 +1,8 @@
 <?php
 /*
-// ËµÃ÷: ÇúÏßÍ¼±¨±í (°´ÈÕ²é¿´)
-// ×÷Õß: °®Ò½Õ½¶Ó 
-// Ê±¼ä: 2011-01-15
+// Ëµï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Õ²é¿´)
+// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// Ê±ï¿½ï¿½: 2011-01-15
 */
 require "../../core/core.php";
 include "../../res/chart/FusionCharts_Gen.php";
@@ -10,10 +10,10 @@ include "../../res/chart/FusionCharts_Gen.php";
 if ($op == "run") {
 
 	if (count($hospital_ids) == 0) {
-		exit_html("Ã»ÓÐ¿ÉÒÔÏÔÊ¾µÄÒ½Ôº£¡");
+		exit_html("Ã»ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ò½Ôºï¿½ï¿½");
 	}
 
-	// Ñ­»·ÏÔÊ¾Ò½Ôº:
+	// Ñ­ï¿½ï¿½ï¿½ï¿½Ê¾Ò½Ôº:
 	if ($_GET["show"] == "next") {
 		$last_hid = $_SESSION["rhid"];
 		if (!$last_hid) {
@@ -36,16 +36,16 @@ if ($op == "run") {
 
 	$_SESSION["rhid"] = $cur_hid;
 
-	//$cur_hid = 69; //²âÊÔÖ®ÓÃ
+	//$cur_hid = 69; //ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½
 
-	// Ò½ÔºÐÅÏ¢:
+	// Ò½Ôºï¿½ï¿½Ï¢:
 	$h_info = $db->query("select * from hospital where id=$cur_hid limit 1", "1");
 	$h_name = $h_info["name"];
-	$hc = @unserialize($h_info["config"]); //Ò½ÔºÅäÖÃÐÅÏ¢£¨ÄÚº¬¶î¶¨Ö¸±êµÈÊý¾Ý£©
+	$hc = @unserialize($h_info["config"]); //Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Úºï¿½ï¿½î¶¨Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½
 
 	$table = "patient_".$cur_hid;
 
-	// ²éÑ¯±¾ÔÂµÄÔ¤Ô¼/¾ÍÕïÊý¾Ý£¬ÒÔ¼°²Î¿¼Ïß
+	// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Âµï¿½Ô¤Ô¼/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½Ô¼ï¿½ï¿½Î¿ï¿½ï¿½ï¿½
 	$ms = array();
 	for ($i = 1; $i<=31; $i++) {
 		if ($i <= 28 || checkdate(date("n", $date_time), $i, date("Y", $date_time))) {
@@ -58,23 +58,23 @@ if ($op == "run") {
 	$d_zhibiao = intval($hc[date("Ym")]["jiangli_zhibiao"] / count($ms));
 	$d_mubiao = intval($hc[date("Ym")]["jiuzhen_mubiao"] / count($ms));
 
-	$come = $yue = $jishu = $zhibiao = $mubiao = array(); // µ½ÔºÊý¾Ý
+	$come = $yue = $jishu = $zhibiao = $mubiao = array(); // ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½
 	foreach ($ms as $ndt => $dt) {
-		// ²Î¿¼ÏßÊý¾Ý:
+		// ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$jishu[$ndt] = $d_jishu;
 		$zhibiao[$ndt] = $d_zhibiao;
 		$mubiao[$ndt] = $d_mubiao;
 
-		// Í³¼Æ:
-		$timebegin = strtotime($dt." 0:0:0"); //ÆðÊ¼
-		$timeend = strtotime("+1 day", $timebegin); //½áÊø
+		// Í³ï¿½ï¿½:
+		$timebegin = strtotime($dt." 0:0:0"); //ï¿½ï¿½Ê¼
+		$timeend = strtotime("+1 day", $timebegin); //ï¿½ï¿½ï¿½ï¿½
 		$come[$ndt] = @intval($db->query("select count(*) as c from $table where order_date>=$timebegin and order_date<$timeend and status=1", 1, "c"));
 		$yue[$ndt] = @intval($db->query("select count(*) as c from $table where addtime>=$timebegin and addtime<$timeend", 1, "c"));
 	}
 
 
 
-	// Êä³ö±¨±í²¿·Ö:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	$FC = new FusionCharts("MSColumn2D","1000","500", "", 1);
 	$FC->setSWFPath("/res/chart/");
 	$FC->setChartParams("decimalPrecision=0; formatNumberScale=0; baseFontSize=12; baseFont=Arial; chartBottomMargin=0; outCnvBaseFontSize=12;numdivlines=0;" );
@@ -83,19 +83,19 @@ if ($op == "run") {
 		$FC->addCategory(date("j", strtotime($dt)));
 	}
 
-	$FC->addDataset("µ½ÔºÁ¿","numberPrefix=;showValues=1;color=800000");
+	$FC->addDataset("ï¿½ï¿½Ôºï¿½ï¿½","numberPrefix=;showValues=1;color=800000");
 	foreach ($come as $dt => $v) {
 		$FC->addChartData($v);
 	}
 
-	$FC->addDataset("Ô¤Ô¼Á¿","numberPrefix=;showValues=1;color=405050");
+	$FC->addDataset("Ô¤Ô¼ï¿½ï¿½","numberPrefix=;showValues=1;color=405050");
 	foreach ($yue as $dt => $v) {
 		$FC->addChartData($v);
 	}
 
-	$FC->addTrendLine("startValue={$d_jishu};color=ff0000;displayvalue=½±Àø»ùÊý ({$d_jishu});showOnTop=1");
-	$FC->addTrendLine("startValue={$d_zhibiao};color=005800;displayvalue=½±ÀøÖ¸±ê ({$d_zhibiao});showOnTop=1");
-	$FC->addTrendLine("startValue={$d_mubiao};color=0000ff;displayvalue=Ä¿±ê¾ÍÕï ({$d_mubiao});showOnTop=1");
+	$FC->addTrendLine("startValue={$d_jishu};color=ff0000;displayvalue=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ({$d_jishu});showOnTop=1");
+	$FC->addTrendLine("startValue={$d_zhibiao};color=005800;displayvalue=ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ ({$d_zhibiao});showOnTop=1");
+	$FC->addTrendLine("startValue={$d_mubiao};color=0000ff;displayvalue=Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ ({$d_mubiao});showOnTop=1");
 
 	$max = @max(max($mubiao), max($come), max($zhibiao), max($jishu));
 	$ymax = 10 * ceil(($max + 10) / 10);
@@ -106,16 +106,16 @@ if ($op == "run") {
 ?>
 <html>
 <head>
-<title>µ±ÈÕÔ¤Ô¼/µ½Ôº±¨±í</title>
+<title>ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼/ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gbk">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src='/res/chart/FusionCharts.js' language='javascript'></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src='../../res/chart/FusionCharts.js' language='javascript'></script>
 <style>
 .w400 {width:400px }
 .w800 {width:1000px; }
 .hr {border:0; margin:0; padding:0; height:3px; line-height:0; font-size:0; background-color:red; color:white; border-top:1px solid silver; }
-.h_name {font-size:16px; color:black; font-family:"Î¢ÈíÑÅºÚ"; font-weight:bold; margin-top:20px; margin-bottom:20px; }
+.h_name {font-size:16px; color:black; font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½"; font-weight:bold; margin-top:20px; margin-bottom:20px; }
 
 .a_button {font-size:14px; font-weight:bold; line-height:30px; text-align:center; width:100px; height:30px; background:url('/res/img/button_submit.gif');}
 </style>
@@ -136,18 +136,18 @@ function show_next() {
 	<div class="h_name"><?php echo $h_name." <font color=white>".$cur_hid."</font>"; ?></div>
 
 	<?php $FC->renderChart(); ?>
-	<!-- <div class="w800" style="text-align:center"><?php echo "<b>"."Ä¿±ê/µ½ÔºÇúÏß</b>"; ?></div> -->
+	<!-- <div class="w800" style="text-align:center"><?php echo "<b>"."Ä¿ï¿½ï¿½/ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½</b>"; ?></div> -->
 
 	<br>
 
 	<?php //$FC2->renderChart(); ?>
-	<!-- <div class="w800" style="text-align:center"><?php echo "<b>".date("YÄênÔÂjÈÕ H:i")." ¼´Ê±Ô¤Ô¼ÊýÁ¿</b>"; ?></div> -->
+	<!-- <div class="w800" style="text-align:center"><?php echo "<b>".date("Yï¿½ï¿½nï¿½ï¿½jï¿½ï¿½ H:i")." ï¿½ï¿½Ê±Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½</b>"; ?></div> -->
 
 </div>
 
 <?php if ($d_jishu == 0 || $d_zhibiao == 0 || $d_mubiao == 0) { ?>
 <div style="padding:20px; text-align:center;">
-<b>ÌáÊ¾</b>£ºÇëÉèÖÃ½±Àø»ùÊý¡¢½±ÀøÖ¸±êºÍÄ¿±ê¾ÍÕïÊý¾Ý(ÔÚÒ½ÔºÁÐ±íÖÐ)
+<b>ï¿½ï¿½Ê¾</b>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ò½Ôºï¿½Ð±ï¿½ï¿½ï¿½)
 </div>
 <?php } ?>
 
@@ -158,8 +158,8 @@ setTimeout("show_next()", 12000);
 <?php } else { ?>
 
 <div style="margin:50px;">
-	<a href="report4.php?op=run" class="a_button" target="_blank">°´ÔÂ·Ý²é¿´</a> &nbsp; &nbsp;
-	<a href="report4_d.php?op=run" class="a_button" target="_blank">°´ÈÕ²é¿´</a>
+	<a href="report4.php?op=run" class="a_button" target="_blank">ï¿½ï¿½ï¿½Â·Ý²é¿´</a> &nbsp; &nbsp;
+	<a href="report4_d.php?op=run" class="a_button" target="_blank">ï¿½ï¿½ï¿½Õ²é¿´</a>
 </div>
 
 <?php } ?>

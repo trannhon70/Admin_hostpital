@@ -2,11 +2,11 @@
 
 /* --------------------------------------------------------
 
-// ËµÃ÷: Í¼ÐÎ±¨±í
+// Ëµï¿½ï¿½: Í¼ï¿½Î±ï¿½ï¿½ï¿½
 
-// ×÷Õß: °®Ò½Õ½¶Ó 
+// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// Ê±¼ä: 2013-06-25 14:01
+// Ê±ï¿½ï¿½: 2013-06-25 14:01
 
 // ----------------------------------------------------- */
 
@@ -16,19 +16,19 @@ include "../../res/chart/FusionCharts_Gen.php";
 
 
 
-check_power('', $pinfo) or msg_box("Ã»ÓÐ´ò¿ªÈ¨ÏÞ...", "back", 1);
+check_power('', $pinfo) or msg_box("Ã»ï¿½Ð´ï¿½È¨ï¿½ï¿½...", "back", 1);
 
 
 
 if ($user_hospital_id == 0) {
 
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 }
 
 
 
-// Ò½ÔºÃû³Æ:
+// Ò½Ôºï¿½ï¿½ï¿½ï¿½:
 
 $h_name = $db->query("select name from hospital where id=$hid limit 1", "1", "name");
 
@@ -38,17 +38,17 @@ $table = "patient_".$user_hospital_id;
 
 
 
-// µÚÒ»¸ö£¬±¾ÔÂÍ³¼Æ:
+// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½:
 
 $FC = new FusionCharts("Column2D","800","200", "", 1);
 
 $FC->setSWFPath("/res/chart/");
 
-$FC->setChartParams("decimalPrecision=0; formatNumberScale=1; baseFontSize=10; baseFont=Arial; chartBottomMargin=0; outCnvBaseFontSize=12; hoverCapSepChar=ÈÕ: " );
+$FC->setChartParams("decimalPrecision=0; formatNumberScale=1; baseFontSize=10; baseFont=Arial; chartBottomMargin=0; outCnvBaseFontSize=12; hoverCapSepChar=ï¿½ï¿½: " );
 
 
 
-// Í³¼Æ:
+// Í³ï¿½ï¿½:
 
 $timebegin = $_GET["month"] ? $_GET["month"] : mktime(0,0,0,date("m"),1);
 
@@ -92,7 +92,7 @@ for ($i=1; $i<=31; $i++) {
 
 
 
-// ×î½üÇ÷ÊÆ:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 
 $FC2 = new FusionCharts("Line","800","186", "", 1);
 
@@ -136,13 +136,13 @@ $FC2->setChartParams("yAxisMaxValue={$ymax}");
 
 foreach ($a3_all as $d => $s) {
 
-	$FC2->addChartData($s, "name=".date("nÔÂjÈÕ", strtotime($d)));
+	$FC2->addChartData($s, "name=".date("nï¿½ï¿½jï¿½ï¿½", strtotime($d)));
 
 }
 
 
 
-$title = '²¡ÈËÔ¤Ô¼ÊýÁ¿×ßÊÆÍ¼';
+$title = 'ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼';
 
 
 
@@ -166,11 +166,11 @@ function con($s) {
 
 <meta http-equiv="Content-Type" content="text/html;charset=gbk">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+<script src="../../res/base.js" language="javascript"></script>
 
-<script src='/res/chart/FusionCharts.js' language='javascript'></script>
+<script src='../../res/chart/FusionCharts.js' language='javascript'></script>
 
 <style>
 
@@ -188,17 +188,17 @@ function con($s) {
 
 <body>
 
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 
 <div class="headers">
 
 	<div class="headers_title"><span class="tips"><?php echo $h_name." - ".$title; ?></span></div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 
 </div>
 
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 
 
@@ -212,7 +212,7 @@ function con($s) {
 
 <div>
 
-ÔÂ·Ý£º
+ï¿½Â·Ý£ï¿½
 
 <?php
 
@@ -238,7 +238,7 @@ for ($i=0; $i<=6; $i++) {
 
 <?php $FC->renderChart(); ?>
 
-<div class="w800" style="text-align:center"><?php echo "<b>".date("YÄênÔÂ", $timebegin)." Ô¤Ô¼²¡ÈË</b> (xÖáÎªÈÕÆÚ£¬yÖáÊÇÔ¤Ô¼ÈËÊý)"; ?>
+<div class="w800" style="text-align:center"><?php echo "<b>".date("Yï¿½ï¿½nï¿½ï¿½", $timebegin)." Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½</b> (xï¿½ï¿½Îªï¿½ï¿½ï¿½Ú£ï¿½yï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½)"; ?>
 
 <hr class="w400 hr">
 
@@ -252,7 +252,7 @@ for ($i=0; $i<=6; $i++) {
 
 <?php $FC2->renderChart(); ?>
 
-<div class="w800" style="text-align:center"><?php echo "<b>×î½ü3¸öÔÂÔ¤Ô¼Ç÷ÊÆ</b> (xÖáÎªÈÕÆÚ£¬yÖáÊÇÔ¤Ô¼ÈËÊý)"; ?>
+<div class="w800" style="text-align:center"><?php echo "<b>ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½</b> (xï¿½ï¿½Îªï¿½ï¿½ï¿½Ú£ï¿½yï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½)"; ?>
 
 <hr class="w400 hr">
 

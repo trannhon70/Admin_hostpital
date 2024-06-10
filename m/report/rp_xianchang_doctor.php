@@ -1,30 +1,30 @@
 <?php
 /*
-// 说明: 报表
-// 作者: 爱医战队 
-// 时间: 2011-11-24
+// 说锟斤拷: 锟斤拷锟斤拷
+// 锟斤拷锟斤拷: 锟斤拷医战锟斤拷 
+// 时锟斤拷: 2011-11-24
 */
 require "../../core/core.php";
 
-// 报表核心定义:
+// 锟斤拷锟斤拷锟斤拷锟侥讹拷锟斤拷:
 include "rp.core.php";
 
-$tongji_tips = " - 现场医生统计 - ".$type_tips;
+$tongji_tips = " - 锟街筹拷医锟斤拷统锟斤拷 - ".$type_tips;
 ?>
 <html>
 <head>
-<title>现场医生报表</title>
+<title>锟街筹拷医锟斤拷锟斤拷锟斤拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 <style>
 body {margin-top:6px; }
 #rp_condition_form {text-align:center; }
-.head, .head a {font-family:"微软雅黑","Verdana"; }
+.head, .head a {font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 .item {font-family:"Tahoma"; padding:8px 3px 6px 3px !important; }
 .footer_op_left {font-family:"Tahoma"; }
-.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微软雅黑","Verdana"; }
+.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 form {display:inline; }
 .red {color:red !important;  }
 </style>
@@ -37,17 +37,17 @@ form {display:inline; }
 <?php if ($_GET["op"] == "report") { ?>
 <?php
 
-// 读取医生，最多15个
+// 锟斤拷取医锟斤拷锟斤拷锟斤拷锟�15锟斤拷
 $xianchang_doctor_arr = $db->query("select xianchang_doctor,count(xianchang_doctor) as c from $table where $where xianchang_doctor!='' and {$timetype}>=$max_tb and {$timetype}<=$max_te group by xianchang_doctor order by c desc limit 15", "xianchang_doctor", "c");
 if (count($xianchang_doctor_arr) == 0) {
-	exit_html("<center>对不起，该医院未使用医生功能，无法统计。</center>");
+	exit_html("<center>锟皆诧拷锟金，革拷医院未使锟斤拷医锟斤拷锟斤拷锟杰ｏ拷锟睫凤拷统锟狡★拷</center>");
 }
 
 if (in_array($type, array(1,2,3,4))) {
-	// 计算统计数据:
+	// 锟斤拷锟斤拷统锟斤拷锟斤拷锟斤拷:
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
+		$data[$k]["锟斤拷"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
 
 		foreach ($xianchang_doctor_arr as $me => $num) {
 			$data[$k][$me] = $db->query("select count(*) as c from $table where $where xianchang_doctor='{$me}' and {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
@@ -55,7 +55,7 @@ if (in_array($type, array(1,2,3,4))) {
 	}
 } else if ($type == 5) {
 	$arr = array();
-	$arr["总"] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
+	$arr["锟斤拷"] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
 
 	foreach ($xianchang_doctor_arr as $me => $num) {
 		$arr[$me] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where xianchang_doctor='{$me}' and $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
@@ -63,7 +63,7 @@ if (in_array($type, array(1,2,3,4))) {
 
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = intval($arr["总"][$v]);
+		$data[$k]["锟斤拷"] = intval($arr["锟斤拷"][$v]);
 		foreach ($xianchang_doctor_arr as $me => $num) {
 			$data[$k][$me] = intval($arr[$me][$v]);
 		}
@@ -75,8 +75,8 @@ if (in_array($type, array(1,2,3,4))) {
 <div class="date_tips"><?php echo $h_name.$tongji_tips.$tips; ?></div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center">时间</td>
-		<td class="head red" align="center">总计</td>
+		<td class="head" align="center">时锟斤拷</td>
+		<td class="head red" align="center">锟杰硷拷</td>
 <?php foreach ($xianchang_doctor_arr as $me => $num) { ?>
 		<td class="head" align="center"><?php echo $me; ?></td>
 <?php } ?>
@@ -85,7 +85,7 @@ if (in_array($type, array(1,2,3,4))) {
 <?php foreach ($final_dt_arr as $k => $v) { ?>
 	<tr>
 		<td class="item" align="center"><?php echo $k; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["总"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["锟斤拷"]; ?></td>
 <?php   foreach ($xianchang_doctor_arr as $me => $num) { ?>
 		<td class="item" align="center"><?php echo $data[$k][$me]; ?></td>
 <?php   } ?>

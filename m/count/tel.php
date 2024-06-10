@@ -1,13 +1,13 @@
 <?php
 // --------------------------------------------------------
-// - ¹¦ÄÜËµÃ÷ : µç»°
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2010-10-18
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ç»°
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2010-10-18
 // --------------------------------------------------------
 require "../../core/core.php";
 $table = "count_tel";
 
-// ËùÓÐ¿É¹ÜÀíÏîÄ¿:
+// ï¿½ï¿½ï¿½Ð¿É¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿:
 if ($debug_mode || in_array($uinfo["part_id"], array(9))) {
 	$types = $db->query("select id,name from count_type where type='tel' order by sort desc, id asc", "id", "name");
 } else {
@@ -15,7 +15,7 @@ if ($debug_mode || in_array($uinfo["part_id"], array(9))) {
 	$types = $db->query("select id,name from count_type where type='tel' and hid in ($hids) order by sort desc, id asc", "id", "name");
 }
 if (count($types) == 0) {
-	exit("Ã»ÓÐ¿ÉÒÔ¹ÜÀíµÄÏîÄ¿");
+	exit("Ã»ï¿½Ð¿ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿");
 }
 
 $cur_type = $_SESSION["count_type_id_tel"];
@@ -28,12 +28,12 @@ if (!$cur_type) {
 if ($_GET["date"] && strlen($_GET["date"]) == 6) {
 	$date = $_GET["date"];
 } else {
-	$date = date("Ym"); //±¾ÔÂ
+	$date = date("Ym"); //ï¿½ï¿½ï¿½ï¿½
 	$_GET["date"] = $date;
 }
 $date_time = strtotime(substr($date,0,4)."-".substr($date,4,2)."-01 0:0:0");
 
-// ¿ÉÓÃ Äê,ÔÂ Êý×é
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½,ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 $y_array = $m_array = $d_array = array();
 for ($i = date("Y"); $i >= (date("Y") - 2); $i--) $y_array[] = $i;
 for ($i = 1; $i <= 12; $i++) $m_array[] = $i;
@@ -45,7 +45,7 @@ for ($i = 1; $i <= 31; $i++) {
 
 
 
-// ²Ù×÷µÄ´¦Àí:
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½:
 if ($op = $_REQUEST["op"]) {
 	if ($op == "add") {
 		include "tel.edit.php";
@@ -73,13 +73,13 @@ if ($op = $_REQUEST["op"]) {
 		}
 
 		if ($del_ok > 0) {
-			$log->add("delete", "É¾³ýÊý¾Ý", serialize($op_data));
+			$log->add("delete", "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", serialize($op_data));
 		}
 
 		if ($del_bad > 0) {
-			msg_box("É¾³ý³É¹¦ $del_ok Ìõ×ÊÁÏ£¬É¾³ýÊ§°Ü $del_bad Ìõ×ÊÁÏ¡£", "back", 1);
+			msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½ $del_ok ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½É¾ï¿½ï¿½Ê§ï¿½ï¿½ $del_bad ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½", "back", 1);
 		} else {
-			msg_box("É¾³ý³É¹¦", "back", 1);
+			msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½", "back", 1);
 		}
 	}
 
@@ -94,7 +94,7 @@ $type_detail = $db->query("select * from count_type where id=$cur_type limit 1",
 $kefu_list = $type_detail["kefu"] ? explode(",", $type_detail["kefu"]) : array();
 
 
-// ¸ÃÔÂ½áÊø:
+// ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½:
 $month_end = strtotime("+1 month", $date_time);
 
 $b = date("Ymd", $date_time);
@@ -103,24 +103,24 @@ $e = date("Ymd", $month_end);
 
 $cur_kefu = $_GET["kefu"];
 if ($cur_kefu) {
-	// ²éÑ¯µ¥¸ö¿Í·þÊý¾Ý:
+	// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½:
 	$list = $db->query("select * from $table where type_id=$cur_type and kefu='$cur_kefu' and date>=$b and date<=$e order by date asc,kefu asc", "date");
 
-	// ¼ÆËãÊý¾Ý:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	foreach ($list as $k => $v) {
-		// ×ÉÑ¯Ô¤Ô¼ÂÊ:
+		// ï¿½ï¿½Ñ¯Ô¤Ô¼ï¿½ï¿½:
 		$list[$k]["per_1"] = @round($v["yuyue"] / $v["tel_all"] * 100, 2);
-		// Ô¤Ô¼¾ÍÕïÂÊ:
+		// Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$list[$k]["per_2"] = @round($v["jiuzhen"] / $v["yuyue"] * 100, 2);
-		// ×ÉÑ¯¾ÍÕïÂÊ:
+		// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$list[$k]["per_3"] = @round($v["jiuzhen"] / $v["tel_all"] * 100, 2);
-		// ÓÐÐ§×ÉÑ¯ÂÊ:
+		// ï¿½ï¿½Ð§ï¿½ï¿½Ñ¯ï¿½ï¿½:
 		$list[$k]["per_4"] = @round($v["tel_ok"] / $v["tel_all"] * 100, 2);
 	}
 
-	// ¼ÆËãÍ³¼ÆÊý¾Ý:
+	// ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	$cal_field = explode(" ", "tel_all tel_ok yuyue jiuzhen wangluo zazhi laobao xinbao t400 t114 jieshao luguo qita per_1 per_2 per_3 per_4");
-	// ´¦Àí:
+	// ï¿½ï¿½ï¿½ï¿½:
 	$sum_list = array();
 	foreach ($list as $v) {
 		foreach ($cal_field as $f) {
@@ -128,10 +128,10 @@ if ($cur_kefu) {
 		}
 	}
 } else {
-	//²éÑ¯×ÜÒ½Ôº»ã×ÜÊý¾Ý:
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	$tmp_list = $db->query("select * from $table where type_id=$cur_type and date>=$b and date<=$e order by date asc,kefu asc");
 
-	// ¼ÆËã»ã×Ü:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	$list = $dt_count = array();
 	foreach ($tmp_list as $v) {
 		$dt = $v["date"];
@@ -143,21 +143,21 @@ if ($cur_kefu) {
 		}
 	}
 
-	// ¼ÆËãÊý¾Ý:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	foreach ($list as $k => $v) {
-		// ×ÉÑ¯Ô¤Ô¼ÂÊ:
+		// ï¿½ï¿½Ñ¯Ô¤Ô¼ï¿½ï¿½:
 		$list[$k]["per_1"] = @round($v["yuyue"] / $v["tel_all"] * 100, 2);
-		// Ô¤Ô¼¾ÍÕïÂÊ:
+		// Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$list[$k]["per_2"] = @round($v["jiuzhen"] / $v["yuyue"] * 100, 2);
-		// ×ÉÑ¯¾ÍÕïÂÊ:
+		// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 		$list[$k]["per_3"] = @round($v["jiuzhen"] / $v["tel_all"] * 100, 2);
-		// ÓÐÐ§×ÉÑ¯ÂÊ:
+		// ï¿½ï¿½Ð§ï¿½ï¿½Ñ¯ï¿½ï¿½:
 		$list[$k]["per_4"] = @round($v["tel_ok"] / $v["tel_all"] * 100, 2);
 	}
 
-	// ¼ÆËãÍ³¼ÆÊý¾Ý:
+	// ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	$cal_field = explode(" ", "tel_all tel_ok yuyue jiuzhen wangluo zazhi laobao xinbao t400 t114 jieshao luguo qita per_1 per_2 per_3 per_4");
-	// ´¦Àí:
+	// ï¿½ï¿½ï¿½ï¿½:
 	$sum_list = array();
 	foreach ($list as $v) {
 		foreach ($cal_field as $f) {
@@ -167,7 +167,7 @@ if ($cur_kefu) {
 }
 
 
-// ÊÇ·ñÄÜÌí¼Ó»òÐÞ¸ÄÊý¾Ý:
+// ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó»ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½:
 $can_edit_data = 0;
 if ($debug_mode || in_array($uinfo["part_id"], array(9)) || in_array($uid, explode(",", $type_detail["uids"]))) {
 	$can_edit_data = 1;
@@ -175,7 +175,7 @@ if ($debug_mode || in_array($uinfo["part_id"], array(9)) || in_array($uid, explo
 
 
 /*
-// ------------------ º¯Êý -------------------
+// ------------------ ï¿½ï¿½ï¿½ï¿½ -------------------
 */
 function my_show($arr, $default_value='', $click='') {
 	$s = '';
@@ -190,14 +190,14 @@ function my_show($arr, $default_value='', $click='') {
 }
 
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 ?>
 <html>
 <head>
-<title>µç»°Êý¾ÝÍ³¼Æ</title>
+<title>ï¿½ç»°ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <style>
 body {padding:5px 8px; }
 form {display:inline; }
@@ -212,7 +212,7 @@ form {display:inline; }
 .ch_date_b {padding-top:8px; text-align:left; width:80%; color:silver; }
 .ch_date_b a {padding:0 3px; }
 
-.main_title {margin:0 auto; padding-top:24px; padding-bottom:5px; text-align:left; font-weight:bold; font-size:12px; font-family:"ËÎÌå"; }
+.main_title {margin:0 auto; padding-top:24px; padding-bottom:5px; text-align:left; font-weight:bold; font-size:12px; font-family:"ï¿½ï¿½ï¿½ï¿½"; }
 
 .item {padding:8px 3px 6px 3px !important; }
 .list .head {padding-top:6px; padding-bottom:4px; background-color:#B4DADA; }
@@ -236,10 +236,10 @@ function update_date(type, o) {
 
 <body>
 <div style="margin:10px 0 0 0px;">
-	<div id="date_tips">ÇëÑ¡ÔñÈÕÆÚ£º</div>
+	<div id="date_tips">ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½</div>
 	<form id="ch_date" method="GET">
-		<span class="ch_date_a">Äê£º<?php echo my_show($y_array, date("Y", $date_time), "return update_date(1,this)"); ?>&nbsp;&nbsp;&nbsp;</span>
-		<span class="ch_date_a">ÔÂ£º<?php echo my_show($m_array, date("m", $date_time), "return update_date(2,this)"); ?>&nbsp;&nbsp;&nbsp;</span>
+		<span class="ch_date_a">ï¿½ê£º<?php echo my_show($y_array, date("Y", $date_time), "return update_date(1,this)"); ?>&nbsp;&nbsp;&nbsp;</span>
+		<span class="ch_date_a">ï¿½Â£ï¿½<?php echo my_show($m_array, date("m", $date_time), "return update_date(2,this)"); ?>&nbsp;&nbsp;&nbsp;</span>
 
 		<input type="hidden" id="date_1" value="<?php echo date("Y", $date_time); ?>">
 		<input type="hidden" id="date_2" value="<?php echo date("n", $date_time); ?>">
@@ -250,19 +250,19 @@ function update_date(type, o) {
 </div>
 
 <div style="margin:10px 0 0 0px;">
-	<div id="date_tips">Ò½ÔºÏîÄ¿£º</div>
+	<div id="date_tips">Ò½Ôºï¿½ï¿½Ä¿ï¿½ï¿½</div>
 	<form method="GET" style="margin-left:30px;">
 	<select name="type_id" class="combo" onchange="this.form.submit()">
-		<option value="" style="color:gray">-ÇëÑ¡ÔñÏîÄ¿-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ä¿-</option>
 		<?php echo list_option($types, "_key_", "_value_", $cur_type); ?>
 	</select>
 	<input type="hidden" name="op" value="change_type">
 	</form>&nbsp;&nbsp;&nbsp;
 
-	<b>¿Í·þ£º</b>
+	<b>ï¿½Í·ï¿½ï¿½ï¿½</b>
 	<form method="GET">
 	<select name="kefu" class="combo" onchange="this.form.submit()">
-		<option value="" style="color:gray">-Õû¸öÒ½Ôº-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½ï¿½ï¿½Ò½Ôº-</option>
 		<?php echo list_option($kefu_list, "_value_", "_value_", $_GET["kefu"]); ?>
 	</select>
 	<input type="hidden" name="date" value="<?php echo $date; ?>">
@@ -270,33 +270,33 @@ function update_date(type, o) {
 
 </div>
 
-<div class="main_title"><?php echo $type_detail["name"]; ?> - <?php echo date("Y-n", $date_time); ?> µç»°Í³¼ÆÊý¾Ý</div>
+<div class="main_title"><?php echo $type_detail["name"]; ?> - <?php echo date("Y-n", $date_time); ?> ï¿½ç»°Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</div>
 
 <table width="100%" align="center" class="list">
 	<tr style="position:relative; top:expression((this.offsetParent.scrollTop > 105) ? (this.offsetParent.scrollTop - 105) : 0);">
-		<td class="head" align="center" width="60">ÈÕÆÚ</td>
+		<td class="head" align="center" width="60">ï¿½ï¿½ï¿½ï¿½</td>
 
-		<td class="head" align="center">×Üµç»°</td>
-		<td class="head" align="center" style="color:red">ÓÐÐ§</td>
+		<td class="head" align="center">ï¿½Üµç»°</td>
+		<td class="head" align="center" style="color:red">ï¿½ï¿½Ð§</td>
 		<td class="head" align="center">Ô¤Ô¼</td>
-		<td class="head" align="center" style="color:red">¾ÍÕï</td>
+		<td class="head" align="center" style="color:red">ï¿½ï¿½ï¿½ï¿½</td>
 
-		<td class="head" align="center">ÍøÂç</td>
-		<td class="head" align="center">ÔÓÖ¾</td>
-		<td class="head" align="center">ÀÍ±¨</td>
-		<td class="head" align="center">ÐÂ±¨</td>
+		<td class="head" align="center">ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="head" align="center">ï¿½ï¿½Ö¾</td>
+		<td class="head" align="center">ï¿½Í±ï¿½</td>
+		<td class="head" align="center">ï¿½Â±ï¿½</td>
 		<td class="head" align="center">400</td>
 		<td class="head" align="center">114</td>
-		<td class="head" align="center">½éÉÜ</td>
-		<td class="head" align="center">Â·¹ý</td>
-		<td class="head" align="center">ÆäËû</td>
+		<td class="head" align="center">ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="head" align="center">Â·ï¿½ï¿½</td>
+		<td class="head" align="center">ï¿½ï¿½ï¿½ï¿½</td>
 
-		<td class="head" align="center">×ÉÑ¯Ô¤Ô¼ÂÊ</td>
-		<td class="head" align="center">Ô¤Ô¼¾ÍÕïÂÊ</td>
-		<td class="head" align="center">×ÉÑ¯¾ÍÕïÂÊ</td>
-		<td class="head" align="center">ÓÐÐ§×ÉÑ¯ÂÊ</td>
+		<td class="head" align="center">ï¿½ï¿½Ñ¯Ô¤Ô¼ï¿½ï¿½</td>
+		<td class="head" align="center">Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="head" align="center">ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="head" align="center">ï¿½ï¿½Ð§ï¿½ï¿½Ñ¯ï¿½ï¿½</td>
 
-		<td class="head" align="center" width="60">²Ù×÷</td>
+		<td class="head" align="center" width="60">ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 
 <?php
@@ -309,7 +309,7 @@ foreach ($d_array as $i) {
 
 ?>
 	<tr>
-		<td class="item" align="center"><?php echo date("n", $date_time); ?>ÔÂ<?php echo $i; ?>ÈÕ</td>
+		<td class="item" align="center"><?php echo date("n", $date_time); ?>ï¿½ï¿½<?php echo $i; ?>ï¿½ï¿½</td>
 		<td class="item" align="center"><?php echo $li["tel_all"]; ?></td>
 		<td class="item" align="center"><?php echo $li["tel_ok"]; ?></td>
 		<td class="item" align="center"><?php echo $li["yuyue"]; ?></td>
@@ -333,9 +333,9 @@ foreach ($d_array as $i) {
 		<td class="item" align="center">
 <?php if ($cur_kefu && $can_edit_data) { ?>
 			<?php if (!$li) { ?>
-			<a href="?op=add&kefu=<?php echo urlencode($cur_kefu); ?>&date=<?php echo date("Y-m-", $date_time).$i; ?>">Ìí¼Ó</a>
+			<a href="?op=add&kefu=<?php echo urlencode($cur_kefu); ?>&date=<?php echo date("Y-m-", $date_time).$i; ?>">ï¿½ï¿½ï¿½ï¿½</a>
 			<?php } else { ?>
-			<a href="?op=edit&kefu=<?php echo urlencode($cur_kefu); ?>&date=<?php echo date("Y-m-", $date_time).$i; ?>">ÐÞ¸Ä</a>
+			<a href="?op=edit&kefu=<?php echo urlencode($cur_kefu); ?>&date=<?php echo date("Y-m-", $date_time).$i; ?>">ï¿½Þ¸ï¿½</a>
 			<?php } ?>
 <?php } ?>
 		</td>
@@ -344,10 +344,10 @@ foreach ($d_array as $i) {
 <?php } ?>
 
 	<tr>
-		<td colspan="30" class="tips">Êý¾Ý»ã×Ü</td>
+		<td colspan="30" class="tips">ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½</td>
 
 	<tr>
-		<td class="item" align="center">»ã×Ü</td>
+		<td class="item" align="center">ï¿½ï¿½ï¿½ï¿½</td>
 		<td class="item" align="center"><?php echo $sum_list["tel_all"]; ?></td>
 		<td class="item" align="center"><?php echo $sum_list["tel_ok"]; ?></td>
 		<td class="item" align="center"><?php echo $sum_list["yuyue"]; ?></td>

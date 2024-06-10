@@ -1,30 +1,30 @@
 <?php
 /*
-// 说明: 按性别报表
-// 作者: 爱医战队 
-// 时间: 2011-11-23
+// 说锟斤拷: 锟斤拷锟皆别报憋拷
+// 锟斤拷锟斤拷: 锟斤拷医战锟斤拷 
+// 时锟斤拷: 2011-11-23
 */
 require "../../core/core.php";
 
-// 报表核心定义:
+// 锟斤拷锟斤拷锟斤拷锟侥讹拷锟斤拷:
 include "rp.core.php";
 
-$tongji_tips = " - 年龄统计 - ".$type_tips;
+$tongji_tips = " - 锟斤拷锟斤拷统锟斤拷 - ".$type_tips;
 ?>
 <html>
 <head>
-<title>年龄报表</title>
+<title>锟斤拷锟戒报锟斤拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 body {margin-top:6px; }
 #rp_condition_form {text-align:center; }
-.head, .head a {font-family:"微软雅黑","Verdana"; }
+.head, .head a {font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 .item {font-family:"Tahoma"; padding:8px 3px 6px 3px !important; }
 .footer_op_left {font-family:"Tahoma"; }
-.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微软雅黑","Verdana"; }
+.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 form {display:inline; }
 </style>
 </head>
@@ -37,7 +37,7 @@ form {display:inline; }
 <?php
 
 if (in_array($type, array(1,2,3,4))) {
-	// 计算统计数据:
+	// 锟斤拷锟斤拷统锟斤拷锟斤拷锟斤拷:
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
 		$data[$k]["all"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
@@ -85,8 +85,8 @@ if (in_array($type, array(1,2,3,4))) {
 <div class="date_tips"><?php echo $h_name.$tongji_tips; ?></div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center">时间</td>
-		<td class="head" align="center">总人数</td>
+		<td class="head" align="center">时锟斤拷</td>
+		<td class="head" align="center">锟斤拷锟斤拷锟斤拷</td>
 		<td class="head" align="center">0~9</td>
 		<td class="head" align="center">10~14</td>
 		<td class="head" align="center">15~19</td>

@@ -1,44 +1,44 @@
 <?php
 /*
-// ËµÃ÷: Éú³É´ø±íÍ·µÄÁÐ±í±í¸ñ
-// ×÷Õß: °®Ò½Õ½¶Ó 
-// Ê±¼ä: 2010-07-12
+// Ëµï¿½ï¿½: ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// Ê±ï¿½ï¿½: 2010-07-12
 */
 
 class table {
 	var $heads = array();
 	var $lines = array();
 
-	// Ä¬ÈÏÅÅÐò:
+	// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	var $default_sort = '';
 	var $default_order = '';
 
-	// µ±Ç°ÅÅÐò
+	// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
 	var $sort = '';
 	var $order = '';
 
-	// ÅÅÐò²Ù×÷:
-	var $baselink = ''; //²»Éè¶¨£¬Ä¬ÈÏµ±Ç°Ò³Ãæ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+	var $baselink = ''; //ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½Ä¬ï¿½Ïµï¿½Ç°Ò³ï¿½ï¿½
 	var $param = array();
 
-	// ÏÔÊ¾Ëõ½ø:
-	var $base_indent = ""; //³õÊ¼Ëõ½ø
-	var $one_indent = "\t"; //Ã¿¼¶Ëõ½ø
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½:
+	var $base_indent = ""; //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+	var $one_indent = "\t"; //Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// ÏÔÊ¾±í¸ñÓÃµÄcssÀà:
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½cssï¿½ï¿½:
 	var $table_class = "list";
 
-	// ÅÅÐò±ê¼Ç:
-	var $icons = array('asc'=>'/res/img/icon_down.gif', 'desc'=>'/res/img/icon_up.gif');
-	var $order_tips = array("ori"=>"È¡Ïû´ËÀ¸Ä¿ÅÅÐò", "asc"=>"µã»÷°´¡°ÉýÐò¡±ÅÅÐò", "desc"=>"µã»÷°´¡°½µÐò¡±ÅÅÐò");
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+	var $icons = array('asc'=>'/res/img/icon_down.gif', 'desc'=>'../res/img/icon_up.gif');
+	var $order_tips = array("ori"=>"È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½", "asc"=>"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "desc"=>"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 
-	// Àà³õÊ¼»¯:
+	// ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½:
 	function table() {
 		// nothing todo
 	}
 
-	// Éè¶¨±í¸ñÍ·²¿£¬ÒÔ¼°Ä¬ÈÏÅÅÐò:
+	// ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	function set_head($head_array = array(), $default_sort = '', $default_order = '') {
 		$this->heads = $head_array;
 		if ($default_sort) {
@@ -52,7 +52,7 @@ class table {
 	}
 
 
-	// ÉèÖÃµ±Ç°ÅÅÐò:
+	// ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½:
 	function set_sort($sort = '', $order = '') {
 		if ($sort && $this->heads && array_key_exists($sort, $this->heads)) {
 			$this->sort = $sort;
@@ -65,7 +65,7 @@ class table {
 	}
 
 
-	// Ìí¼ÓÒ»ÐÐÊý¾Ý:
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	function add($line = array()) {
 		$this->lines[] = $line;
 	}
@@ -74,7 +74,7 @@ class table {
 		$this->lines[] = $title;
 	}
 
-	// ÏÔÊ¾½á¹û;
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½;
 	function show() {
 		$s = $this->base_indent.'<table class="'.$this->table_class.'" width="100%">'."\r\n";
 		$s .= $this->show_head();
@@ -84,7 +84,7 @@ class table {
 		return $s;
 	}
 
-	// Éú³É±í¸ñÍ·²¿:
+	// ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½Í·ï¿½ï¿½:
 	function show_head() {
 		if (!$this->heads) return '';
 
@@ -96,20 +96,20 @@ class table {
 				($v["width"] ? (' width="'.$v["width"].'"') : '')
 				.($v["color"] ? (' style="color:'.$v["color"].'"') : '')
 				.'>';
-			if ($v["sort"] == '') { // ²»Ê¹ÓÃ´ËÁÐÅÅÐò
+			if ($v["sort"] == '') { // ï¿½ï¿½Ê¹ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				$s .= $k;
 			} else {
-				// Î´½øÈëµ±Ç°ÅÅÐò:
+				// Î´ï¿½ï¿½ï¿½ëµ±Ç°ï¿½ï¿½ï¿½ï¿½:
 				if ($this->sort != $k && $this->default_sort != $k) {
 					$next_sort = $k;
 					$next_tip_order = $next_order = $v["order"];
-				} else { //µ±Ç°ÅÅÐò
+				} else { //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
 					$order = ($this->sort == $k) ? $this->order : $this->default_order;
 					$ori_order = ($this->sort == $k && $this->sort != $this->default_sort) ? $v["order"] : $this->default_order;
-					if ($order == $ori_order || $this->default_sort == $k) { //Ä¬ÈÏË³Ðò
+					if ($order == $ori_order || $this->default_sort == $k) { //Ä¬ï¿½ï¿½Ë³ï¿½ï¿½
 						$next_sort = $k;
 						$next_tip_order = $next_order = ($order == "asc") ? "desc" : "asc";
-					} else { // ·´Ðò
+					} else { // ï¿½ï¿½ï¿½ï¿½
 						$next_sort = $this->default_sort;
 						$next_order = $this->default_order;
 						$next_tip_order = 'ori';
@@ -138,7 +138,7 @@ class table {
 		return $s;
 	}
 
-	// ÏÔÊ¾ÐÐ:
+	// ï¿½ï¿½Ê¾ï¿½ï¿½:
 	function show_lines() {
 		$s = '';
 		if (count($this->lines) > 0) {
@@ -163,14 +163,14 @@ class table {
 		} else {
 			// nodata
 			$s .= $this->base_indent.$this->one_indent.'<tr class="nodata">'."\r\n";
-			$s .= $this->base_indent.$this->one_indent.$this->one_indent.'<td colspan="'.count($this->heads).'">(ÔÝÎÞÊý¾Ý)</td>'."\r\n";
+			$s .= $this->base_indent.$this->one_indent.$this->one_indent.'<td colspan="'.count($this->heads).'">(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)</td>'."\r\n";
 			$s .= $this->base_indent.$this->one_indent.'</tr>'."\r\n";
 		}
 
 		return $s;
 	}
 
-	// Á´½Ó´¦Àí:
+	// ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½:
 	function make_link($not_used_var='', $used_array = array()) {
 		$p = $this->param;
 

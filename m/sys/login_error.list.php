@@ -3,27 +3,27 @@
 <head>
 <title><?php echo $pinfo["title"]; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <style></style>
 <script language="javascript"></script>
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
-	<div class="headers_title"><span class="tips">ÓÃ»§ÃûÃÜÂë´íÎó¼ÇÂ¼</span></div>
+	<div class="headers_title"><span class="tips">ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼</span></div>
 	<div class="header_center" style="padding-top:2px;">
-		<?php if ($debug_mode) { ?><a href="?op=clear" onclick="return confirm('È·¶¨ÒªÇå³ýËùÓÐ¼ÇÂ¼Âð£¿')">Çå¿Õ</a>&nbsp;<?php } ?>
-		<?php if ($debug_mode || $username=="admin") { ?><a href="?op=del_week" onclick="return confirm('È·¶¨ÒªÉ¾³ýÒ»ÖÜÖ®Ç°µÄ¼ÇÂ¼Âð£¿')">É¾³ýÒ»ÖÜÖ®Ç°µÄ¼ÇÂ¼</a>&nbsp;<?php } ?>
+		<?php if ($debug_mode) { ?><a href="?op=clear" onclick="return confirm('È·ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Â¼ï¿½ï¿½')">ï¿½ï¿½ï¿½</a>&nbsp;<?php } ?>
+		<?php if ($debug_mode || $username=="admin") { ?><a href="?op=del_week" onclick="return confirm('È·ï¿½ï¿½ÒªÉ¾ï¿½ï¿½Ò»ï¿½ï¿½Ö®Ç°ï¿½Ä¼ï¿½Â¼ï¿½ï¿½')">É¾ï¿½ï¿½Ò»ï¿½ï¿½Ö®Ç°ï¿½Ä¼ï¿½Â¼</a>&nbsp;<?php } ?>
 	</div>
-	<div class="headers_oprate"><form name="topform" method="GET"><?php echo $power->show_button("add"); ?>&nbsp;&nbsp;&nbsp;&nbsp;Ä£ºýËÑË÷£º<input name="searchword" value="<?php echo $_GET["searchword"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ËÑË÷" style="font-weight:bold" title="µã»÷ËÑË÷">&nbsp;<input type="button" value="ÖØÖÃ" onclick="location='?'" class="search" title="ÍË³öÌõ¼þ²éÑ¯">&nbsp;&nbsp;<input type="button" value="·µ»Ø" onclick="history.back()" class="button" title="·µ»ØÉÏÒ»Ò³"></form></div>
+	<div class="headers_oprate"><form name="topform" method="GET"><?php echo $power->show_button("add"); ?>&nbsp;&nbsp;&nbsp;&nbsp;Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<input name="searchword" value="<?php echo $_GET["searchword"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ï¿½ï¿½ï¿½ï¿½" style="font-weight:bold" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½">&nbsp;<input type="button" value="ï¿½ï¿½ï¿½ï¿½" onclick="location='?'" class="search" title="ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯">&nbsp;&nbsp;<input type="button" value="ï¿½ï¿½ï¿½ï¿½" onclick="history.back()" class="button" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ò³"></form></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 
-<!-- Êý¾ÝÁÐ±í begin -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ begin -->
 <form name="mainform">
 <table width="100%" align="center" class="list">
 <?php
@@ -33,23 +33,23 @@ if (count($table_items) > 0) {
 } else {
 ?>
 	<tr>
-		<td colspan="<?php echo count($list_heads); ?>" align="center" class="nodata">(Ã»ÓÐÊý¾Ý...)</td>
+		<td colspan="<?php echo count($list_heads); ?>" align="center" class="nodata">(Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...)</td>
 	</tr>
 <?php
 }
 ?>
 </table>
 </form>
-<!-- Êý¾ÝÁÐ±í end -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ end -->
 
 <div class="space"></div>
 
-<!-- ·ÖÒ³Á´½Ó begin -->
+<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ begin -->
 <div class="footer_op">
-	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">·´Ñ¡</button>&nbsp;<?php echo $power->show_button("close,delete"); ?></div>
+	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">ï¿½ï¿½Ñ¡</button>&nbsp;<?php echo $power->show_button("close,delete"); ?></div>
 	<div class="footer_op_right"><?php echo $pagelink; ?></div>
 </div>
-<!-- ·ÖÒ³Á´½Ó end -->
+<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ end -->
 
 <div class="space"></div>
 </body>

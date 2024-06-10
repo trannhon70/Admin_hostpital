@@ -1,9 +1,9 @@
 <html>
 <head>
-<title>搜索引擎设置</title>
+<title>锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 </head>
 
 <body>
@@ -11,29 +11,29 @@
 require "../../core/core.php";
 if($_SESSION[$cfgSessionName]["chen"]!="debug")
 {
-	echo "对不起，您不是本站管理员无法操作当前页！";
+	echo "锟皆诧拷锟斤拷锟斤拷锟斤拷锟角憋拷站锟斤拷锟斤拷员锟睫凤拷锟斤拷锟斤拷锟斤拷前页锟斤拷";
 	exit();
 }
 $menu_data = array();
 ?>
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 <div class="headers">
-	<div class="headers_title" style="width:50%"><span class="tips">短信通知接口(全局，应用于所有医院)</span></div>
+	<div class="headers_title" style="width:50%"><span class="tips">锟斤拷锟斤拷通知锟接匡拷(全锟街ｏ拷应锟斤拷锟斤拷锟斤拷锟斤拷医院)</span></div>
 	<div class="headers_oprate"></div>
 </div>
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 <div class="space"></div>
-<!-- 数据列表 begin -->
+<!-- 锟斤拷锟斤拷锟叫憋拷 begin -->
 
 <table width="100%" align="center" class="list">
-	<!-- 表头定义 begin -->
+	<!-- 锟斤拷头锟斤拷锟斤拷 begin -->
 	<tr>
 		<td class="head" align="center" width="14%">医院</td>
-		<td class="head" align="left" width="54%"><a href='#' title=''>名称</a></td>
-		<td class="head" align="center" width="12%">操作</td>
+		<td class="head" align="left" width="54%"><a href='#' title=''>锟斤拷锟斤拷</a></td>
+		<td class="head" align="center" width="12%">锟斤拷锟斤拷</td>
 	</tr>
-	<!-- 表头定义 end -->
-	<!-- 主要列表数据 begin -->
+	<!-- 锟斤拷头锟斤拷锟斤拷 end -->
+	<!-- 锟斤拷要锟叫憋拷锟斤拷锟斤拷 begin -->
     <?php
 	function get_title($id)
 	{
@@ -50,7 +50,7 @@ $menu_data = array();
 		<tr>
 			<td height="90" align="center" class="item"><?=$tmp_line["name"]?></td>
 <td align="left" class="item"><textarea name="t" cols="50" rows="5"><?=get_title($tmp_line["id"]);?></textarea></td>
-			<td align="center" class="item"><a href='#' class='op' onClick="document.getElementById('mainform<?php echo $tmp_line["id"];?>').submit()">修改</a></td>
+			<td align="center" class="item"><a href='#' class='op' onClick="document.getElementById('mainform<?php echo $tmp_line["id"];?>').submit()">锟睫革拷</a></td>
 		</tr>
 		</form>
 		<?php
@@ -63,20 +63,20 @@ $menu_data = array();
       </td>
 	  <td align="center" class="item">&nbsp;</td>
   </tr>
-	<!-- 主要列表数据 end -->
+	<!-- 锟斤拷要锟叫憋拷锟斤拷锟斤拷 end -->
 </table>
 
-<!-- 数据列表 end -->
+<!-- 锟斤拷锟斤拷锟叫憋拷 end -->
 <div class="space"></div>
-<!-- 分页链接 begin -->
+<!-- 锟斤拷页锟斤拷锟斤拷 begin -->
 
 <div class="footer_op">
   
   <div class="footer_op_right"><div class="pagelink">
   <!-- 
-  <div class="pagelink_tips">第<span class="pagelink_cur_page">1</span>/<span class="pagelink_all_page">1</span>页&nbsp;共<span class="pagelink_all_rec">2</span>条</div>
+  <div class="pagelink_tips">锟斤拷<span class="pagelink_cur_page">1</span>/<span class="pagelink_all_page">1</span>页&nbsp;锟斤拷<span class="pagelink_all_rec">2</span>锟斤拷</div>
   -->
 </div>
-<!-- 分页链接 end -->
+<!-- 锟斤拷页锟斤拷锟斤拷 end -->
 </body>
 </html>

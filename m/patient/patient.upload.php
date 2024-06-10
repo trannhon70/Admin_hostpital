@@ -121,7 +121,7 @@ if (isset($_POST["hkt-upload"])) {
   <!-- <link href="/res/base.css" rel="stylesheet" type="text/css"> -->
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link href="/res/hkt/hkt.css" rel="stylesheet" type="text/css">
+  <link href="../../res/hkt/hkt.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -134,7 +134,7 @@ if (isset($_POST["hkt-upload"])) {
         foreach ($link_array as $data) { ?>
           <div class="col-md-2">
             <div class="card">
-              <img src="/res/img/hkt-upload.png" class="card-img-top" alt="...">
+              <img src="../../res/img/hkt-upload.png" class="card-img-top" alt="...">
               <div class="p-2">
                 <p class="card-text"><?php echo $data ?></p>
                 <a target="_blank" href="https://view.officeapps.live.com/op/view.aspx?src=https://<?php echo $_SERVER['SERVER_NAME'] ?>/uploads/<?php echo $data ?>" class="btn btn-primary btn-sm">View</a>
@@ -204,7 +204,7 @@ if (isset($_POST["hkt-upload"])) {
           var fileLink = targetElement.getAttribute("data-link");
 
           var xhr = new XMLHttpRequest();
-          xhr.open("POST", "/res/hkt/ajax.php", true);
+          xhr.open("POST", "../../res/hkt/ajax.php", true);
           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {

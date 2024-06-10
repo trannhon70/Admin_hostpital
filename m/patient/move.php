@@ -2,11 +2,11 @@
 
 /*
 
-// - ¹¦ÄÜËµÃ÷ : ËÑË÷
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
 
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// - ´´½¨Ê±¼ä : 2013-05-02 15:47
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-02 15:47
 
 */
 
@@ -18,7 +18,7 @@ $table = "patient_".$user_hospital_id;
 
 if ($user_hospital_id == 0) {
 
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 }
 
@@ -34,7 +34,7 @@ if ($_POST) {
 
 		if ($db->query("update $table set author='$toname' where binary author='$fromname'")) {
 
-			msg_box("´¦Àí³É¹¦£¡", "?", 1);
+			msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½", "?", 1);
 
 		}
 
@@ -46,7 +46,7 @@ if ($_POST) {
 
 
 
-$title = '×ÊÁÏ×ªÒÆ¹¤¾ß';
+$title = 'ï¿½ï¿½ï¿½ï¿½×ªï¿½Æ¹ï¿½ï¿½ï¿½';
 
 
 
@@ -72,7 +72,7 @@ foreach ($kefu_23_list as $k => $li) {
 
 <script src="/res/base.js" language="javascript"></script>
 
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 
 <script language="javascript">
 
@@ -82,13 +82,13 @@ function Check() {
 
 	if (oForm.fromname.value == "") {
 
-		alert("ÇëÊäÈë¡°Ô­Ãû×Ö¡±£¡"); oForm.fromname.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°Ô­ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½"); oForm.fromname.focus(); return false;
 
 	}
 
 	if (oForm.toname.value == "") {
 
-		alert("ÇëÊäÈë¡°ÐÂÃû×Ö¡±£¡"); oForm.toname.focus(); return false;
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½"); oForm.toname.focus(); return false;
 
 	}
 
@@ -104,17 +104,17 @@ function Check() {
 
 <body>
 
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 
 <div class="headers" >
 
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 
 </div>
 
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 
 
@@ -124,9 +124,9 @@ function Check() {
 
 <div class="description">
 
-	<div class="d_title">ÌáÊ¾£º</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
 
-	<div class="d_item">¶¨Òå×ªÒÆÌõ¼þ£¬µã»÷Ìá½»°´Å¥¿ªÊ¼×ªÒÆ</div>
+	<div class="d_item">ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½Å¥ï¿½ï¿½Ê¼×ªï¿½ï¿½</div>
 
 </div>
 
@@ -142,25 +142,25 @@ function Check() {
 
 	<tr>
 
-		<td colspan="2" class="head">×ªÒÆÉèÖÃ</td>
+		<td colspan="2" class="head">×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
 
 	</tr>
 
 	<tr>
 
-		<td class="left red">Ô­Ãû×Ö£º</td>
+		<td class="left red">Ô­ï¿½ï¿½ï¿½Ö£ï¿½</td>
 
 		<td class="right">
 
 			<select name="fromname" class="combo">
 
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 
 				<?php echo list_option($kefu_23_list, 'author', 'author_name', ''); ?>
 
 			</select>
 
-			<span class="intro">Ô­Ãû×Ö£¬²»ÄÜÎª¿Õ</span>
+			<span class="intro">Ô­ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½</span>
 
 		</td>
 
@@ -168,13 +168,13 @@ function Check() {
 
 	<tr>
 
-		<td class="left red">ÐÂÃû×Ö£º</td>
+		<td class="left red">ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½</td>
 
 		<td class="right">
 
 			<input name="toname" id="toname" class="input" style="width:150px">
 
-			<span class="intro">ÐÂµÄÃû×Ö£¬²»ÄÜÎª¿Õ</span>
+			<span class="intro">ï¿½Âµï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½</span>
 
 		</td>
 
@@ -184,7 +184,7 @@ function Check() {
 
 
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»"></div>
 
 
 

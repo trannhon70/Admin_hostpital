@@ -1,14 +1,14 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ÐÞ¸ÄÎÒµÄ×ÊÁÏ
-// - ´´½¨×÷Õß : zhuwenya (zhuwenya@126.com)
-// - ´´½¨Ê±¼ä : 2007-07-19 09:59
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½Þ¸ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : zhuwenya (zhuwenya@126.com)
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2007-07-19 09:59
 */
 require "../../core/core.php";
 $table = "sys_admin";
 
 if (!$uid) {
-	exit_html("²»ÄÜ±à¼­×ÊÁÏ...");
+	exit_html("ï¿½ï¿½ï¿½Ü±à¼­ï¿½ï¿½ï¿½ï¿½...");
 }
 
 $uline = $db->query("select * from $table where id='$uid'", 1);
@@ -20,20 +20,20 @@ if ($_POST) {
 		$detail = @unserialize($uline["detail"]);
 	}
 
-	$detail["µç»°"] = $_POST["µç»°"];
-	$detail["ÊÖ»ú"] = $_POST["ÊÖ»ú"];
+	$detail["ï¿½ç»°"] = $_POST["ï¿½ç»°"];
+	$detail["ï¿½Ö»ï¿½"] = $_POST["ï¿½Ö»ï¿½"];
 	$detail["QQ"] = $_POST["QQ"];
-	$detail["µç×ÓÓÊÏä"] = $_POST["µç×ÓÓÊÏä"];
-	$detail["¸öÈË¼ò½é"] = $_POST["¸öÈË¼ò½é"];
+	$detail["ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"] = $_POST["ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"];
+	$detail["ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½"] = $_POST["ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½"];
 
 	$s = serialize($detail);
 
 	$sql = "update $table set detail='$s' where id='$uid' limit 1";
 
 	if ($db->query($sql)) {
-		msg_box("¸öÈË×ÊÁÏÐÞ¸Ä³É¹¦", "back", 1, 2);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä³É¹ï¿½", "back", 1, 2);
 	} else {
-		msg_box("×ÊÁÏÌá½»Ê§°Ü£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ", "back", 1, 5);
+		msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½Ü£ï¿½ÏµÍ³ï¿½ï¿½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½", "back", 1, 5);
 	}
 }
 
@@ -42,34 +42,34 @@ if ($uline && $uline["detail"]) {
 	$tm = @unserialize($uline["detail"]);
 	$uline = array_merge($uline, $tm);
 } else {
-	//exit_html("ÎÞ´Ë×ÊÁÏ...");
+	//exit_html("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½...");
 }
 
-$title = "ÐÞ¸ÄÎÒµÄ×ÊÁÏ";
+$title = "ï¿½Þ¸ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½";
 ?>
 <html xmlns=http://www.w3.org/1999/xhtml>
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><input type="button" value="·µ»Ø" onClick="history.back()" class="button"></div>
+	<div class="headers_oprate"><input type="button" value="ï¿½ï¿½ï¿½ï¿½" onClick="history.back()" class="button"></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 
 <div class="description">
-	<div class="d_title">ÐÞ¸ÄÌáÊ¾£º</div>
-	<li class="d_item">ÓÉÓÚÐèÒª±£³ÖºóÌ¨°²È«ÐÔºÍÒ»ÖÂÐÔ£¬ÕÊ»§Ãû³ÆÒ»µ©È·¶¨¾Í²»ÔÊÐíÐÞ¸Ä</li>
-	<li class="d_item">ÎªÁË·½±ã±ðÈËºÍÄúÈ¡µÃÁªÏµ£¬½¨ÒéÈÏÕæÈçÊµÌîÐ´ÄúµÄ¸öÈË×ÊÁÏºÍÁªÏµ·½Ê½</li>
-	<li class="d_item">¸öÈË×ÊÁÏ³ýÕæÊµÐÕÃûÒÔÍâ£¬Î´±»ÊÚÈ¨¡°ºóÌ¨¹ÜÀí¡±->¡°¹ÜÀíÔ±¹ÜÀí¡±->¡°²é¿´¡±È¨ÏÞµÄÈË½«²»ÄÜ²é¿´</li>
+	<div class="d_title">ï¿½Þ¸ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½</div>
+	<li class="d_item">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Öºï¿½Ì¨ï¿½ï¿½È«ï¿½Ôºï¿½Ò»ï¿½ï¿½ï¿½Ô£ï¿½ï¿½Ê»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½È·ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½</li>
+	<li class="d_item">Îªï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½Ïµï¿½ï¿½Ê½</li>
+	<li class="d_item">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬Î´ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½é¿´ï¿½ï¿½È¨ï¿½Þµï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½Ü²é¿´</li>
 </div>
 
 <div class="space"></div>
@@ -77,39 +77,39 @@ $title = "ÐÞ¸ÄÎÒµÄ×ÊÁÏ";
 <form name="mainform" action="" method="POST">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">ÐÞ¸ÄÎÒµÄ×ÊÁÏ£º</td>
+		<td colspan="2" class="head">ï¿½Þ¸ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Ï£ï¿½</td>
 	</tr>
 	<tr>
-		<td class="left">µÇÂ¼Ãû£º</td>
+		<td class="left">ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½</td>
 		<td class="right"><b><?php echo $uline["name"]; ?></b></td>
 	</tr>
 	<tr>
-		<td class="left"><font color='red'>ÕæÊµÐÕÃû£º</font></td>
-		<td class="right"><input name="realname" value="<?php echo $uline["realname"]; ?>" class="input" style="width:120px" disabled="true"> <span class="intro">ÕæÊµÐÕÃû²»ÄÜÐÞ¸Ä</span></td>
+		<td class="left"><font color='red'>ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td>
+		<td class="right"><input name="realname" value="<?php echo $uline["realname"]; ?>" class="input" style="width:120px" disabled="true"> <span class="intro">ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left">µç»°£º</td>
-		<td class="right"><input name="µç»°" value="<?php echo $uline["µç»°"]; ?>" class="input" style="width:180px"></td>
+		<td class="left">ï¿½ç»°ï¿½ï¿½</td>
+		<td class="right"><input name="ï¿½ç»°" value="<?php echo $uline["ï¿½ç»°"]; ?>" class="input" style="width:180px"></td>
 	</tr>
 	<tr>
-		<td class="left">ÊÖ»ú£º</td>
-		<td class="right"><input name="ÊÖ»ú" value="<?php echo $uline["ÊÖ»ú"]; ?>" class="input" style="width:120px"></td>
+		<td class="left">ï¿½Ö»ï¿½ï¿½ï¿½</td>
+		<td class="right"><input name="ï¿½Ö»ï¿½" value="<?php echo $uline["ï¿½Ö»ï¿½"]; ?>" class="input" style="width:120px"></td>
 	</tr>
 	<tr>
-		<td class="left">QQ£º</td>
+		<td class="left">QQï¿½ï¿½</td>
 		<td class="right"><input name="QQ" value="<?php echo $uline["QQ"]; ?>" class="input" style="width:120px"></td>
 	</tr>
 	<tr>
-		<td class="left">µç×ÓÓÊÏä£º</td>
-		<td class="right"><input name="µç×ÓÓÊÏä" value="<?php echo $uline["µç×ÓÓÊÏä"]; ?>" class="input" style="width:250px"></td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä£º</td>
+		<td class="right"><input name="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" value="<?php echo $uline["ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"]; ?>" class="input" style="width:250px"></td>
 	</tr>
 	<tr>
-		<td class="left">¸öÈË¼ò½é£º</td>
-		<td class="right"><textarea class="input" name="¸öÈË¼ò½é" style="width:400px;height:80px"><?php echo $uline["¸öÈË¼ò½é"]; ?></textarea></td>
+		<td class="left">ï¿½ï¿½ï¿½Ë¼ï¿½é£º</td>
+		<td class="right"><textarea class="input" name="ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½" style="width:400px;height:80px"><?php echo $uline["ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½"]; ?></textarea></td>
 	</tr>
 </table>
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 <input type="hidden" name="back_url" value="<?php echo $_GET["back_url"]; ?>">
 </form>
 

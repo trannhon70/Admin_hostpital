@@ -1,20 +1,20 @@
 <?php
 // --------------------------------------------------------
-// - ¹¦ÄÜËµÃ÷ : ²é¿´ºÍ´¦ÀíÈÕÖ¾
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2011-03-22 15:09
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½é¿´ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2011-03-22 15:09
 // --------------------------------------------------------
 
 if (!($debug_mode || $username == "admin")) {
-	exit("Ã»ÓÐÈ¨ÏÞ");
+	exit("Ã»ï¿½ï¿½È¨ï¿½ï¿½");
 }
 
 if (!($cur_type > 0)) {
-	exit("Ò½ÔºÏîÄ¿Ã»ÓÐÑ¡Ôñ");
+	exit("Ò½Ôºï¿½ï¿½Ä¿Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½");
 }
 
 
-// Ä¬ÈÏÏÔÊ¾×î½ü3ÌìµÄ²Ù×÷ÈÕÖ¾ °´ÌìÁÐ³ö
+// Ä¬ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½3ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½
 if (!isset($_GET["btime"])) {
 	$_GET["btime"] = date("Y-m-d", strtotime("-3 days"));
 }
@@ -31,7 +31,7 @@ $list = $db->query("select id,date,kefu,addtime,u_realname,log from $table where
 $last_date = '';
 
 
-// ¶ÁÈ¡·­Òë×Öµä:
+// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½:
 $tmps = @explode("\n", str_replace("\r", "", trim(file_get_contents("dict.txt"))));
 $dicts = array();
 if (is_array($tmps) && count($tmps) > 0) {
@@ -48,7 +48,7 @@ if (is_array($tmps) && count($tmps) > 0) {
 }
 
 
-// ½«ÈÕÖ¾ÖÐµÄ×Ö¶Î·­Òë³Éºº×ÖÃû×Ö
+// ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½Ðµï¿½ï¿½Ö¶Î·ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function trans($str) {
 	global $dicts;
 	if (count($dicts) > 0) {
@@ -60,15 +60,15 @@ function trans($str) {
 	return $str;
 }
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 ?>
 <html>
 <head>
-<title>²é¿´²Ù×÷ÈÕÖ¾</title>
+<title>ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 <style>
 body {padding:5px 8px; }
 form {display:inline; }
@@ -83,7 +83,7 @@ form {display:inline; }
 .ch_date_b {padding-top:8px; text-align:left; width:80%; color:silver; }
 .ch_date_b a {padding:0 3px; }
 
-.main_title {margin:0 auto; padding-top:30px; padding-bottom:15px; text-align:center; font-weight:bold; font-size:12px; font-family:"ËÎÌå"; }
+.main_title {margin:0 auto; padding-top:30px; padding-bottom:15px; text-align:center; font-weight:bold; font-size:12px; font-family:"ï¿½ï¿½ï¿½ï¿½"; }
 
 .item {padding:8px 3px 6px 3px !important; }
 .rate_tips {padding:30px 0 0 30px; line-height:24px; }
@@ -115,7 +115,7 @@ function hgo(dir, o) {
 			obj.onchange();
 			o.disabled = true;
 		} else {
-			parent.msg_box("ÒÑ¾­ÊÇ×îÇ°ÁË", 3);
+			parent.msg_box("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½", 3);
 		}
 	}
 	if (dir == "down") {
@@ -124,7 +124,7 @@ function hgo(dir, o) {
 			obj.onchange();
 			o.disabled = true;
 		} else {
-			parent.msg_box("ÒÑ¾­ÊÇ×îºóÒ»¸öÁË", 3);
+			parent.msg_box("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½", 3);
 		}
 	}
 }
@@ -133,13 +133,13 @@ function hgo(dir, o) {
 
 <body>
 <div style="margin:10px 0 0 0px;">
-	<div id="date_tips">Ò½ÔºÏîÄ¿£º<?php echo $types[$cur_type]; ?></div>&nbsp;&nbsp;&nbsp;
+	<div id="date_tips">Ò½Ôºï¿½ï¿½Ä¿ï¿½ï¿½<?php echo $types[$cur_type]; ?></div>&nbsp;&nbsp;&nbsp;
 
-	<b>Ê±¼ä¶Î£º</b>
+	<b>Ê±ï¿½ï¿½Î£ï¿½</b>
 	<form method="GET">
-		<input name="btime" id="begin_time" class="input" style="width:100px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">&nbsp;&nbsp;µ½&nbsp;&nbsp;
-		<input name="etime" id="end_time" class="input" style="width:100px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">&nbsp;&nbsp;
-		<input type="submit" class="button" value="È·¶¨">
+		<input name="btime" id="begin_time" class="input" style="width:100px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">&nbsp;&nbsp;ï¿½ï¿½&nbsp;&nbsp;
+		<input name="etime" id="end_time" class="input" style="width:100px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">&nbsp;&nbsp;
+		<input type="submit" class="button" value="È·ï¿½ï¿½">
 		<input type="hidden" name="op" value="log">
 	</form>
 </div>
@@ -152,7 +152,7 @@ foreach ($list as $id => $li) {
 		echo '<div class="li_date">'.substr($li["date"], 0, 4)."-".substr($li["date"], 4, 2)."-".substr($li["date"], 6, 2).'</div>';
 		$last_date = $li["date"];
 	}
-	echo '<div class="li_line"><div class="li_kefu">¿Í·þ£º'.$li["kefu"].'</div><div class="log_data">'.str_replace("\n", "<br>", str_replace("\r", "", trim(trans($li["log"])))).'</div><div class="clear"></div></div>';
+	echo '<div class="li_line"><div class="li_kefu">ï¿½Í·ï¿½ï¿½ï¿½'.$li["kefu"].'</div><div class="log_data">'.str_replace("\n", "<br>", str_replace("\r", "", trim(trans($li["log"])))).'</div><div class="clear"></div></div>';
 }
 ?>
 

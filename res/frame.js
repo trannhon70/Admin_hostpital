@@ -154,6 +154,7 @@ function get_parent_mid(mid) {
 
 function show_status(string) {
 	var o = byid("sys_loading");
+	// if (o !== null) { 
 	if (string != '') {
 		byid("sys_loading_tip").innerHTML = string;
 		o.style.display = "block";
@@ -162,7 +163,8 @@ function show_status(string) {
 	} else {
 		o.style.display = "none";
 		byid("sys_loading_tip").innerHTML = '';
-	}
+	// }
+}
 }
 
 function frame_loaded_do(oframe) {

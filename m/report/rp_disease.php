@@ -1,30 +1,30 @@
 <?php
 /*
-// 说明: 报表
-// 作者: 爱医战队 
-// 时间: 2011-11-24
+// 说锟斤拷: 锟斤拷锟斤拷
+// 锟斤拷锟斤拷: 锟斤拷医战锟斤拷 
+// 时锟斤拷: 2011-11-24
 */
 require "../../core/core.php";
 
-// 报表核心定义:
+// 锟斤拷锟斤拷锟斤拷锟侥讹拷锟斤拷:
 include "rp.core.php";
 
-$tongji_tips = " - 疾病类型统计 - ".$type_tips;
+$tongji_tips = " - 锟斤拷锟斤拷锟斤拷锟斤拷统锟斤拷 - ".$type_tips;
 ?>
 <html>
 <head>
-<title>疾病报表</title>
+<title>锟斤拷锟斤拷锟斤拷锟斤拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 body {margin-top:6px; }
 #rp_condition_form {text-align:center; }
-.head, .head a {font-family:"微软雅黑","Verdana"; }
+.head, .head a {font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 .item {font-family:"Tahoma"; padding:8px 3px 6px 3px !important; }
 .footer_op_left {font-family:"Tahoma"; }
-.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微软雅黑","Verdana"; }
+.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 form {display:inline; }
 .item {border-left:1px solid #eeeeee !important; border-right:1px solid #eeeeee !important; }
 .red {color:red !important;  }
@@ -38,13 +38,13 @@ form {display:inline; }
 <?php if ($_GET["op"] == "report") { ?>
 <?php
 
-// 疾病:
+// 锟斤拷锟斤拷:
 $disease_arr = $db->query("select id,name from disease where hospital_id=$hid and isshow=1 order by id asc", "id", "name");
 if (count($disease_arr) == 0) {
-	exit_html("<center>尚未定义疾病类型，该项无法进行报表分析。</center>");
+	exit_html("<center>锟斤拷未锟斤拷锟藉疾锟斤拷锟斤拷锟酵ｏ拷锟斤拷锟斤拷锟睫凤拷锟斤拷锟叫憋拷锟斤拷锟斤拷锟斤拷锟斤拷</center>");
 }
 
-// 疾病数量太多：删除访问量小的疾病:
+// 锟斤拷锟斤拷锟斤拷锟斤拷太锟洁：删锟斤拷锟斤拷锟斤拷锟斤拷小锟侥硷拷锟斤拷:
 $max_disease_num = 15;
 if (count($disease_arr) > $max_disease_num) {
 	$new_disease_arr = $db->query("select disease_id,count(disease_id) as c from $table where $where disease_id>0  and {$timetype}>=$max_tb and {$timetype}<=$max_te group by disease_id order by c desc", "disease_id", "c");
@@ -57,15 +57,15 @@ if (count($disease_arr) > $max_disease_num) {
 		}
 	}
 	$disease_arr = $disease_arr2;
-	$tips = " (为简化表格，只统计频率最高的{$max_disease_num}个病种)";
+	$tips = " (为锟津化憋拷锟斤拷只统锟斤拷频锟斤拷锟斤拷叩锟絳$max_disease_num}锟斤拷锟斤拷锟斤拷)";
 }
 
 
 if (in_array($type, array(1,2,3,4))) {
-	// 计算统计数据:
+	// 锟斤拷锟斤拷统锟斤拷锟斤拷锟斤拷:
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
+		$data[$k]["锟斤拷"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
 
 		foreach ($disease_arr as $did => $dname) {
 			$data[$k][$did] = $db->query("select count(*) as c from $table where $where disease_id=$did and {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
@@ -73,7 +73,7 @@ if (in_array($type, array(1,2,3,4))) {
 	}
 } else if ($type == 5) {
 	$arr = array();
-	$arr["总"] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
+	$arr["锟斤拷"] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
 
 	foreach ($disease_arr as $did => $dname) {
 		$arr[$did] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where disease_id=$did and $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
@@ -81,7 +81,7 @@ if (in_array($type, array(1,2,3,4))) {
 
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = intval($arr["总"][$v]);
+		$data[$k]["锟斤拷"] = intval($arr["锟斤拷"][$v]);
 		foreach ($disease_arr as $did => $dname) {
 			$data[$k][$did] = intval($arr[$did][$v]);
 		}
@@ -93,8 +93,8 @@ if (in_array($type, array(1,2,3,4))) {
 <div class="date_tips"><?php echo $h_name.$tongji_tips.$tips; ?></div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center">时间</td>
-		<td class="head red" align="center">总计</td>
+		<td class="head" align="center">时锟斤拷</td>
+		<td class="head red" align="center">锟杰硷拷</td>
 <?php foreach ($disease_arr as $did => $dname) { ?>
 		<td class="head" align="center"><?php echo $dname; ?></td>
 <?php } ?>
@@ -103,7 +103,7 @@ if (in_array($type, array(1,2,3,4))) {
 <?php foreach ($final_dt_arr as $k => $v) { ?>
 	<tr>
 		<td class="item" align="center"><?php echo $k; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["总"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["锟斤拷"]; ?></td>
 <?php   foreach ($disease_arr as $did => $dname) { ?>
 		<td class="item" align="center"><?php echo $data[$k][$did]; ?></td>
 <?php   } ?>

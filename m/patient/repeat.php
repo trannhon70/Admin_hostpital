@@ -1,27 +1,27 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ÖØ¸´Ô¤Ô¼²¡ÈËÁÐ±í
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-18 10:31
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½Ø¸ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-18 10:31
 */
 require "../../core/core.php";
 $table = "patient_".$user_hospital_id;
 
-check_power('', $pinfo) or msg_box("Ã»ÓÐ´ò¿ªÈ¨ÏÞ...", "back", 1);
+check_power('', $pinfo) or msg_box("Ã»ï¿½Ð´ï¿½È¨ï¿½ï¿½...", "back", 1);
 if ($user_hospital_id == 0) {
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 }
 
-// ²Ù×÷µÄ´¦Àí:
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½:
 if ($op = $_GET["op"]) {
 	switch ($op) {
 		case "insert":
-			check_power("i", $pinfo, $pagepower) or msg_box("Ã»ÓÐÐÂÔöÈ¨ÏÞ...", "back", 1);
+			check_power("i", $pinfo, $pagepower) or msg_box("Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½...", "back", 1);
 			header("location:".$pinfo["insertpage"]);
 			break;
 
 		case "delete":
-			//!check_power("delete") && msg_box("Ã»ÓÐÉ¾³ýÈ¨ÏÞ...", "back", 1);
+			//!check_power("delete") && msg_box("Ã»ï¿½ï¿½É¾ï¿½ï¿½È¨ï¿½ï¿½...", "back", 1);
 
 			$ids = explode(",", $_GET["id"]);
 			$del_ok = $del_bad = 0; $op_data = array();
@@ -38,17 +38,17 @@ if ($op = $_GET["op"]) {
 			}
 
 			if ($del_ok > 0) {
-				$log->add("delete", "É¾³ýÔ¤Ô¼²¡ÈË: ".implode("¡¢", $del_name), $op_data, $table);
+				$log->add("delete", "É¾ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½: ".implode("ï¿½ï¿½", $del_name), $op_data, $table);
 			}
 
 			if ($del_bad > 0) {
-				msg_box("É¾³ý³É¹¦ $del_ok Ìõ×ÊÁÏ£¬É¾³ýÊ§°Ü $del_bad Ìõ×ÊÁÏ¡£", "back", 1);
+				msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½ $del_ok ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½É¾ï¿½ï¿½Ê§ï¿½ï¿½ $del_bad ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½", "back", 1);
 			} else {
-				msg_box("É¾³ý³É¹¦", "back", 1);
+				msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½", "back", 1);
 			}
 
 		case "setshow":
-			check_power("h", $pinfo, $pagepower) or msg_box("Ã»ÓÐ¿ªÍ¨ºÍ¹Ø±ÕÈ¨ÏÞ...", "back", 1);
+			check_power("h", $pinfo, $pagepower) or msg_box("Ã»ï¿½Ð¿ï¿½Í¨ï¿½Í¹Ø±ï¿½È¨ï¿½ï¿½...", "back", 1);
 
 			$isshow_value = intval($_GET["value"]) > 0 ? 1 : 0;
 			$ids = explode(",", $_GET["id"]);
@@ -64,13 +64,13 @@ if ($op = $_GET["op"]) {
 			}
 
 			if ($set_bad > 0) {
-				msg_box("²Ù×÷³É¹¦Íê³É $set_ok Ìõ£¬Ê§°Ü $del_bad Ìõ¡£", "back", 1);
+				msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ $set_ok ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ $del_bad ï¿½ï¿½ï¿½ï¿½", "back", 1);
 			} else {
-				msg_box("ÉèÖÃ³É¹¦£¡", "back", 1);
+				msg_box("ï¿½ï¿½ï¿½Ã³É¹ï¿½ï¿½ï¿½", "back", 1);
 			}
 
 		default:
-			msg_box("²Ù×÷Î´¶¨Òå...", "back", 1);
+			msg_box("ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½...", "back", 1);
 	}
 }
 
@@ -81,7 +81,7 @@ if ($_GET["etime"]) {
 	$_GET["end_time"] = strtotime($_GET["etime"]." 23:59:59");
 }
 
-// ¶¨Òåµ±Ç°Ò³ÐèÒªÓÃµ½µÄµ÷ÓÃ²ÎÊý:
+// ï¿½ï¿½ï¿½åµ±Ç°Ò³ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½Äµï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 $aLinkInfo = array(
 	"page" => "page",
 	"sortid" => "sort",
@@ -91,38 +91,38 @@ $aLinkInfo = array(
 	"end_time" => "end_time",
 );
 
-// ¶ÁÈ¡Ò³Ãæµ÷ÓÃ²ÎÊý:
+// ï¿½ï¿½È¡Ò³ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 foreach ($aLinkInfo as $local_var_name => $call_var_name) {
 	$$local_var_name = $_GET[$call_var_name];
 }
 
-// ¶¨Òåµ¥Ôª¸ñ¸ñÊ½:
+// ï¿½ï¿½ï¿½åµ¥Ôªï¿½ï¿½ï¿½Ê½:
 $aOrderType = array(0 => "", 1 => "asc", 2 => "desc");
 $aTdFormat = array(
-	2=>array("title"=>"ÐÕÃû", "width"=>"50", "align"=>"center", "sort"=>"name", "defaultorder"=>1),
-	16=>array("title"=>"ÐÔ±ð", "width"=>"", "align"=>"center", "sort"=>"sex", "defaultorder"=>1),
-	15=>array("title"=>"ÄêÁä", "width"=>"", "align"=>"center", "sort"=>"age", "defaultorder"=>1),
-	3=>array("title"=>"µç»°", "width"=>"", "align"=>"center", "sort"=>"tel", "defaultorder"=>1),
-	4=>array("title"=>"×¨¼ÒºÅ", "width"=>"", "align"=>"center", "sort"=>"zhuanjia_num", "defaultorder"=>1),
-	5=>array("title"=>"×ÉÑ¯ÄÚÈÝ", "width"=>"", "align"=>"center", "sort"=>"content", "defaultorder"=>1),
-	6=>array("title"=>"½Ó´ý", "width"=>"", "align"=>"center", "sort"=>"jiedai", "defaultorder"=>1),
-	7=>array("title"=>"Ô¤Ô¼Ê±¼ä", "width"=>"8%", "align"=>"center", "sort"=>"order_sort", "defaultorder"=>2),
-	8=>array("title"=>"Ê£ÓàÌìÊý", "width"=>"", "align"=>"center", "sort"=>"remain_time", "defaultorder"=>2),
-	9=>array("title"=>"²¡»¼ÀàÐÍ", "width"=>"", "align"=>"center", "sort"=>"disease_id", "defaultorder"=>1),
-	10=>array("title"=>"Ã½ÌåÀ´Ô´", "width"=>"", "align"=>"center", "sort"=>"media_from", "defaultorder"=>1),
-	17=>array("title"=>"²¿ÃÅ", "width"=>"", "align"=>"center", "sort"=>"part_id", "defaultorder"=>1),
-	11=>array("title"=>"±¸×¢", "width"=>"", "align"=>"center", "sort"=>"memo", "defaultorder"=>1),
-	12=>array("title"=>"¿Í·þ", "width"=>"40", "align"=>"center", "sort"=>"author", "defaultorder"=>1),
-	13=>array("title"=>"¸°Ô¼Çé¿ö", "width"=>"", "align"=>"center", "sort"=>"status_1", "defaultorder"=>2, "sort2"=>"addtime desc"),
-	1=>array("title"=>"Ìí¼ÓÊ±¼ä", "width"=>"8%", "align"=>"center", "sort"=>"addtime", "defaultorder"=>2),
-	99=>array("title"=>"²Ù×÷", "width"=>"80", "align"=>"center"),
+	2=>array("title"=>"ï¿½ï¿½ï¿½ï¿½", "width"=>"50", "align"=>"center", "sort"=>"name", "defaultorder"=>1),
+	16=>array("title"=>"ï¿½Ô±ï¿½", "width"=>"", "align"=>"center", "sort"=>"sex", "defaultorder"=>1),
+	15=>array("title"=>"ï¿½ï¿½ï¿½ï¿½", "width"=>"", "align"=>"center", "sort"=>"age", "defaultorder"=>1),
+	3=>array("title"=>"ï¿½ç»°", "width"=>"", "align"=>"center", "sort"=>"tel", "defaultorder"=>1),
+	4=>array("title"=>"×¨ï¿½Òºï¿½", "width"=>"", "align"=>"center", "sort"=>"zhuanjia_num", "defaultorder"=>1),
+	5=>array("title"=>"ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½", "width"=>"", "align"=>"center", "sort"=>"content", "defaultorder"=>1),
+	6=>array("title"=>"ï¿½Ó´ï¿½", "width"=>"", "align"=>"center", "sort"=>"jiedai", "defaultorder"=>1),
+	7=>array("title"=>"Ô¤Ô¼Ê±ï¿½ï¿½", "width"=>"8%", "align"=>"center", "sort"=>"order_sort", "defaultorder"=>2),
+	8=>array("title"=>"Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "width"=>"", "align"=>"center", "sort"=>"remain_time", "defaultorder"=>2),
+	9=>array("title"=>"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "width"=>"", "align"=>"center", "sort"=>"disease_id", "defaultorder"=>1),
+	10=>array("title"=>"Ã½ï¿½ï¿½ï¿½ï¿½Ô´", "width"=>"", "align"=>"center", "sort"=>"media_from", "defaultorder"=>1),
+	17=>array("title"=>"ï¿½ï¿½ï¿½ï¿½", "width"=>"", "align"=>"center", "sort"=>"part_id", "defaultorder"=>1),
+	11=>array("title"=>"ï¿½ï¿½×¢", "width"=>"", "align"=>"center", "sort"=>"memo", "defaultorder"=>1),
+	12=>array("title"=>"ï¿½Í·ï¿½", "width"=>"40", "align"=>"center", "sort"=>"author", "defaultorder"=>1),
+	13=>array("title"=>"ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½", "width"=>"", "align"=>"center", "sort"=>"status_1", "defaultorder"=>2, "sort2"=>"addtime desc"),
+	1=>array("title"=>"ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½", "width"=>"8%", "align"=>"center", "sort"=>"addtime", "defaultorder"=>2),
+	99=>array("title"=>"ï¿½ï¿½ï¿½ï¿½", "width"=>"80", "align"=>"center"),
 );
 
-// Ä¬ÈÏÅÅÐò·½Ê½:
+// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½:
 $defaultsort = 7;
 $defaultorder = 2;
 
-// ²éÑ¯Ìõ¼þ:
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½:
 $where = array();
 if ($_GET["begin_time"]) {
 	$where[] = "addtime>=".$_GET["begin_time"];
@@ -130,10 +130,10 @@ if ($_GET["begin_time"]) {
 if ($_GET["end_time"]) {
 	$where[] = "addtime<=".$_GET["end_time"];
 }
-$where[] = "$stype!='' and $stype!='ÎÞ'";
+$where[] = "$stype!='' and $stype!='ï¿½ï¿½'";
 $sqlwhere = count($where) > 0 ? ("where ".implode(" and ", $where)) : "";
 
-// ¶ÔÅÅÐòµÄ´¦Àí£º
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
 if ($sortid > 0) {
 	$sqlsort = "order by ".$aTdFormat[$sortid]["sort"]." ";
 	if ($sorttype > 0) {
@@ -155,13 +155,13 @@ $sqlsort = $sqlsort ? ($sqlsort.",order_date asc") : "order_date desc";
 
 $data = array();
 if ($stype != '') {
-	// ·ÖÒ³Êý¾Ý:
+	// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½:
 	$count = $db->query("select count(a.$stype) as count1 from (select $stype,count($stype) as count from $table $sqlwhere group by $stype) as a where a.count>1", 1, "count1");
 	$pagecount = max(ceil($count / $pagesize), 1);
 	$page = max(min($pagecount, intval($page)), 1);
 	$offset = ($page - 1) * $pagesize;
 
-	// ²éÑ¯:
+	// ï¿½ï¿½Ñ¯:
 	$time = time();
 	$today_begin = mktime(0,0,0);
 	$today_end = $today_begin + 24 * 3600;
@@ -189,7 +189,7 @@ $hospital_id_name = $db->query("select id,name from ".$tabpre."hospital", 'id', 
 $part_id_name = $db->query("select id,name from ".$tabpre."sys_part", 'id', 'name');
 $disease_id_name = $db->query("select id,name from ".$tabpre."disease", 'id', 'name');
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 ?>
 <html>
 <head>
@@ -197,44 +197,44 @@ $disease_id_name = $db->query("select id,name from ".$tabpre."disease", 'id', 'n
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
-	<div class="headers_title" style="width:25%"><span class="tips"><?=$hospital_id_name[$user_hospital_id]?> - ÖØ¸´Ô¤Ô¼²¡ÈË</span></div>
+	<div class="headers_title" style="width:25%"><span class="tips"><?=$hospital_id_name[$user_hospital_id]?> - ï¿½Ø¸ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½</span></div>
 	<div class="header_center" style="width:65%;">
 		<form action="?" method="GET">
-		<b>Æð</b>: <input name="btime" id="begin_time" class="input" style="width:80px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
-		<b>Ö¹</b>: <input name="etime" id="end_time" class="input" style="width:80px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
-		<b>ÖØ¸´Ïî</b>: <select name="type" class="combo">
-			<?php echo list_option(array("tel"=>"µç»°", "name"=>"ÐÕÃû"), "_key_", "_value_", $_GET["type"]); ?>
+		<b>ï¿½ï¿½</b>: <input name="btime" id="begin_time" class="input" style="width:80px" value="<?php echo $_GET["btime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
+		<b>Ö¹</b>: <input name="etime" id="end_time" class="input" style="width:80px" value="<?php echo $_GET["etime"]; ?>"> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
+		<b>ï¿½Ø¸ï¿½ï¿½ï¿½</b>: <select name="type" class="combo">
+			<?php echo list_option(array("tel"=>"ï¿½ç»°", "name"=>"ï¿½ï¿½ï¿½ï¿½"), "_key_", "_value_", $_GET["type"]); ?>
 		</select>
-		<input type="submit" class="button" value="È·¶¨">
+		<input type="submit" class="button" value="È·ï¿½ï¿½">
 		</form>
 	</div>
-	<div class="headers_oprate"><button onclick="history.back()" class="button" title="·µ»ØÉÏÒ»Ò³">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ò³">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
-<!-- Êý¾ÝÁÐ±í begin -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ begin -->
 <form name="mainform">
 <table width="100%" align="center" class="list">
-	<!-- ±íÍ·¶¨Òå begin -->
+	<!-- ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ begin -->
 	<tr>
 <?php
-// ±íÍ·´¦Àí:
+// ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½:
 foreach ($aTdFormat as $tdid => $tdinfo) {
 	list($tdalign, $tdwidth, $tdtitle) = make_td_head($tdid, $tdinfo);
 ?>
 		<td class="head" align="<?php echo $tdalign; ?>" width="<?php echo $tdwidth; ?>"><?php echo $tdtitle; ?></td>
 <? } ?>
 	</tr>
-	<!-- ±íÍ·¶¨Òå end -->
+	<!-- ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ end -->
 
-	<!-- Ö÷ÒªÁÐ±íÊý¾Ý begin -->
+	<!-- ï¿½ï¿½Òªï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ begin -->
 <?php
 if (count($data) > 0) {
 	foreach ($data as $li) {
@@ -247,27 +247,27 @@ if (count($data) > 0) {
 		$id = $line["id"];
 
 		$op = array();
-		$op[] = "<a href='patient.php?op=view&id=$id' class='op'><img src='/res/img/b_detail.gif' align='absmiddle' title='²é¿´' alt=''></a>";
-		$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>É¾³ý</a>";
+		$op[] = "<a href='patient.php?op=view&id=$id' class='op'><img src='/res/img/b_detail.gif' align='absmiddle' title='ï¿½é¿´' alt=''></a>";
+		$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'>É¾ï¿½ï¿½</a>";
 		$op_button = implode("&nbsp;", $op);
 
 		$hide_line = ($pinfo && $pinfo["ishide"] && $line["isshow"] != 1) ? 1 : 0;
 
 		$op_come = array();
 		if ($uinfo["part_id"] == 1 || $uinfo["part_id"] == 4) {
-			$op_come[] = '<a href="#" id="come_'.$id.'_1" onclick="set_come('.$id.',1); return false;" style="display:'.(($line["status"] == 0 || $line["status"] == 2) ? 'inline' : 'none').'">[ÒÑµ½]</a>';
-			$op_come[] = '<a href="#" id="come_'.$id.'_2" onclick="set_come('.$id.',2); return false;" style="display:'.(($line["status"] == 0 || $line["status"] == 1) ? 'inline' : 'none').'">[Î´µ½]</a>';
+			$op_come[] = '<a href="#" id="come_'.$id.'_1" onclick="set_come('.$id.',1); return false;" style="display:'.(($line["status"] == 0 || $line["status"] == 2) ? 'inline' : 'none').'">[ï¿½Ñµï¿½]</a>';
+			$op_come[] = '<a href="#" id="come_'.$id.'_2" onclick="set_come('.$id.',2); return false;" style="display:'.(($line["status"] == 0 || $line["status"] == 1) ? 'inline' : 'none').'">[Î´ï¿½ï¿½]</a>';
 		}
 		$op_come_button = implode('', $op_come);
 
 		if ($uinfo["part_id"] == 1 || $uinfo["part_id"] == 4) {
 			if ($line["xiaofei"] == 0) {
-				$xiaofei_button = '<a href="#" onclick="set_xiaofei('.$id.',1); return false;">¡Á</a>';
+				$xiaofei_button = '<a href="#" onclick="set_xiaofei('.$id.',1); return false;">ï¿½ï¿½</a>';
 			} else {
-				$xiaofei_button = '<a href="#" onclick="set_xiaofei('.$id.',0); return false;">¡Ì</a>';
+				$xiaofei_button = '<a href="#" onclick="set_xiaofei('.$id.',0); return false;">ï¿½ï¿½</a>';
 			}
 		} else {
-			$xiaofei_button = $line["xiaofei"] ? '¡Ì' : '¡Á';
+			$xiaofei_button = $line["xiaofei"] ? 'ï¿½ï¿½' : 'ï¿½ï¿½';
 		}
 
 		$line_color = array('', 'red', 'silver');
@@ -287,9 +287,9 @@ if (count($data) > 0) {
 		<td align="center" class="item"><?php echo $line["media_from"]; ?></td>
 		<td align="center" class="item"><?php echo $part_id_name[$line["part_id"]]; ?></td>
 		<td align="left" class="item"><?php echo $line["memo"]; ?></td>
-		<td align="center" class="item"><?php echo $line["author"]. ($line["edit_log"] ? ("<a href='javascript:;' title='".str_replace("<br>", "&#13", strim($line["edit_log"], '<br>'))."' style='color:#8050C0'>¡î</a>") : ''); ?></td>
+		<td align="center" class="item"><?php echo $line["author"]. ($line["edit_log"] ? ("<a href='javascript:;' title='".str_replace("<br>", "&#13", strim($line["edit_log"], '<br>'))."' style='color:#8050C0'>ï¿½ï¿½</a>") : ''); ?></td>
 		<td align="center" class="item"><span id="come_<?php echo $id; ?>"><?php echo $status_array[$line["status"]]; ?></span> <?php //echo $op_come_button; ?></td>
-		<!-- <td align="center" class="item" id="xiaofei_<?php echo $id; ?>"><?php echo $line["xiaofei"] ? "¡Ì" : "¡Á"; ?></td> -->
+		<!-- <td align="center" class="item" id="xiaofei_<?php echo $id; ?>"><?php echo $line["xiaofei"] ? "ï¿½ï¿½" : "ï¿½ï¿½"; ?></td> -->
 		<td align="center" class="item"><?php echo str_replace('|', '<br>', @date("Y-m-d|H:i", $line["addtime"])); ?></td>
 		<td align="center" class="item"><?php echo $op_button; ?></td>
 	</tr>
@@ -299,22 +299,22 @@ if (count($data) > 0) {
 } else {
 ?>
 	<tr>
-		<td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Ã»ÓÐÊý¾Ý£¬ÇëÖØÐÂÉèÖÃ²éÑ¯Ìõ¼þ...)</td>
+		<td colspan="<?php echo count($aTdFormat); ?>" align="center" class="nodata">(Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½...)</td>
 	</tr>
 <?php } ?>
-	<!-- Ö÷ÒªÁÐ±íÊý¾Ý end -->
+	<!-- ï¿½ï¿½Òªï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ end -->
 
 </table>
 </form>
-<!-- Êý¾ÝÁÐ±í end -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ end -->
 
-<!-- ·ÖÒ³Á´½Ó begin -->
+<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ begin -->
 <div class="space"></div>
 <div class="footer_op">
-	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">·´Ñ¡</button>&nbsp;<?php echo $power->show_button("hide,delete"); ?></div>
+	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">ï¿½ï¿½Ñ¡</button>&nbsp;<?php echo $power->show_button("hide,delete"); ?></div>
 	<div class="footer_op_right"><?php echo pagelinkc($page, $pagecount, $count, make_link_info($aLinkInfo, "page"), "button"); ?></div>
 </div>
-<!-- ·ÖÒ³Á´½Ó end -->
+<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ end -->
 
 </body>
 </html>

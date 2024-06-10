@@ -1,8 +1,8 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ÐÂÔö¡¢ÐÞ¸Ä²¡ÈË×ÊÁÏ
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-01 05:57
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-01 05:57
 */
 require "../../core/core.php";
 if ($_POST) {
@@ -20,14 +20,14 @@ if ($_POST) {
 	
 	$d_id = $db->query("update yy_list set name='$name',sex='$sex',age='$age',tel='$tel',qq='$qq',content='$content',zhuanjia_num='$zhuanjia_num',order_date='$order_date',memo='$memo',status='$status' where id='{$id}'");
 	
-	echo '<script language="javascript">alert("ÐÞ¸Ä³É¹¦£¡");</script>';
+	echo '<script language="javascript">alert("ï¿½Þ¸Ä³É¹ï¿½ï¿½ï¿½");</script>';
 }
 
-//Ñ¡Ôñ²Ëµ¥º¯Êý
+//Ñ¡ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
 function list_option_a($list, $key_field='_key_', $value_field='_value_', $default_value='') {
 	$option = array();
 	foreach ($list as $k => $li) {
-		// option value=µÄÖµ
+		// option value=ï¿½ï¿½Öµ
 		if ($key_field != '') {
 			if ($key_field == "_key_" || $key_field == "_value_") {
 				$value = $key_field == "_key_" ? $k : $li;
@@ -38,10 +38,10 @@ function list_option_a($list, $key_field='_key_', $value_field='_value_', $defau
 			$value = $li;
 		}
 
-		// ÊÇ·ñÑ¡Ôñ:
+		// ï¿½Ç·ï¿½Ñ¡ï¿½ï¿½:
 		$select = ($value == $default_value ? 'selected' : '');
 
-		// ÏÔÊ¾±êÌâ:
+		// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½:
 		if ($value_field != '') {
 			if ($value_field == "_key_" || $value_field == "_value_") {
 				$title = $value_field == "_key_" ? $k : $li;
@@ -51,7 +51,7 @@ function list_option_a($list, $key_field='_key_', $value_field='_value_', $defau
 		} else {
 			$title = $li;
 		}
-		// Èç¹ûÎªµ±Ç°£¬ÏÔÊ¾Ò»¸ö * ±ê¼Ç:
+		// ï¿½ï¿½ï¿½Îªï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ê¾Ò»ï¿½ï¿½ * ï¿½ï¿½ï¿½:
 		if ($select) {
 			$title .= " *";
 		}
@@ -69,7 +69,7 @@ $line = $db->query_first("select * from yy_list where id='$id' limit 1");
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 <style>
 .dischk {width:6em; height:16px; line-height:16px; vertical-align:middle; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; padding:0; margin:0; }
 </style>
@@ -83,90 +83,90 @@ function input(id, value) {
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
-	<div class="headers_title"><span class="tips">ÐÞ¸Ä²¡ÈË×ÊÁÏ</span></div>
-	<div class="header_center"><!-- <button onclick="if (check_data()) document.forms['mainform'].submit();" class="buttonb">Ìá½»Êý¾Ý</button> --></div>
-	<div class="headers_oprate"><button onClick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_title"><span class="tips">ï¿½Þ¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span></div>
+	<div class="header_center"><!-- <button onclick="if (check_data()) document.forms['mainform'].submit();" class="buttonb">ï¿½á½»ï¿½ï¿½ï¿½ï¿½</button> --></div>
+	<div class="headers_oprate"><button onClick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 <div class="description">
-	<div class="d_title">ÌáÊ¾£º</div>
-	<div class="d_item">1.ÐÕÃû±ØÐëÌîÐ´£»¡¡2.µç»°ºÅÂëÈç¹ûÌîÐ´£¬Ôò±ØÐëÊÇÊý×Ö£¬²»ÉÙÓÚ7Î»£»¡¡3.Î´¾¡×ÊÁÏÌîÐ´ÓÚ±¸×¢ÖÐ¡£</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
+	<div class="d_item">1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½2.ï¿½ç»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7Î»ï¿½ï¿½ï¿½ï¿½3.Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú±ï¿½×¢ï¿½Ð¡ï¿½</div>
 </div>
 
 <div class="space"></div>
 <form name="mainform" method="POST" onSubmit="return check_data()">
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">²¡ÈË»ù±¾×ÊÁÏ</td>
+		<td colspan="2" class="head">ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 	<tr>
-		<td class="left">ÐÕÃû£º</td>
-		<td class="right"><input name="name" id="name" value="<?php echo $line["name"]; ?>" class="input" style="width:200px" <?php echo $ce["name"]; ?>> <span class="intro">* Ãû³Æ±ØÐëÌîÐ´</span></td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+		<td class="right"><input name="name" id="name" value="<?php echo $line["name"]; ?>" class="input" style="width:200px" <?php echo $ce["name"]; ?>> <span class="intro">* ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½Ð´</span></td>
 	</tr>
 	<tr>
-		<td class="left">ÐÔ±ð£º</td>
-		<td class="right"><input name="sex" id="sex" value="<?php echo $line["sex"]; ?>" class="input" style="width:80px" <?php echo $ce["sex"]; ?>> <a href="javascript:input('sex', 'ÄÐ')">[ÄÐ]</a> <a href="javascript:input('sex', 'Å®')">[Å®]</a> <span class="intro">ÌîÐ´²¡ÈËÐÔ±ð</span></td>
+		<td class="left">ï¿½Ô±ï¿½</td>
+		<td class="right"><input name="sex" id="sex" value="<?php echo $line["sex"]; ?>" class="input" style="width:80px" <?php echo $ce["sex"]; ?>> <a href="javascript:input('sex', 'ï¿½ï¿½')">[ï¿½ï¿½]</a> <a href="javascript:input('sex', 'Å®')">[Å®]</a> <span class="intro">ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left">ÄêÁä£º</td>
-		<td class="right"><input name="age" id="age" value="<?php echo $line["age"]; ?>" class="input" style="width:80px" <?php echo $ce["age"]; ?>> <span class="intro">ÌîÐ´ÄêÁä</span></td>
+		<td class="left">ï¿½ï¿½ï¿½ä£º</td>
+		<td class="right"><input name="age" id="age" value="<?php echo $line["age"]; ?>" class="input" style="width:80px" <?php echo $ce["age"]; ?>> <span class="intro">ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½</span></td>
 	</tr>
 <?php if ($op == "add" || ($op == "edit" && $line["author"] == $realname)) { ?>
 	<tr>
-		<td class="left">µç»°£º</td>
-		<td class="right"><input name="tel" id="tel" value="<?php echo $line["tel"]; ?>" class="input" style="width:200px" <?php echo $ce["tel"]; ?> onChange="check_repeat('tel', this)">  <span class="intro">µç»°ºÅÂë»òÊÖ»ú(¿É²»Ìî)</span></td>
+		<td class="left">ï¿½ç»°ï¿½ï¿½</td>
+		<td class="right"><input name="tel" id="tel" value="<?php echo $line["tel"]; ?>" class="input" style="width:200px" <?php echo $ce["tel"]; ?> onChange="check_repeat('tel', this)">  <span class="intro">ï¿½ç»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½(ï¿½É²ï¿½ï¿½ï¿½)</span></td>
 	</tr>
 <?php } ?>
 	<tr>
-		<td class="left">QQ£º</td>
-		<td class="right"><input name="qq" value="<?php echo $line["qq"]; ?>" class="input" style="width:140px" <?php echo $ce["qq"]; ?>>  <span class="intro">²¡ÈËQQºÅÂë</span></td>
+		<td class="left">QQï¿½ï¿½</td>
+		<td class="right"><input name="qq" value="<?php echo $line["qq"]; ?>" class="input" style="width:140px" <?php echo $ce["qq"]; ?>>  <span class="intro">ï¿½ï¿½ï¿½ï¿½QQï¿½ï¿½ï¿½ï¿½</span></td>
 	</tr>
 	<tr>
-		<td class="left" valign="top">×ÉÑ¯ÄÚÈÝ£º</td>
-		<td class="right"><textarea name="content" style="width:60%; height:72px;vertical-align:middle;" <?php echo $ce["content"]; ?> class="input"><?php echo $line["content"]; ?></textarea> <span class="intro">×ÉÑ¯ÄÚÈÝ×Ü½á</span></td>
+		<td class="left" valign="top">ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý£ï¿½</td>
+		<td class="right"><textarea name="content" style="width:60%; height:72px;vertical-align:middle;" <?php echo $ce["content"]; ?> class="input"><?php echo $line["content"]; ?></textarea> <span class="intro">ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ü½ï¿½</span></td>
 	</tr>
 
 	<tr>
-		<td class="left">ËùÊô¿ÆÊÒ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½</td>
 		<td class="right" style="color:red"><?php echo $line["ks"]; ?></td>
 	</tr>
 
 	<tr>
-		<td class="left">µØÇøÀ´Ô´£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½</td>
 		<td class="right">
-        <?php echo $str=$line["is_local"]==1 ? "±¾µØ":"ÍâµØ"; ?>
+        <?php echo $str=$line["is_local"]==1 ? "ï¿½ï¿½ï¿½ï¿½":"ï¿½ï¿½ï¿½"; ?>
         </td>
 	</tr>
 
 	<tr>
-		<td class="left">×¨¼ÒºÅ£º</td>
+		<td class="left">×¨ï¿½ÒºÅ£ï¿½</td>
 		<td class="right"><input name="zhuanjia_num" value="<?php echo $line["zhuanjia_num"]; ?>" class="input" size="30" style="width:200px"></td>
 	</tr>
 	<tr>
-		<td class="left" valign="top">Ô¤Ô¼Ê±¼ä£º</td>
-		<td class="right"><input name="order_date" value="<?php echo $line["order_date"] ? @date('Y-m-d H:i:s', $line["order_date"]) : ''; ?>" class="input" style="width:150px" id="order_date" <?php echo $ce["order_date"]; ?>> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'order_date',dateFmt:'yyyy-MM-dd HH:mm:ss'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä"> <span class="intro">Çë×¢Òâ£¬´Ë´¦ÒÑµ÷Õû£¬Ô¤Ô¼Ê±¼ä²»ÄÜÔçÓÚÉÏ¸öÔÂ<?php echo date("j"); ?>ºÅ£¬·ñÔò×ÊÁÏÎÞ·¨Ìá½»</span></td>
+		<td class="left" valign="top">Ô¤Ô¼Ê±ï¿½ä£º</td>
+		<td class="right"><input name="order_date" value="<?php echo $line["order_date"] ? @date('Y-m-d H:i:s', $line["order_date"]) : ''; ?>" class="input" style="width:150px" id="order_date" <?php echo $ce["order_date"]; ?>> <img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'order_date',dateFmt:'yyyy-MM-dd HH:mm:ss'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½"> <span class="intro">ï¿½ï¿½×¢ï¿½â£¬ï¿½Ë´ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼Ê±ï¿½ä²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½<?php echo date("j"); ?>ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½á½»</span></td>
 	</tr>
 
 	<tr>
-		<td class="left" valign="top">±¸×¢£º</td>
-		<td class="right"><textarea name="memo" style="width:60%; height:48px;vertical-align:middle;" class="input" <?php echo $ce["memo"]; ?>><?php echo $line["memo"]; ?></textarea> <span class="intro">ÆäËû±¸×¢ÐÅÏ¢</span></td>
+		<td class="left" valign="top">ï¿½ï¿½×¢ï¿½ï¿½</td>
+		<td class="right"><textarea name="memo" style="width:60%; height:48px;vertical-align:middle;" class="input" <?php echo $ce["memo"]; ?>><?php echo $line["memo"]; ?></textarea> <span class="intro">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½Ï¢</span></td>
 	</tr>
 <?php if ($line["edit_log"] && $line["author"] == $realname) { ?>
 	<?php } ?>
 
 
-<?php // ÖÎÁÆÏîÄ¿ -------------  ?>
+<?php // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ -------------  ?>
 <?php
 if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
-	<!-- ÖÎÁÆ·ÑÓÃ -->
+	<!-- ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ -->
 	<?php } ?>
 
 
-<?php // ¸´²é -------------  ?>
+<?php // ï¿½ï¿½ï¿½ï¿½ -------------  ?>
 <?php
 if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 	<?php } ?>
@@ -177,21 +177,21 @@ if (in_array($uinfo["part_id"], array(4,9,12)) && $line["status"] == 1) { ?>
 <div class="space"></div>
 <table width="100%" class="edit">
 	<tr>
-		<td colspan="2" class="head">ÊÇ·ñµ½Ôº</td>
+		<td colspan="2" class="head">ï¿½Ç·ï¿½Ôº</td>
 	</tr>
 	<tr>
-		<td class="left">¸°Ô¼×´Ì¬£º</td>
+		<td class="left">ï¿½ï¿½Ô¼×´Ì¬ï¿½ï¿½</td>
 		<td class="right">
-        <?php $me_status_array = array ( 0 => array ( 'id' => '0','name' => 'µÈ´ý'),1 => array ( 'id' => '1','name' => 'ÒÑµ½'),2 => array ( 'id' => '2','name' => 'Î´µ½'),3 => array ( 'id' => '3','name' => 'Ô¤Ô¼Î´¶¨'));?>
+        <?php $me_status_array = array ( 0 => array ( 'id' => '0','name' => 'ï¿½È´ï¿½'),1 => array ( 'id' => '1','name' => 'ï¿½Ñµï¿½'),2 => array ( 'id' => '2','name' => 'Î´ï¿½ï¿½'),3 => array ( 'id' => '3','name' => 'Ô¤Ô¼Î´ï¿½ï¿½'));?>
 			<select name="status" class="combo" <?php echo $ce["status"]; ?>> <!-- onchange="change_yisheng(this.value)" -->
-				<option value="0" style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value="0" style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 				<?php echo list_option_a($me_status_array, 'id', 'name', ($mode == "add" && $uinfo["part_id"] == 4) ? 1 : $line["status"]); ?>
 			</select>
 		</td>
 	</tr>
   </table>
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 </form>
 </body>
 </html>

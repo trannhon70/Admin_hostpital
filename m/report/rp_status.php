@@ -1,30 +1,30 @@
 <?php
 /*
-// 说明: 报表
-// 作者: 爱医战队 
-// 时间: 2011-11-24
+// 说锟斤拷: 锟斤拷锟斤拷
+// 锟斤拷锟斤拷: 锟斤拷医战锟斤拷 
+// 时锟斤拷: 2011-11-24
 */
 require "../../core/core.php";
 
-// 报表核心定义:
+// 锟斤拷锟斤拷锟斤拷锟侥讹拷锟斤拷:
 include "rp.core.php";
 
-$tongji_tips = " - 到院状态统计 - ".$type_tips;
+$tongji_tips = " - 锟斤拷院状态统锟斤拷 - ".$type_tips;
 ?>
 <html>
 <head>
-<title>状态报表</title>
+<title>状态锟斤拷锟斤拷</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 body {margin-top:6px; }
 #rp_condition_form {text-align:center; }
-.head, .head a {font-family:"微软雅黑","Verdana"; }
+.head, .head a {font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 .item {font-family:"Tahoma"; padding:8px 3px 6px 3px !important; }
 .footer_op_left {font-family:"Tahoma"; }
-.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微软雅黑","Verdana"; }
+.date_tips {padding:15px 0 15px 0px; font-weight:bold; text-align:center; font-size:15px; font-family:"微锟斤拷锟脚猴拷","Verdana"; }
 form {display:inline; }
 .red {color:red !important;  }
 </style>
@@ -37,13 +37,13 @@ form {display:inline; }
 <?php if ($_GET["op"] == "report") { ?>
 <?php
 
-// $status_array 在 config.php 中定义，为系统字典
+// $status_array 锟斤拷 config.php 锟叫讹拷锟藉，为系统锟街碉拷
 
 if (in_array($type, array(1,2,3,4))) {
-	// 计算统计数据:
+	// 锟斤拷锟斤拷统锟斤拷锟斤拷锟斤拷:
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
+		$data[$k]["锟斤拷"] = $db->query("select count(*) as c from $table where $where {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
 
 		foreach ($status_array as $sid => $sname) {
 			$data[$k][$sid] = $db->query("select count(*) as c from $table where $where status='{$sid}' and {$timetype}>=".$v[0]." and {$timetype}<=".$v[1]." ", 1, "c");
@@ -51,7 +51,7 @@ if (in_array($type, array(1,2,3,4))) {
 	}
 } else if ($type == 5) {
 	$arr = array();
-	$arr["总"] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
+	$arr["锟斤拷"] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
 
 	foreach ($status_array as $sid => $sname) {
 		$arr[$sid] = $db->query("select from_unixtime({$timetype},'%k') as sd,count(from_unixtime({$timetype},'%k')) as c from $table where status='{$sid}' and $where {$timetype}>=".$tb." and {$timetype}<=".$te." group by from_unixtime({$timetype},'%k')", "sd", "c");
@@ -59,7 +59,7 @@ if (in_array($type, array(1,2,3,4))) {
 
 	$data = array();
 	foreach ($final_dt_arr as $k => $v) {
-		$data[$k]["总"] = intval($arr["总"][$v]);
+		$data[$k]["锟斤拷"] = intval($arr["锟斤拷"][$v]);
 		foreach ($status_array as $sid => $sname) {
 			$data[$k][$sid] = intval($arr[$sid][$v]);
 		}
@@ -71,22 +71,22 @@ if (in_array($type, array(1,2,3,4))) {
 <div class="date_tips"><?php echo $h_name.$tongji_tips.$tips; ?></div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center" width="100">时间</td>
-		<td class="head red" align="center">总计</td>
+		<td class="head" align="center" width="100">时锟斤拷</td>
+		<td class="head red" align="center">锟杰硷拷</td>
 <?php foreach ($status_array as $sid => $sname) { ?>
 		<td class="head" align="center"><?php echo $sname; ?></td>
 <?php } ?>
-		<td class="head" align="center">到院比</td>
+		<td class="head" align="center">锟斤拷院锟斤拷</td>
 	</tr>
 
 <?php foreach ($final_dt_arr as $k => $v) { ?>
 	<tr>
 		<td class="item" align="center"><?php echo $k; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["总"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["锟斤拷"]; ?></td>
 <?php   foreach ($status_array as $sid => $sname) { ?>
 		<td class="item" align="center"><?php echo $data[$k][$sid]; ?></td>
 <?php   } ?>
-		<td class="item" align="center"><?php echo @round(100 * $data[$k][1] / $data[$k]["总"], 1)."%"; ?></td>
+		<td class="item" align="center"><?php echo @round(100 * $data[$k][1] / $data[$k]["锟斤拷"], 1)."%"; ?></td>
 	</tr>
 <?php } ?>
 </table>

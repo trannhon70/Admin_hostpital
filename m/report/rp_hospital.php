@@ -1,8 +1,8 @@
 <?php
 // --------------------------------------------------------
-// - ¹¦ÄÜËµÃ÷ : Í¬ÆÚÊý¾Ý±¨±í
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2011-05-12
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2011-05-12
 // --------------------------------------------------------
 require "../../core/core.php";
 header("Content-Type:text/html;charset=GB2312");
@@ -12,10 +12,10 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 $used_hid = implode(",", $hospital_ids);
 if ($used_hid == '') $used_hid = '0';
 
-// ËùÓÐÒ½ÔºÃû³Æ:
+// ï¿½ï¿½ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½:
 $h_id_name = $db->query("select id,name from hospital where id in ($used_hid) order by id asc", "id", "name");
 
-// Ê±¼ä¶¨Òå:
+// Ê±ï¿½ä¶¨ï¿½ï¿½:
 $day = date("d");
 $his = date("H:i:s");
 $month_arr = $month_b_e = array();
@@ -23,16 +23,16 @@ for ($i = 0; $i < 6; $i++) {
 	$month_arr[$i] = $t = date("Y-m", strtotime("-".$i." month", time()));
 	$m_begin =  strtotime($t."-1 0:0:0");
 	$m_end = strtotime($t."-".$day." ".$his);
-	// ÅÐ¶ÏÈÕÓÐÃ»ÓÐ³¬±ê(µ±Ò»¸öÔÂÃ»ÓÐ31ÈÕµÄÊ±ºò strtotime() º¯Êý»á¼ÆËãÎªÏÂ¸öÔÂµÄ1ÈÕ£¬µ¼ÖÂ³öÎÊÌâ)
+	// ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð³ï¿½ï¿½ï¿½(ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½31ï¿½Õµï¿½Ê±ï¿½ï¿½ strtotime() ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Â¸ï¿½ï¿½Âµï¿½1ï¿½Õ£ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ï¿½ï¿½)
 	if (date("Y-m-d", $m_end) != ($t."-".$day)) {
-		$m_end = strtotime("+1 month") - 1; //½áÊøÊ±¼äÖØÐÂ¶¨ÎªÒ»¸öÔÂµÄ×îºóÒ»ÌìµÄ23:59:59
+		$m_end = strtotime("+1 month") - 1; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ÎªÒ»ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½23:59:59
 	}
 	$month_b_e[$i] = array($m_begin, $m_end);
 }
 
 asort($month_arr);
 
-$type_arr = array(0 => "Õû¸öÒ½Ôº", 2 => "ÍøÂç", 3 => "µç»°");
+$type_arr = array(0 => "ï¿½ï¿½ï¿½ï¿½Ò½Ôº", 2 => "ï¿½ï¿½ï¿½ï¿½", 3 => "ï¿½ç»°");
 
 $sqladd = '';
 if (array_key_exists($_GET["type"], $type_arr)) {
@@ -45,11 +45,11 @@ if (array_key_exists($_GET["type"], $type_arr)) {
 ?>
 <html>
 <head>
-<title>Í¬ÆÚÊý¾Ý±¨±í</title>
+<title>Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 .clear {clear:both; font-size:0; line-height:0; }
 
@@ -63,7 +63,7 @@ if (array_key_exists($_GET["type"], $type_arr)) {
 .ht {border-top:2px solid #A4D1FF !important; }
 .hb {border-bottom:2px solid #A4D1FF !important; }
 
-/* ½ø¶ÈÌõ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 #progress_bar {margin:20px auto 20px auto; }
 #p_title {float:left; width:90px; text-align:left; padding-top:0px; }
 #p_border {float:left; width:202px; height:12px; border:1px solid #405050; background:white; }
@@ -71,8 +71,8 @@ if (array_key_exists($_GET["type"], $type_arr)) {
 </style>
 
 <script language="javascript">
-// ¸üÐÂ½ø¶ÈÌõ
-// s: 0 - 100   µ½100Ê±±íÊ¾100%
+// ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½
+// s: 0 - 100   ï¿½ï¿½100Ê±ï¿½ï¿½Ê¾100%
 function update_p(s) {
 	s = s + 10;
 	if (s < 0) s = 0;
@@ -85,9 +85,9 @@ function update_p(s) {
 
 <body>
 
-<!-- ½ø¶ÈÌõ£¬Íê³ÉºóÒþ²Ø -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ -->
 <div id="progress_bar" style="display:none;">
-	<div id="p_title">&nbsp;Êý¾Ý²éÑ¯ÖÐ£º</div>
+	<div id="p_title">&nbsp;ï¿½ï¿½ï¿½Ý²ï¿½Ñ¯ï¿½Ð£ï¿½</div>
 	<div id="p_border"><div id="p_cur"></div></div>
 	<div class="clear"></div>
 </div>
@@ -98,7 +98,7 @@ flush();
 ob_flush();
 ob_end_flush();
 
-// ²éÑ¯Êý¾Ý:
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½:
 $data_arr = array();
 $index = 0;
 foreach ($h_id_name as $k => $v) {
@@ -111,7 +111,7 @@ foreach ($h_id_name as $k => $v) {
 		ob_end_clean();
 	}
 
-	$index++; //ÒÑ´¦ÀíµÄ½ø¶È
+	$index++; //ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
 	$progress = round(($index / count($h_id_name)) * 100, 1);
 	echo '<script type="text/javascript">update_p('.$progress.');</script>'."\r\n";
 	flush();
@@ -126,12 +126,12 @@ byid("progress_bar").style.display = "none";
 </script>
 
 <div style="text-align:center; padding:20px 0 5px 0;">
-	ÀàÐÍ£º<input type="button" class="buttonb" value="Õû¸öÒ½Ôº" onclick="location='?'">&nbsp;
-	<input type="button" class="buttonb" value="ÍøÂç" onclick="location='?type=2'">&nbsp;
-	<input type="button" class="buttonb" value="µç»°" onclick="location='?type=3'">&nbsp; (ÌáÐÑ£ºÓÉÓÚ±¾Ò³Ãæ²éÑ¯µÄÊý¾ÝÁ¿Ì«´ó£¬ÑÏÖØÕ¼ÓÃ·þÎñÆ÷×ÊÔ´£¬Çë¾¡Á¿¼õÉÙË¢ÐÂ¡£)
+	ï¿½ï¿½ï¿½Í£ï¿½<input type="button" class="buttonb" value="ï¿½ï¿½ï¿½ï¿½Ò½Ôº" onclick="location='?'">&nbsp;
+	<input type="button" class="buttonb" value="ï¿½ï¿½ï¿½ï¿½" onclick="location='?type=2'">&nbsp;
+	<input type="button" class="buttonb" value="ï¿½ç»°" onclick="location='?type=3'">&nbsp; (ï¿½ï¿½ï¿½Ñ£ï¿½ï¿½ï¿½ï¿½Ú±ï¿½Ò³ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ë¾¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½Â¡ï¿½)
 </div>
 
-<div class="report_tips">¸÷ÔÂÍ¬ÆÚÊý¾Ý¶Ô±È (Ã¿ÔÂ<?php echo $day; ?>ÈÕÄÚµ½ÔºÊý¾Ý) (<?php echo $type_arr[intval($_GET["type"])]; ?>)</div>
+<div class="report_tips">ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ý¶Ô±ï¿½ (Ã¿ï¿½ï¿½<?php echo $day; ?>ï¿½ï¿½ï¿½Úµï¿½Ôºï¿½ï¿½ï¿½ï¿½) (<?php echo $type_arr[intval($_GET["type"])]; ?>)</div>
 
 <table class="list" width="100%">
 	<tr>

@@ -1,8 +1,8 @@
 <?php
 /*
-// ËµÃ÷: ²¡ÈËÁÐ±í
-// ×÷Õß: °®Ò½Õ½¶Ó 
-// Ê±¼ä: 2010-09-07 11:01
+// Ëµï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// Ê±ï¿½ï¿½: 2010-09-07 11:01
 */
 
 
@@ -13,7 +13,7 @@ if ($_GET["etime"]) {
 	$_GET["end_time"] = strtotime($_GET["etime"]." 23:59:59");
 }
 
-// ¶¨Òåµ±Ç°Ò³ÐèÒªÓÃµ½µÄµ÷ÓÃ²ÎÊý:
+// ï¿½ï¿½ï¿½åµ±Ç°Ò³ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½Äµï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 $link_param = explode(" ", "page sort order key begin_time end_time time_type show come kefu_23_name kefu_4_name doctor_name xiaofei disease part_id from depart names date list_huifang media");
 
 $param = array();
@@ -23,65 +23,65 @@ foreach ($link_param as $s) {
 extract($param);
 
 
-// ¶¨Òåµ¥Ôª¸ñ¸ñÊ½:
+// ï¿½ï¿½ï¿½åµ¥Ôªï¿½ï¿½ï¿½Ê½:
 if($_SESSION[$cfgSessionName]["part_id"]==11){
 	$list_heads = array(
-		"ÐÕÃû" => array("width"=>"50", "align"=>"center", "sort"=>"name", "order"=>"asc"),
-		"ÐÔ±ð" => array("align"=>"center", "sort"=>"sex", "order"=>"asc"),
-		"ÄêÁä" => array("align"=>"center", "sort"=>"age", "order"=>"asc"),
-		"µç»°" => array("align"=>"center", "sort"=>"tel", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("width"=>"50", "align"=>"center", "sort"=>"name", "order"=>"asc"),
+		"ï¿½Ô±ï¿½" => array("align"=>"center", "sort"=>"sex", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"age", "order"=>"asc"),
+		"ï¿½ç»°" => array("align"=>"center", "sort"=>"tel", "order"=>"asc"),
 		//"QQ" => array("align"=>"center", "sort"=>"qq", "order"=>"asc"),
-		"×¨¼ÒºÅ" => array("align"=>"center", "sort"=>"zhuanjia_num", "order"=>"asc"),
-		"½Ó´ý" => array("align"=>"center", "sort"=>"jiedai", "order"=>"asc"),
-		"Ô¤Ô¼Ê±¼ä" => array("width"=>"70", "align"=>"center", "sort"=>"order_sort", "order"=>"desc"),
-		"ÌìÊý" => array("align"=>"center", "sort"=>"remain_time", "order"=>"desc"),
-		"²¡»¼ÀàÐÍ" => array("align"=>"center", "sort"=>"disease_id", "order"=>"asc"),
-		"Ã½ÌåÀ´Ô´" => array("align"=>"center", "sort"=>"media_from", "order"=>"asc"),
-		//"¹Ø¼ü´Ê" => array("width"=>"80","align"=>"center", "sort"=>"engine_key", "order"=>"asc"),
-		"²¿ÃÅ" => array("align"=>"center", "sort"=>"part_id", "order"=>"asc"),
-		//"¿ÆÊÒ" => array("align"=>"center", "sort"=>"depart", "order"=>"asc"),
-		"µØÇø" => array("align"=>"center", "sort"=>"is_local", "order"=>"asc"),
-		"¿Í·þ" => array("width"=>"50", "align"=>"center", "sort"=>"author", "order"=>"asc"),
-		"»Ø·Ã" => array("width"=>"24", "align"=>"center", "sort"=>"huifang", "order"=>"desc"),
-		"¸°Ô¼Çé¿ö" => array("align"=>"center", "sort"=>"status_1", "order"=>"desc", "sort2"=>"addtime desc"),
-		"Ìí¼ÓÊ±¼ä" => array("width"=>"70", "align"=>"center", "sort"=>"addtime", "order"=>"desc"),
-		"²Ù×÷" => array("width"=>"80", "align"=>"center"),
+		"×¨ï¿½Òºï¿½" => array("align"=>"center", "sort"=>"zhuanjia_num", "order"=>"asc"),
+		"ï¿½Ó´ï¿½" => array("align"=>"center", "sort"=>"jiedai", "order"=>"asc"),
+		"Ô¤Ô¼Ê±ï¿½ï¿½" => array("width"=>"70", "align"=>"center", "sort"=>"order_sort", "order"=>"desc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"remain_time", "order"=>"desc"),
+		"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"disease_id", "order"=>"asc"),
+		"Ã½ï¿½ï¿½ï¿½ï¿½Ô´" => array("align"=>"center", "sort"=>"media_from", "order"=>"asc"),
+		//"ï¿½Ø¼ï¿½ï¿½ï¿½" => array("width"=>"80","align"=>"center", "sort"=>"engine_key", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"part_id", "order"=>"asc"),
+		//"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"depart", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"is_local", "order"=>"asc"),
+		"ï¿½Í·ï¿½" => array("width"=>"50", "align"=>"center", "sort"=>"author", "order"=>"asc"),
+		"ï¿½Ø·ï¿½" => array("width"=>"24", "align"=>"center", "sort"=>"huifang", "order"=>"desc"),
+		"ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"status_1", "order"=>"desc", "sort2"=>"addtime desc"),
+		"ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½" => array("width"=>"70", "align"=>"center", "sort"=>"addtime", "order"=>"desc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("width"=>"80", "align"=>"center"),
 	);
 }
 else
 {
 	$list_heads = array(
-		"ÐÕÃû" => array("width"=>"50", "align"=>"center", "sort"=>"name", "order"=>"asc"),
-		"ÐÔ±ð" => array("align"=>"center", "sort"=>"sex", "order"=>"asc"),
-		"ÄêÁä" => array("align"=>"center", "sort"=>"age", "order"=>"asc"),
-		"µç»°" => array("align"=>"center", "sort"=>"tel", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("width"=>"50", "align"=>"center", "sort"=>"name", "order"=>"asc"),
+		"ï¿½Ô±ï¿½" => array("align"=>"center", "sort"=>"sex", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"age", "order"=>"asc"),
+		"ï¿½ç»°" => array("align"=>"center", "sort"=>"tel", "order"=>"asc"),
 		//"QQ" => array("align"=>"center", "sort"=>"qq", "order"=>"asc"),
-		"×¨¼ÒºÅ" => array("align"=>"center", "sort"=>"zhuanjia_num", "order"=>"asc"),
-		//"×ÉÑ¯ÄÚÈÝ" => array("align"=>"left", "sort"=>"content", "order"=>"asc"),
-		"½Ó´ý" => array("align"=>"center", "sort"=>"jiedai", "order"=>"asc"),
-		"Ô¤Ô¼Ê±¼ä" => array("width"=>"70", "align"=>"center", "sort"=>"order_sort", "order"=>"desc"),
-		"ÌìÊý" => array("align"=>"center", "sort"=>"remain_time", "order"=>"desc"),
-		"²¡»¼ÀàÐÍ" => array("align"=>"center", "sort"=>"disease_id", "order"=>"asc"),
-		"¿ÆÊÒ" => array("align"=>"center", "sort"=>"depart", "order"=>"asc"),
-		"Ã½ÌåÀ´Ô´" => array("align"=>"center", "sort"=>"media_from", "order"=>"asc"),
-		//"¹Ø¼ü´Ê" => array("width"=>"80","align"=>"center", "sort"=>"engine_key", "order"=>"asc"),
-		"²¿ÃÅ" => array("align"=>"center", "sort"=>"part_id", "order"=>"asc"),
-		"µØÇø" => array("align"=>"center", "sort"=>"is_local", "order"=>"asc"),
-		"±¸×¢" => array("align"=>"center", "sort"=>"memo", "order"=>"asc"),
-		"¿Í·þ" => array("width"=>"50", "align"=>"center", "sort"=>"author", "order"=>"asc"),
-		"»Ø·Ã" => array("width"=>"24", "align"=>"center", "sort"=>"huifang", "order"=>"desc"),
-		"¸°Ô¼Çé¿ö" => array("align"=>"center", "sort"=>"status_1", "order"=>"desc", "sort2"=>"addtime desc"),
-		"Ìí¼ÓÊ±¼ä" => array("width"=>"70", "align"=>"center", "sort"=>"addtime", "order"=>"desc"),
-		"²Ù×÷" => array("width"=>"80", "align"=>"center"),
+		"×¨ï¿½Òºï¿½" => array("align"=>"center", "sort"=>"zhuanjia_num", "order"=>"asc"),
+		//"ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½" => array("align"=>"left", "sort"=>"content", "order"=>"asc"),
+		"ï¿½Ó´ï¿½" => array("align"=>"center", "sort"=>"jiedai", "order"=>"asc"),
+		"Ô¤Ô¼Ê±ï¿½ï¿½" => array("width"=>"70", "align"=>"center", "sort"=>"order_sort", "order"=>"desc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"remain_time", "order"=>"desc"),
+		"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"disease_id", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"depart", "order"=>"asc"),
+		"Ã½ï¿½ï¿½ï¿½ï¿½Ô´" => array("align"=>"center", "sort"=>"media_from", "order"=>"asc"),
+		//"ï¿½Ø¼ï¿½ï¿½ï¿½" => array("width"=>"80","align"=>"center", "sort"=>"engine_key", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"part_id", "order"=>"asc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"is_local", "order"=>"asc"),
+		"ï¿½ï¿½×¢" => array("align"=>"center", "sort"=>"memo", "order"=>"asc"),
+		"ï¿½Í·ï¿½" => array("width"=>"50", "align"=>"center", "sort"=>"author", "order"=>"asc"),
+		"ï¿½Ø·ï¿½" => array("width"=>"24", "align"=>"center", "sort"=>"huifang", "order"=>"desc"),
+		"ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½" => array("align"=>"center", "sort"=>"status_1", "order"=>"desc", "sort2"=>"addtime desc"),
+		"ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½" => array("width"=>"70", "align"=>"center", "sort"=>"addtime", "order"=>"desc"),
+		"ï¿½ï¿½ï¿½ï¿½" => array("width"=>"80", "align"=>"center"),
 	);
 }
 
-// Ä¬ÈÏÅÅÐò·½Ê½:
+// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½:
 if ($uinfo["part_id"] == 4) {
-	$default_sort = "Ô¤Ô¼Ê±¼ä"; // µ¼Ò½±È½Ï¹Ø×¢½ñÌìµ½µÄ²¡ÈË
+	$default_sort = "Ô¤Ô¼Ê±ï¿½ï¿½"; // ï¿½ï¿½Ò½ï¿½È½Ï¹ï¿½×¢ï¿½ï¿½ï¿½ìµ½ï¿½Ä²ï¿½ï¿½ï¿½
 	$default_order = "desc";
 } else {
-	$default_sort = "Ìí¼ÓÊ±¼ä"; //¿Í·þ»ò¹ÜÀíÔ±Ôò¹Ø×¢½ñÌìÐÂÔö¼ÓÁË¶àÉÙ²¡ÈË
+	$default_sort = "ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½Ù²ï¿½ï¿½ï¿½
 	$default_order = "desc";
 }
 
@@ -99,14 +99,14 @@ if ($show == 'today') {
 	$begin_time = strtotime("-1 month", $end_time);
 }
 
-// °´ÈÕÆÚËÑË÷ 2010-09-29:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2010-09-29:
 if ($_GET["date"]) {
 	$begin_time = strtotime($_GET["date"]." 0:0:0");
 	$end_time = strtotime($_GET["date"]." 23:59:59");
 }
 
 
-// ÁÐ±íÏÔÊ¾Àà:
+// ï¿½Ð±ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½:
 $t = load_class("table");
 $t->set_head($list_heads, $default_sort, $default_order);
 $t->set_sort($_GET["sort"], $_GET["order"]);
@@ -114,7 +114,7 @@ $t->param = $param;
 $t->table_class = "new_list";
 
 
-// ËÑË÷¿ªÊ¼:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼:
 $where = array();
 
 if ($key = trim(stripslashes($key))) {
@@ -127,19 +127,19 @@ if ($key = trim(stripslashes($key))) {
 	$where[] = "(".implode(" or ", $sfield).")";
 }
 
-// ¶ÁÈ¡È¨ÏÞ:
+// ï¿½ï¿½È¡È¨ï¿½ï¿½:
 $today_where = '';
 
 if (!$debug_mode) {
-	$read_parts = get_manage_part(); //ËùÓÐ×Ó²¿ÃÅ£¨Á¬Í¬Æä×ÔÉí²¿ÃÅ)
-	if ($uinfo["part_admin"] || $uinfo["part_manage"]) { //²¿ÃÅ¹ÜÀíÔ±»òÊý¾Ý¹ÜÀíÔ±
+	$read_parts = get_manage_part(); //ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½Å£ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	if ($uinfo["part_admin"] || $uinfo["part_manage"]) { //ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½Ô±
 		$where[] = "(part_id in (".$read_parts.") or binary author='".$realname."')";
-	} else { //ÆÕÍ¨ÓÃ»§Ö»ÏÔÊ¾×Ô¼ºµÄÊý¾Ý
+	} else { //ï¿½ï¿½Í¨ï¿½Ã»ï¿½Ö»ï¿½ï¿½Ê¾ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		$where[] = "binary author='".$realname."'";
 	}
 }
 
-// µç»°»Ø·ÃÖ»ÏÔÊ¾ÒÑµ½²¡ÈË:
+// ï¿½ç»°ï¿½Ø·ï¿½Ö»ï¿½ï¿½Ê¾ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½:
 if ($uinfo["part_id"] == 12) {
 	//$where[] = "status=1";
 }
@@ -202,13 +202,13 @@ elseif($come == "")
 	}
 }
 
-// ·ÖÒ³Êý¾Ý:
+// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½:
 $count = $db->query("select count(*) as count from $table $sqlwhere $sqlgroup", 1, "count");
 $pagecount = max(ceil($count / $pagesize), 1);
 $page = max(min($pagecount, intval($page)), 1);
 $offset = ($page - 1) * $pagesize;
 
-// ²éÑ¯:
+// ï¿½ï¿½Ñ¯:
 $time = time();
 $today_begin = mktime(0,0,0);
 $today_end = $today_begin + 24 * 3600;
@@ -220,7 +220,7 @@ $s_sql = $db->sql;
 //echo "-->";
 
 
-//Êý¾Ý¹ýÂË 13.1.12
+//ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ 13.1.12
 if($uinfo['part_id']==2&&$uinfo['part_admin']!=1){
   foreach($list_data as $key=>$data){
     if($data['author']!=$uinfo['name']&&$data['author']!=$uinfo['realname']){
@@ -245,11 +245,11 @@ $depart_id_name = $db->query("select id,name from depart where hospital_id=$user
 $use_depart = 1;
 if (count($depart_id_name) == 0) {
 	$use_depart = 0;
-	unset($list_heads["¿ÆÊÒ"]); //Ã»ÓÐ¿ÆÊÒ
+	unset($list_heads["ï¿½ï¿½ï¿½ï¿½"]); //Ã»ï¿½Ð¿ï¿½ï¿½ï¿½
 }
 
 
-// ËÑË÷µÄÍ³¼ÆÊý¾Ý 2013-05-13 16:46
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2013-05-13 16:46
 $res_report = '';
 //if ($_GET["from"] == "search") {
 	$sqlwhere_s = $sqlwhere ? ($sqlwhere." and status=1") : "where status=1";
@@ -261,10 +261,10 @@ $res_report = '';
 
 	$count_all = $count_come + $count_not;
 
-	$res_report = "×Ü¹²: <b>".$count_all."</b> &nbsp; ÒÑµ½: <b>".$count_come."</b> &nbsp; Î´µ½: <b>".$count_not."</b>";
+	$res_report = "ï¿½Ü¹ï¿½: <b>".$count_all."</b> &nbsp; ï¿½Ñµï¿½: <b>".$count_come."</b> &nbsp; Î´ï¿½ï¿½: <b>".$count_not."</b>";
 //}
 
-// Í³¼Æ½ñÈÕÊý¾Ý:
+// Í³ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 $t_time_type = "order_date";
 
 $today_where = ($today_where ? ($today_where." and") : "")." $t_time_type>=".$today_begin;
@@ -277,21 +277,21 @@ $count_today_not = $db->query("select count(*) as count from $table $sqlwhere_s 
 
 $count_today_all = $count_today_come + $count_today_not;
 
-$today_report = "<a href='?show=today'>×Ü¹²: <b>".$count_today_all."</b></a> &nbsp; <a href='?show=today&come=1'>ÒÑµ½: <b>".$count_today_come."</b></a> &nbsp; <a href='?show=today&come=0'>Î´µ½: <b>".$count_today_not."</b></a>&nbsp;";
+$today_report = "<a href='?show=today'>ï¿½Ü¹ï¿½: <b>".$count_today_all."</b></a> &nbsp; <a href='?show=today&come=1'>ï¿½Ñµï¿½: <b>".$count_today_come."</b></a> &nbsp; <a href='?show=today&come=0'>Î´ï¿½ï¿½: <b>".$count_today_not."</b></a>&nbsp;";
 
-// ²¿ÃÅÊý¾ÝÍ³¼Æ(½ñÈÕ):
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½):
 if (in_array($uinfo["part_id"], array(2,3))) {
 	$basewhere = "part_id=".$uinfo["part_id"];
 	$part_today_all = $db->query("select count(*) as count from $table where $basewhere and order_date>=$today_begin and order_date<$today_end", 1, "count");
 	$part_today_come = $db->query("select count(*) as count from $table where $basewhere and order_date>=$today_begin and order_date<$today_end and status=1", 1, "count");
 	$part_today_not = $part_today_all - $part_today_come;
 
-	$part_report = "×Ü¹²: <b>".$part_today_all."</b>  ÒÑµ½: <b>".$part_today_come."</b>  Î´µ½: <b>".$part_today_not."</b>&nbsp;";
+	$part_report = "ï¿½Ü¹ï¿½: <b>".$part_today_all."</b>  ï¿½Ñµï¿½: <b>".$part_today_come."</b>  Î´ï¿½ï¿½: <b>".$part_today_not."</b>&nbsp;";
 }
 
 
-// ¶ÔÁÐ±íÊý¾Ý·Ö×é:
-if ($sort == "Ìí¼ÓÊ±¼ä" || ($sort == "" && $default_sort == "Ìí¼ÓÊ±¼ä")) {
+// ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½:
+if ($sort == "ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½" || ($sort == "" && $default_sort == "ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½")) {
 	if ($order == "desc" || $default_order == "desc") {
 		$today_begin = mktime(0,0,0);
 		$today_end = $today_begin + 24*3600;
@@ -310,53 +310,53 @@ if ($sort == "Ìí¼ÓÊ±¼ä" || ($sort == "" && $default_sort == "Ìí¼ÓÊ±¼ä")) {
 		}
 
 		$list_data = array();
-		if (count($list_data_part[1]) > 0) { //ÓÐ½ñÌìµÄÊý¾Ý:
-			$list_data[] = array("id"=>0, "name"=>"½ñÌì [".count($list_data_part[1])."]");
+		if (count($list_data_part[1]) > 0) { //ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+			$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[1])."]");
 			$list_data = array_merge($list_data, $list_data_part[1]);
 		}
-		if (count($list_data_part[2]) > 0) { //ÓÐ½ñÌìµÄÊý¾Ý:
-			$list_data[] = array("id"=>0, "name"=>"×òÌì [".count($list_data_part[2])."]");
+		if (count($list_data_part[2]) > 0) { //ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+			$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[2])."]");
 			$list_data = array_merge($list_data, $list_data_part[2]);
 		}
-		if (count($list_data_part[3]) > 0) { //ÓÐ½ñÌìµÄÊý¾Ý:
-			$list_data[] = array("id"=>0, "name"=>"Ç°Ìì»ò¸üÔç [".count($list_data_part[3])."]");
+		if (count($list_data_part[3]) > 0) { //ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+			$list_data[] = array("id"=>0, "name"=>"Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[3])."]");
 			$list_data = array_merge($list_data, $list_data_part[3]);
 		}
 		unset($list_data_part);
 	}
-} else if ($sort == "¸°Ô¼Çé¿ö" || ($sort == "" && $default_sort == "¸°Ô¼Çé¿ö")) {
+} else if ($sort == "ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½" || ($sort == "" && $default_sort == "ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½")) {
 	$list_data_part = array();
 	foreach ($list_data as $line) {
-		if ($line["status_1"] == 2) { //ÒÑµ½
+		if ($line["status_1"] == 2) { //ï¿½Ñµï¿½
 			$list_data_part[1][] = $line;
-		} else if ($line["status_1"] == 1) { //Î´µ½
+		} else if ($line["status_1"] == 1) { //Î´ï¿½ï¿½
 			$list_data_part[2][] = $line;
-		} else if ($line["status_1"] == 0) { //µÈ´ý
+		} else if ($line["status_1"] == 0) { //ï¿½È´ï¿½
 			$list_data_part[3][] = $line;
 		}
 	}
 
 	$list_data = array();
 	if (count($list_data_part[1]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"ÒÑµ½ (ÒÑ¸°Ô¼) [".count($list_data_part[1])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½Ñµï¿½ (ï¿½Ñ¸ï¿½Ô¼) [".count($list_data_part[1])."]");
 		$list_data = array_merge($list_data, $list_data_part[1]);
 	}
 	if (count($list_data_part[2]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"Î´µ½ (È·ÈÏ²»»á¸°Ô¼) [".count($list_data_part[2])."]");
+		$list_data[] = array("id"=>0, "name"=>"Î´ï¿½ï¿½ (È·ï¿½Ï²ï¿½ï¿½á¸°Ô¼) [".count($list_data_part[2])."]");
 		$list_data = array_merge($list_data, $list_data_part[2]);
 	}
 	if (count($list_data_part[3]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"µÈ´ý (ÉÐÎ´¸°Ô¼£¬µ«¿ÉÄÜ»á¸°Ô¼) [".count($list_data_part[3])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½È´ï¿½ (ï¿½ï¿½Î´ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü»á¸°Ô¼) [".count($list_data_part[3])."]");
 		$list_data = array_merge($list_data, $list_data_part[3]);
 	}
 	unset($list_data_part);
 
-} else if ($sort == "Ã½ÌåÀ´Ô´" || ($sort == "" && $default_sort == "Ã½ÌåÀ´Ô´")) {
+} else if ($sort == "Ã½ï¿½ï¿½ï¿½ï¿½Ô´" || ($sort == "" && $default_sort == "Ã½ï¿½ï¿½ï¿½ï¿½Ô´")) {
 	$list_data_part = array();
 	foreach ($list_data as $line) {
-		if ($line["media_from"] == "ÍøÂç") {
+		if ($line["media_from"] == "ï¿½ï¿½ï¿½ï¿½") {
 			$list_data_part[1][] = $line;
-		} else if ($line["media_from"] == "µç»°") {
+		} else if ($line["media_from"] == "ï¿½ç»°") {
 			$list_data_part[2][] = $line;
 		} else {
 			$list_data_part[3][] = $line;
@@ -365,19 +365,19 @@ if ($sort == "Ìí¼ÓÊ±¼ä" || ($sort == "" && $default_sort == "Ìí¼ÓÊ±¼ä")) {
 
 	$list_data = array();
 	if (count($list_data_part[1]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"ÍøÂç [".count($list_data_part[1])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[1])."]");
 		$list_data = array_merge($list_data, $list_data_part[1]);
 	}
 	if (count($list_data_part[2]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"µç»° [".count($list_data_part[2])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ç»° [".count($list_data_part[2])."]");
 		$list_data = array_merge($list_data, $list_data_part[2]);
 	}
 	if (count($list_data_part[3]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"ÆäËû [".count($list_data_part[3])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[3])."]");
 		$list_data = array_merge($list_data, $list_data_part[3]);
 	}
 	unset($list_data_part);
-} else if ($sort == "Ô¤Ô¼Ê±¼ä" || ($sort == "" && $default_sort == "Ô¤Ô¼Ê±¼ä")) {
+} else if ($sort == "Ô¤Ô¼Ê±ï¿½ï¿½" || ($sort == "" && $default_sort == "Ô¤Ô¼Ê±ï¿½ï¿½")) {
 	$today_begin = mktime(0,0,0);
 	$today_end = $today_begin + 24*3600;
 	$yesterday_begin = $today_begin - 24*3600;
@@ -404,27 +404,27 @@ if ($sort == "Ìí¼ÓÊ±¼ä" || ($sort == "" && $default_sort == "Ìí¼ÓÊ±¼ä")) {
 
 	$list_data = array();
 	if (count($list_data_part[31]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"½ñÌì (µÈ´ýÖÐ) [".count($list_data_part[31])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ (ï¿½È´ï¿½ï¿½ï¿½) [".count($list_data_part[31])."]");
 		$list_data = array_merge($list_data, $list_data_part[31]);
 	}
 	if (count($list_data_part[32]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"½ñÌì (ÒÑµ½) [".count($list_data_part[32])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ (ï¿½Ñµï¿½) [".count($list_data_part[32])."]");
 		$list_data = array_merge($list_data, $list_data_part[32]);
 	}
 	if (count($list_data_part[33]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"½ñÌì (²»À´ÁË) [".count($list_data_part[33])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) [".count($list_data_part[33])."]");
 		$list_data = array_merge($list_data, $list_data_part[33]);
 	}
 	if (count($list_data_part[4]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"Ã÷Ìì»òÒÔºó (Ê±¼äÎ´µ½) [".count($list_data_part[4])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ (Ê±ï¿½ï¿½Î´ï¿½ï¿½) [".count($list_data_part[4])."]");
 		$list_data = array_merge($list_data, $list_data_part[4]);
 	}
 	if (count($list_data_part[2]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"×òÌì [".count($list_data_part[2])."]");
+		$list_data[] = array("id"=>0, "name"=>"ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[2])."]");
 		$list_data = array_merge($list_data, $list_data_part[2]);
 	}
 	if (count($list_data_part[1]) > 0) {
-		$list_data[] = array("id"=>0, "name"=>"Ç°Ìì»ò¸üÔç [".count($list_data_part[1])."]");
+		$list_data[] = array("id"=>0, "name"=>"Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".count($list_data_part[1])."]");
 		$list_data = array_merge($list_data, $list_data_part[1]);
 	}
 	unset($list_data_part);
@@ -432,89 +432,89 @@ if ($sort == "Ìí¼ÓÊ±¼ä" || ($sort == "" && $default_sort == "Ìí¼ÓÊ±¼ä")) {
 
 $back_url = make_back_url();
 
-// ±í¸ñÊý¾Ý:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 foreach ($list_data as $li) {
 	$id = $li["id"];
 	if ($id == 0) {
 		$t->add_tip_line($li["name"]);
 	} else {
 		$r = array();
-		$r["ÐÕÃû"] = $li["name"].($li["status"] == 1 ? '<br><a href="javascript:;" onclick="alert(this.title)" title="ÒÑµ½Ôº">¡î</a>' : "");
-		$r["ÐÔ±ð"] = $li["sex"];
-		$r["ÄêÁä"] = $li["age"] > 0 ? $li["age"] : "";
-		//$r["µç»°"] = ec($li["tel"], "DECODE", md5($encode_password));
+		$r["ï¿½ï¿½ï¿½ï¿½"] = $li["name"].($li["status"] == 1 ? '<br><a href="javascript:;" onclick="alert(this.title)" title="ï¿½Ñµï¿½Ôº">ï¿½ï¿½</a>' : "");
+		$r["ï¿½Ô±ï¿½"] = $li["sex"];
+		$r["ï¿½ï¿½ï¿½ï¿½"] = $li["age"] > 0 ? $li["age"] : "";
+		//$r["ï¿½ç»°"] = ec($li["tel"], "DECODE", md5($encode_password));
 		if ($uinfo["show_tel"] == 1 || $li["author"] == $username) {
-			$r["µç»°"] = $li["tel"];
+			$r["ï¿½ç»°"] = $li["tel"];
 		} else {
-			$r["µç»°"] = "-";
+			$r["ï¿½ç»°"] = "-";
 		}
 		$r["QQ"] = $li["qq"];
-		$r["×¨¼ÒºÅ"] = $li["zhuanjia_num"];
-		$r["×ÉÑ¯ÄÚÈÝ"] = cut($li["content"], 22, "¡­");
-		$r["½Ó´ý"] = noe($li["doctor"], "");
-		$r["Ô¤Ô¼Ê±¼ä"] = str_replace('|', '<br>', @date("Y-m-d|H:i", $li["order_date"]));
-		$r["ÌìÊý"] = ($li["order_date"]-time() > 0 ? ceil(($li["order_date"]-time())/24/3600) : '0');
+		$r["×¨ï¿½Òºï¿½"] = $li["zhuanjia_num"];
+		$r["ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½"] = cut($li["content"], 22, "ï¿½ï¿½");
+		$r["ï¿½Ó´ï¿½"] = noe($li["doctor"], "");
+		$r["Ô¤Ô¼Ê±ï¿½ï¿½"] = str_replace('|', '<br>', @date("Y-m-d|H:i", $li["order_date"]));
+		$r["ï¿½ï¿½ï¿½ï¿½"] = ($li["order_date"]-time() > 0 ? ceil(($li["order_date"]-time())/24/3600) : '0');
 
 		$dis_text = array();
 		foreach (explode(",", $li["disease_id"]) as $dis_id) {
 			if ($dis_id > 0) $dis_text[] = $disease_id_name[$dis_id];
 		}
-		$r["²¡»¼ÀàÐÍ"] = implode("|", $dis_text);
-		$r["Ã½ÌåÀ´Ô´"] = $li["media_from"];
-		$r["¹Ø¼ü´Ê"] = $li["engine_key"];
-		$r["²¿ÃÅ"] = $part_id_name[$li["part_id"]];
-		$r["¿ÆÊÒ"] = $li["depart"] > 0 ? $depart_id_name[$li["depart"]] : "";
-		$r["µØÇø"] = $li["is_local"] == 2 ? $li["area"] : $area_id_name[$li["is_local"]];
-		$r["±¸×¢"] = cut($li["memo"], 22, "¡­");
-		$r["¿Í·þ"] = $li["author"]. ($li["edit_log"] ? ("<br><a href='javascript:;' onclick='alert(this.title)' title='".str_replace("<br>", "&#13", strim($li["edit_log"], '<br>'))."' style='color:#8050C0'>¡î</a>") : '');
-		$r["¸°Ô¼Çé¿ö"] = $status_array[$li["status"]];
-		$r["»Ø·Ã"] = $li["huifang"] != '' ? ('<a href="javascript:;" onclick="alert(this.title)" title="'.trim(strip_tags($li["huifang"])).'">¡î</a>') : '';
-		$r["Ìí¼ÓÊ±¼ä"] = str_replace('|', '<br>', @date("Y-m-d|H:i", $li["addtime"]));
+		$r["ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"] = implode("|", $dis_text);
+		$r["Ã½ï¿½ï¿½ï¿½ï¿½Ô´"] = $li["media_from"];
+		$r["ï¿½Ø¼ï¿½ï¿½ï¿½"] = $li["engine_key"];
+		$r["ï¿½ï¿½ï¿½ï¿½"] = $part_id_name[$li["part_id"]];
+		$r["ï¿½ï¿½ï¿½ï¿½"] = $li["depart"] > 0 ? $depart_id_name[$li["depart"]] : "";
+		$r["ï¿½ï¿½ï¿½ï¿½"] = $li["is_local"] == 2 ? $li["area"] : $area_id_name[$li["is_local"]];
+		$r["ï¿½ï¿½×¢"] = cut($li["memo"], 22, "ï¿½ï¿½");
+		$r["ï¿½Í·ï¿½"] = $li["author"]. ($li["edit_log"] ? ("<br><a href='javascript:;' onclick='alert(this.title)' title='".str_replace("<br>", "&#13", strim($li["edit_log"], '<br>'))."' style='color:#8050C0'>ï¿½ï¿½</a>") : '');
+		$r["ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½"] = $status_array[$li["status"]];
+		$r["ï¿½Ø·ï¿½"] = $li["huifang"] != '' ? ('<a href="javascript:;" onclick="alert(this.title)" title="'.trim(strip_tags($li["huifang"])).'">ï¿½ï¿½</a>') : '';
+		$r["ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"] = str_replace('|', '<br>', @date("Y-m-d|H:i", $li["addtime"]));
 
-		// ²Ù×÷:
+		// ï¿½ï¿½ï¿½ï¿½:
 		$op = array();
 
-		$op[] = "<a href='?op=upload&id=$id' class='op'><img src='/res/img/hkt-upload.png' width='16' height='16' align='absmiddle' alt='upload word'></a>";
+		$op[] = "<a href='?op=upload&id=$id' class='op'><img src='../../res/img/hkt-upload.png' width='16' height='16' align='absmiddle' alt='upload word'></a>";
 		
 		if (check_power("view")) {
-			$op[] = "<a href='?op=view&id=$id' class='op'><img src='/res/img/b_detail.gif' width='16' height='16' align='absmiddle' alt='²é¿´ÏêÇé'></a>";
+			$op[] = "<a href='?op=view&id=$id' class='op'><img src='../../res/img/b_detail.gif' width='16' height='16' align='absmiddle' alt='ï¿½é¿´ï¿½ï¿½ï¿½ï¿½'></a>";
 		}
-		// ¿Í·þÃ»ÓÐÐÞ¸ÄÈ¨ÏÞ£¬µ¼Ò½ÔÚ×ÊÁÏ´¦ÀíÍê±ÏºóÇÒ¸ôÌìÃ»ÓÐÐÞ¸ÄÈ¨ÏÞ£¬¹ÜÀíÔ±ºÍÒ½Ôº¹ÜÀíÔ±ÓÐÐÞ¸ÄÈ¨ÏÞ
+		// ï¿½Í·ï¿½Ã»ï¿½ï¿½ï¿½Þ¸ï¿½È¨ï¿½Þ£ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½Ò¸ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Þ¸ï¿½È¨ï¿½Þ£ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½Þ¸ï¿½È¨ï¿½ï¿½
 		$can_edit = 0;
-		if ($uinfo["part_id"] == 2) { //ÍøÂç¿Í·þ
+		if ($uinfo["part_id"] == 2) { //ï¿½ï¿½ï¿½ï¿½Í·ï¿½
 			$can_edit = 1; 
 			//if ($li["author"] == $realname) {
-				//$can_edit = 1; //±ØÐëÊÇ×Ô¼ºÌí¼ÓµÄ²ÅÄÜÐÞ¸Ä
+				//$can_edit = 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ÓµÄ²ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
 			//}
-		} else if ($uinfo["part_id"] == 3) { //µç»°¿Í·þ
-			$can_edit = 1; //µç»°¿Í·þ°üº¬»Ø·Ã£¬ËùÒÔÊ¼ÖÕÄÜ½øÈëÐÞ¸Ä£¬¾ßÌåÈ¨ÏÞÔÚÐÞ¸ÄÖÐ¿ØÖÆ
+		} else if ($uinfo["part_id"] == 3) { //ï¿½ç»°ï¿½Í·ï¿½
+			$can_edit = 1; //ï¿½ç»°ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø·Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½
 		} else {
 			$can_edit = 1;
 		}
 		if ((check_power("edit") && $can_edit && $_SESSION[$cfgSessionName]["part_id"]!=11) || $debug_mode) {//111111111111111111111111111
-			$op[] = "<a href='?op=edit&id=$id&go=back' class='op'><img src='/res/img/b_edit.gif' width='16' height='16' align='absmiddle' alt='ÐÞ¸Ä'></a>";
+			$op[] = "<a href='?op=edit&id=$id&go=back' class='op'><img src='../../res/img/b_edit.gif' width='16' height='16' align='absmiddle' alt='ï¿½Þ¸ï¿½'></a>";
 		}
-		//ÅÐ¶ÏÉ¾³ýÈ¨ÏÞ:
+		//ï¿½Ð¶ï¿½É¾ï¿½ï¿½È¨ï¿½ï¿½:
 		$can_delete = 0;
 		if (check_power("delete")) {
-			// ×ÊÁÏÌá½»Õß±¾ÈË£¬ÔÚÃ»ÓÐÐÞ¸ÄµÄÇé¿öÏÂ£¬¿ÉÒÔÉ¾³ý
+			// ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ß±ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Þ¸Äµï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
 			if ($li["author"] == $realname) {
 				if ($li["status"] == 0 && $line["edit_log"] == '') {
 					$can_delete = 1;
 				}
 			} else {
-				// ²»ÊÇ±¾ÈË£¬Èç¹ûÊÇ¹ÜÀíÔ±µÄ»°£¬ÇÒ¾ßÓÐÉ¾³ýÈ¨ÏÞ£¬¿ÉÒÔÉ¾³ý:
+				// ï¿½ï¿½ï¿½Ç±ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½Ô±ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ò¾ï¿½ï¿½ï¿½É¾ï¿½ï¿½È¨ï¿½Þ£ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½:
 				if (in_array($uinfo["part_id"], array(1,9)) || $uinfo["part_admin"]) {
 					$can_delete = 1;
 				}
 			}
 		}
 		if ($can_delete == 1 || $debug_mode) {
-			$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'><img src='/res/img/b_delete.gif' width='16' height='16' align='absmiddle' alt='É¾³ý'></a>";
+			$op[] = "<a href='?op=delete&id=$id' onclick='return isdel()' class='op'><img src='../../res/img/b_delete.gif' width='16' height='16' align='absmiddle' alt='É¾ï¿½ï¿½'></a>";
 		}
-		$r["²Ù×÷"] = implode(" ", $op);
+		$r["ï¿½ï¿½ï¿½ï¿½"] = implode(" ", $op);
 
-		// ÐÐ¸½¼ÓÊôÐÔ;
+		// ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
 		$_tr = ' id="#'.$li["id"].'"';
 		$color_status = $li["status"];
 		if ($color_status == 0 && date("Ymd", $li["order_date"]) < date("Ymd")) {
@@ -525,7 +525,7 @@ foreach ($list_data as $li) {
 		}
 		$color = $line_color[$color_status];
 
-		// 2010-12-17 ÐÞ¸Ä£¬Á½¸öÔÂÖ®ºóµÄ²¡ÈË£¬ÑÕÉ«±äÒ»ÏÂ
+		// 2010-12-17 ï¿½Þ¸Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä²ï¿½ï¿½Ë£ï¿½ï¿½ï¿½É«ï¿½ï¿½Ò»ï¿½ï¿½
 		if ($li["order_date"] > strtotime("+2 month")) {
 			$color = "#FF00FF";
 		}

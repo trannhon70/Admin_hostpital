@@ -2,11 +2,11 @@
 
 /*
 
-// - ¹¦ÄÜËµÃ÷ : ËÑË÷
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
 
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// - ´´½¨Ê±¼ä : 2013-05-02 15:47
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-02 15:47
 
 */
 
@@ -18,7 +18,7 @@ $table = "patient_".$user_hospital_id;
 
 if ($user_hospital_id == 0) {
 
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 }
 
@@ -34,7 +34,7 @@ if ($_POST) {
 
 		if ($db->query("update $table set media_from='$media' where binary author='$author'")) {
 
-			msg_box("´¦Àí³É¹¦£¡", "?", 1);
+			msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½", "?", 1);
 
 		}
 
@@ -46,11 +46,11 @@ if ($_POST) {
 
 
 
-$title = 'Ã½ÌåÀ´Ô´ÅúÁ¿ÉèÖÃ¹¤¾ß';
+$title = 'Ã½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½';
 
 
 
-$part_id_name = array(2 => "ÍøÂç¿Í·þ", 3 => "µç»°¿Í·þ");
+$part_id_name = array(2 => "ï¿½ï¿½ï¿½ï¿½Í·ï¿½", 3 => "ï¿½ç»°ï¿½Í·ï¿½");
 
 
 
@@ -76,7 +76,7 @@ foreach ($kefu_23_list as $k => $li) {
 
 <script src="/res/base.js" language="javascript"></script>
 
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 
 <script language="javascript">
 
@@ -86,17 +86,17 @@ function Check() {
 
 	if (oForm.author.value == "") {
 
-		alert("ÇëÑ¡Ôñ¡°Ãû×Ö¡±£¡"); oForm.author.focus(); return false;
+		alert("ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½"); oForm.author.focus(); return false;
 
 	}
 
 	if (oForm.media.value == "") {
 
-		alert("ÇëÑ¡Ôñ¡°ÐÂµÄÃ½ÌåÀ´Ô´¡±£¡"); oForm.media.focus(); return false;
+		alert("ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Âµï¿½Ã½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½"); oForm.media.focus(); return false;
 
 	}
 
-	if (confirm("ÊÇ·ñÈ·¶¨£¿ÔÙ×ÐÏ¸¿´Çå³þÈ·ÈÏÏÂ£¬±ðÅª´íÁËÅ¶£¡")) {
+	if (confirm("ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½Åªï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½")) {
 
 		return true;
 
@@ -116,17 +116,17 @@ function Check() {
 
 <body>
 
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 
 <div class="headers">
 
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 
 </div>
 
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 
 
@@ -136,9 +136,9 @@ function Check() {
 
 <div class="description">
 
-	<div class="d_title">ÌáÊ¾£º</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
 
-	<div class="d_item">Çë×¢Òâ£¬´Ë¹¤¾ßÄÜ¹»ÕýÈ·´¦ÀíÄúµÄÃüÁî£¬µ«²»µ±µÄÃüÁîÔì³ÉÊý¾ÝËð»µ½«ÎÞ·¨»Ö¸´£¬ÇëÎñ±Ø½÷É÷£¡</div>
+	<div class="d_item">ï¿½ï¿½×¢ï¿½â£¬ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ð»µ½ï¿½ï¿½Þ·ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½</div>
 
 </div>
 
@@ -160,19 +160,19 @@ function Check() {
 
 	<tr>
 
-		<td class="left red">Ãû×Ö£º</td>
+		<td class="left red">ï¿½ï¿½ï¿½Ö£ï¿½</td>
 
 		<td class="right">
 
 			<select name="author" class="combo" onchange="window.location='?author='+this.value">
 
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 
 				<?php echo list_option($kefu_23_list, 'realname', 'showname', $_GET["author"]); ?>
 
 			</select>
 
-			<span class="intro">Ãû×Ö±ØÐëÑ¡Ôñ</span>
+			<span class="intro">ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½</span>
 
 		</td>
 
@@ -198,7 +198,7 @@ function Check() {
 
 	<tr>
 
-		<td class="left red">µ±Ç°Ã½ÌåÀ´Ô´£º</td>
+		<td class="left red">ï¿½ï¿½Ç°Ã½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½</td>
 
 		<td class="right">
 
@@ -212,19 +212,19 @@ function Check() {
 
 	<tr>
 
-		<td class="left red">ÐÂµÄÃ½ÌåÀ´Ô´£º</td>
+		<td class="left red">ï¿½Âµï¿½Ã½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½</td>
 
 		<td class="right">
 
 			<select name="media" class="combo">
 
-				<option value='' style="color:gray">--ÇëÑ¡Ôñ--</option>
+				<option value='' style="color:gray">--ï¿½ï¿½Ñ¡ï¿½ï¿½--</option>
 
 				<?php echo list_option($part_id_name, '', '', ''); ?>
 
 			</select>
 
-			<span class="intro">±ØÐëÑ¡Ôñ</span>
+			<span class="intro">ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½</span>
 
 		</td>
 
@@ -234,7 +234,7 @@ function Check() {
 
 
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»"></div>
 
 
 

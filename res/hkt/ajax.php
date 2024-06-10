@@ -40,7 +40,7 @@ if (count($link_arr)) {
     foreach ($link_arr as $data) {
         $output .= '<div class="col-md-2">';
             $output.= '<div class="card">';
-                $output.= '<img src="/res/img/hkt-upload.png" class="card-img-top" alt="...">';
+                $output.= '<img src="../../res/img/hkt-upload.png" class="card-img-top" alt="...">';
                 $output.= '<div class="p-2">';
                     $output.= '<p class="card-text">'. $data .'</p>';
                     $output.= '<a target="_blank" href="https://view.officeapps.live.com/op/view.aspx?src=https://'.$_SERVER['SERVER_NAME'].'/uploads/'. $data .'" class="btn btn-primary btn-sm mr-1">View</a>';

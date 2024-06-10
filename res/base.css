@@ -1,5 +1,5 @@
-/* Í¨ÓÃ»ù±¾ÑùÊ½ */
-* {font-family:"ËÎÌå","Î¢ÈíÑÅºÚ"; }
+/* Í¨ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
+* {font-family:"ï¿½ï¿½ï¿½ï¿½","Î¢ï¿½ï¿½ï¿½Åºï¿½"; }
 body {background:white;}
 body,table,td {font-size:12px;line-height:150%;letter-spacing:0px;word-break:break-all;}
 body {margin:0; padding:10px; }
@@ -18,7 +18,7 @@ img {border:0;}
 .textedit {color:#FFAD5B; border:0;}
 .textedit:hover {font-style:italic; color:#BBBB00; background:#FFFFE1; cursor:text;}
 
-/* °´Å¥¶¨Òå */
+/* ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ */
 .button {height:20px; line-height:20px; width:40px; font-size:12px; border:0px none; padding:1px 0px 0px 0px; background:url("../res/img/button_short.gif") no-repeat; cursor:pointer; color:black; font-weight:normal;}
 .button_over {font-size:12px; line-height:20px; height:20px; width:40px; border:0px none; padding:1px 0px 0px 0px; background:url("../res/img/button_short.gif") no-repeat; background-position:0px -20px; color:black; font-weight:normal; cursor:pointer;}
 
@@ -36,13 +36,13 @@ img {border:0;}
 .check_pass {background:url("../res/img/check_pass2.gif") no-repeat; font-size:12px; height:33px; width:112px; border:0px none #FFFFFF; color:#323265; padding:6px 0px 2px 48px; text-align:left;}
 .select, .combo {font-size:12px; }
 .select, .combo {height:20px; line-height:19px; font-family:Tahoma; }
-*html .combo {font-family:"ËÎÌå"; }
+*html .combo {font-family:"ï¿½ï¿½ï¿½ï¿½"; }
 .space {border:0px none;line-height:100%; font-size:0px; height:12px; width:0px}
 .check {margin-bottom:-1px}
 .search_bar {border:1px solid #EBD7FF; background-color:#FAF4FF; padding:2px 3px 2px 6px; width:100%; text-align:top}
 .button_line {text-align:center; padding:12px 12px 12px 12px;}
 
-/* ±à¼­Ò³ÃæµÄ¿ØÖÆÑùÊ½ */
+/* ï¿½à¼­Ò³ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
 .edit {border:2px solid #A3D1D1; margin:0px 0px;}
 .edit .head {border:0px solid #E7E7E7;background-color:#F5F5F5;padding:5px 3px 3px 6px; font-weight:bold;color:#2C5656}
 .edit .left {width:15%; border:0px solid #E9D0FF; text-align:right;padding:4px 3px 2px 3px; }
@@ -50,7 +50,7 @@ img {border:0;}
 .edit .foot {border:0px solid #EFDDFF;text-align:center; height:40px;background-color:#FBF7FF}
 .edit .sp {border:0px dotted #E9D0FF; height:15px; background-color:#F8F0FF}
 
-/* ²é¿´Ò³ÃæµÄ¿ØÖÆÑùÊ½ */
+/* ï¿½é¿´Ò³ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
 .view {border:2px solid #A3D1D1; }
 .view .head {border:1px solid #EFDDFF;background-color:#F2E6FF;padding:5px 3px 3px 6px; font-weight:bold;color:#2C5656}
 .view .left {width:12%; border:1px solid #F1E1FF; text-align:right;padding:6px 6px 4px 6px; background-color:#F7ECFF}
@@ -148,10 +148,10 @@ textarea {border:1px solid #7f9db9; padding:2px; font-size:12px; background:whit
 .pagelink_cur_page {font-weight:bold; color:red;}
 .pagelink_all_page {font-weight:bold; color:blue;}
 .pagelink_pagesize {font-weight:bold; color:green;}
-.pagelink_all_rec {{font-weight:bold; color:green;}
+.pagelink_all_rec {font-weight:bold; color:green;}
 
 
-/* ×Ô¶¨Òå ¹ö¶¯Ìõ */
+/* ï¿½Ô¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 body {
 	scrollbar-face-color: #C1E1E1;
 	scrollbar-highlight-color: #FFFFFF;

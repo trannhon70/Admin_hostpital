@@ -1,34 +1,34 @@
 <?php
 /*
-// ËµÃ÷: ×ÜÌå±¨±í
-// ×÷Õß: °®Ò½Õ½¶Ó 
-// Ê±¼ä: 2011-11-23
+// Ëµï¿½ï¿½: ï¿½ï¿½ï¿½å±¨ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// Ê±ï¿½ï¿½: 2011-11-23
 */
 require "../../core/core.php";
 
-// ±¨±íºËÐÄ¶¨Òå:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½:
 include "rp.core.php";
 
 $part = $_GET["part"];
 $where = '';
-$tips = "×ÜÊý¾Ý";
+$tips = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 if ($part == "web") {
 	$where = "part_id=2 and ";
-	$tips = "ÍøÂç";
+	$tips = "ï¿½ï¿½ï¿½ï¿½";
 } else if ($part == "tel") {
 	$where = "part_id=3 and ";
-	$tips = "µç»°";
+	$tips = "ï¿½ç»°";
 }
 ?>
 <html>
 <head>
-<title>×ÜÌå±¨±í</title>
+<title>ï¿½ï¿½ï¿½å±¨ï¿½ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 <style>
 body {margin-top:10px; }
-.head, .head a {font-family:"Î¢ÈíÑÅºÚ","Verdana"; }
+.head, .head a {font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½","Verdana"; }
 .item {font-family:"Tahoma"; padding:8px 3px 6px 3px !important; }
 .footer_op_left {font-family:"Tahoma"; }
 .date_tips {padding:10px 0 10px 5px; font-weight:bold; }
@@ -42,58 +42,58 @@ form {display:inline; }
 	<b><?php echo $h_name; ?></b>&nbsp;&nbsp;
 	<form method="GET">
 		<input type="hidden" name="part" value="all">
-		<input type="submit" value="×ÜÊý¾Ý" class="buttonb" <?php if ($part == "" || $part == "all") echo 'style="color:red;font-weight:bold;"'; ?> />
+		<input type="submit" value="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" class="buttonb" <?php if ($part == "" || $part == "all") echo 'style="color:red;font-weight:bold;"'; ?> />
 	</form>
 
 	<form method="GET">
 		<input type="hidden" name="part" value="web">
-		<input type="submit" value="ÍøÂç" class="button" <?php if ($part == "web") echo 'style="color:red;font-weight:bold;"'; ?> />
+		<input type="submit" value="ï¿½ï¿½ï¿½ï¿½" class="button" <?php if ($part == "web") echo 'style="color:red;font-weight:bold;"'; ?> />
 	</form>
 
 	<form method="GET">
 		<input type="hidden" name="part" value="tel">
-		<input type="submit" value="µç»°" class="button" <?php if ($part == "tel") echo 'style="color:red;font-weight:bold;"'; ?> />
+		<input type="submit" value="ï¿½ç»°" class="button" <?php if ($part == "tel") echo 'style="color:red;font-weight:bold;"'; ?> />
 	</form>
 </div>
 
-<!-- °´Äê²é¿´ -->
-<!-- ½ñÄê£¬È¥Äê£¬Ç°ÄêµÄ¼ÇÂ¼ -->
+<!-- ï¿½ï¿½ï¿½ï¿½é¿´ -->
+<!-- ï¿½ï¿½ï¿½ê£¬È¥ï¿½ê£¬Ç°ï¿½ï¿½Ä¼ï¿½Â¼ -->
 <?php
 $y = intval(date("Y"));
 $time_arr = array(
-	"½ñÄê" => array(strtotime($y."-01-01 00:00:00"), strtotime($y."-12-31 00:00:00")),
-	"È¥Äê" => array(strtotime(($y-1)."-01-01 00:00:00"), strtotime(($y-1)."-12-31 00:00:00")),
-	"Ç°Äê" => array(strtotime(($y-2)."-01-01 00:00:00"), strtotime(($y-2)."-12-31 00:00:00")),
+	"ï¿½ï¿½ï¿½ï¿½" => array(strtotime($y."-01-01 00:00:00"), strtotime($y."-12-31 00:00:00")),
+	"È¥ï¿½ï¿½" => array(strtotime(($y-1)."-01-01 00:00:00"), strtotime(($y-1)."-12-31 00:00:00")),
+	"Ç°ï¿½ï¿½" => array(strtotime(($y-2)."-01-01 00:00:00"), strtotime(($y-2)."-12-31 00:00:00")),
 );
 
-// ¼ÆËãÍ³¼ÆÊý¾Ý:
+// ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 $data = array();
 foreach ($time_arr as $k => $v) {
 	$data[$k]["Ô¤Ô¼"] = $db->query("select count(*) as c from $table where $where addtime>=".$v[0]." and addtime<=".$v[1]." ", 1, "c");
-	$data[$k]["Ô¤µ½"] = $db->query("select count(*) as c from $table where $where order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
-	$data[$k]["ÒÑµ½"] = $db->query("select count(*) as c from $table where $where status=1 and order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
-	$data[$k]["Î´µ½"] = $data[$k]["Ô¤µ½"] - $data[$k]["ÒÑµ½"];
+	$data[$k]["Ô¤ï¿½ï¿½"] = $db->query("select count(*) as c from $table where $where order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
+	$data[$k]["ï¿½Ñµï¿½"] = $db->query("select count(*) as c from $table where $where status=1 and order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
+	$data[$k]["Î´ï¿½ï¿½"] = $data[$k]["Ô¤ï¿½ï¿½"] - $data[$k]["ï¿½Ñµï¿½"];
 }
 ?>
-<div class="date_tips">°´Äê·ÝÊä³ö(×î½ü3Äê<?php echo $tips; ?>)£º</div>
+<div class="date_tips">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½3ï¿½ï¿½<?php echo $tips; ?>)ï¿½ï¿½</div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center" width="10%">Äê·Ý</td>
+		<td class="head" align="center" width="10%">ï¿½ï¿½ï¿½</td>
 		<td class="head" align="center" width="18%">Ô¤Ô¼</td>
-		<td class="head" align="center" width="18%">Ô¤µ½</td>
-		<td class="head" align="center" width="18%">ÒÑµ½</td>
-		<td class="head" align="center" width="18%">Î´µ½</td>
-		<td class="head" align="center" width="18%">µ½Ôº±ÈÀý</td>
+		<td class="head" align="center" width="18%">Ô¤ï¿½ï¿½</td>
+		<td class="head" align="center" width="18%">ï¿½Ñµï¿½</td>
+		<td class="head" align="center" width="18%">Î´ï¿½ï¿½</td>
+		<td class="head" align="center" width="18%">ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 
 <?php foreach ($time_arr as $k => $v) { ?>
 	<tr>
 		<td class="item" align="center"><?php echo $k; ?></td>
 		<td class="item" align="center"><?php echo $data[$k]["Ô¤Ô¼"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["Ô¤µ½"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["ÒÑµ½"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["Î´µ½"]; ?></td>
-		<td class="item" align="center"><?php echo @round(100 * $data[$k]["ÒÑµ½"] / $data[$k]["Ô¤µ½"], 1)."%"; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["Ô¤ï¿½ï¿½"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["ï¿½Ñµï¿½"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["Î´ï¿½ï¿½"]; ?></td>
+		<td class="item" align="center"><?php echo @round(100 * $data[$k]["ï¿½Ñµï¿½"] / $data[$k]["Ô¤ï¿½ï¿½"], 1)."%"; ?></td>
 	</tr>
 <?php } ?>
 </table>
@@ -101,8 +101,8 @@ foreach ($time_arr as $k => $v) {
 <br>
 
 
-<!-- °´ÔÂ·Ý²é¿´ -->
-<!-- ×î½üx¸öÔÂµÄ¼ÇÂ¼ -->
+<!-- ï¿½ï¿½ï¿½Â·Ý²é¿´ -->
+<!-- ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ÂµÄ¼ï¿½Â¼ -->
 <?php
 
 $time_arr = array();
@@ -111,34 +111,34 @@ for ($i = 0; $i < 12; $i++) {
 	$time_arr[date("Y-m", $m)] = array(strtotime(date("Y-m-01 00:00:00", $m)), strtotime(date("Y-m-31 23:59:59", $m)));
 }
 
-// ¼ÆËãÍ³¼ÆÊý¾Ý:
+// ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 $data = array();
 foreach ($time_arr as $k => $v) {
 	$data[$k]["Ô¤Ô¼"] = $db->query("select count(*) as c from $table where $where addtime>=".$v[0]." and addtime<=".$v[1]." ", 1, "c");
-	$data[$k]["Ô¤µ½"] = $db->query("select count(*) as c from $table where $where order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
-	$data[$k]["ÒÑµ½"] = $db->query("select count(*) as c from $table where $where status=1 and order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
-	$data[$k]["Î´µ½"] = $data[$k]["Ô¤µ½"] - $data[$k]["ÒÑµ½"];
+	$data[$k]["Ô¤ï¿½ï¿½"] = $db->query("select count(*) as c from $table where $where order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
+	$data[$k]["ï¿½Ñµï¿½"] = $db->query("select count(*) as c from $table where $where status=1 and order_date>=".$v[0]." and order_date<=".$v[1]." ", 1, "c");
+	$data[$k]["Î´ï¿½ï¿½"] = $data[$k]["Ô¤ï¿½ï¿½"] - $data[$k]["ï¿½Ñµï¿½"];
 }
 ?>
-<div class="date_tips">°´ÔÂ·ÝÊä³ö(×î½ü12¸öÔÂ<?php echo $tips; ?>)£º</div>
+<div class="date_tips">ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½12ï¿½ï¿½ï¿½ï¿½<?php echo $tips; ?>)ï¿½ï¿½</div>
 <table width="100%" align="center" class="list">
 	<tr>
-		<td class="head" align="center" width="10%">ÔÂ·Ý</td>
+		<td class="head" align="center" width="10%">ï¿½Â·ï¿½</td>
 		<td class="head" align="center" width="18%">Ô¤Ô¼</td>
-		<td class="head" align="center" width="18%">Ô¤µ½</td>
-		<td class="head" align="center" width="18%">ÒÑµ½</td>
-		<td class="head" align="center" width="18%">Î´µ½</td>
-		<td class="head" align="center" width="18%">µ½Ôº±ÈÀý</td>
+		<td class="head" align="center" width="18%">Ô¤ï¿½ï¿½</td>
+		<td class="head" align="center" width="18%">ï¿½Ñµï¿½</td>
+		<td class="head" align="center" width="18%">Î´ï¿½ï¿½</td>
+		<td class="head" align="center" width="18%">ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½</td>
 	</tr>
 
 <?php foreach ($time_arr as $k => $v) { ?>
 	<tr>
 		<td class="item" align="center"><?php echo $k; ?></td>
 		<td class="item" align="center"><?php echo $data[$k]["Ô¤Ô¼"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["Ô¤µ½"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["ÒÑµ½"]; ?></td>
-		<td class="item" align="center"><?php echo $data[$k]["Î´µ½"]; ?></td>
-		<td class="item" align="center"><?php echo @round(100 * $data[$k]["ÒÑµ½"] / $data[$k]["Ô¤µ½"], 1)."%"; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["Ô¤ï¿½ï¿½"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["ï¿½Ñµï¿½"]; ?></td>
+		<td class="item" align="center"><?php echo $data[$k]["Î´ï¿½ï¿½"]; ?></td>
+		<td class="item" align="center"><?php echo @round(100 * $data[$k]["ï¿½Ñµï¿½"] / $data[$k]["Ô¤ï¿½ï¿½"], 1)."%"; ?></td>
 	</tr>
 <?php } ?>
 </table>

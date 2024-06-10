@@ -1,13 +1,13 @@
 <?php
 // --------------------------------------------------------
-// - ¹¦ÄÜËµÃ÷ : Í³¼Æ ÏîÄ¿ ¹ÜÀí
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2010-10-13 11:34
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : Í³ï¿½ï¿½ ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2010-10-13 11:34
 // --------------------------------------------------------
 require "../../core/core.php";
 $table = "count_type";
 
-// ²Ù×÷µÄ´¦Àí:
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½:
 if ($op) {
 	if ($op == "add") {
 		include "tel_type.edit.php";
@@ -35,18 +35,18 @@ if ($op) {
 		}
 
 		if ($del_ok > 0) {
-			$log->add("delete", "É¾³ýÊý¾Ý", serialize($op_data));
+			$log->add("delete", "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", serialize($op_data));
 		}
 
 		if ($del_bad > 0) {
-			msg_box("É¾³ý³É¹¦ $del_ok Ìõ×ÊÁÏ£¬É¾³ýÊ§°Ü $del_bad Ìõ×ÊÁÏ¡£", "back", 1);
+			msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½ $del_ok ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½É¾ï¿½ï¿½Ê§ï¿½ï¿½ $del_bad ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½", "back", 1);
 		} else {
-			msg_box("É¾³ý³É¹¦", "back", 1);
+			msg_box("É¾ï¿½ï¿½ï¿½É¹ï¿½", "back", 1);
 		}
 	}
 }
 
-// ¶¨Òåµ±Ç°Ò³ÐèÒªÓÃµ½µÄµ÷ÓÃ²ÎÊý:
+// ï¿½ï¿½ï¿½åµ±Ç°Ò³ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½Äµï¿½ï¿½Ã²ï¿½ï¿½ï¿½:
 $link_param = array("page","sort","order","key");
 $param = array();
 foreach ($link_param as $s) {
@@ -54,23 +54,23 @@ foreach ($link_param as $s) {
 }
 extract($param);
 
-// ¶¨Òåµ¥Ôª¸ñ¸ñÊ½:
+// ï¿½ï¿½ï¿½åµ¥Ôªï¿½ï¿½ï¿½Ê½:
 $list_heads = array(
 	"Ñ¡" => array("width"=>"32", "align"=>"center"),
-	"ÏîÄ¿Ãû³Æ" => array("align"=>"left", "sort"=>"binary name", "order"=>"asc"),
-	"¿Í·þ" => array("align"=>"left", "sort"=>"kefu", "order"=>"asc"),
-	"¹ÜÀíÔ±" => array("align"=>"left", "sort"=>"uids", "order"=>"asc"),
-	"Ìí¼ÓÊ±¼ä" => array("width"=>"15%", "align"=>"center", "sort"=>"addtime", "order"=>"desc"),
-	"ÅÅÐò" => array("width"=>"", "align"=>"center", "sort"=>"sort", "order"=>"desc"),
-	"²Ù×÷" => array("width"=>"12%", "align"=>"center"),
+	"ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½" => array("align"=>"left", "sort"=>"binary name", "order"=>"asc"),
+	"ï¿½Í·ï¿½" => array("align"=>"left", "sort"=>"kefu", "order"=>"asc"),
+	"ï¿½ï¿½ï¿½ï¿½Ô±" => array("align"=>"left", "sort"=>"uids", "order"=>"asc"),
+	"ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½" => array("width"=>"15%", "align"=>"center", "sort"=>"addtime", "order"=>"desc"),
+	"ï¿½ï¿½ï¿½ï¿½" => array("width"=>"", "align"=>"center", "sort"=>"sort", "order"=>"desc"),
+	"ï¿½ï¿½ï¿½ï¿½" => array("width"=>"12%", "align"=>"center"),
 );
 
-// Ä¬ÈÏÅÅÐò·½Ê½:
-$default_sort = "ÅÅÐò";
+// Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½:
+$default_sort = "ï¿½ï¿½ï¿½ï¿½";
 $default_order = "desc";
 
 
-// ÁÐ±íÏÔÊ¾Àà:
+// ï¿½Ð±ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½:
 $t = load_class("table");
 $t->set_head($list_heads, $default_sort, $default_order);
 $t->set_sort($_GET["sort"], $_GET["order"]);
@@ -78,7 +78,7 @@ $t->param = $param;
 $t->table_class = "new_list";
 
 
-// ²éÑ¯Ìõ¼þ:
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½:
 $where = array();
 $where[] = "type='tel'";
 if ($key) {
@@ -86,17 +86,17 @@ if ($key) {
 }
 $sqlwhere = $db->make_where($where);
 
-// ¶ÔÅÅÐòµÄ´¦Àí£º
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
 $sqlsort = $db->make_sort($list_heads, $sort, $order, $default_sort, $default_order);
 
-// ·ÖÒ³Êý¾Ý:
+// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½:
 $pagesize = 9999;
 $count = $db->query_count("select count(*) from $table $sqlwhere");
 $pagecount = max(ceil($count / $pagesize), 1);
 $page = max(min($pagecount, intval($page)), 1);
 $offset = ($page - 1) * $pagesize;
 
-// ²éÑ¯:
+// ï¿½ï¿½Ñ¯:
 $list = $db->query("select * from $table $sqlwhere $sqlsort limit $offset,$pagesize");
 
 $admin_id_name = $db->query("select id,realname from sys_admin where isshow=1", "id", "realname");
@@ -105,8 +105,8 @@ foreach ($list as $id => $li) {
 	$r = array();
 
 	$r["Ñ¡"] = '<input name="delcheck" type="checkbox" value="'.$li["id"].'" onclick="set_item_color(this)">';
-	$r["ÏîÄ¿Ãû³Æ"] = $li["name"];
-	$r["¿Í·þ"] = $li["kefu"];
+	$r["ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½"] = $li["name"];
+	$r["ï¿½Í·ï¿½"] = $li["kefu"];
 
 	$uids = explode(",", $li["uids"]);
 	$u_names = array();
@@ -115,18 +115,18 @@ foreach ($list as $id => $li) {
 			$u_names[] = $admin_id_name[$v];
 		}
 	}
-	$r["¹ÜÀíÔ±"] = implode("¡¢", $u_names);
-	$r["Ìí¼ÓÊ±¼ä"] = date("Y-m-d H:i", $li["addtime"]);
-	$r["ÅÅÐò"] = intval($li["sort"]);
+	$r["ï¿½ï¿½ï¿½ï¿½Ô±"] = implode("ï¿½ï¿½", $u_names);
+	$r["ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"] = date("Y-m-d H:i", $li["addtime"]);
+	$r["ï¿½ï¿½ï¿½ï¿½"] = intval($li["sort"]);
 
 	$op = array();
 	if (check_power("edit")) {
-		$op[] = "<a href='?op=edit&id=".$li["id"]."&back_url=".$back_url."' class='op' title='ÐÞ¸ÄÄÚÈÝ'>ÐÞ¸Ä</a>";
+		$op[] = "<a href='?op=edit&id=".$li["id"]."&back_url=".$back_url."' class='op' title='ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½'>ï¿½Þ¸ï¿½</a>";
 	}
 	if (check_power("delete")) {
-		$op[] = "<a href='?op=delete&id=".$li["id"]."' onclick='return isdel()' class='op'>É¾³ý</a>";
+		$op[] = "<a href='?op=delete&id=".$li["id"]."' onclick='return isdel()' class='op'>É¾ï¿½ï¿½</a>";
 	}
-	$r["²Ù×÷"] = implode($GLOBALS["button_split"], $op);
+	$r["ï¿½ï¿½ï¿½ï¿½"] = implode($GLOBALS["button_split"], $op);
 
 	$t->add($r);
 }
@@ -134,41 +134,41 @@ foreach ($list as $id => $li) {
 
 $pagelink = pagelinkc($page, $pagecount, $count, make_link_info($link_param, "page"), "button");
 
-// Ò³Ãæ¿ªÊ¼ ------------------------
+// Ò³ï¿½æ¿ªÊ¼ ------------------------
 ?>
 <html>
 <head>
 <title><?php echo $pinfo["title"]; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
-	<div class="headers_title" style="width:50%"><span class="tips">Ò½ÔºÏîÄ¿¹ÜÀí</span></div>
+	<div class="headers_title" style="width:50%"><span class="tips">Ò½Ôºï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½</span></div>
 	<div class="header_center"><?php echo $power->show_button("add"); ?></div>
-	<div class="headers_oprate"><form name="topform" method="GET">Ä£ºýËÑË÷£º<input name="key" value="<?php echo $_GET["key"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ËÑË÷" style="font-weight:bold" title="µã»÷ËÑË÷">&nbsp;<button onclick="location='?'" class="search" title="ÍË³öÌõ¼þ²éÑ¯">ÖØÖÃ</button>&nbsp;&nbsp;<button onclick="history.back()" class="button" title="·µ»ØÉÏÒ»Ò³">·µ»Ø</button></form></div>
+	<div class="headers_oprate"><form name="topform" method="GET">Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<input name="key" value="<?php echo $_GET["key"]; ?>" class="input" size="8">&nbsp;<input type="submit" class="search" value="ï¿½ï¿½ï¿½ï¿½" style="font-weight:bold" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½">&nbsp;<button onclick="location='?'" class="search" title="ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯">ï¿½ï¿½ï¿½ï¿½</button>&nbsp;&nbsp;<button onclick="history.back()" class="button" title="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ò³">ï¿½ï¿½ï¿½ï¿½</button></form></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 
-<!-- Êý¾ÝÁÐ±í begin -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ begin -->
 <form name="mainform">
 <?php echo $t->show(); ?>
 </form>
-<!-- Êý¾ÝÁÐ±í end -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ end -->
 
 <div class="space"></div>
 
-<!-- ·ÖÒ³Á´½Ó begin -->
+<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ begin -->
 <div class="footer_op">
-	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">·´Ñ¡</button>&nbsp;<?php echo $power->show_button("close,delete"); ?></div>
+	<div class="footer_op_left"><button onclick="select_all()" class="button">È«Ñ¡</button>&nbsp;<button onclick="unselect()" class="button">ï¿½ï¿½Ñ¡</button>&nbsp;<?php echo $power->show_button("close,delete"); ?></div>
 	<div class="footer_op_right"><?php echo $pagelink; ?></div>
 </div>
-<!-- ·ÖÒ³Á´½Ó end -->
+<!-- ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ end -->
 
 </body>
 </html>

@@ -2,11 +2,11 @@
 
 /*
 
-// - 功能说明 : admin.php
+// - 锟斤拷锟斤拷说锟斤拷 : admin.php
 
-// - 创建作者 : 爱医战队 
+// - 锟斤拷锟斤拷锟斤拷锟斤拷 : 锟斤拷医战锟斤拷 
 
-// - 创建时间 : 2013-05-11 23:16
+// - 锟斤拷锟斤拷时锟斤拷 : 2013-05-11 23:16
 
 */
 
@@ -18,13 +18,13 @@ $table = "sys_admin";
 
 if (!$debug_mode && !$uinfo["part_admin"]) {
 
-	exit_html("没有打开权限..."); //必须是部门管理员
+	exit_html("没锟叫达拷权锟斤拷..."); //锟斤拷锟斤拷锟角诧拷锟脚癸拷锟斤拷员
 
 }
 
 
 
-// 操作的处理:
+// 锟斤拷锟斤拷锟侥达拷锟斤拷:
 
 $op = $_REQUEST["op"];
 
@@ -40,7 +40,7 @@ $sqlwhere = "1";
 
 
 
-// 人员读取条件:
+// 锟斤拷员锟斤拷取锟斤拷锟斤拷:
 
 if (!$debug_mode && $username != "admin") {
 
@@ -60,7 +60,7 @@ if (!$debug_mode && $username != "admin") {
 
 
 
-// 搜索:
+// 锟斤拷锟斤拷:
 
 if ($key = $_GET["key"]) {
 
@@ -70,7 +70,7 @@ if ($key = $_GET["key"]) {
 
 
 
-// 排除
+// 锟脚筹拷
 
 $sqlwhere .= " and name!='$username'";
 
@@ -78,7 +78,7 @@ $sqlwhere .= " and name!='$username'";
 
 
 
-$group_type = array(1 => "部门", 2 => "权限", 3 => "医院", 4 => "部门主管", 5 => "禁用的账号", 6 => "在线用户");
+$group_type = array(1 => "锟斤拷锟斤拷", 2 => "权锟斤拷", 3 => "医院", 4 => "锟斤拷锟斤拷锟斤拷锟斤拷", 5 => "锟斤拷锟矫碉拷锟剿猴拷", 6 => "锟斤拷锟斤拷锟矫伙拷");
 
 $cur_group = intval($_SESSION["admin_group_type"]);
 
@@ -92,7 +92,7 @@ if (!$cur_group) {
 
 
 
-// ------------- 页面开始 ---------------
+// ------------- 页锟芥开始 ---------------
 
 ?>
 
@@ -104,9 +104,9 @@ if (!$cur_group) {
 
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+<script src="../../res/base.js" language="javascript"></script>
 
 <style>
 
@@ -164,7 +164,7 @@ function ld(id) {
 
 function del() {
 
-	if (confirm("真的确定要删除这些人员吗？请务必谨慎啊。。")) {
+	if (confirm("锟斤拷锟饺凤拷锟揭撅拷锟斤拷锟叫╋拷锟皆憋拷锟斤拷锟斤拷锟截斤拷锟斤拷锟斤拷锟斤拷锟斤拷")) {
 
 		byid("op_value").value = "delete";
 
@@ -214,7 +214,7 @@ function submit_ch() {
 
 	} else {
 
-		alert("请选择要设置的权限！");
+		alert("锟斤拷选锟斤拷要锟斤拷锟矫碉拷权锟睫ｏ拷");
 
 		byid("ch_id").focus();
 
@@ -232,11 +232,11 @@ function submit_ch() {
 
 <body>
 
-<!-- 头部 begin -->
+<!-- 头锟斤拷 begin -->
 
 <div class="headers">
 
-	<div class="headers_title" width="30%"><span class="tips">系统人员管理</span></div>
+	<div class="headers_title" width="30%"><span class="tips">系统锟斤拷员锟斤拷锟斤拷</span></div>
 
 	<div class="header_center" width="40%">
 
@@ -244,11 +244,11 @@ function submit_ch() {
 
 	</div>
 
-	<div class="headers_oprate"><button onclick="history.back()" class="button" title="返回上一页">返回</button></div>
+	<div class="headers_oprate"><button onclick="history.back()" class="button" title="锟斤拷锟斤拷锟斤拷一页">锟斤拷锟斤拷</button></div>
 
 </div>
 
-<!-- 头部 end -->
+<!-- 头锟斤拷 end -->
 
 
 
@@ -256,7 +256,7 @@ function submit_ch() {
 
 <div class="group_select">
 
-	<b>排列方式：</b>
+	<b>锟斤拷锟叫凤拷式锟斤拷</b>
 
 	<form method="GET" style="display:inline;">
 
@@ -274,15 +274,15 @@ function submit_ch() {
 
 
 
-	<b>搜索名字：</b>
+	<b>锟斤拷锟斤拷锟斤拷锟街ｏ拷</b>
 
 	<form method="GET" style="display:inline;">
 
 		<input name="key" value="<?php echo $_GET["key"]; ?>" class="input" size="12">
 
-		<input type="submit" class="button" value="搜索" style="font-weight:bold;">
+		<input type="submit" class="button" value="锟斤拷锟斤拷" style="font-weight:bold;">
 
-		<input type="submit" class="button" onclick="this.form.key.value=''" value="重置">
+		<input type="submit" class="button" onclick="this.form.key.value=''" value="锟斤拷锟斤拷">
 
 	</form>
 
@@ -300,7 +300,7 @@ function submit_ch() {
 
 <?php
 
-if ($cur_group == 1) { //部门
+if ($cur_group == 1) { //锟斤拷锟斤拷
 
 	$id_name = $db->query("select id,name,if(id=9,0,id) as sort from sys_part order by sort", "id", "name");
 
@@ -322,7 +322,7 @@ if ($cur_group == 1) { //部门
 
 	}
 
-} else if ($cur_group == 2) { //角色
+} else if ($cur_group == 2) { //锟斤拷色
 
 	$id_name = $db->query("select id,concat(name,' (',author,')') as name from sys_character", "id", "name");
 
@@ -368,9 +368,9 @@ if ($cur_group == 1) { //部门
 
 	}
 
-} else if ($cur_group == 4) { //主管
+} else if ($cur_group == 4) { //锟斤拷锟斤拷
 
-	$id_name = array(1 => "部门主管", 0 => "普通人员(非主管)");
+	$id_name = array(1 => "锟斤拷锟斤拷锟斤拷锟斤拷", 0 => "锟斤拷通锟斤拷员(锟斤拷锟斤拷锟斤拷)");
 
 	foreach ($id_name as $k => $v) {
 
@@ -390,9 +390,9 @@ if ($cur_group == 1) { //部门
 
 	}
 
-} else if ($cur_group == 5) { //主管
+} else if ($cur_group == 5) { //锟斤拷锟斤拷
 
-	$id_name = array(0 => "禁用的账号", 1 => "开通的账号");
+	$id_name = array(0 => "锟斤拷锟矫碉拷锟剿猴拷", 1 => "锟斤拷通锟斤拷锟剿猴拷");
 
 	foreach ($id_name as $k => $v) {
 
@@ -404,7 +404,7 @@ if ($cur_group == 1) { //部门
 
 		foreach ($all_admin as $a => $b) {
 
-			echo '<div class="rub"><input type="checkbox" name="uid[]" value="'.$a.'" onclick="ucc(this)"><a href="#" onclick="return ld('.$b["id"].')">'.$b["realname"]." (".$b["name"].") ".($b["isshow"]!=1 ? ' <font color="red">禁</font>' : '').'</a></div>';
+			echo '<div class="rub"><input type="checkbox" name="uid[]" value="'.$a.'" onclick="ucc(this)"><a href="#" onclick="return ld('.$b["id"].')">'.$b["realname"]." (".$b["name"].") ".($b["isshow"]!=1 ? ' <font color="red">锟斤拷</font>' : '').'</a></div>';
 
 		}
 
@@ -412,9 +412,9 @@ if ($cur_group == 1) { //部门
 
 	}
 
-} else if ($cur_group == 6) { //在线
+} else if ($cur_group == 6) { //锟斤拷锟斤拷
 
-	$id_name = array(1 => "在线", 0 => "不在线");
+	$id_name = array(1 => "锟斤拷锟斤拷", 0 => "锟斤拷锟斤拷锟斤拷");
 
 	foreach ($id_name as $k => $v) {
 
@@ -452,33 +452,33 @@ if ($cur_group == 1) { //部门
 
 
 
-<b>&nbsp;&nbsp;操作：</b>
+<b>&nbsp;&nbsp;锟斤拷锟斤拷锟斤拷</b>
 
 <button onclick="select_all()" class="button">全选</button>&nbsp;
 
-<button onclick="unselect()" class="button">反选</button>&nbsp;
+<button onclick="unselect()" class="button">锟斤拷选</button>&nbsp;
 
 
 
-<b>&nbsp;&nbsp;所选人员：</b>
+<b>&nbsp;&nbsp;锟斤拷选锟斤拷员锟斤拷</b>
 
 <?php if ($debug_mode || $uinfo["part_id"] == 9) { ?>
 
-<button onclick="del()" class="button">删除</button>&nbsp;
+<button onclick="del()" class="button">删锟斤拷</button>&nbsp;
 
 <?php } ?>
 
-<button onclick="close_account()" class="buttonb">关闭帐户</button>&nbsp;
+<button onclick="close_account()" class="buttonb">锟截憋拷锟绞伙拷</button>&nbsp;
 
-<button onclick="open_account()" class="buttonb">开通帐户</button>&nbsp;
+<button onclick="open_account()" class="buttonb">锟斤拷通锟绞伙拷</button>&nbsp;
 
-<button onclick="set_ch()" class="buttonb">批量权限</button>&nbsp;
+<button onclick="set_ch()" class="buttonb">锟斤拷锟斤拷权锟斤拷</button>&nbsp;
 
 <span id="new_ch" style="display:none;">
 
 	<select name="ch_id" id="ch_id" class="combo">
 
-		<option value="" style="color:gray">-请选择新权限-</option>
+		<option value="" style="color:gray">-锟斤拷选锟斤拷锟斤拷权锟斤拷-</option>
 
 <?php
 
@@ -490,7 +490,7 @@ echo list_option($id_name, "_key_", "_value_");
 
 	</select>&nbsp;
 
-	<button onclick="submit_ch()" class="button">确定</button>
+	<button onclick="submit_ch()" class="button">确锟斤拷</button>
 
 </span>
 

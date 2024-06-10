@@ -1,45 +1,45 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : ±¨±í
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2013-05-25 15:45
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2013-05-25 15:45
 */
 require "../../core/core.php";
 
 if ($hid == 0) {
-	msg_box("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡", "back", 1, 5);
+	msg_box("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½", "back", 1, 5);
 }
 
 $table = "patient_".$hid;
 
-// Ò½ÔºÃû³Æ:
+// Ò½Ôºï¿½ï¿½ï¿½ï¿½:
 $h_name = $db->query("select name from hospital where id=$hid limit 1", "1", "name");
 
-// Ê±¼ä¶¨Òå:
-$today_begin = mktime(0,0,0); //½ñÌì¿ªÊ¼
-$today_end = $today_begin + 24*3600 - 1; //½ñÌì½áÊø
-$yesterday_begin = $today_begin - 24*3600; //×òÌì¿ªÊ¼
-$yesterday_end = $today_begin - 1; //×òÌì½áÊø
-$thismonth_begin = mktime(0,0,0,date("m"),1); //±¾ÔÂ¿ªÊ¼
-$thismonth_end = strtotime("+1 month", $thismonth_begin) - 1; //±¾ÔÂ¿ªÊ¼
-$lastmonth_begin = strtotime("-1 month", $thismonth_begin); //ÉÏÔÂ¿ªÊ¼
-$lastmonth_end = $thismonth_begin - 1; //ÉÏÔÂ¿ªÊ¼
+// Ê±ï¿½ä¶¨ï¿½ï¿½:
+$today_begin = mktime(0,0,0); //ï¿½ï¿½ï¿½ì¿ªÊ¼
+$today_end = $today_begin + 24*3600 - 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+$yesterday_begin = $today_begin - 24*3600; //ï¿½ï¿½ï¿½ì¿ªÊ¼
+$yesterday_end = $today_begin - 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+$thismonth_begin = mktime(0,0,0,date("m"),1); //ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
+$thismonth_end = strtotime("+1 month", $thismonth_begin) - 1; //ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
+$lastmonth_begin = strtotime("-1 month", $thismonth_begin); //ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
+$lastmonth_end = $thismonth_begin - 1; //ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
 
 
 $date_array = array(
-	"½ñÈÕ" => array($today_begin, $today_end),
-	"×òÈÕ" => array($yesterday_begin, $yesterday_end),
-	"±¾ÔÂ" => array($thismonth_begin, $thismonth_end),
-	"ÉÏÔÂ" => array($lastmonth_begin, $lastmonth_end),
+	"ï¿½ï¿½ï¿½ï¿½" => array($today_begin, $today_end),
+	"ï¿½ï¿½ï¿½ï¿½" => array($yesterday_begin, $yesterday_end),
+	"ï¿½ï¿½ï¿½ï¿½" => array($thismonth_begin, $thismonth_end),
+	"ï¿½ï¿½ï¿½ï¿½" => array($lastmonth_begin, $lastmonth_end),
 );
 
 $tf = "order_date";
 
 $kefu = array();
-// ËùÓÐÍøÂç¿Í·þ:
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½:
 $kefu[2] = $db->query("select distinct author from $table where part_id=2 and $tf>=$lastmonth_begin and $tf<=$thismonth_end order by author", "", "author");
 
-// ËùÓÐµç»°¿Í·þ:
+// ï¿½ï¿½ï¿½Ðµç»°ï¿½Í·ï¿½:
 $kefu[3] = $db->query("select distinct author from $table where part_id=3 and $tf>=$lastmonth_begin and $tf<=$thismonth_end order by author", "", "author");
 
 $data = array();
@@ -49,11 +49,11 @@ foreach ($kefu as $ptid => $kfs) {
 			$b = $t[0];
 			$e = $t[1];
 
-			// Ô¤¼Æ×Üµ½Ôº:
+			// Ô¤ï¿½ï¿½ï¿½Üµï¿½Ôº:
 			$data[$ptid][$kf][$tname]["all"] = $d1 = $db->query("select count(*) as c from $table where part_id=$ptid and author='$kf' and $tf>=$b and $tf<=$e", 1, "c");
-			// ÒÑµ½:
+			// ï¿½Ñµï¿½:
 			$data[$ptid][$kf][$tname]["come"] = $d2 = $db->query("select count(*) as c from $table where part_id=$ptid and author='$kf' and $tf>=$b and $tf<=$e and status=1", 1, "c");
-			// Î´µ½:
+			// Î´ï¿½ï¿½:
 			$data[$ptid][$kf][$tname]["leave"] = $d1 - $d2;
 		}
 	}
@@ -62,11 +62,11 @@ foreach ($kefu as $ptid => $kfs) {
 ?>
 <html>
 <head>
-<title>Êý¾Ý±¨±í</title>
+<title>ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 <link href="/res/base.css" rel="stylesheet" type="text/css">
 <script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<script src="res/datejs/picker.js" language="javascript"></script>
 <style>
 .red {color:red !important; }
 
@@ -84,35 +84,35 @@ foreach ($kefu as $ptid => $kfs) {
 </head>
 
 <body>
-<div class="report_tips"><?php echo $h_name; ?> ÍøÂç²¿ ¿Í·þÔ¤Ô¼Çé¿ö</div>
+<div class="report_tips"><?php echo $h_name; ?> ï¿½ï¿½ï¿½ç²¿ ï¿½Í·ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½</div>
 
 <table class="list" width="100%">
 	<tr>
 		<th class="head hb"></th>
-		<th class="head hl hb red" colspan="3">½ñÈÕ</th>
-		<th class="head hl hb red" colspan="3">×òÈÕ</th>
-		<th class="head hl hb red" colspan="3">±¾ÔÂ</th>
-		<th class="head hl hb red" colspan="3">ÉÏÔÂ</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
 	</tr>
 
 	<tr>
-		<th class="head hb">¿Í·þ</th>
+		<th class="head hb">ï¿½Í·ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 	</tr>
 
 <?php foreach ((array) $data[2] as $kf => $arr) { ?>
@@ -120,21 +120,21 @@ foreach ($kefu as $ptid => $kfs) {
 	<tr onmouseover="mi(this)" onmouseout="mo(this)">
 		<td class="item"><?php echo $kf; ?></td>
 
-		<td class="item hl"><?php echo $arr["½ñÈÕ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["½ñÈÕ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["½ñÈÕ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 
-		<td class="item hl"><?php echo $arr["×òÈÕ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["×òÈÕ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["×òÈÕ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 
-		<td class="item hl"><?php echo $arr["±¾ÔÂ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["±¾ÔÂ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["±¾ÔÂ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 
-		<td class="item hl"><?php echo $arr["ÉÏÔÂ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["ÉÏÔÂ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["ÉÏÔÂ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 	</tr>
 
 <?php } ?>
@@ -142,37 +142,37 @@ foreach ($kefu as $ptid => $kfs) {
 </table>
 
 
-<!-- µç»°×é -->
+<!-- ï¿½ç»°ï¿½ï¿½ -->
 
-<div class="report_tips" style="margin-top:20px;"><?php echo $h_name; ?> µç»°²¿ ¿Í·þÔ¤Ô¼Çé¿ö</div>
+<div class="report_tips" style="margin-top:20px;"><?php echo $h_name; ?> ï¿½ç»°ï¿½ï¿½ ï¿½Í·ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½</div>
 
 <table class="list" width="100%">
 	<tr>
 		<th class="head hb"></th>
-		<th class="head hl hb red" colspan="3">½ñÈÕ</th>
-		<th class="head hl hb red" colspan="3">×òÈÕ</th>
-		<th class="head hl hb red" colspan="3">±¾ÔÂ</th>
-		<th class="head hl hb red" colspan="3">ÉÏÔÂ</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
+		<th class="head hl hb red" colspan="3">ï¿½ï¿½ï¿½ï¿½</th>
 	</tr>
 
 	<tr>
-		<th class="head hb">¿Í·þ</th>
+		<th class="head hb">ï¿½Í·ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 
-		<th class="head hl hb">×Ü¹²</th>
-		<th class="head hb">ÒÑµ½</th>
-		<th class="head hb">Î´µ½</th>
+		<th class="head hl hb">ï¿½Ü¹ï¿½</th>
+		<th class="head hb">ï¿½Ñµï¿½</th>
+		<th class="head hb">Î´ï¿½ï¿½</th>
 	</tr>
 
 <?php foreach ((array) $data[3] as $kf => $arr) { ?>
@@ -180,21 +180,21 @@ foreach ($kefu as $ptid => $kfs) {
 	<tr onmouseover="mi(this)" onmouseout="mo(this)">
 		<td class="item"><?php echo $kf; ?></td>
 
-		<td class="item hl"><?php echo $arr["½ñÈÕ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["½ñÈÕ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["½ñÈÕ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 
-		<td class="item hl"><?php echo $arr["×òÈÕ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["×òÈÕ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["×òÈÕ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 
-		<td class="item hl"><?php echo $arr["±¾ÔÂ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["±¾ÔÂ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["±¾ÔÂ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 
-		<td class="item hl"><?php echo $arr["ÉÏÔÂ"]["all"]; ?></td>
-		<td class="item"><?php echo $arr["ÉÏÔÂ"]["come"]; ?></td>
-		<td class="item"><?php echo $arr["ÉÏÔÂ"]["leave"]; ?></td>
+		<td class="item hl"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["all"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["come"]; ?></td>
+		<td class="item"><?php echo $arr["ï¿½ï¿½ï¿½ï¿½"]["leave"]; ?></td>
 	</tr>
 
 <?php } ?>
@@ -203,7 +203,7 @@ foreach ($kefu as $ptid => $kfs) {
 
 <br>
 <br>
-<b>±¸×¢£º</b>ÉÏÊöÊý¾Ý£¬ÓÉ²¡ÈËÔ¤Ô¼µ½ÔºÊ±¼ä½øÐÐÍ³¼Æ£¬¶ø²»ÊÇ²¡ÈË×ÊÁÏµÄÌí¼ÓÊ±¼ä¡£<br>
+<b>ï¿½ï¿½×¢ï¿½ï¿½</b>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½É²ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ÔºÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä¡£<br>
 <br>
 
 </body>

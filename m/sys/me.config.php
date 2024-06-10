@@ -2,11 +2,11 @@
 
 /*
 
-// - ¹¦ÄÜËµÃ÷ : Ñ¡ÏîÉèÖÃ
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
 
-// - ´´½¨Ê±¼ä : 2007-07-19 09:46
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2007-07-19 09:46
 
 */
 
@@ -18,7 +18,7 @@ $table = "sys_admin";
 
 if (!$uid) {
 
-	exit_html("²»ÄÜÐÞ¸ÄÅäÖÃ×ÊÁÏ...");
+	exit_html("ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...");
 
 }
 
@@ -56,7 +56,7 @@ if ($_POST) {
 
 		if ($db->query($sql)) {
 
-			//msg_box("Ñ¡ÏîÐÞ¸Ä³É¹¦", "", 0);
+			//msg_box("Ñ¡ï¿½ï¿½ï¿½Þ¸Ä³É¹ï¿½", "", 0);
 
 			update_main_frame();
 
@@ -64,7 +64,7 @@ if ($_POST) {
 
 		} else {
 
-			msg_box("×ÊÁÏÌá½»Ê§°Ü£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ¡£", "back", 1, 5);
+			msg_box("ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê§ï¿½Ü£ï¿½ÏµÍ³ï¿½ï¿½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½Ô¡ï¿½", "back", 1, 5);
 
 		}
 
@@ -84,9 +84,9 @@ if ($_POST) {
 
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
 
-<link href="/res/base.css" rel="stylesheet" type="text/css">
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
 
-<script src="/res/base.js" language="javascript"></script>
+<script src="../../res/base.js" language="javascript"></script>
 
 </head>
 
@@ -94,17 +94,17 @@ if ($_POST) {
 
 <body>
 
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 
 <div class="headers">
 
 	<div class="headers_title"><span class="tips"><?php echo $pinfo["title"]; ?></span></div>
 
-	<div class="headers_oprate"><input type="button" value="·µ»Ø" onclick="history.back()" class="button"></div>
+	<div class="headers_oprate"><input type="button" value="ï¿½ï¿½ï¿½ï¿½" onclick="history.back()" class="button"></div>
 
 </div>
 
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 
 
@@ -114,9 +114,9 @@ if ($_POST) {
 
 <div class="description">
 
-	<div class="d_title">ÌáÊ¾£º</div>
+	<div class="d_title">ï¿½ï¿½Ê¾ï¿½ï¿½</div>
 
-	<li class="d_item">ÇëÒÀ¾ÝÄúµÄ¸öÈËÏ²ºÃÉèÖÃ½çÃæ£»±¾Ò³Ñ¡ÏîÌá½»ºó½«»áÁ¢¼´¸üÐÂÏÔÊ¾</li>
+	<li class="d_item">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½æ£»ï¿½ï¿½Ò³Ñ¡ï¿½ï¿½ï¿½á½»ï¿½ó½«»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾</li>
 
 </div>
 
@@ -132,17 +132,17 @@ if ($_POST) {
 
 	<tr>
 
-		<td colspan="2" class="head">½çÃæÑ¡Ïî</td>
+		<td colspan="2" class="head">ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½</td>
 
 	</tr>
 
 	<tr>
 
-		<td class="left" style="width:25%">¶¯Ì¬ÏÂÀ­²Ëµ¥: </td>
+		<td class="left" style="width:25%">ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½: </td>
 
 		<td class="right">
 
-			<input type="checkbox" name="jsmenu" value="1" <?php echo $config["jsmenu"] ? "checked" : ""; ?> id="showjsmenu" class="check"><label for="showjsmenu">ÏÔÊ¾¶¯Ì¬ÏÂÀ­²Ëµ¥</label>
+			<input type="checkbox" name="jsmenu" value="1" <?php echo $config["jsmenu"] ? "checked" : ""; ?> id="showjsmenu" class="check"><label for="showjsmenu">ï¿½ï¿½Ê¾ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½</label>
 
 		</td>
 
@@ -150,11 +150,11 @@ if ($_POST) {
 
 	<tr>
 
-		<td class="left">¿ì½Ý·½Ê½: </td>
+		<td class="left">ï¿½ï¿½Ý·ï¿½Ê½: </td>
 
 		<td class="right">
 
-			<input type="checkbox" name="shortcut" value="1" <?php echo $config["shortcut"] ? "checked" : ""; ?> id="showshortcut" class="check"><label for="showshortcut">ÏÔÊ¾¡°¿ì½Ý·½Ê½¡±À¸</label>
+			<input type="checkbox" name="shortcut" value="1" <?php echo $config["shortcut"] ? "checked" : ""; ?> id="showshortcut" class="check"><label for="showshortcut">ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ý·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½</label>
 
 		</td>
 
@@ -162,15 +162,15 @@ if ($_POST) {
 
 	<tr>
 
-		<td class="left">²àÀ¸ÏÔÊ¾Î»ÖÃ£º</td>
+		<td class="left">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Î»ï¿½Ã£ï¿½</td>
 
 		<td class="right">
 
 			<select name="submenu_pos" class="combo">
 
-				<option value="1" <?php if (intval($config["submenu_pos"]) === 1) echo "selected"; ?>>×ó²à<?php if (intval($config["submenu_pos"]) === 1) echo " *"; ?></option>
+				<option value="1" <?php if (intval($config["submenu_pos"]) === 1) echo "selected"; ?>>ï¿½ï¿½ï¿½<?php if (intval($config["submenu_pos"]) === 1) echo " *"; ?></option>
 
-				<option value="0" <?php if ($config["submenu_pos"] == 0) echo "selected"; ?>>²»ÏÔÊ¾<?php if ($config["submenu_pos"] == 0) echo " *"; ?></option>
+				<option value="0" <?php if ($config["submenu_pos"] == 0) echo "selected"; ?>>ï¿½ï¿½ï¿½ï¿½Ê¾<?php if ($config["submenu_pos"] == 0) echo " *"; ?></option>
 
 			</select>
 
@@ -182,7 +182,7 @@ if ($_POST) {
 
 
 
-<div class="button_line"><input type="submit" class="submit" value="Ìá½»×ÊÁÏ"></div>
+<div class="button_line"><input type="submit" class="submit" value="ï¿½á½»ï¿½ï¿½ï¿½ï¿½"></div>
 
 <input type="hidden" name="back_url" value="<?php echo $_GET["back_url"]; ?>">
 

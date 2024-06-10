@@ -1,28 +1,28 @@
 <?php
 /*
-// - ¹¦ÄÜËµÃ÷ : µ¼³ö²¡ÈË
-// - ´´½¨×÷Õß : °®Ò½Õ½¶Ó 
-// - ´´½¨Ê±¼ä : 2011-02-28
+// - ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò½Õ½ï¿½ï¿½ 
+// - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ : 2011-02-28
 */
 require "../../core/core.php";
 set_time_limit(0);
 
 if ($user_hospital_id == 0) {
-	exit_html("¶Ô²»Æð£¬Ã»ÓÐÑ¡ÔñÒ½Ôº£¬²»ÄÜÖ´ÐÐ¸Ã²Ù×÷£¡");
+	exit_html("ï¿½Ô²ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½Ò½Ôºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½");
 }
 
 $table = "patient_".$user_hospital_id;
 
-$time_array = array("order_date"=>"µ½ÔºÊ±¼ä", "addtime"=>"Ìí¼ÓÊ±¼ä");
-$status_array = array("all"=>"²»ÏÞ", "come"=>"ÒÑµ½", "not"=>"Î´µ½");
-$sort_array = array("order_date"=>"µ½ÔºÊ±¼ä", "name"=>"Ãû×Ö");
-$part_array = array("2"=>"ÍøÂç", "3"=>"µç»°");
+$time_array = array("order_date"=>"ï¿½ï¿½ÔºÊ±ï¿½ï¿½", "addtime"=>"ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½");
+$status_array = array("all"=>"ï¿½ï¿½ï¿½ï¿½", "come"=>"ï¿½Ñµï¿½", "not"=>"Î´ï¿½ï¿½");
+$sort_array = array("order_date"=>"ï¿½ï¿½ÔºÊ±ï¿½ï¿½", "name"=>"ï¿½ï¿½ï¿½ï¿½");
+$part_array = array("2"=>"ï¿½ï¿½ï¿½ï¿½", "3"=>"ï¿½ç»°");
 $depart_array = $db->query("select id,name from depart where hospital_id='$user_hospital_id'", "id", "name");
 
 
 $op = $_GET["op"];
 
-// ´¦ÀíÊ±¼ä:
+// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:
 if ($op == "show") {
 	$where = "";
 
@@ -63,10 +63,10 @@ if ($op == "show") {
 	$list = $db->query("select * from $table $sqlwhere order by $sort asc", "");
 
 
-	// Êä³ö:
+	// ï¿½ï¿½ï¿½:
 	$fields = $_GET["fields"];
 
-	// ¼²²¡ÀàÐÍ×ª»»:
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½:
 	if (in_array("disease_id", $fields)) {
 		$disease_id_name = $db->query("select id,name from disease", "id", "name");
 	}
@@ -82,13 +82,13 @@ if ($op == "show") {
 			} else {
 				$y = $li[$x];
 			}
-			// Ìæ»»ËùÓÐ»Ø³µ»»ÐÐÎª¿Õ¸ñ:
+			// ï¿½æ»»ï¿½ï¿½ï¿½Ð»Ø³ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ¸ï¿½:
 			$y = str_replace("\n", " ", str_replace("\r", "", $y));
-			// ¶à¸ö¿Õ¸ñÌæ»»ÎªÒ»¸ö:
+			// ï¿½ï¿½ï¿½ï¿½Õ¸ï¿½ï¿½æ»»ÎªÒ»ï¿½ï¿½:
 			while (substr_count($y, "  ") > 0) {
 				$y = str_replace("  ", " ", $y);
 			}
-			// ¿ÕÖµÏÔÊ¾ºáÏß×÷ÎªÕ¼Î»
+			// ï¿½ï¿½Öµï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÕ¼Î»
 			$line[] = (trim($y) == "" ? "-" : $y);
 		}
 		$output_name[] = @implode("\t", $line);
@@ -98,15 +98,15 @@ if ($op == "show") {
 
 }
 
-$title = 'µ¼³ö²¡ÈË';
+$title = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 ?>
 <html>
 <head>
 <title><?php echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-<link href="/res/base.css" rel="stylesheet" type="text/css">
-<script src="/res/base.js" language="javascript"></script>
-<script src="/res/datejs/picker.js" language="javascript"></script>
+<link href="../../res/base.css" rel="stylesheet" type="text/css">
+<script src="../../res/base.js" language="javascript"></script>
+<script src="../../res/datejs/picker.js" language="javascript"></script>
 <style>
 #tiaojian {margin:10px 0 0 30px; }
 form {display:inline; }
@@ -119,59 +119,59 @@ form {display:inline; }
 </head>
 
 <body>
-<!-- Í·²¿ begin -->
+<!-- Í·ï¿½ï¿½ begin -->
 <div class="headers">
 	<div class="headers_title"><span class="tips"><?php echo $title; ?></span></div>
-	<div class="headers_oprate"><button onClick="history.back()" class="button">·µ»Ø</button></div>
+	<div class="headers_oprate"><button onClick="history.back()" class="button">ï¿½ï¿½ï¿½ï¿½</button></div>
 </div>
-<!-- Í·²¿ end -->
+<!-- Í·ï¿½ï¿½ end -->
 
 <div class="space"></div>
 <div id="tiaojian">
-<span>ÉèÖÃÌõ¼þ£º</span>
+<span>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
 <form method="GET">
 	<select name="ty" class="combo">
-		<option value="" style="color:gray">-Ê±¼äÀàÐÍ-</option>
+		<option value="" style="color:gray">-Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-</option>
 		<?php echo list_option($time_array, "_key_", "_value_", $time_ty); ?>
 	</select>&nbsp;
 	<input name="btime" id="begin_time" class="input" style="width:80px" value="<?php echo $_GET["btime"] ? $_GET["btime"] : date("Y-m-01"); ?>">
-	<img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
+	<img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'begin_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
 
 	<input name="etime" id="end_time" class="input" style="width:80px" value="<?php echo $_GET["etime"] ? $_GET["etime"] : date("Y-m-d"); ?>">
-	<img src="/res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ÔñÊ±¼ä">
+	<img src="../../res/img/calendar.gif" id="order_date" onClick="picker({el:'end_time',dateFmt:'yyyy-MM-dd'})" align="absmiddle" style="cursor:pointer" title="Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½">
 
 	<select name="status" class="combo">
-		<option value="" style="color:gray">-ÊÇ·ñµ½Ôº-</option>
+		<option value="" style="color:gray">-ï¿½Ç·ï¿½Ôº-</option>
 		<?php echo list_option($status_array, "_key_", "_value_", $_GET["status"]); ?>
 	</select>&nbsp;
 	<select name="sort" class="combo">
-		<option value="" style="color:gray">-½á¹ûÅÅÐò-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-</option>
 		<?php echo list_option($sort_array, "_key_", "_value_", $_GET["sort"]); ?>
 	</select>&nbsp;
 	<select name="part" class="combo">
-		<option value="" style="color:gray">-²¿ÃÅ-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½ï¿½ï¿½-</option>
 		<?php echo list_option($part_array, "_key_", "_value_", $_GET["part"]); ?>
 	</select>&nbsp;
 	<select name="depart" class="combo">
-		<option value="" style="color:gray">-¿ÆÊÒ-</option>
+		<option value="" style="color:gray">-ï¿½ï¿½ï¿½ï¿½-</option>
 		<?php echo list_option($depart_array, "_key_", "_value_", $_GET["depart"]); ?>
 	</select>&nbsp;<br>
-	Êä³ö×Ö¶Î£º
-	<input type="checkbox" name="fields[]" id="ch1" value="name" checked><label for="ch1">ÐÕÃû</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch2" value="sex" <?php echo (@in_array("sex", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch2">ÐÔ±ð</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch3" value="age" <?php echo (@in_array("age", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch3">ÄêÁä</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch4" value="tel" <?php echo (@in_array("tel", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch4">µç»°ºÅÂë</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch5" value="zhuanjia_num" <?php echo (@in_array("zhuanjia_num", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch5">×¨¼ÒºÅ</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch6" value="disease_id" <?php echo (@in_array("disease_id", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch6">¼²²¡ÀàÐÍ</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch7" value="content" <?php echo (@in_array("content", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch7">×ÉÑ¯ÄÚÈÝ</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch8" value="media_from" <?php echo (@in_array("media_from", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch8">Ã½ÌåÀ´Ô´</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch9" value="memo" <?php echo (@in_array("memo", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch9">±¸×¢</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch10" value="author" <?php echo (@in_array("author", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch10">¿Í·þ</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch11" value="order_date" <?php echo (@in_array("order_date", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch11">Ô¤Ô¼Ê±¼ä</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch12" value="addtime" <?php echo (@in_array("addtime", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch12">Ìí¼ÓÊ±¼ä</label>&nbsp;
-	<input type="checkbox" name="fields[]" id="ch13" value="area" <?php echo (@in_array("area", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch13">µØÇø</label>&nbsp;
+	ï¿½ï¿½ï¿½ï¿½Ö¶Î£ï¿½
+	<input type="checkbox" name="fields[]" id="ch1" value="name" checked><label for="ch1">ï¿½ï¿½ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch2" value="sex" <?php echo (@in_array("sex", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch2">ï¿½Ô±ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch3" value="age" <?php echo (@in_array("age", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch3">ï¿½ï¿½ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch4" value="tel" <?php echo (@in_array("tel", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch4">ï¿½ç»°ï¿½ï¿½ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch5" value="zhuanjia_num" <?php echo (@in_array("zhuanjia_num", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch5">×¨ï¿½Òºï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch6" value="disease_id" <?php echo (@in_array("disease_id", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch6">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch7" value="content" <?php echo (@in_array("content", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch7">ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch8" value="media_from" <?php echo (@in_array("media_from", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch8">Ã½ï¿½ï¿½ï¿½ï¿½Ô´</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch9" value="memo" <?php echo (@in_array("memo", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch9">ï¿½ï¿½×¢</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch10" value="author" <?php echo (@in_array("author", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch10">ï¿½Í·ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch11" value="order_date" <?php echo (@in_array("order_date", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch11">Ô¤Ô¼Ê±ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch12" value="addtime" <?php echo (@in_array("addtime", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch12">ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½</label>&nbsp;
+	<input type="checkbox" name="fields[]" id="ch13" value="area" <?php echo (@in_array("area", $_GET["fields"]) ? "checked" : ""); ?>><label for="ch13">ï¿½ï¿½ï¿½ï¿½</label>&nbsp;
 
-	<input type="submit" class="button" value="Ìá½»">
+	<input type="submit" class="button" value="ï¿½á½»">
 	<input type="hidden" name="op" value="show">
 </form>
 </div>
@@ -182,7 +182,7 @@ form {display:inline; }
 
 	<textarea id="result_box" style="width:95%; height:450px;" class="input"><?php echo $output_name; ?></textarea><br>
 	<br>
-	ËµÃ÷£ºÉÏ±íµ¼³öµÄ½á¹û¸´ÖÆµ½ExcelÖÐ£¬»á×Ô¶¯·ÖÁÐÏÔÊ¾¡£<br>
+	Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Excelï¿½Ð£ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½<br>
 	<br>
 
 </div>
